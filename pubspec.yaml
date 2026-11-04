@@ -54,6 +54,8 @@ dependencies:
   crypto: ^3.0.8
   package_info_plus: ^10.2.2
   html: ^0.15.7
+  webview_flutter: ^4.14.1
+  receive_sharing_intent: ^1.9.0
   pdf: ^3.13.1
 
 dev_dependencies:
