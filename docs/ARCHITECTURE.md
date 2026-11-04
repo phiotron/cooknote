@@ -1,4 +1,4 @@
-# ARCHITECTURE — CookNote (APP-005)
+# ARCHITECTURE — CookNote (A004-cooknote)
 
 Mô tả app HIỆN ĐANG như thế nào (DECISIONS.md ghi VÌ SAO chọn). Cập nhật khi cấu trúc đổi. Giữ ngắn.
 

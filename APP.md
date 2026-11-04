@@ -1,0 +1,107 @@
+# A004-cooknote · CookNote — APP.md
+
+> Brief và trạng thái của app. **Chỉ phiên điều phối sửa file này**; phiên con ghi báo cáo vào `notes/`.
+> App **nhập từ DemoChung** (APP-005, đã qua G1–G3 ở đó, 2026-11-03..04). Quy trình cũ (BACKLOG đầy đủ kèm biên bản
+> cần thử, CLAUDE.md app, RUNBOOK, session log): `notes/archive-demochung/`, chỉ đọc.
+
+## Brief
+- **Mã app / thư mục:** `A004-cooknote` → `apps/A004-cooknote/`, đã ghi trong `apps/REGISTRY.md`
+- **Bundle ID** (không đổi): `com.phiotron.cooknote` · **Repo:** https://github.com/phiotron/cooknote (private, nhánh `main`)
+- **Một câu mô tả:** Sổ tay công thức nấu ăn trên điện thoại: nhập từ web hoặc ảnh, chế độ nấu, nhân khẩu phần, đi chợ,
+  lịch thực đơn, tủ bếp. Offline, không tài khoản, sao lưu tự động bằng định dạng mở.
+- **Người dùng mục tiêu:** người nấu ăn gia đình, sinh viên, người làm bánh; giữ công thức nhiều năm; Việt Nam và toàn cầu (vi/en).
+- **Kiếm tiền:** miễn phí, mọi tính năng mở (không quảng cáo, không IAP).
+- **Nền tảng:** Android + iOS (D-008; iOS build/test trên GitHub Actions macOS runner) · **Stack:** Flutter 3.47.8, Riverpod 3, go_router, drift/SQLite.
+- **Tài liệu tham chiếu:** `docs/SPEC.md` (F-01..F-14, AC-01..AC-65, nguồn sự thật về hành vi), `docs/DECISIONS.md` (D-001..D-008),
+  `docs/ARCHITECTURE.md`, `docs/BACKUP-FORMAT.md`, `docs/TESTING.md`, `docs/SECURITY.md`, `docs/COMPLIANCE.md`, `docs/RISKS.md`,
+  `docs/RELEASE.md`, `docs/audits/OCR-RESEARCH-2026-11.md`; thuật ngữ `CONTEXT.md` và mô tả gửi Claude Design `product.md` (do phiên con A tạo).
+
+## MVP: giữ đủ SPEC (D-008)
+SPEC có 14 tính năng, vượt mức "≤ 5" của Playbook. Phương chọn giữ đủ. Cách giữ ngân sách 3 phiên: dồn mọi dependency vào 1 phiên con,
+làm DB v3 ngay ở #1, rồi ở #2 chỉ còn UI chạy song song theo nhóm màn.
+
+| # | Tính năng | Trạng thái 2026-11-04 |
+|---|---|---|
+| F-01 | Công thức (soạn, ảnh, thùng rác, nhân bản) | ✅ code G1 (thiếu kéo thả dòng AC-03) |
+| F-02 | Danh mục, thẻ, tìm không dấu, lọc, sắp xếp, Đã nấu | ✅ code G2 |
+| F-03 | Nhập từ web + Chia sẻ | logic có (`lib/src/web_import/`); UI dở ở nhánh `wip/g4-web-import` |
+| F-04 | Quét ảnh OCR | chỉ có `lib/src/scan/line_classifier.dart`; engine chưa có |
+| F-05/06 | Chế độ nấu, hẹn giờ, khẩu phần, đổi đơn vị | logic có (`lib/src/cooking/`); UI dở ở `wip/g5-cook` |
+| F-07 | Danh sách đi chợ | chưa có DB; test dở ở `wip/g6-tests` |
+| F-08 | Lịch thực đơn, thực đơn mẫu | logic xếp có (`lib/src/menu/meal_planner.dart`); chưa có DB |
+| F-09 | Tủ bếp, "Nấu được gì?" | chưa có DB; test dở ở `wip/g6-tests` |
+| F-10 | Nhập Paprika/RK, JSON, chia sẻ, PDF sách | logic có (`lib/src/exchange/`, `lib/src/cookbook/`); UI dở ở `wip/g9-exchange` |
+| F-11 | Sao lưu bền lâu + khôi phục | ✅ code G3 (chưa thử máy thật) |
+| F-12..14 | Giao diện/ngôn ngữ/màn chào, tiếp cận, pháp lý | một phần (sáng/tối, vi/en) |
+
+**Thứ tự dời sang v1.1 nếu cuối #2 chưa xong:** (1) nhập Paprika/Recipe Keeper → (2) OCR → (3) Tủ bếp + "Nấu được gì?" → (4) Lịch thực đơn.
+
+## Màn hình & luồng chính
+Thanh dưới 5 mục: **Công thức · Thực đơn · Đi chợ · Tủ bếp · Thêm**. Nút "+" ở Công thức mở: Nhập tay / Từ web / Quét ảnh / Nhập file.
+Màn: danh sách công thức (lưới/dòng, tìm, lọc, sắp xếp) · xem công thức · soạn công thức · xem ảnh toàn màn hình · thùng rác · danh mục ·
+trình duyệt trong app + xem trước nhập · chọn đoạn · quét ảnh + gán dòng · chế độ nấu (hẹn giờ, ghim, đọc bước) · khẩu phần/đơn vị ·
+các danh sách đi chợ + khu vực · lịch thực đơn ngày/tuần/tháng + thực đơn mẫu + gợi ý ngẫu nhiên · tủ bếp + "Nấu được gì?" ·
+nhập/xuất/chia sẻ/PDF sách công thức · sao lưu + khôi phục · cài đặt · màn chào 3 trang · giới thiệu.
+Chi tiết từng màn và trạng thái: `product.md`.
+Luồng nhanh nhất: Chia sẻ link từ trình duyệt → CookNote → xem trước → Lưu.
+
+## Trạng thái
+| Phiên điều phối | Ngày | Phiên con đã mở | Kết quả |
+|---|---|---|---|
+| #1 Chuyển + product.md + nền | 2026-11-04 | A product.md · B iOS + CI + dependency · C DB v3 + backup v2 · D OCR Android · E store & pháp lý | đang chạy |
+| #2 Áp UI Hi-Fi + đủ tính năng | | F0 design system → G1..G6 theo nhóm màn → H build + danh sách thử | |
+| #3 Phát hành | | ảnh store · Android · iOS | |
+
+Kế hoạch đầy đủ 3 phiên: `../../memory/sessions/2026-11-04-A004-cooknote.md`.
+
+**Việc dở / bước tiếp:**
+- #1: chờ 5 phiên con → kiểm kết quả → Phương duyệt `product.md` → gửi Claude Design → mockup vào `design/hifi/`.
+- Phương: tạo file mẫu Paprika (`.paprikarecipes`) và Recipe Keeper (`.zip`) bằng bản miễn phí của hai app, có vài công thức có ảnh,
+  đặt vào `test/fixtures/exchange/` trước #2.
+- Phương: Apple Developer (cá nhân), App ID `com.phiotron.cooknote` + secrets repo; Play Console: upload keystore ngoài repo, closed test 12 tester × 14 ngày sớm.
+- Chưa thử máy thật G1–G3, nhất là sao lưu tự động vào thư mục Google Drive/OneDrive (rủi ro số 1, SPEC mục 7). Danh sách cần thử:
+  `notes/archive-demochung/BACKLOG.md` mục "Biên bản thử máy thật".
+
+## Lệnh (đã chạy thật 2026-11-04 ở DemoChung; phải dùng đúng, không đoán)
+Flutter 3.47.8 ở `C:/src/flutter`, **chưa có trong PATH**. Git Bash: `export PATH="/c/src/flutter/bin:$PATH"` trước mọi lệnh.
+- Cài: `flutter pub get` (tự sinh file dịch từ `lib/l10n/*.arb`)
+- Sinh mã sau khi sửa bảng `lib/src/data/database.dart`: `dart run build_runner build` (commit cả `*.g.dart`)
+- Lint/typecheck: `flutter analyze` · Định dạng: `dart format lib test` · Test: `flutter test`
+- Build thử Android: `flutter build apk --release` (**không** thêm `--target-platform android-arm64`: Galaxy A13 chạy 32-bit)
+- Bản phát hành Play: `flutter build appbundle` (cần khoá ký ngoài repo; chưa chạy)
+- Kiểm quyền trong APK: `"$LOCALAPPDATA/Android/Sdk/build-tools/37.0.0/aapt2.exe" dump permissions build/app/outputs/flutter-apk/app-release.apk`
+- iOS: chỉ build và test trên GitHub Actions macOS runner (`.github/workflows/`); Windows không build iOS cục bộ.
+
+## Quy ước code
+- `lib/src/data/` (drift, kho dữ liệu, ảnh) · `lib/src/features/<tính năng>/` (màn hình) · `lib/src/ui/` (widget dùng chung) ·
+  `lib/src/providers.dart` · `lib/src/app.dart` (router, theme) · `lib/l10n/` (.arb và mã sinh). Logic thuần theo miền:
+  `cooking/`, `web_import/`, `exchange/`, `cookbook/`, `menu/`, `scan/`, `backup/`. Test phản chiếu ở `test/`.
+- Riverpod 3 provider viết tay, go_router, drift. Mọi chữ giao diện nằm trong `.arb`. Dữ liệu chỉ trên máy; mạng chỉ cho nhập từ web (D-002).
+- Định dạng sao lưu chỉ được mở rộng (`docs/BACKUP-FORMAT.md`); bảng mới phải vào `lib/src/backup/backup_data.dart` và có file mẫu trong `test/`.
+
+## Lưu ý dễ vấp
+- **Không dùng ML Kit** (gửi số liệu về Google, D-003).
+- **Không tự dùng adb trên điện thoại** (D-008): máy thử dùng chung với app khác; Phương tự cài và thử.
+- **Widget test có DB:** dùng `pump(Duration)` khi chờ mã có `Future.delayed` (`pump()` không tiến giờ giả); không ghi DB nhiều lần
+  trong một `runAsync`. Test xoá ảnh dùng `RecordingImageStore` (`test/helpers.dart`) vì Windows giữ khoá file đang hiện; trước khi gọi
+  Back hệ thống phải `pump` (đã có trong `systemBack`).
+- `flutter_tester` treo giữ khoá `sqlite3.dll` → `taskkill //F //IM flutter_tester.exe` (chỉ khi chắc đó là test của app này).
+- `kotlin.incremental=false` trong `android/gradle.properties` là cố ý (dự án ở ổ D, pub cache ở ổ C).
+- Chưa biết Google Drive trên Android có cho ghi định kỳ vào thư mục chọn qua SAF không (D-007): phải thử máy thật.
+- Danh sách tải toàn bộ công thức: 338 ms với 5.000 công thức trên máy tính (TESTING, D-006).
+
+## Quyết định riêng của app (chi tiết: `docs/DECISIONS.md`)
+- **D-001** Flutter; ~~Android trước~~ → **D-008: Android + iOS ở v1**.
+- **D-002** Chỉ lưu trên máy, không máy chủ/SDK bên thứ ba; mạng chỉ cho nhập web; sao lưu nhiều lớp.
+- **D-003** OCR trên máy, không ML Kit → **D-008:** Android Tesseract4Android (MethodChannel, vie+eng fast), iOS Apple Vision.
+- **D-004** Flutter 3.47.8, Riverpod 3, go_router, drift, gen-l10n. · **D-005** Mô hình công thức/ảnh/thùng rác; camera qua app hệ điều hành.
+- **D-006** Tìm không dấu bằng cột chỉ mục. · **D-007** Sao lưu zip mở, SAF, đọc lại xác minh.
+- **D-008 (2026-11-04)** Chuyển vào xưởng; đủ SPEC + thứ tự cắt; Android + iOS; UI thiết kế mới qua Claude Design; không adb.
+- **2026-11-04** Phần UI dở của agent cũ: nhánh `wip/g4-web-import`, `wip/g5-cook`, `wip/g6-tests`, `wip/g9-exchange` (tham khảo, không merge thẳng).
+- **2026-11-04** Tài khoản Google Play và Apple đứng tên cá nhân (theo xưởng).
+
+## Retro (điền khi phát hành)
+- Tổng phiên điều phối / phiên con:
+- Chậm nhất ở đâu, vì sao:
+- Thứ tái dùng được cho app sau:
+- Cải tiến đề xuất cho Playbook:

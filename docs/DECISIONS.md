@@ -2,6 +2,16 @@
 
 Mỗi quyết định một mục, mới nhất ở trên cùng.
 
+## D-008 · Chuyển vào Mobile App Studio; đủ SPEC, Android + iOS, OCR hai nền tảng · 2026-11-04
+- Bối cảnh: App chuyển từ `D:/DemoChung/apps/APP-005-cooknote` sang `D:/Mobile App/apps/A004-cooknote` (mã xưởng `A004-cooknote`), làm theo `WORKFLOW.md` của xưởng: phiên điều phối + phiên con, tối đa 3 phiên điều phối.
+- Quyết định (Phương chốt qua popup):
+  - Giữ đủ SPEC (F-01..F-14). Nếu cuối phiên điều phối #2 chưa xong thì dời sang v1.1 theo thứ tự: (1) nhập Paprika/Recipe Keeper → (2) quét ảnh OCR → (3) Tủ bếp + "Nấu được gì?" → (4) Lịch thực đơn.
+  - **Thay D-001:** v1 phát hành cả Android và iOS. iOS build và test trên GitHub Actions macOS runner (máy Windows, không Mac, không iPhone → thử trên simulator).
+  - **Bổ sung D-003:** Android tự bọc Tesseract4Android 4.9.0 qua MethodChannel, dữ liệu `vie`+`eng` bản fast (`docs/audits/OCR-RESEARCH-2026-11.md`). iOS dùng Apple Vision (trên máy, không gửi dữ liệu); thử tiếng Việt trước, kém thì iOS cũng dùng Tesseract.
+  - Giao diện thiết kế mới toàn bộ qua Claude Design từ `product.md`; UI hiện tại chỉ tham khảo luồng.
+  - Không dùng adb trên máy thử; Phương tự cài APK và thử theo danh sách.
+- Hệ quả cần nhớ: Mở lại COMPLIANCE P-01..P-05 (iOS). Phần UI dở của các agent cũ nằm ở nhánh `wip/g4-web-import`, `wip/g5-cook`, `wip/g6-tests`, `wip/g9-exchange` (chỉ tham khảo, không merge thẳng).
+
 ## D-007 · Sao lưu: gói zip mở, ghi vào thư mục người dùng chọn qua SAF, đọc lại để xác minh · 2026-11-04
 - Bối cảnh: G3 làm F-11. Người dùng giữ công thức cả đời (D-002) nên sao lưu là tính năng sống còn, và phải đọc được dù CookNote không còn.
 - Quyết định:
@@ -49,7 +59,7 @@ Mỗi quyết định một mục, mới nhất ở trên cùng.
 - Mức SDK thực tế của bản build 2026-11-04: targetSdk 36, đủ ba kiến trúc `arm64-v8a`, `armeabi-v7a`, `x86_64` (L-011), do Flutter quản lý.
 - Hệ quả cần nhớ: Không trộn cách quản lý trạng thái khác. Thêm iOS sau bằng `flutter create --platforms ios .`.
 
-## D-003 · Nhận chữ từ ảnh bằng Tesseract trên máy, không dùng ML Kit · 2026-11-03
+## D-003 · Nhận chữ từ ảnh bằng Tesseract trên máy, không dùng ML Kit · 2026-11-03 (bổ sung bởi D-008)
 - Bối cảnh: F-04 cần nhận chữ tiếng Việt có dấu và tiếng Anh từ ảnh, không gửi dữ liệu ra ngoài. Trang "ML Kit Android data disclosure" của Google (tra ngày 2026-11-03) ghi rằng các SDK ML Kit gửi về Google số liệu chẩn đoán và sử dụng: thông tin máy, tên gói và phiên bản app, số liệu hiệu năng, cấu hình API, mã lỗi.
 - Quyết định: Dùng Tesseract nguồn mở chạy hoàn toàn trên máy, kèm dữ liệu nhận chữ tiếng Việt (`vie`) và tiếng Anh (`eng`). Thư viện Flutter cụ thể, bộ dữ liệu (fast hay best) và ngưỡng AC-25 chốt ở G8, sau khi đánh giá mức bảo trì của thư viện và đo trên bộ ảnh mẫu. Ghi D-xxx khi chốt.
 - Lý do / phương án đã loại: ML Kit Text Recognition (loại: gửi số liệu về Google, phải khai Data safety, phá cam kết "không gửi dữ liệu" của D-002, dù nhận chữ chính xác hơn và gọn hơn). Dịch vụ nhận chữ trên đám mây (loại: gửi ảnh ra ngoài, tốn phí, cần mạng).
@@ -69,7 +79,7 @@ Mỗi quyết định một mục, mới nhất ở trên cùng.
 - Lý do / phương án đã loại: Đồng bộ Google Drive bằng đăng nhập Google (loại ở v1: cần OAuth, xin phạm vi Drive, thêm hồ sơ tuân thủ; ghi vào Ý tưởng, ưu tiên cho bản sau nếu G3 cho thấy Drive không nhận ghi tự động vào thư mục). Máy chủ riêng và tài khoản (loại: tốn công nhất, cần xóa tài khoản, hợp đồng xử lý dữ liệu, chuyển dữ liệu xuyên biên giới). Chỉ xuất file bằng tay (loại: người dùng quên sao lưu thì mất dữ liệu khi mất máy).
 - Hệ quả cần nhớ: Chưa kiểm chứng việc Google Drive trên Android cho ghi định kỳ vào thư mục (SPEC mục 7), phải thử ở G3. Khác APP-004, ở đây `allowBackup` BẬT vì công thức không phải dữ liệu nhạy cảm và đây là một lớp sao lưu. Thêm bất kỳ lời gọi mạng nào ngoài F-03 phải mở lại COMPLIANCE mục D-xx.
 
-## D-001 · Stack Flutter, Android trước · 2026-11-03
+## D-001 · Stack Flutter, Android trước · 2026-11-03 (phần "Android trước" bị thay bởi D-008)
 - Bối cảnh: Người dùng chọn Flutter khi tạo app (2026-11-03). Đã có ba app Flutter trong D:/DemoChung (APP-001 tới APP-003), Flutter 3.47.8 có sẵn ở `C:/src/flutter`, có máy thử Galaxy A13.
 - Quyết định: Flutter (Dart), một codebase. v1 chỉ build và phát hành Android. Phiên bản Flutter, quản lý trạng thái, điều hướng, cơ sở dữ liệu, đa ngôn ngữ chốt ở G1 (ghi D-xxx), ưu tiên dùng lại cách đã chạy được ở APP-001 (Riverpod 3, go_router, drift, gen-l10n).
 - Lý do / phương án đã loại: Expo/React Native (loại: người dùng chọn Flutter; nhận chữ và WebView cần development build; mất phần kinh nghiệm build Flutter đã có trên máy này). Kotlin và Swift thuần (loại: hai codebase). iOS ở v1 (loại: Flutter cần máy Mac và Xcode để build iOS, cần tài khoản Apple Developer).

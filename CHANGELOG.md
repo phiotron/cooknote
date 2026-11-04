@@ -1,4 +1,4 @@
-# CHANGELOG — CookNote (APP-005)
+# CHANGELOG — CookNote (A004-cooknote)
 
 ## [Chưa phát hành]
 - G3: sao lưu bền lâu: file `.cooknote` (zip mở, JSON + ảnh + bản HTML đọc được không cần app), tự sao lưu vào thư mục chọn một lần (SAF), xoay vòng, đọc lại xác minh, nhắc khi quá 7 ngày hoặc khi lỗi, khôi phục thay thế hoặc gộp có bản an toàn, Android Auto Backup cho cơ sở dữ liệu; 131 test (2026-11-04)

@@ -1,4 +1,4 @@
-# RELEASE — CookNote (APP-005)
+# RELEASE — CookNote (A004-cooknote)
 
 ## Định danh
 - Bundle ID / package name:

@@ -1,4 +1,4 @@
-# SPEC — CookNote (APP-005)
+# SPEC — CookNote (A004-cooknote)
 
 Đã duyệt: 2026-11-03
 <!-- Khi người dùng duyệt, đổi thành: "Đã duyệt: YYYY-MM-DD". Chưa có dòng này thì Claude không viết code. -->

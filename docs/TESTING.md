@@ -1,4 +1,4 @@
-# TESTING — CookNote (APP-005)
+# TESTING — CookNote (A004-cooknote)
 
 ## Nguyên tắc
 - Mỗi AC trong SPEC phải được kiểm chứng bằng ĐÚNG MỘT trong hai cách: test tự động, hoặc kiểm tra tay có ghi biên bản trong BACKLOG. Ghi rõ ở cột "Cách kiểm chứng" của SPEC.
