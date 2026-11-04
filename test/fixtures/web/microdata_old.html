@@ -1,0 +1,33 @@
+<!-- MẪU TỔNG HỢP: tự viết mô phỏng trang cũ dùng microdata schema.org/Recipe (itemprop). Không chép từ trang thật. -->
+<html>
+<head><title>Pancakes - Trang Cũ</title></head>
+<body>
+<div id="sidebar" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Không phải công thức</span></div>
+<div itemscope itemtype="http://schema.org/Recipe">
+  <h1 itemprop="name">Fluffy Pancakes</h1>
+  <img itemprop="image" src="/photos/pancakes.jpg" alt="Pancakes">
+  By <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Tác Giả Cũ</span></span>
+  <meta itemprop="prepTime" content="PT10M">
+  <time itemprop="cookTime" datetime="PT15M">15 minutes</time>
+  <p itemprop="description">Soft pancakes for Sunday &amp; holidays.</p>
+  Yield: <span itemprop="recipeYield">4 servings</span>
+  <ul>
+    <li itemprop="ingredients">1 cup flour</li>
+    <li itemprop="ingredients">1 egg</li>
+    <li itemprop="ingredients">1 cup milk</li>
+    <li itemprop="ingredients"></li>
+  </ul>
+  <div itemprop="recipeInstructions">
+    <ol>
+      <li>Whisk everything together.</li>
+      <li>Pour onto a hot pan.</li>
+      <li>Flip when bubbles appear.</li>
+    </ol>
+  </div>
+  <div itemprop="nutrition" itemscope itemtype="http://schema.org/NutritionInformation">
+    <span itemprop="calories">300 kcal</span>
+    <span itemprop="fatContent">9 g</span>
+  </div>
+</div>
+</body>
+</html>

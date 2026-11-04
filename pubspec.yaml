@@ -53,6 +53,8 @@ dependencies:
   share_plus: ^13.3.1
   crypto: ^3.0.8
   package_info_plus: ^10.2.2
+  html: ^0.15.7
+  pdf: ^3.13.1
 
 dev_dependencies:
   flutter_test:
@@ -73,6 +75,9 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
   generate: true
+
+  assets:
+    - assets/fonts/
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

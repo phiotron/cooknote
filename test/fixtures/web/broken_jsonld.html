@@ -1,0 +1,18 @@
+<!-- MẪU TỔNG HỢP: tự viết, ba khối JSON-LD đầu hỏng (dấu phẩy thừa, chú thích, rỗng), khối thứ tư đúng; chỉ khối hỏng bị bỏ qua. -->
+<html>
+<head><title>Fried Rice</title>
+<script type="application/ld+json">{"@type":"Recipe","name":"Bản hỏng 1","recipeIngredient":["a","b",],}</script>
+<script type="application/ld+json">
+{
+  // chú thích không hợp lệ trong JSON
+  "@type": "Recipe",
+  "name": "Bản hỏng 2"
+}
+</script>
+<script type="application/ld+json">   </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Recipe","name":"Fried Rice",
+ "recipeIngredient":["2 cups cold rice","2 eggs","1 tbsp soy sauce"],
+ "recipeInstructions":["Scramble the eggs.","Add the rice and soy sauce.","Stir-fry until hot."]}
+</script>
+</head><body></body></html>

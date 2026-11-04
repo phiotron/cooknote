@@ -1,0 +1,32 @@
+<!-- MẪU TỔNG HỢP: tự viết mô phỏng blog dùng plugin công thức kiểu Tasty Recipes (JSON-LD là mảng). Không chép từ trang thật. -->
+<html>
+<head>
+<title>Lemon Rice</title>
+<script type="application/ld+json">
+[
+  {"@context":"https://schema.org","@type":"WebSite","name":"Blog Mẫu Hai"},
+  {
+    "@context":"https://schema.org",
+    "@type":["Recipe"],
+    "name":"Lemon Rice",
+    "publisher":{"@type":"Organization","name":"Blog Mẫu Hai"},
+    "image":{"@type":"ImageObject","url":"https://blog2.example.test/img/lemon-rice.jpg","width":1200,"height":800},
+    "recipeYield":"3 servings",
+    "totalTime":"PT30M",
+    "recipeIngredient":[
+      "2&nbsp;cups cooked rice",
+      "1 lemon, juiced",
+      "1&frac12; tbsp oil",
+      "salt to taste"
+    ],
+    "recipeInstructions":[
+      {"@type":"HowToStep","text":"<p>Heat the oil in a pan.</p>"},
+      {"@type":"HowToStep","text":"<p>Stir in the rice and <strong>lemon juice</strong>.</p>"},
+      {"@type":"HowToStep","text":"Season with salt and serve warm."}
+    ]
+  }
+]
+</script>
+</head>
+<body></body>
+</html>

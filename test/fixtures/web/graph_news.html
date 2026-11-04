@@ -1,0 +1,32 @@
+<!-- MẪU TỔNG HỢP: tự viết mô phỏng trang báo ẩm thực dùng @graph, @type là mảng, tham chiếu @id. Không chép từ trang thật. -->
+<html>
+<head>
+<title>Tomato Soup - Báo Mẫu</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type": "Organization", "@id": "https://news.example.test/#org", "name": "Tạp Chí Ẩm Thực Mẫu"},
+    {"@type": "WebPage", "@id": "https://news.example.test/tomato-soup/", "url": "https://news.example.test/tomato-soup/"},
+    {"@type": "ImageObject", "@id": "https://news.example.test/tomato-soup/#primaryimage", "url": "https://news.example.test/media/tomato-soup.jpg"},
+    {"@type": "Person", "@id": "https://news.example.test/#author", "name": "Biên Tập Viên Mẫu"},
+    {
+      "@type": ["Recipe", "Article"],
+      "@id": "https://news.example.test/tomato-soup/#recipe",
+      "name": "Tomato Soup",
+      "headline": "Tomato Soup: a bowl for rainy days",
+      "image": {"@id": "https://news.example.test/tomato-soup/#primaryimage"},
+      "author": {"@id": "https://news.example.test/#author"},
+      "publisher": {"@id": "https://news.example.test/#org"},
+      "recipeYield": "6",
+      "prepTime": "PT10M",
+      "cookTime": "PT40M",
+      "recipeIngredient": ["1 kg ripe tomatoes", "1 onion", "500 ml stock"],
+      "recipeInstructions": "Roast the tomatoes.\nSimmer with the onion and stock.\nBlend until smooth."
+    }
+  ]
+}
+</script>
+</head>
+<body></body>
+</html>
