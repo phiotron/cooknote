@@ -1,0 +1,85 @@
+import 'package:drift/drift.dart';
+import 'package:drift_flutter/drift_flutter.dart';
+
+import 'recipe_lines.dart';
+
+export 'recipe_lines.dart' show LineSection;
+
+part 'database.g.dart';
+
+/// Độ khó của công thức (AC-02).
+enum Difficulty { easy, medium, hard }
+
+class Recipes extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  TextColumn get name => text().withLength(min: 1, max: 200)();
+
+  /// Số khẩu phần và chữ đi kèm, ví dụ 4 và "người" (AC-02).
+  RealColumn get servings => real().nullable()();
+  TextColumn get servingsUnit => text().withLength(max: 50).nullable()();
+  IntColumn get prepMinutes => integer().nullable()();
+  IntColumn get cookMinutes => integer().nullable()();
+  IntColumn get totalMinutes => integer().nullable()();
+  TextColumn get source => text().nullable()();
+  TextColumn get sourceUrl => text().nullable()();
+  TextColumn get notes => text().nullable()();
+  TextColumn get nutrition => text().nullable()();
+  IntColumn get difficulty => intEnum<Difficulty>().nullable()();
+  IntColumn get rating => integer()
+      .withDefault(const Constant(0))
+      // ignore: recursive_getters
+      .check(rating.isBetweenValues(0, 5))();
+  BoolColumn get favorite => boolean().withDefault(const Constant(false))();
+  DateTimeColumn get createdAt => dateTime()();
+  DateTimeColumn get updatedAt => dateTime()();
+
+  /// Thời điểm vào thùng rác; null là đang dùng (AC-05).
+  DateTimeColumn get deletedAt => dateTime().nullable()();
+}
+
+/// Dòng nguyên liệu hoặc bước, theo thứ tự [position] trong từng phần.
+@DataClassName('RecipeLineRow')
+class RecipeLines extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  IntColumn get recipeId =>
+      integer().references(Recipes, #id, onDelete: KeyAction.cascade)();
+  IntColumn get section => intEnum<LineSection>()();
+  IntColumn get position => integer()();
+  BoolColumn get isHeading => boolean().withDefault(const Constant(false))();
+  TextColumn get body => text()();
+}
+
+/// Ảnh của công thức; ảnh có [position] 0 là ảnh bìa (AC-02).
+@DataClassName('RecipePhotoRow')
+class RecipePhotos extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  IntColumn get recipeId =>
+      integer().references(Recipes, #id, onDelete: KeyAction.cascade)();
+  TextColumn get fileName => text()();
+  IntColumn get position => integer()();
+}
+
+/// Cài đặt dạng khóa-giá trị, nằm cùng cơ sở dữ liệu để sao lưu chung.
+class Settings extends Table {
+  TextColumn get key => text()();
+  TextColumn get value => text()();
+
+  @override
+  Set<Column> get primaryKey => {key};
+}
+
+@DriftDatabase(tables: [Recipes, RecipeLines, RecipePhotos, Settings])
+class AppDatabase extends _$AppDatabase {
+  AppDatabase([QueryExecutor? executor])
+    : super(executor ?? driftDatabase(name: 'cooknote'));
+
+  @override
+  int get schemaVersion => 1;
+
+  @override
+  MigrationStrategy get migration => MigrationStrategy(
+    beforeOpen: (details) async {
+      await customStatement('PRAGMA foreign_keys = ON');
+    },
+  );
+}
