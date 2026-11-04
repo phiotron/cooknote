@@ -7,10 +7,12 @@ import '../../data/database.dart';
 import '../../data/image_store.dart';
 import '../../data/recipe_lines.dart';
 import '../../data/recipe_repository.dart';
+import '../../data/text_normalize.dart';
 import '../../providers.dart';
 import '../../ui/messenger.dart';
 import '../../ui/recipe_photo.dart';
 import '../recipes/recipe_detail_screen.dart' show difficultyLabel;
+import 'category_picker.dart';
 
 /// Soạn công thức mới ([id] null) hoặc sửa công thức [id] (AC-02, AC-03).
 class RecipeEditorScreen extends ConsumerStatefulWidget {
@@ -55,6 +57,11 @@ class _RecipeEditorScreenState extends ConsumerState<RecipeEditorScreen> {
   int _rating = 0;
   bool _favorite = false;
   List<String> _photos = [];
+  List<int> _categoryIds = [];
+  List<String> _tags = [];
+  final _tagInput = TextEditingController();
+  List<String> _tagSuggestions = [];
+  int _suggestSeq = 0;
 
   /// Ảnh vừa thêm trong lần soạn này; xóa file nếu người dùng bỏ thay đổi.
   final _added = <String>[];
@@ -68,6 +75,7 @@ class _RecipeEditorScreenState extends ConsumerState<RecipeEditorScreen> {
     for (final c in _controllers) {
       c.addListener(_changed);
     }
+    _tagInput.addListener(_tagInputChanged);
     _load();
   }
 
@@ -103,6 +111,8 @@ class _RecipeEditorScreenState extends ConsumerState<RecipeEditorScreen> {
     _rating = d.rating;
     _favorite = d.favorite;
     _photos = [...d.photos];
+    _categoryIds = [...d.categoryIds]..sort();
+    _tags = [...d.tags];
   }
 
   static String _num(double v) =>
@@ -132,7 +142,52 @@ class _RecipeEditorScreenState extends ConsumerState<RecipeEditorScreen> {
     ingredients: parseLines(_ingredients.text, LineSection.ingredient),
     steps: parseLines(_steps.text, LineSection.step),
     photos: _photos,
+    categoryIds: _categoryIds,
+    tags: _allTags(),
   );
+
+  /// Thẻ đã thêm cùng chữ đang gõ dở trong ô thẻ (không bị mất khi Lưu).
+  List<String> _allTags() {
+    final pending = _tagInput.text.trim();
+    return [..._tags, if (pending.isNotEmpty) pending];
+  }
+
+  void _addTag(String raw) {
+    final tag = raw.trim();
+    if (tag.isEmpty) return;
+    final key = normalizeText(tag);
+    if (_tags.any((t) => normalizeText(t) == key)) {
+      _tagInput.clear();
+      return;
+    }
+    setState(() => _tags = [..._tags, tag]);
+    _tagInput.clear();
+  }
+
+  void _tagInputChanged() {
+    final text = _tagInput.text;
+    if (text.contains(',')) {
+      final parts = text.split(',');
+      for (final p in parts.take(parts.length - 1)) {
+        _addTag(p);
+      }
+      _tagInput.text = parts.last;
+      _tagInput.selection = TextSelection.collapsed(offset: parts.last.length);
+      return;
+    }
+    _changed();
+    final seq = ++_suggestSeq;
+    ref.read(recipeRepositoryProvider).suggestTags(text).then((list) {
+      if (!mounted || seq != _suggestSeq) return;
+      final have = _tags.map(normalizeText).toSet();
+      setState(
+        () => _tagSuggestions = [
+          for (final t in list)
+            if (!have.contains(normalizeText(t))) t,
+        ].take(8).toList(),
+      );
+    });
+  }
 
   bool get _dirty => _loaded && _draft() != _initial;
 
@@ -145,6 +200,7 @@ class _RecipeEditorScreenState extends ConsumerState<RecipeEditorScreen> {
     for (final c in _controllers) {
       c.dispose();
     }
+    _tagInput.dispose();
     super.dispose();
   }
 
@@ -304,6 +360,10 @@ class _RecipeEditorScreenState extends ConsumerState<RecipeEditorScreen> {
                     const SizedBox(height: 16),
                     _photoStrip(l),
                     const SizedBox(height: 16),
+                    _categoryField(l),
+                    const SizedBox(height: 16),
+                    _tagField(l),
+                    const SizedBox(height: 16),
                     TextFormField(
                       controller: _ingredients,
                       decoration: InputDecoration(
@@ -431,20 +491,111 @@ class _RecipeEditorScreenState extends ConsumerState<RecipeEditorScreen> {
     );
   }
 
-  Widget _ratingRow(AppLocalizations l) => Row(
-    children: [
-      Text(l.rating),
-      const SizedBox(width: 8),
-      for (var i = 1; i <= 5; i++)
-        IconButton(
-          tooltip: l.ratingStars(i),
-          icon: Icon(
-            i <= _rating ? Icons.star : Icons.star_border,
-            color: Colors.amber.shade700,
+  Widget _categoryField(AppLocalizations l) {
+    final all = ref.watch(categoriesProvider).value ?? const [];
+    final names = {for (final c in all) c.id: c.name};
+    return InputDecorator(
+      decoration: InputDecoration(labelText: l.filterCategories),
+      child: Wrap(
+        spacing: 8,
+        runSpacing: 4,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        children: [
+          for (final id in _categoryIds)
+            if (names[id] != null)
+              InputChip(
+                label: Text(names[id]!),
+                onDeleted: () => setState(
+                  () => _categoryIds = _categoryIds
+                      .where((x) => x != id)
+                      .toList(),
+                ),
+              ),
+          if (_categoryIds.isEmpty) Text(l.noCategories),
+          ActionChip(
+            avatar: const Icon(Icons.folder_open, size: 18),
+            label: Text(l.chooseCategories),
+            onPressed: () async {
+              final picked = await pickCategories(
+                context,
+                all,
+                _categoryIds.toSet(),
+              );
+              if (picked != null) {
+                setState(() => _categoryIds = picked.toList()..sort());
+              }
+            },
           ),
-          // Bấm lại đúng số sao đang chọn thì về 0.
-          onPressed: () => setState(() => _rating = _rating == i ? 0 : i),
+        ],
+      ),
+    );
+  }
+
+  Widget _tagField(AppLocalizations l) => Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      TextField(
+        controller: _tagInput,
+        decoration: InputDecoration(
+          labelText: l.tagsLabel,
+          helperText: l.tagsHint,
+          helperMaxLines: 2,
+          errorText: _tagInput.text.trim().length > maxTagLength
+              ? l.tagTooLong
+              : null,
         ),
+        textInputAction: TextInputAction.done,
+        onSubmitted: _addTag,
+      ),
+      if (_tags.isNotEmpty)
+        Padding(
+          padding: const EdgeInsets.only(top: 8),
+          child: Wrap(
+            spacing: 8,
+            children: [
+              for (final t in _tags)
+                InputChip(
+                  label: Text(t),
+                  deleteButtonTooltipMessage: l.removeTag(t),
+                  onDeleted: () => setState(
+                    () => _tags = _tags.where((x) => x != t).toList(),
+                  ),
+                ),
+            ],
+          ),
+        ),
+      if (_tagSuggestions.isNotEmpty)
+        Padding(
+          padding: const EdgeInsets.only(top: 8),
+          child: Wrap(
+            spacing: 8,
+            children: [
+              for (final t in _tagSuggestions)
+                ActionChip(label: Text(t), onPressed: () => _addTag(t)),
+            ],
+          ),
+        ),
+    ],
+  );
+
+  Widget _ratingRow(AppLocalizations l) => Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text(l.rating, style: Theme.of(context).textTheme.labelLarge),
+      Row(
+        children: [
+          for (var i = 1; i <= 5; i++)
+            IconButton(
+              tooltip: l.ratingStars(i),
+              icon: Icon(
+                i <= _rating ? Icons.star : Icons.star_border,
+                color: Colors.amber.shade700,
+              ),
+              // Bấm lại đúng số sao đang chọn thì về 0.
+              onPressed: () => setState(() => _rating = _rating == i ? 0 : i),
+            ),
+        ],
+      ),
     ],
   );
 

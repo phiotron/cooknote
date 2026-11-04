@@ -260,4 +260,168 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get openLinkError => 'Không mở được liên kết này';
+
+  @override
+  String get searchHint => 'Tìm công thức';
+
+  @override
+  String get clearSearch => 'Xóa ô tìm';
+
+  @override
+  String get filter => 'Lọc';
+
+  @override
+  String filterWithCount(int count) {
+    return 'Lọc ($count)';
+  }
+
+  @override
+  String get sort => 'Sắp xếp';
+
+  @override
+  String get sortName => 'Tên';
+
+  @override
+  String get sortCreated => 'Ngày thêm';
+
+  @override
+  String get sortUpdated => 'Ngày sửa';
+
+  @override
+  String get sortRating => 'Đánh giá';
+
+  @override
+  String get sortCookTime => 'Thời gian nấu';
+
+  @override
+  String get sortLastCooked => 'Lần nấu gần nhất';
+
+  @override
+  String get sortAscending => 'Tăng dần';
+
+  @override
+  String get sortDescending => 'Giảm dần';
+
+  @override
+  String get viewGrid => 'Xem dạng lưới';
+
+  @override
+  String get viewList => 'Xem dạng dòng';
+
+  @override
+  String resultCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count công thức',
+      zero: 'Không có công thức nào',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get noMatch => 'Không có công thức nào khớp';
+
+  @override
+  String get clearFilters => 'Xóa bộ lọc';
+
+  @override
+  String get filterCategories => 'Danh mục';
+
+  @override
+  String get filterTags => 'Thẻ';
+
+  @override
+  String get filterMinRating => 'Số sao tối thiểu';
+
+  @override
+  String get filterFavorite => 'Chỉ công thức yêu thích';
+
+  @override
+  String get filterMaxTime => 'Tổng thời gian tối đa';
+
+  @override
+  String get filterIngredient => 'Có nguyên liệu';
+
+  @override
+  String get anyTime => 'Bất kỳ';
+
+  @override
+  String get done => 'Xong';
+
+  @override
+  String get categories => 'Danh mục';
+
+  @override
+  String get addCategory => 'Thêm danh mục';
+
+  @override
+  String get addSubCategory => 'Thêm danh mục con';
+
+  @override
+  String get renameCategory => 'Đổi tên';
+
+  @override
+  String get deleteCategory => 'Xóa danh mục';
+
+  @override
+  String get deleteCategoryBody =>
+      'Các danh mục con cũng bị xóa. Công thức không bị xóa.';
+
+  @override
+  String get categoryName => 'Tên danh mục';
+
+  @override
+  String get categoryNameInvalid => 'Nhập tên từ 1 đến 50 ký tự';
+
+  @override
+  String get categoryDepthLimit => 'Danh mục chỉ lồng tối đa 3 cấp';
+
+  @override
+  String get categoriesEmpty => 'Chưa có danh mục nào';
+
+  @override
+  String get chooseCategories => 'Chọn danh mục';
+
+  @override
+  String get noCategories => 'Chưa chọn danh mục';
+
+  @override
+  String get tagsLabel => 'Thẻ';
+
+  @override
+  String get tagsHint => 'Gõ rồi bấm dấu phẩy hoặc Xong để thêm thẻ';
+
+  @override
+  String removeTag(String tag) {
+    return 'Bỏ thẻ $tag';
+  }
+
+  @override
+  String get tagTooLong => 'Thẻ tối đa 40 ký tự';
+
+  @override
+  String get cooked => 'Đã nấu';
+
+  @override
+  String get markCooked => 'Đánh dấu đã nấu';
+
+  @override
+  String cookedTimes(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Đã nấu $count lần',
+      zero: 'Chưa nấu lần nào',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String lastCooked(String date) {
+    return 'Lần gần nhất: $date';
+  }
+
+  @override
+  String get cookedRecorded => 'Đã ghi lần nấu';
 }

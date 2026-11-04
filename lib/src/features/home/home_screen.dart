@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../l10n/app_localizations.dart';
-import '../../providers.dart';
-import '../../ui/recipe_photo.dart';
+import 'recipe_list.dart';
 
 /// Màn chính với 5 mục điều hướng dưới (AC-01).
 class HomeScreen extends StatefulWidget {
@@ -28,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
       (Icons.more_horiz, Icons.more_horiz, l.tabMore),
     ];
     final body = switch (_index) {
-      0 => const _RecipeList(),
+      0 => const RecipeListTab(),
       4 => const _MoreTab(),
       _ => _ComingSoon(title: tabs[_index].$3),
     };
@@ -93,68 +91,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-class _RecipeList extends ConsumerWidget {
-  const _RecipeList();
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final l = AppLocalizations.of(context);
-    final recipes = ref.watch(recipesProvider);
-    return recipes.when(
-      loading: () => const Center(child: CircularProgressIndicator()),
-      error: (e, s) => Center(child: Text('$e')),
-      data: (list) {
-        if (list.isEmpty) {
-          return Center(
-            child: Padding(
-              padding: const EdgeInsets.all(32),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Icon(Icons.menu_book_outlined, size: 56),
-                  const SizedBox(height: 16),
-                  Text(
-                    l.noRecipes,
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                  const SizedBox(height: 8),
-                  Text(l.noRecipesHint, textAlign: TextAlign.center),
-                ],
-              ),
-            ),
-          );
-        }
-        return ListView.builder(
-          padding: const EdgeInsets.only(bottom: 88),
-          itemCount: list.length,
-          itemBuilder: (context, i) {
-            final r = list[i];
-            return ListTile(
-              minTileHeight: 72,
-              leading: SizedBox(
-                width: 56,
-                height: 56,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: RecipePhoto(r.coverPhoto, cacheWidth: 200),
-                ),
-              ),
-              title: Text(r.name, maxLines: 2, overflow: TextOverflow.ellipsis),
-              subtitle: r.totalMinutes == null
-                  ? null
-                  : Text(l.minutesShort(r.totalMinutes!)),
-              trailing: r.favorite
-                  ? const Icon(Icons.favorite, color: Colors.redAccent)
-                  : null,
-              onTap: () => context.push('/recipe/${r.id}'),
-            );
-          },
-        );
-      },
-    );
-  }
-}
-
 class _ComingSoon extends StatelessWidget {
   const _ComingSoon({required this.title});
 
@@ -173,6 +109,11 @@ class _MoreTab extends StatelessWidget {
     final l = AppLocalizations.of(context);
     return ListView(
       children: [
+        ListTile(
+          leading: const Icon(Icons.folder_outlined),
+          title: Text(l.categories),
+          onTap: () => context.push('/categories'),
+        ),
         ListTile(
           leading: const Icon(Icons.delete_outline),
           title: Text(l.trash),

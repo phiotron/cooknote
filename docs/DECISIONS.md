@@ -2,6 +2,16 @@
 
 Mỗi quyết định một mục, mới nhất ở trên cùng.
 
+## D-006 · Tìm kiếm không dấu bằng cột chỉ mục; danh mục, thẻ, lịch sử nấu là bảng riêng · 2026-11-04
+- Bối cảnh: G2 làm F-02 (AC-10 tới AC-15). Tìm "pho bo" phải ra "Phở bò", phải đủ nhanh với 5.000 công thức, và lên được từ cơ sở dữ liệu G1 mà không mất dữ liệu.
+- Quyết định:
+  - `recipes.searchKey` (tên, nguyên liệu, bước, ghi chú, nguồn) và `recipes.ingredientsKey` (riêng nguyên liệu) là chữ đã hạ chữ thường và bỏ dấu bằng `normalizeText`, tính lại mỗi lần lưu. Tìm là `LIKE '%từ%'` cho từng từ, mọi từ phải khớp.
+  - Bảng mới: `categories` (cha-con qua `parentId`, `position`, tối đa 3 cấp), `recipe_categories`, `recipe_tags` (`tag` giữ cách viết, `tagKey` đã chuẩn hóa), `cook_log`. `schemaVersion` 2; `onUpgrade` thêm hai cột, tạo bốn bảng và tính chỉ mục cho công thức cũ (có test `migration_test.dart` dựng đúng cơ sở dữ liệu G1).
+  - Lọc theo danh mục gồm cả danh mục con. Lọc theo thẻ cần đủ mọi thẻ đã chọn. Sắp xếp làm trong Dart sau khi lọc: tên theo thứ tự không dấu, mục thiếu giá trị (chưa ghi thời gian nấu, chưa nấu) luôn xếp cuối.
+  - Danh mục mặc định (6 mục theo ngôn ngữ) tạo MỘT lần ở lần mở app đầu, đánh dấu bằng khóa `categoriesSeeded` trong `settings`, nên xóa hết rồi cũng không tạo lại.
+- Lý do / phương án đã loại: SQLite FTS5 (loại: tách từ của FTS không bỏ dấu tiếng Việt, thêm bảng ảo và đồng bộ khó, mà `LIKE` trên cột đã chuẩn hóa đã đủ nhanh, xem TESTING). Lọc và sắp xếp hết trong SQL (loại: viết dài, sắp xếp theo tên không dấu không làm được trong SQLite mặc định). Lọc hết trong Dart (loại: phải đọc toàn bộ nội dung công thức).
+- Hệ quả cần nhớ: Công thức mới nhập (G4, G7, G9) phải đi qua `RecipeRepository.save` để có chỉ mục; ghi thẳng vào bảng `recipes` thì tìm không ra. Mọi bảng mới của G2 phải có trong định dạng sao lưu (G3, AC-55). Danh sách tải toàn bộ công thức khớp rồi sắp xếp trong bộ nhớ: nếu đo trên máy thật vượt ngưỡng 300 ms (SPEC 5b) thì phải phân trang hoặc đẩy sắp xếp xuống SQL.
+
 ## D-005 · Mô hình dữ liệu công thức, ảnh, thùng rác; camera dùng ứng dụng của hệ điều hành · 2026-11-04
 - Bối cảnh: G1 làm F-01. Dữ liệu phải bền nhiều năm (D-002) và mở rộng được cho sao lưu (AC-55).
 - Quyết định:

@@ -3,6 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../l10n/app_localizations.dart';
+
+import 'package:intl/intl.dart';
+
 import '../../data/database.dart';
 import '../../data/recipe_lines.dart';
 import '../../data/recipe_repository.dart';
@@ -100,6 +103,7 @@ class _Detail extends ConsumerWidget {
     final l = AppLocalizations.of(context);
     final d = recipe.draft;
     final theme = Theme.of(context);
+    final categories = ref.watch(categoriesProvider).value ?? const [];
     Widget section(String title, List<Widget> children) => Padding(
       padding: const EdgeInsets.fromLTRB(16, 20, 16, 0),
       child: Column(
@@ -227,6 +231,53 @@ class _Detail extends ConsumerWidget {
                           color: Colors.amber.shade700,
                         ),
                     ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          if (d.categoryIds.isNotEmpty || d.tags.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
+              child: Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: [
+                  for (final c in categories)
+                    if (d.categoryIds.contains(c.id))
+                      Chip(
+                        avatar: const Icon(Icons.folder_outlined, size: 18),
+                        label: Text(c.name),
+                      ),
+                  for (final t in d.tags)
+                    Chip(
+                      avatar: const Icon(Icons.sell_outlined, size: 18),
+                      label: Text(t),
+                    ),
+                ],
+              ),
+            ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
+            child: Row(
+              children: [
+                FilledButton.tonalIcon(
+                  icon: const Icon(Icons.check_circle_outline),
+                  label: Text(l.markCooked),
+                  onPressed: () async {
+                    await ref
+                        .read(recipeRepositoryProvider)
+                        .markCooked(recipe.id);
+                    showMessage(l.cookedRecorded);
+                  },
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Text(
+                    recipe.cookCount == 0
+                        ? l.cookedTimes(0)
+                        : '${l.cookedTimes(recipe.cookCount)}\n${l.lastCooked(DateFormat.yMMMd(Localizations.localeOf(context).languageCode).format(recipe.lastCookedAt!))}',
+                    style: theme.textTheme.bodySmall,
                   ),
                 ),
               ],

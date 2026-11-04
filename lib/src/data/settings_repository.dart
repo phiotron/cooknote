@@ -35,4 +35,16 @@ class SettingsRepository {
 
   Future<void> setLocaleCode(String? code) =>
       code == null ? _remove(localeKey) : _write(localeKey, code);
+
+  static const viewModeKey = 'viewMode';
+
+  /// Mã ngôn ngữ đã chọn một lần, không theo dõi thay đổi.
+  Future<String?> readLocaleCode() => watchLocaleCode().first;
+
+  /// Cách xem danh sách công thức: `list` (mặc định) hoặc `grid` (AC-14).
+  Stream<String> watchViewMode() =>
+      _watch(viewModeKey).map((v) => v == 'grid' ? 'grid' : 'list');
+
+  Future<void> setViewMode(String mode) =>
+      _write(viewModeKey, mode == 'grid' ? 'grid' : 'list');
 }

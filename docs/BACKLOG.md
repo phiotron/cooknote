@@ -24,13 +24,13 @@ Hai lý do đặt sao lưu sớm (G3): người dùng ưu tiên giữ dữ liệ
 - [x] Chuỗi giao diện nằm trong file .arb vi/en ngay từ đầu (một phần AC-58)
 - [x] Build APK release đủ kiến trúc (L-011), kiểm quyền trong manifest đã build (một phần AC-65)
 
-### G2 · Tổ chức, tìm kiếm, lọc — trạng thái: todo
-- [ ] Nếu người dùng chọn: màn soạn dạng danh sách dòng kéo thả cho nguyên liệu và bước (AC-03)
-- [ ] Danh mục lồng 3 cấp, danh mục mặc định, thẻ có gợi ý (AC-10, AC-11)
-- [ ] Tìm không phân biệt dấu trên tên, nguyên liệu, bước, ghi chú, nguồn; đo với 5.000 công thức (AC-12, NFR)
-- [ ] Bộ lọc kết hợp, sắp xếp, đếm kết quả (AC-13)
-- [ ] Xem dạng lưới hoặc dòng, nhớ lựa chọn (AC-14)
-- [ ] Lịch sử "Đã nấu" (AC-15)
+### G2 · Tổ chức, tìm kiếm, lọc — trạng thái: done (code, lint, test đạt; còn thử máy thật ở cổng)
+- [ ] Nếu người dùng chọn: màn soạn dạng danh sách dòng kéo thả cho nguyên liệu và bước (AC-03). Người dùng chưa chọn nên KHÔNG làm; giữ ô nhiều dòng
+- [x] Danh mục lồng 3 cấp, danh mục mặc định, thẻ có gợi ý (AC-10, AC-11)
+- [x] Tìm không phân biệt dấu trên tên, nguyên liệu, bước, ghi chú, nguồn; đo với 5.000 công thức trên máy tính: tìm 48 ms, xem tất cả 338 ms (CHƯA đo trên điện thoại, xem TESTING) (AC-12, NFR)
+- [x] Bộ lọc kết hợp, sắp xếp, đếm kết quả (AC-13)
+- [x] Xem dạng lưới hoặc dòng, nhớ lựa chọn (AC-14)
+- [x] Lịch sử "Đã nấu" (AC-15)
 
 ### G3 · Sao lưu bền lâu và khôi phục — trạng thái: todo
 - [ ] Viết `docs/BACKUP-FORMAT.md` phiên bản 1. Tạo gói `.cooknote` gồm manifest, mã băm, ảnh, và HTML đọc được không cần app (AC-49)
@@ -102,9 +102,8 @@ Hai lý do đặt sao lưu sớm (G3): người dùng ưu tiên giữ dữ liệ
 - [ ] Thử khôi phục trên máy Android khác, hoặc sau khi gỡ và cài lại app (SPEC mục 8)
 
 ## Việc kế tiếp (tối đa 5, theo thứ tự)
-1. Người dùng thử G1 trên điện thoại thật (xem "Biên bản thử máy thật") và trả lời câu về AC-03 (kéo thả dòng)
-2. Sau khi qua cổng G1: G2 (danh mục, thẻ, tìm không dấu, lọc, sắp xếp, "Đã nấu")
-3. G3: sao lưu bền lâu, và thử sớm rủi ro Google Drive
+1. Người dùng thử G1 và G2 trên điện thoại thật (xem "Biên bản thử máy thật") và trả lời câu về AC-03 (kéo thả dòng)
+2. Sau khi qua cổng G2: G3 (sao lưu bền lâu, thử sớm rủi ro Google Drive)
 
 ## Lỗi đã biết (đang mở)
 Mỗi lỗi: BUG-xxx · mô tả · cách tái hiện · mức độ (chặn / nặng / nhẹ) · cách tạm tránh.
@@ -128,6 +127,16 @@ Mỗi lỗi: BUG-xxx · nguyên nhân gốc · cách sửa · làm sao tránh l�
 ## Biên bản thử máy thật
 Mỗi lần thử: ngày · máy và phiên bản hệ điều hành · bản app · đã thử gì · kết quả · lỗi phát hiện.
 (Chưa có lần nào.)
+
+### Việc người dùng cần thử cho cổng G2 (CHƯA kiểm chứng trên máy thật)
+Cài đè APK mới lên bản G1: dữ liệu cũ phải còn (migration, AC kiểm bằng test trên máy tính, chưa thử trên máy).
+- AC-10: mục Thêm > Danh mục: có 6 danh mục mặc định theo ngôn ngữ; thêm, đổi tên, xóa, kéo tay cầm để đổi thứ tự; lồng 3 cấp thì cấp 3 không còn mục "Thêm danh mục con".
+- AC-10, AC-11: khi soạn công thức chọn danh mục (nhiều mục) và gõ thẻ (gợi ý hiện khi gõ, dấu phẩy hoặc Xong để thêm).
+- AC-12: ô tìm: gõ "pho bo" ra "Phở bò"; thử tìm theo nguyên liệu, bước, ghi chú, nguồn.
+- AC-13: nút Lọc (danh mục, thẻ, sao, yêu thích, thời gian, nguyên liệu) kết hợp với ô tìm; số công thức khớp; menu Sắp xếp cả sáu kiểu và đảo chiều.
+- AC-14: nút xem lưới/dòng, tắt hẳn app mở lại vẫn giữ.
+- AC-15: màn xem công thức: nút "Đánh dấu đã nấu", số lần và lần gần nhất.
+- Màn soạn công thức trên màn 360 dp: hàng "Đánh giá" không còn bị tràn (lỗi từ G1, đã sửa).
 
 ### Việc người dùng cần thử cho cổng G1 (CHƯA kiểm chứng trên máy thật)
 APK: `apps/APP-005-cooknote/build/app/outputs/flutter-apk/app-release.apk` (61,9 MB, đủ kiến trúc, ký khóa debug). Máy đề nghị: Galaxy A13.

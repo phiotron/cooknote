@@ -264,4 +264,170 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get openLinkError => 'Could not open this link';
+
+  @override
+  String get searchHint => 'Search recipes';
+
+  @override
+  String get clearSearch => 'Clear search';
+
+  @override
+  String get filter => 'Filter';
+
+  @override
+  String filterWithCount(int count) {
+    return 'Filter ($count)';
+  }
+
+  @override
+  String get sort => 'Sort';
+
+  @override
+  String get sortName => 'Name';
+
+  @override
+  String get sortCreated => 'Date added';
+
+  @override
+  String get sortUpdated => 'Date edited';
+
+  @override
+  String get sortRating => 'Rating';
+
+  @override
+  String get sortCookTime => 'Cooking time';
+
+  @override
+  String get sortLastCooked => 'Last cooked';
+
+  @override
+  String get sortAscending => 'Ascending';
+
+  @override
+  String get sortDescending => 'Descending';
+
+  @override
+  String get viewGrid => 'Grid view';
+
+  @override
+  String get viewList => 'List view';
+
+  @override
+  String resultCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count recipes',
+      one: '1 recipe',
+      zero: 'No recipes',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get noMatch => 'No recipes match';
+
+  @override
+  String get clearFilters => 'Clear filters';
+
+  @override
+  String get filterCategories => 'Categories';
+
+  @override
+  String get filterTags => 'Tags';
+
+  @override
+  String get filterMinRating => 'Minimum stars';
+
+  @override
+  String get filterFavorite => 'Favorites only';
+
+  @override
+  String get filterMaxTime => 'Maximum total time';
+
+  @override
+  String get filterIngredient => 'Has ingredient';
+
+  @override
+  String get anyTime => 'Any';
+
+  @override
+  String get done => 'Done';
+
+  @override
+  String get categories => 'Categories';
+
+  @override
+  String get addCategory => 'Add category';
+
+  @override
+  String get addSubCategory => 'Add subcategory';
+
+  @override
+  String get renameCategory => 'Rename';
+
+  @override
+  String get deleteCategory => 'Delete category';
+
+  @override
+  String get deleteCategoryBody =>
+      'Its subcategories are deleted too. Recipes are not deleted.';
+
+  @override
+  String get categoryName => 'Category name';
+
+  @override
+  String get categoryNameInvalid => 'Enter 1 to 50 characters';
+
+  @override
+  String get categoryDepthLimit => 'Categories nest at most 3 levels';
+
+  @override
+  String get categoriesEmpty => 'No categories yet';
+
+  @override
+  String get chooseCategories => 'Choose categories';
+
+  @override
+  String get noCategories => 'No category selected';
+
+  @override
+  String get tagsLabel => 'Tags';
+
+  @override
+  String get tagsHint => 'Type, then press comma or Done to add a tag';
+
+  @override
+  String removeTag(String tag) {
+    return 'Remove tag $tag';
+  }
+
+  @override
+  String get tagTooLong => 'A tag has at most 40 characters';
+
+  @override
+  String get cooked => 'Cooked';
+
+  @override
+  String get markCooked => 'Mark as cooked';
+
+  @override
+  String cookedTimes(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Cooked $count times',
+      one: 'Cooked once',
+      zero: 'Never cooked',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String lastCooked(String date) {
+    return 'Last time: $date';
+  }
+
+  @override
+  String get cookedRecorded => 'Cooking recorded';
 }

@@ -577,6 +577,288 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Could not open this link'**
   String get openLinkError;
+
+  /// No description provided for @searchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search recipes'**
+  String get searchHint;
+
+  /// No description provided for @clearSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear search'**
+  String get clearSearch;
+
+  /// No description provided for @filter.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter'**
+  String get filter;
+
+  /// No description provided for @filterWithCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter ({count})'**
+  String filterWithCount(int count);
+
+  /// No description provided for @sort.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort'**
+  String get sort;
+
+  /// No description provided for @sortName.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get sortName;
+
+  /// No description provided for @sortCreated.
+  ///
+  /// In en, this message translates to:
+  /// **'Date added'**
+  String get sortCreated;
+
+  /// No description provided for @sortUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Date edited'**
+  String get sortUpdated;
+
+  /// No description provided for @sortRating.
+  ///
+  /// In en, this message translates to:
+  /// **'Rating'**
+  String get sortRating;
+
+  /// No description provided for @sortCookTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Cooking time'**
+  String get sortCookTime;
+
+  /// No description provided for @sortLastCooked.
+  ///
+  /// In en, this message translates to:
+  /// **'Last cooked'**
+  String get sortLastCooked;
+
+  /// No description provided for @sortAscending.
+  ///
+  /// In en, this message translates to:
+  /// **'Ascending'**
+  String get sortAscending;
+
+  /// No description provided for @sortDescending.
+  ///
+  /// In en, this message translates to:
+  /// **'Descending'**
+  String get sortDescending;
+
+  /// No description provided for @viewGrid.
+  ///
+  /// In en, this message translates to:
+  /// **'Grid view'**
+  String get viewGrid;
+
+  /// No description provided for @viewList.
+  ///
+  /// In en, this message translates to:
+  /// **'List view'**
+  String get viewList;
+
+  /// No description provided for @resultCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{No recipes} =1{1 recipe} other{{count} recipes}}'**
+  String resultCount(int count);
+
+  /// No description provided for @noMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'No recipes match'**
+  String get noMatch;
+
+  /// No description provided for @clearFilters.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear filters'**
+  String get clearFilters;
+
+  /// No description provided for @filterCategories.
+  ///
+  /// In en, this message translates to:
+  /// **'Categories'**
+  String get filterCategories;
+
+  /// No description provided for @filterTags.
+  ///
+  /// In en, this message translates to:
+  /// **'Tags'**
+  String get filterTags;
+
+  /// No description provided for @filterMinRating.
+  ///
+  /// In en, this message translates to:
+  /// **'Minimum stars'**
+  String get filterMinRating;
+
+  /// No description provided for @filterFavorite.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorites only'**
+  String get filterFavorite;
+
+  /// No description provided for @filterMaxTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Maximum total time'**
+  String get filterMaxTime;
+
+  /// No description provided for @filterIngredient.
+  ///
+  /// In en, this message translates to:
+  /// **'Has ingredient'**
+  String get filterIngredient;
+
+  /// No description provided for @anyTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Any'**
+  String get anyTime;
+
+  /// No description provided for @done.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get done;
+
+  /// No description provided for @categories.
+  ///
+  /// In en, this message translates to:
+  /// **'Categories'**
+  String get categories;
+
+  /// No description provided for @addCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Add category'**
+  String get addCategory;
+
+  /// No description provided for @addSubCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Add subcategory'**
+  String get addSubCategory;
+
+  /// No description provided for @renameCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename'**
+  String get renameCategory;
+
+  /// No description provided for @deleteCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete category'**
+  String get deleteCategory;
+
+  /// No description provided for @deleteCategoryBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Its subcategories are deleted too. Recipes are not deleted.'**
+  String get deleteCategoryBody;
+
+  /// No description provided for @categoryName.
+  ///
+  /// In en, this message translates to:
+  /// **'Category name'**
+  String get categoryName;
+
+  /// No description provided for @categoryNameInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter 1 to 50 characters'**
+  String get categoryNameInvalid;
+
+  /// No description provided for @categoryDepthLimit.
+  ///
+  /// In en, this message translates to:
+  /// **'Categories nest at most 3 levels'**
+  String get categoryDepthLimit;
+
+  /// No description provided for @categoriesEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No categories yet'**
+  String get categoriesEmpty;
+
+  /// No description provided for @chooseCategories.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose categories'**
+  String get chooseCategories;
+
+  /// No description provided for @noCategories.
+  ///
+  /// In en, this message translates to:
+  /// **'No category selected'**
+  String get noCategories;
+
+  /// No description provided for @tagsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Tags'**
+  String get tagsLabel;
+
+  /// No description provided for @tagsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Type, then press comma or Done to add a tag'**
+  String get tagsHint;
+
+  /// No description provided for @removeTag.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove tag {tag}'**
+  String removeTag(String tag);
+
+  /// No description provided for @tagTooLong.
+  ///
+  /// In en, this message translates to:
+  /// **'A tag has at most 40 characters'**
+  String get tagTooLong;
+
+  /// No description provided for @cooked.
+  ///
+  /// In en, this message translates to:
+  /// **'Cooked'**
+  String get cooked;
+
+  /// No description provided for @markCooked.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark as cooked'**
+  String get markCooked;
+
+  /// No description provided for @cookedTimes.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{Never cooked} =1{Cooked once} other{Cooked {count} times}}'**
+  String cookedTimes(int count);
+
+  /// No description provided for @lastCooked.
+  ///
+  /// In en, this message translates to:
+  /// **'Last time: {date}'**
+  String lastCooked(String date);
+
+  /// No description provided for @cookedRecorded.
+  ///
+  /// In en, this message translates to:
+  /// **'Cooking recorded'**
+  String get cookedRecorded;
 }
 
 class _AppLocalizationsDelegate

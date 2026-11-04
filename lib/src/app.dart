@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../l10n/app_localizations.dart';
+import 'features/categories/categories_screen.dart';
 import 'features/editor/recipe_editor_screen.dart';
 import 'features/home/home_screen.dart';
 import 'features/recipes/photo_viewer_screen.dart';
@@ -44,6 +45,10 @@ GoRouter createRouter() => GoRouter(
               ),
             ),
           ],
+        ),
+        GoRoute(
+          path: 'categories',
+          builder: (context, state) => const CategoriesScreen(),
         ),
         GoRoute(
           path: 'trash',

@@ -40,7 +40,13 @@
   "difficultyHard": "Hard",
   "rating": "Rating",
   "ratingStars": "{count, plural, =0{No rating} =1{1 of 5 stars} other{{count} of 5 stars}}",
-  "@ratingStars": {"placeholders": {"count": {"type": "int"}}},
+  "@ratingStars": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "favorite": "Favorite",
   "ingredients": "Ingredients",
   "steps": "Steps",
@@ -73,7 +79,13 @@
   "restored": "Recipe restored",
   "notFound": "This recipe no longer exists",
   "minutesShort": "{count} min",
-  "@minutesShort": {"placeholders": {"count": {"type": "int"}}},
+  "@minutesShort": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "settings": "Settings",
   "theme": "Theme",
   "themeSystem": "System",
@@ -81,5 +93,87 @@
   "themeDark": "Dark",
   "language": "Language",
   "languageSystem": "System",
-  "openLinkError": "Could not open this link"
+  "openLinkError": "Could not open this link",
+  "searchHint": "Search recipes",
+  "clearSearch": "Clear search",
+  "filter": "Filter",
+  "filterWithCount": "Filter ({count})",
+  "@filterWithCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "sort": "Sort",
+  "sortName": "Name",
+  "sortCreated": "Date added",
+  "sortUpdated": "Date edited",
+  "sortRating": "Rating",
+  "sortCookTime": "Cooking time",
+  "sortLastCooked": "Last cooked",
+  "sortAscending": "Ascending",
+  "sortDescending": "Descending",
+  "viewGrid": "Grid view",
+  "viewList": "List view",
+  "resultCount": "{count, plural, =0{No recipes} =1{1 recipe} other{{count} recipes}}",
+  "@resultCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noMatch": "No recipes match",
+  "clearFilters": "Clear filters",
+  "filterCategories": "Categories",
+  "filterTags": "Tags",
+  "filterMinRating": "Minimum stars",
+  "filterFavorite": "Favorites only",
+  "filterMaxTime": "Maximum total time",
+  "filterIngredient": "Has ingredient",
+  "anyTime": "Any",
+  "done": "Done",
+  "categories": "Categories",
+  "addCategory": "Add category",
+  "addSubCategory": "Add subcategory",
+  "renameCategory": "Rename",
+  "deleteCategory": "Delete category",
+  "deleteCategoryBody": "Its subcategories are deleted too. Recipes are not deleted.",
+  "categoryName": "Category name",
+  "categoryNameInvalid": "Enter 1 to 50 characters",
+  "categoryDepthLimit": "Categories nest at most 3 levels",
+  "categoriesEmpty": "No categories yet",
+  "chooseCategories": "Choose categories",
+  "noCategories": "No category selected",
+  "tagsLabel": "Tags",
+  "tagsHint": "Type, then press comma or Done to add a tag",
+  "removeTag": "Remove tag {tag}",
+  "@removeTag": {
+    "placeholders": {
+      "tag": {
+        "type": "String"
+      }
+    }
+  },
+  "tagTooLong": "A tag has at most 40 characters",
+  "cooked": "Cooked",
+  "markCooked": "Mark as cooked",
+  "cookedTimes": "{count, plural, =0{Never cooked} =1{Cooked once} other{Cooked {count} times}}",
+  "@cookedTimes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "lastCooked": "Last time: {date}",
+  "@lastCooked": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "cookedRecorded": "Cooking recorded"
 }
