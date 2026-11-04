@@ -8,6 +8,7 @@ import 'features/backup/backup_notice.dart';
 import 'features/backup/backup_screen.dart';
 import 'features/categories/categories_screen.dart';
 import 'features/editor/recipe_editor_screen.dart';
+import 'features/exchange/import_screen.dart';
 import 'features/home/home_screen.dart';
 import 'features/recipes/photo_viewer_screen.dart';
 import 'features/recipes/recipe_detail_screen.dart';
@@ -50,7 +51,12 @@ GoRouter createRouter() => GoRouter(
         ),
         GoRoute(
           path: 'backup',
-          builder: (context, state) => const BackupScreen(),
+          builder: (context, state) =>
+              BackupScreen(initialRestorePath: state.extra as String?),
+        ),
+        GoRoute(
+          path: 'import',
+          builder: (context, state) => const ImportScreen(),
         ),
         GoRoute(
           path: 'categories',

@@ -128,6 +128,7 @@ Future<BackupInfo> createBackupFile({
   DateTime? now,
   void Function(double progress)? onProgress,
   bool Function()? cancelled,
+  Set<int>? recipeIds,
 }) async {
   void check() {
     if (cancelled?.call() ?? false) throw const BackupCancelled();
@@ -139,7 +140,7 @@ Future<BackupInfo> createBackupFile({
   ZipFileEncoder? encoder;
   try {
     check();
-    final data = await exportData(db);
+    final data = await exportData(db, recipeIds: recipeIds);
     final recipes = (data['recipes'] as List).cast<Map<String, Object?>>();
     final categories = data['categories'] as List;
     final wanted = <String>{

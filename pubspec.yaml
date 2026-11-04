@@ -55,6 +55,7 @@ dependencies:
   package_info_plus: ^10.2.2
   html: ^0.15.7
   pdf: ^3.13.1
+  printing: ^5.15.1
 
 dev_dependencies:
   flutter_test:

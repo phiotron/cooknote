@@ -1153,6 +1153,252 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Open Backup'**
   String get noticeOpen;
+
+  /// No description provided for @importTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Import from file'**
+  String get importTitle;
+
+  /// No description provided for @importIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a file exported from Paprika (.paprikarecipes), Recipe Keeper (.zip), schema.org JSON, or a .cooknote backup.'**
+  String get importIntro;
+
+  /// No description provided for @importUnverified.
+  ///
+  /// In en, this message translates to:
+  /// **'The Paprika and Recipe Keeper formats are read from third-party documentation and are not yet verified against every real file. If a file cannot be read, your data stays unchanged.'**
+  String get importUnverified;
+
+  /// No description provided for @importChoose.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose file'**
+  String get importChoose;
+
+  /// No description provided for @importWorking.
+  ///
+  /// In en, this message translates to:
+  /// **'Importing recipes…'**
+  String get importWorking;
+
+  /// No description provided for @importUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'This file format is not recognised. CookNote reads .paprikarecipes, Recipe Keeper zip, schema.org JSON and .cooknote.'**
+  String get importUnknown;
+
+  /// No description provided for @importBadFile.
+  ///
+  /// In en, this message translates to:
+  /// **'This file could not be read. Your data was not changed.'**
+  String get importBadFile;
+
+  /// No description provided for @importCancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Import cancelled. Recipes imported so far are kept.'**
+  String get importCancelled;
+
+  /// No description provided for @importResult.
+  ///
+  /// In en, this message translates to:
+  /// **'Imported {imported} recipes. Already present: {duplicates}. Skipped: {skipped}.'**
+  String importResult(int imported, int duplicates, int skipped);
+
+  /// No description provided for @importDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Details'**
+  String get importDetails;
+
+  /// No description provided for @selectedCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} selected'**
+  String selectedCount(int count);
+
+  /// No description provided for @selectAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Select all'**
+  String get selectAll;
+
+  /// No description provided for @exitSelection.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit selection'**
+  String get exitSelection;
+
+  /// No description provided for @exportJson.
+  ///
+  /// In en, this message translates to:
+  /// **'Export JSON'**
+  String get exportJson;
+
+  /// No description provided for @cookbookMake.
+  ///
+  /// In en, this message translates to:
+  /// **'Recipe book (PDF)'**
+  String get cookbookMake;
+
+  /// No description provided for @trashSelected.
+  ///
+  /// In en, this message translates to:
+  /// **'Move to trash'**
+  String get trashSelected;
+
+  /// No description provided for @trashedCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Moved {count} recipes to trash'**
+  String trashedCount(int count);
+
+  /// No description provided for @exportWorking.
+  ///
+  /// In en, this message translates to:
+  /// **'Creating file…'**
+  String get exportWorking;
+
+  /// No description provided for @exportCancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancelled'**
+  String get exportCancelled;
+
+  /// No description provided for @exportFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not create the file.'**
+  String get exportFailed;
+
+  /// No description provided for @shareRecipe.
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get shareRecipe;
+
+  /// No description provided for @shareAsText.
+  ///
+  /// In en, this message translates to:
+  /// **'Share as text'**
+  String get shareAsText;
+
+  /// No description provided for @shareAsPdf.
+  ///
+  /// In en, this message translates to:
+  /// **'Share as PDF file'**
+  String get shareAsPdf;
+
+  /// No description provided for @shareAsCooknote.
+  ///
+  /// In en, this message translates to:
+  /// **'Send a .cooknote file (importable in CookNote)'**
+  String get shareAsCooknote;
+
+  /// No description provided for @printRecipe.
+  ///
+  /// In en, this message translates to:
+  /// **'Print'**
+  String get printRecipe;
+
+  /// No description provided for @cookbookTitleLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Book title'**
+  String get cookbookTitleLabel;
+
+  /// No description provided for @cookbookDefaultTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'My recipe book'**
+  String get cookbookDefaultTitle;
+
+  /// No description provided for @cookbookCreate.
+  ///
+  /// In en, this message translates to:
+  /// **'Create book'**
+  String get cookbookCreate;
+
+  /// No description provided for @cookbookReady.
+  ///
+  /// In en, this message translates to:
+  /// **'The book is ready'**
+  String get cookbookReady;
+
+  /// No description provided for @cookbookShare.
+  ///
+  /// In en, this message translates to:
+  /// **'Share or save'**
+  String get cookbookShare;
+
+  /// No description provided for @cookbookNone.
+  ///
+  /// In en, this message translates to:
+  /// **'No recipes to export'**
+  String get cookbookNone;
+
+  /// No description provided for @exchangeSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Import and export'**
+  String get exchangeSection;
+
+  /// No description provided for @exportAllJson.
+  ///
+  /// In en, this message translates to:
+  /// **'Export all recipes (JSON)'**
+  String get exportAllJson;
+
+  /// No description provided for @cookbookAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Recipe book from all recipes'**
+  String get cookbookAll;
+
+  /// No description provided for @pdfContents.
+  ///
+  /// In en, this message translates to:
+  /// **'Contents'**
+  String get pdfContents;
+
+  /// No description provided for @pdfServings.
+  ///
+  /// In en, this message translates to:
+  /// **'Servings'**
+  String get pdfServings;
+
+  /// No description provided for @pdfPrep.
+  ///
+  /// In en, this message translates to:
+  /// **'Prep'**
+  String get pdfPrep;
+
+  /// No description provided for @pdfCook.
+  ///
+  /// In en, this message translates to:
+  /// **'Cook'**
+  String get pdfCook;
+
+  /// No description provided for @pdfTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'Total'**
+  String get pdfTotal;
+
+  /// No description provided for @pdfMinutes.
+  ///
+  /// In en, this message translates to:
+  /// **'min'**
+  String get pdfMinutes;
+
+  /// No description provided for @pdfPage.
+  ///
+  /// In en, this message translates to:
+  /// **'Page'**
+  String get pdfPage;
 }
 
 class _AppLocalizationsDelegate

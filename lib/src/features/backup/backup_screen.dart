@@ -36,7 +36,10 @@ String backupFailureText(AppLocalizations l, String error) =>
 
 /// Sao lưu và khôi phục (F-11, AC-49 tới AC-57).
 class BackupScreen extends ConsumerStatefulWidget {
-  const BackupScreen({super.key});
+  const BackupScreen({super.key, this.initialRestorePath});
+
+  /// Mở sẵn hộp Khôi phục cho file này (từ "Nhập từ file" khi gặp `.cooknote`).
+  final String? initialRestorePath;
 
   @override
   ConsumerState<BackupScreen> createState() => _BackupScreenState();
@@ -50,6 +53,12 @@ class _BackupScreenState extends ConsumerState<BackupScreen> {
   void initState() {
     super.initState();
     _loadFiles();
+    final path = widget.initialRestorePath;
+    if (path != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) _restoreFrom(File(path));
+      });
+    }
   }
 
   BackupService get _service => ref.read(backupServiceProvider);

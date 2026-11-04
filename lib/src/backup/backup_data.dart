@@ -13,10 +13,20 @@ DateTime _parse(Object? v) => DateTime.parse(v as String).toLocal();
 
 /// Toàn bộ dữ liệu dạng JSON thuần, không phụ thuộc phiên bản bảng của cơ sở
 /// dữ liệu (D-007). Chỉ được THÊM khóa, không đổi nghĩa khóa cũ (AC-55).
-Future<Map<String, Object?>> exportData(AppDatabase db) async {
-  final recipes = await (db.select(
-    db.recipes,
-  )..orderBy([(r) => OrderingTerm.asc(r.id)])).get();
+///
+/// [recipeIds] khác null thì chỉ xuất các công thức đó (chia sẻ một vài công
+/// thức, F-10) cùng các danh mục chúng dùng và danh mục cha của chúng.
+Future<Map<String, Object?>> exportData(
+  AppDatabase db, {
+  Set<int>? recipeIds,
+}) async {
+  final recipes = [
+    for (final r
+        in await (db.select(
+          db.recipes,
+        )..orderBy([(r) => OrderingTerm.asc(r.id)])).get())
+      if (recipeIds == null || recipeIds.contains(r.id)) r,
+  ];
   final lines = await (db.select(
     db.recipeLines,
   )..orderBy([(l) => OrderingTerm.asc(l.position)])).get();
@@ -33,9 +43,24 @@ Future<Map<String, Object?>> exportData(AppDatabase db) async {
             (c) => OrderingTerm.asc(c.id),
           ]))
           .get();
-  final categories = await (db.select(
+  var categories = await (db.select(
     db.categories,
   )..orderBy([(c) => OrderingTerm.asc(c.id)])).get();
+  if (recipeIds != null) {
+    final byId = {for (final c in categories) c.id: c};
+    final keep = <int>{};
+    for (final l in links) {
+      if (!recipeIds.contains(l.recipeId)) continue;
+      int? id = l.categoryId;
+      while (id != null && byId.containsKey(id) && keep.add(id)) {
+        id = byId[id]!.parentId;
+      }
+    }
+    categories = [
+      for (final c in categories)
+        if (keep.contains(c.id)) c,
+    ];
+  }
   final settings = await db.select(db.settings).get();
 
   Map<int, List<T>> group<T>(Iterable<T> rows, int Function(T) key) {

@@ -13,6 +13,7 @@ import 'data/image_store.dart';
 import 'data/recipe_query.dart';
 import 'data/recipe_repository.dart';
 import 'data/settings_repository.dart';
+import 'exchange/exchange_providers.dart';
 import 'features/editor/photo_picker.dart';
 
 /// Cơ sở dữ liệu của app; test ghi đè bằng cơ sở dữ liệu trong bộ nhớ.
@@ -112,6 +113,8 @@ final startupProvider = FutureProvider<void>((ref) async {
   await ref.read(categoryRepositoryProvider).seedDefaults(language);
   await repo.purgeTrash();
   await ref.read(imageStoreProvider).sweep(await repo.referencedPhotos());
+  // File tạm xuất/chia sẻ còn sót lần trước (AC-48).
+  await ref.read(exportServiceProvider).cleanTemp();
   // Tự sao lưu nếu đã bật và tới chu kỳ (AC-50); không chặn việc mở app.
   unawaited(ref.read(backupServiceProvider).runIfDue());
 });

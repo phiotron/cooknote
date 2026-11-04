@@ -598,4 +598,139 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get noticeOpen => 'Mở Sao lưu';
+
+  @override
+  String get importTitle => 'Nhập từ file';
+
+  @override
+  String get importIntro =>
+      'Chọn file xuất từ Paprika (.paprikarecipes), Recipe Keeper (.zip), JSON schema.org hoặc file sao lưu .cooknote.';
+
+  @override
+  String get importUnverified =>
+      'Định dạng của Paprika và Recipe Keeper được đọc theo tài liệu của bên thứ ba và chưa thử với mọi file thật. Nếu file không đọc được, dữ liệu của bạn vẫn giữ nguyên.';
+
+  @override
+  String get importChoose => 'Chọn file';
+
+  @override
+  String get importWorking => 'Đang nhập công thức…';
+
+  @override
+  String get importUnknown =>
+      'Không nhận ra định dạng file này. CookNote đọc được .paprikarecipes, file zip của Recipe Keeper, JSON schema.org và .cooknote.';
+
+  @override
+  String get importBadFile =>
+      'Không đọc được file này. Dữ liệu của bạn không bị thay đổi.';
+
+  @override
+  String get importCancelled =>
+      'Đã hủy nhập. Các công thức đã nhập trước đó được giữ lại.';
+
+  @override
+  String importResult(int imported, int duplicates, int skipped) {
+    return 'Đã nhập $imported công thức. Đã có sẵn: $duplicates. Bị bỏ qua: $skipped.';
+  }
+
+  @override
+  String get importDetails => 'Chi tiết';
+
+  @override
+  String selectedCount(int count) {
+    return 'Đã chọn $count';
+  }
+
+  @override
+  String get selectAll => 'Chọn tất cả';
+
+  @override
+  String get exitSelection => 'Thoát chế độ chọn';
+
+  @override
+  String get exportJson => 'Xuất JSON';
+
+  @override
+  String get cookbookMake => 'Sách công thức (PDF)';
+
+  @override
+  String get trashSelected => 'Xóa vào thùng rác';
+
+  @override
+  String trashedCount(int count) {
+    return 'Đã chuyển $count công thức vào thùng rác';
+  }
+
+  @override
+  String get exportWorking => 'Đang tạo file…';
+
+  @override
+  String get exportCancelled => 'Đã hủy';
+
+  @override
+  String get exportFailed => 'Không tạo được file.';
+
+  @override
+  String get shareRecipe => 'Chia sẻ';
+
+  @override
+  String get shareAsText => 'Chia sẻ dạng chữ';
+
+  @override
+  String get shareAsPdf => 'Chia sẻ file PDF';
+
+  @override
+  String get shareAsCooknote =>
+      'Gửi file .cooknote (người nhận có CookNote nhập được)';
+
+  @override
+  String get printRecipe => 'In';
+
+  @override
+  String get cookbookTitleLabel => 'Tên sách';
+
+  @override
+  String get cookbookDefaultTitle => 'Sách công thức của tôi';
+
+  @override
+  String get cookbookCreate => 'Tạo sách';
+
+  @override
+  String get cookbookReady => 'Sách đã sẵn sàng';
+
+  @override
+  String get cookbookShare => 'Chia sẻ hoặc lưu';
+
+  @override
+  String get cookbookNone => 'Chưa có công thức để xuất';
+
+  @override
+  String get exchangeSection => 'Nhập và xuất';
+
+  @override
+  String get exportAllJson => 'Xuất tất cả công thức (JSON)';
+
+  @override
+  String get cookbookAll => 'Sách công thức từ tất cả công thức';
+
+  @override
+  String get pdfContents => 'Mục lục';
+
+  @override
+  String get pdfServings => 'Khẩu phần';
+
+  @override
+  String get pdfPrep => 'Chuẩn bị';
+
+  @override
+  String get pdfCook => 'Nấu';
+
+  @override
+  String get pdfTotal => 'Tổng';
+
+  @override
+  String get pdfMinutes => 'phút';
+
+  @override
+  String get pdfPage => 'Trang';
 }

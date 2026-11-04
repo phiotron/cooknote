@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../l10n/app_localizations.dart';
+import '../exchange/exchange_actions.dart';
 import 'recipe_list.dart';
 
 /// Màn chính với 5 mục điều hướng dưới (AC-01).
@@ -73,10 +75,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 context.push('/recipe/new');
               },
             ),
+            ListTile(
+              leading: const Icon(Icons.file_open_outlined),
+              title: Text(l.importFile),
+              onTap: () {
+                Navigator.pop(sheet);
+                context.push('/import');
+              },
+            ),
             for (final (icon, label) in [
               (Icons.language, l.fromWeb),
               (Icons.document_scanner_outlined, l.scanPhoto),
-              (Icons.file_open_outlined, l.importFile),
             ])
               ListTile(
                 enabled: false,
@@ -101,14 +110,31 @@ class _ComingSoon extends StatelessWidget {
       Center(child: Text(AppLocalizations.of(context).comingSoon));
 }
 
-class _MoreTab extends StatelessWidget {
+class _MoreTab extends ConsumerWidget {
   const _MoreTab();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final l = AppLocalizations.of(context);
     return ListView(
       children: [
+        ListTile(
+          leading: const Icon(Icons.file_open_outlined),
+          title: Text(l.importFile),
+          onTap: () => context.push('/import'),
+        ),
+        ListTile(
+          leading: const Icon(Icons.ios_share),
+          title: Text(l.exportAllJson),
+          onTap: () async =>
+              exportRecipesJson(context, ref, await allRecipeIds(ref)),
+        ),
+        ListTile(
+          leading: const Icon(Icons.picture_as_pdf_outlined),
+          title: Text(l.cookbookAll),
+          onTap: () async =>
+              makeCookbook(context, ref, await allRecipeIds(ref)),
+        ),
         ListTile(
           leading: const Icon(Icons.backup_outlined),
           title: Text(l.backup),
