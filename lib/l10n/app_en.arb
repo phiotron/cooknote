@@ -175,5 +175,115 @@
       }
     }
   },
-  "cookedRecorded": "Cooking recorded"
+  "cookedRecorded": "Cooking recorded",
+  "backup": "Backup",
+  "backupAutoTitle": "Automatic backup",
+  "backupLast": "Last successful backup",
+  "backupNever": "No successful backup yet",
+  "backupLastDetail": "{when} · {size}",
+  "@backupLastDetail": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      },
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "backupFolder": "Folder: {name}",
+  "@backupFolder": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "backupChooseFolder": "Choose automatic backup folder",
+  "backupChangeFolder": "Change folder",
+  "backupDisable": "Turn off automatic backup",
+  "backupFolderHint": "Pick a folder once, on this phone or in Google Drive or OneDrive. CookNote writes backups there when you open or leave the app and keeps the latest few. If the cloud app does not allow automatic writes, use \"Back up now and save elsewhere\" below.",
+  "backupInterval": "Schedule",
+  "intervalDaily": "Daily",
+  "intervalWeekly": "Weekly",
+  "backupKeepLabel": "Copies to keep",
+  "backupKeepValue": "{count} copies",
+  "@backupKeepValue": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "backupRunNow": "Back up to the folder now",
+  "backupSaveElsewhere": "Back up now and save elsewhere",
+  "backupSaveElsewhereHint": "Creates a backup file and opens the share sheet: save to Files, Google Drive, send by email...",
+  "backupRestoreTitle": "Restore",
+  "backupRestoreFile": "Restore from a file...",
+  "backupRestoreFromFolder": "Backups in the automatic folder",
+  "backupNoFiles": "No backups in the folder yet",
+  "backupListError": "Could not read the backup folder",
+  "restoreReplace": "Replace everything",
+  "restoreMerge": "Merge (only add missing recipes)",
+  "restoreReplaceWarning": "All current data will be replaced. CookNote saves a copy of the current data first.",
+  "restoreMergeInfo": "Recipes you already have (same name, same creation time) are kept as they are.",
+  "restoreChooseMode": "How do you want to restore?",
+  "restoreInfo": "{recipes} recipes, {photos} photos, created {when}",
+  "@restoreInfo": {
+    "placeholders": {
+      "recipes": {
+        "type": "int"
+      },
+      "photos": {
+        "type": "int"
+      },
+      "when": {
+        "type": "String"
+      }
+    }
+  },
+  "restoreDone": "Restored: {added} added, {skipped} already there",
+  "@restoreDone": {
+    "placeholders": {
+      "added": {
+        "type": "int"
+      },
+      "skipped": {
+        "type": "int"
+      }
+    }
+  },
+  "errBackupNotABackup": "This is not a CookNote backup file",
+  "errBackupNewer": "This file was made by a newer CookNote. Update the app and try again",
+  "errBackupChecksum": "The file is damaged (checksum mismatch). Your data was not changed",
+  "errBackupMissing": "The file is missing part of its data. Your data was not changed",
+  "errBackupBad": "The file content is malformed. Your data was not changed",
+  "backupDone": "Backed up ({size})",
+  "@backupDone": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "backupUnchanged": "Nothing changed since the last backup",
+  "backupFailedTarget": "Could not write to the backup folder. Check permissions or choose the folder again.",
+  "backupFailedVerify": "The written file failed the read-back check, so it does not count as a successful backup. Try again or pick another folder.",
+  "backupFailedOther": "Backup failed",
+  "backupCancelled": "Backup cancelled",
+  "backupWorking": "Backing up...",
+  "restoreWorking": "Restoring...",
+  "backupUnencrypted": "Backup files are NOT encrypted: anyone with the file can read your recipes. Keep it somewhere safe.",
+  "backupSystemLayer": "If Android backup is on, the system also backs up the database (without photos) to your Google account. That layer has size limits and does not replace the backups above.",
+  "noticeSuggest": "You have {count} recipes. Turn on automatic backup so you do not lose them.",
+  "@noticeSuggest": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noticeOverdue": "More than 7 days without a successful backup.",
+  "noticeError": "Automatic backup is failing. Open to review and choose the folder again.",
+  "noticeOpen": "Open Backup"
 }

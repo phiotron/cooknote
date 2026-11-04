@@ -430,4 +430,178 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cookedRecorded => 'Cooking recorded';
+
+  @override
+  String get backup => 'Backup';
+
+  @override
+  String get backupAutoTitle => 'Automatic backup';
+
+  @override
+  String get backupLast => 'Last successful backup';
+
+  @override
+  String get backupNever => 'No successful backup yet';
+
+  @override
+  String backupLastDetail(String when, String size) {
+    return '$when · $size';
+  }
+
+  @override
+  String backupFolder(String name) {
+    return 'Folder: $name';
+  }
+
+  @override
+  String get backupChooseFolder => 'Choose automatic backup folder';
+
+  @override
+  String get backupChangeFolder => 'Change folder';
+
+  @override
+  String get backupDisable => 'Turn off automatic backup';
+
+  @override
+  String get backupFolderHint =>
+      'Pick a folder once, on this phone or in Google Drive or OneDrive. CookNote writes backups there when you open or leave the app and keeps the latest few. If the cloud app does not allow automatic writes, use \"Back up now and save elsewhere\" below.';
+
+  @override
+  String get backupInterval => 'Schedule';
+
+  @override
+  String get intervalDaily => 'Daily';
+
+  @override
+  String get intervalWeekly => 'Weekly';
+
+  @override
+  String get backupKeepLabel => 'Copies to keep';
+
+  @override
+  String backupKeepValue(int count) {
+    return '$count copies';
+  }
+
+  @override
+  String get backupRunNow => 'Back up to the folder now';
+
+  @override
+  String get backupSaveElsewhere => 'Back up now and save elsewhere';
+
+  @override
+  String get backupSaveElsewhereHint =>
+      'Creates a backup file and opens the share sheet: save to Files, Google Drive, send by email...';
+
+  @override
+  String get backupRestoreTitle => 'Restore';
+
+  @override
+  String get backupRestoreFile => 'Restore from a file...';
+
+  @override
+  String get backupRestoreFromFolder => 'Backups in the automatic folder';
+
+  @override
+  String get backupNoFiles => 'No backups in the folder yet';
+
+  @override
+  String get backupListError => 'Could not read the backup folder';
+
+  @override
+  String get restoreReplace => 'Replace everything';
+
+  @override
+  String get restoreMerge => 'Merge (only add missing recipes)';
+
+  @override
+  String get restoreReplaceWarning =>
+      'All current data will be replaced. CookNote saves a copy of the current data first.';
+
+  @override
+  String get restoreMergeInfo =>
+      'Recipes you already have (same name, same creation time) are kept as they are.';
+
+  @override
+  String get restoreChooseMode => 'How do you want to restore?';
+
+  @override
+  String restoreInfo(int recipes, int photos, String when) {
+    return '$recipes recipes, $photos photos, created $when';
+  }
+
+  @override
+  String restoreDone(int added, int skipped) {
+    return 'Restored: $added added, $skipped already there';
+  }
+
+  @override
+  String get errBackupNotABackup => 'This is not a CookNote backup file';
+
+  @override
+  String get errBackupNewer =>
+      'This file was made by a newer CookNote. Update the app and try again';
+
+  @override
+  String get errBackupChecksum =>
+      'The file is damaged (checksum mismatch). Your data was not changed';
+
+  @override
+  String get errBackupMissing =>
+      'The file is missing part of its data. Your data was not changed';
+
+  @override
+  String get errBackupBad =>
+      'The file content is malformed. Your data was not changed';
+
+  @override
+  String backupDone(String size) {
+    return 'Backed up ($size)';
+  }
+
+  @override
+  String get backupUnchanged => 'Nothing changed since the last backup';
+
+  @override
+  String get backupFailedTarget =>
+      'Could not write to the backup folder. Check permissions or choose the folder again.';
+
+  @override
+  String get backupFailedVerify =>
+      'The written file failed the read-back check, so it does not count as a successful backup. Try again or pick another folder.';
+
+  @override
+  String get backupFailedOther => 'Backup failed';
+
+  @override
+  String get backupCancelled => 'Backup cancelled';
+
+  @override
+  String get backupWorking => 'Backing up...';
+
+  @override
+  String get restoreWorking => 'Restoring...';
+
+  @override
+  String get backupUnencrypted =>
+      'Backup files are NOT encrypted: anyone with the file can read your recipes. Keep it somewhere safe.';
+
+  @override
+  String get backupSystemLayer =>
+      'If Android backup is on, the system also backs up the database (without photos) to your Google account. That layer has size limits and does not replace the backups above.';
+
+  @override
+  String noticeSuggest(int count) {
+    return 'You have $count recipes. Turn on automatic backup so you do not lose them.';
+  }
+
+  @override
+  String get noticeOverdue => 'More than 7 days without a successful backup.';
+
+  @override
+  String get noticeError =>
+      'Automatic backup is failing. Open to review and choose the folder again.';
+
+  @override
+  String get noticeOpen => 'Open Backup';
 }

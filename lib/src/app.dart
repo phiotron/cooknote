@@ -4,6 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../l10n/app_localizations.dart';
+import 'features/backup/backup_notice.dart';
+import 'features/backup/backup_screen.dart';
 import 'features/categories/categories_screen.dart';
 import 'features/editor/recipe_editor_screen.dart';
 import 'features/home/home_screen.dart';
@@ -47,6 +49,10 @@ GoRouter createRouter() => GoRouter(
           ],
         ),
         GoRoute(
+          path: 'backup',
+          builder: (context, state) => const BackupScreen(),
+        ),
+        GoRoute(
           path: 'categories',
           builder: (context, state) => const CategoriesScreen(),
         ),
@@ -80,6 +86,8 @@ class CookNoteApp extends ConsumerWidget {
     final localeCode = ref.watch(localeCodeProvider).value;
     return MaterialApp.router(
       onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
+      builder: (context, child) =>
+          BackupLifecycleObserver(child: child ?? const SizedBox.shrink()),
       routerConfig: router ?? _router,
       scaffoldMessengerKey: rootMessengerKey,
       themeMode: themeMode,

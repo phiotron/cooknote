@@ -7,6 +7,7 @@ import '../../data/recipe_query.dart';
 import '../../data/recipe_repository.dart';
 import '../../providers.dart';
 import '../../ui/recipe_photo.dart';
+import '../backup/backup_notice.dart';
 import 'filter_sheet.dart';
 
 String sortLabel(AppLocalizations l, RecipeSort s) => switch (s) {
@@ -54,6 +55,7 @@ class _RecipeListTabState extends ConsumerState<RecipeListTab> {
 
     return Column(
       children: [
+        const BackupNoticeBanner(),
         Padding(
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 4),
           child: TextField(

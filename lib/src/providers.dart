@@ -1,6 +1,12 @@
+import 'dart:async';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'backup/backup_service.dart';
+import 'backup/backup_settings.dart';
+import 'backup/backup_target.dart';
 import 'data/category_repository.dart';
 import 'data/database.dart';
 import 'data/image_store.dart';
@@ -106,4 +112,69 @@ final startupProvider = FutureProvider<void>((ref) async {
   await ref.read(categoryRepositoryProvider).seedDefaults(language);
   await repo.purgeTrash();
   await ref.read(imageStoreProvider).sweep(await repo.referencedPhotos());
+  // Tự sao lưu nếu đã bật và tới chu kỳ (AC-50); không chặn việc mở app.
+  unawaited(ref.read(backupServiceProvider).runIfDue());
+});
+
+/// Thư mục tạm và thư mục giữ bản an toàn trước khi khôi phục. `main()` xác
+/// định đường dẫn rồi ghi đè; test ghi đè bằng thư mục tạm.
+class AppDirs {
+  const AppDirs({required this.temp, required this.safety});
+
+  final Directory temp;
+  final Directory safety;
+}
+
+final appDirsProvider = Provider<AppDirs>(
+  (ref) => throw UnimplementedError('appDirsProvider chưa được ghi đè'),
+);
+
+/// Phiên bản app ghi vào file sao lưu; `main()` ghi đè bằng số thật.
+final appVersionProvider = Provider<String>((ref) => '0.0.0');
+
+final backupSettingsProvider = Provider<BackupSettingsRepository>(
+  (ref) => BackupSettingsRepository(ref.watch(databaseProvider)),
+);
+
+final backupConfigProvider = StreamProvider<BackupConfig>(
+  (ref) => ref.watch(backupSettingsProvider).watch(),
+);
+
+/// Từ cấu hình ra nơi lưu thật; test ghi đè bằng thư mục thường.
+final backupTargetFactoryProvider =
+    Provider<BackupTarget? Function(BackupConfig)>(
+      (ref) =>
+          (config) => config.treeUri == null
+          ? null
+          : SafTarget(config.treeUri!, config.treeName ?? ''),
+    );
+
+final backupServiceProvider = Provider<BackupService>((ref) {
+  final dirs = ref.watch(appDirsProvider);
+  return BackupService(
+    db: ref.watch(databaseProvider),
+    images: ref.watch(imageStoreProvider),
+    settings: ref.watch(backupSettingsProvider),
+    tempDir: dirs.temp,
+    safetyDir: dirs.safety,
+    appVersion: ref.watch(appVersionProvider),
+    targetFor: ref.watch(backupTargetFactoryProvider),
+    clock: ref.watch(clockProvider),
+  );
+});
+
+/// Số công thức đang dùng (không tính thùng rác).
+final recipeCountProvider = StreamProvider<int>(
+  (ref) => ref.watch(recipeRepositoryProvider).watchCount(),
+);
+
+final backupNoticeProvider = Provider<BackupNotice>((ref) {
+  final config = ref.watch(backupConfigProvider).value;
+  final count = ref.watch(recipeCountProvider).value;
+  if (config == null || count == null) return BackupNotice.none;
+  return backupNotice(
+    config: config,
+    recipeCount: count,
+    now: ref.watch(clockProvider)(),
+  );
 });

@@ -120,6 +120,12 @@ Future<TestApp> pumpApp(
         databaseProvider.overrideWithValue(database),
         imageStoreProvider.overrideWithValue(images),
         photoPickerProvider.overrideWithValue(picker),
+        appDirsProvider.overrideWithValue(
+          AppDirs(
+            temp: Directory('${temp.path}/tmp'),
+            safety: Directory('${temp.path}/safety'),
+          ),
+        ),
         clockProvider.overrideWithValue(clock ?? () => testNow),
         ...overrides.cast(),
       ],
@@ -151,11 +157,12 @@ Future<void> waitUntil(
   bool Function() condition, {
   int seconds = 30,
 }) async {
-  for (var i = 0; i < seconds * 10 && !condition(); i++) {
+  for (var i = 0; i < seconds * 100 && !condition(); i++) {
     await tester.runAsync(
-      () => Future<void>.delayed(const Duration(milliseconds: 100)),
+      () => Future<void>.delayed(const Duration(milliseconds: 10)),
     );
-    await tester.pump();
+    // Phải tiến thời gian giả: Future.delayed trong mã chỉ chạy khi thời gian tiến.
+    await tester.pump(const Duration(milliseconds: 10));
   }
   await tester.pumpAndSettle();
 }

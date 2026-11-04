@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Android 12 trở lên. Sao lưu đám mây của hệ thống: chỉ cơ sở dữ liệu, không
+     ảnh. Chuyển máy trực tiếp (cáp, Wi-Fi Direct): mang cả ảnh (AC-56, D-007). -->
+<data-extraction-rules>
+    <cloud-backup>
+        <exclude domain="root" path="app_flutter/photos" />
+        <exclude domain="root" path="app_flutter/safety" />
+    </cloud-backup>
+    <device-transfer>
+        <exclude domain="root" path="app_flutter/safety" />
+    </device-transfer>
+</data-extraction-rules>

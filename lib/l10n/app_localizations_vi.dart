@@ -424,4 +424,178 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get cookedRecorded => 'Đã ghi lần nấu';
+
+  @override
+  String get backup => 'Sao lưu';
+
+  @override
+  String get backupAutoTitle => 'Sao lưu tự động';
+
+  @override
+  String get backupLast => 'Lần sao lưu thành công gần nhất';
+
+  @override
+  String get backupNever => 'Chưa có lần sao lưu thành công nào';
+
+  @override
+  String backupLastDetail(String when, String size) {
+    return '$when · $size';
+  }
+
+  @override
+  String backupFolder(String name) {
+    return 'Thư mục: $name';
+  }
+
+  @override
+  String get backupChooseFolder => 'Chọn thư mục sao lưu tự động';
+
+  @override
+  String get backupChangeFolder => 'Đổi thư mục';
+
+  @override
+  String get backupDisable => 'Tắt sao lưu tự động';
+
+  @override
+  String get backupFolderHint =>
+      'Chọn một lần một thư mục trên máy hoặc của Google Drive, OneDrive. CookNote tự ghi bản sao lưu vào đó khi bạn mở hoặc rời app, và giữ vài bản gần nhất. Nếu ứng dụng đám mây không cho ghi tự động, hãy dùng \"Sao lưu ngay và lưu ở nơi khác\" bên dưới.';
+
+  @override
+  String get backupInterval => 'Chu kỳ';
+
+  @override
+  String get intervalDaily => 'Hằng ngày';
+
+  @override
+  String get intervalWeekly => 'Hằng tuần';
+
+  @override
+  String get backupKeepLabel => 'Số bản giữ lại';
+
+  @override
+  String backupKeepValue(int count) {
+    return '$count bản';
+  }
+
+  @override
+  String get backupRunNow => 'Sao lưu vào thư mục ngay';
+
+  @override
+  String get backupSaveElsewhere => 'Sao lưu ngay và lưu ở nơi khác';
+
+  @override
+  String get backupSaveElsewhereHint =>
+      'Tạo file sao lưu rồi mở bảng chia sẻ: lưu vào Tệp, Google Drive, gửi email...';
+
+  @override
+  String get backupRestoreTitle => 'Khôi phục';
+
+  @override
+  String get backupRestoreFile => 'Khôi phục từ file...';
+
+  @override
+  String get backupRestoreFromFolder => 'Các bản trong thư mục tự động';
+
+  @override
+  String get backupNoFiles => 'Chưa có bản sao lưu nào trong thư mục';
+
+  @override
+  String get backupListError => 'Không đọc được thư mục sao lưu';
+
+  @override
+  String get restoreReplace => 'Thay thế toàn bộ';
+
+  @override
+  String get restoreMerge => 'Gộp (chỉ thêm công thức chưa có)';
+
+  @override
+  String get restoreReplaceWarning =>
+      'Dữ liệu hiện tại sẽ bị thay thế toàn bộ. CookNote tự lưu một bản dữ liệu hiện tại trước khi thay.';
+
+  @override
+  String get restoreMergeInfo =>
+      'Công thức đã có (cùng tên, cùng thời điểm tạo) được giữ nguyên.';
+
+  @override
+  String get restoreChooseMode => 'Khôi phục theo cách nào?';
+
+  @override
+  String restoreInfo(int recipes, int photos, String when) {
+    return '$recipes công thức, $photos ảnh, tạo lúc $when';
+  }
+
+  @override
+  String restoreDone(int added, int skipped) {
+    return 'Đã khôi phục: thêm $added, bỏ qua $skipped công thức đã có';
+  }
+
+  @override
+  String get errBackupNotABackup => 'Đây không phải file sao lưu của CookNote';
+
+  @override
+  String get errBackupNewer =>
+      'File này do bản CookNote mới hơn tạo. Hãy cập nhật ứng dụng rồi thử lại';
+
+  @override
+  String get errBackupChecksum =>
+      'File bị hỏng (mã kiểm tra không khớp). Dữ liệu hiện có không bị đổi';
+
+  @override
+  String get errBackupMissing =>
+      'File thiếu một phần dữ liệu. Dữ liệu hiện có không bị đổi';
+
+  @override
+  String get errBackupBad =>
+      'Nội dung file sai cấu trúc. Dữ liệu hiện có không bị đổi';
+
+  @override
+  String backupDone(String size) {
+    return 'Đã sao lưu ($size)';
+  }
+
+  @override
+  String get backupUnchanged => 'Dữ liệu không đổi từ lần sao lưu trước';
+
+  @override
+  String get backupFailedTarget =>
+      'Không ghi được vào thư mục sao lưu. Kiểm tra quyền hoặc chọn lại thư mục.';
+
+  @override
+  String get backupFailedVerify =>
+      'File ghi ra bị lỗi khi đọc lại nên chưa tính là sao lưu thành công. Thử lại hoặc chọn thư mục khác.';
+
+  @override
+  String get backupFailedOther => 'Sao lưu không thành công';
+
+  @override
+  String get backupCancelled => 'Đã hủy sao lưu';
+
+  @override
+  String get backupWorking => 'Đang sao lưu...';
+
+  @override
+  String get restoreWorking => 'Đang khôi phục...';
+
+  @override
+  String get backupUnencrypted =>
+      'File sao lưu KHÔNG được mã hóa: ai có file đều đọc được công thức của bạn. Giữ ở nơi an toàn.';
+
+  @override
+  String get backupSystemLayer =>
+      'Ngoài ra, nếu bật sao lưu của Android, hệ thống tự sao lưu cơ sở dữ liệu (không có ảnh) vào tài khoản Google. Lớp này có giới hạn dung lượng và không thay được sao lưu ở trên.';
+
+  @override
+  String noticeSuggest(int count) {
+    return 'Bạn đã có $count công thức. Bật sao lưu tự động để không bị mất.';
+  }
+
+  @override
+  String get noticeOverdue => 'Đã hơn 7 ngày chưa có lần sao lưu thành công.';
+
+  @override
+  String get noticeError =>
+      'Sao lưu tự động đang lỗi. Mở để xem và chọn lại thư mục.';
+
+  @override
+  String get noticeOpen => 'Mở Sao lưu';
 }

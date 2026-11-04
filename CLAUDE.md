@@ -4,17 +4,17 @@ App mobile CHỈ dành cho điện thoại. Mở Claude ngay trong thư mục n�
 
 - Mã app: APP-005
 - Thư mục: apps/APP-005-cooknote
-- Giai đoạn hiện tại: G2 xong code, chờ thử máy thật
+- Giai đoạn hiện tại: G3 xong code, ghép G4/G5/G8/G9
 - Nền tảng: Android (v1); iOS để sau (D-001)
 - Quy mô: chuẩn
 - Stack: Flutter
 
 ## Điểm dừng (Claude cập nhật bằng /end; đọc mục này đầu tiên khi quay lại app sau thời gian dài)
 - Cập nhật lần cuối: 2026-11-04
-- Đang làm dở: không có. G2 xong phần code (danh mục, thẻ, tìm không dấu, lọc, sắp xếp, lưới/dòng, Đã nấu): lint sạch, 86 test đạt, APK release build được (63,7 MB, đủ 3 kiến trúc, vẫn không có quyền INTERNET/CAMERA/bộ nhớ). CHƯA thử trên điện thoại thật (cả G1 lẫn G2)
-- Bước tiếp theo: người dùng thử G1 và G2 trên máy thật (danh sách ở BACKLOG, mục "Biên bản thử máy thật"); sau đó /phase APP-005 làm G3 (sao lưu bền lâu, thử sớm Google Drive). AC-03 kéo thả dòng: người dùng chưa chọn nên vẫn dùng ô nhiều dòng
-- Đang chờ (ai/cái gì): người dùng: thử máy thật G1, G2, phát hành dưới tên cá nhân hay công ty, Play Age Signals; file mẫu xuất từ Paprika và Recipe Keeper (cần ở G9)
-- Lưu ý dễ vấp: (1) Không dùng ML Kit, vì nó gửi số liệu về Google (D-003). (2) Chưa biết Google Drive trên Android có cho ghi tự động vào thư mục không, phải thử ở G3 (SPEC mục 7). (3) Galaxy A13 chạy 32-bit: build APK đủ kiến trúc (L-011). (4) Định dạng sao lưu chỉ được mở rộng, không phá vỡ (AC-55); G2 thêm bảng categories, recipe_categories, recipe_tags, cook_log nên phải vào định dạng sao lưu. (5) Flutter chưa có trong PATH, xem mục "Lệnh". (6) Máy thử là máy người dùng: không tự chạy adb. (7) Danh sách tải toàn bộ công thức khớp: 338 ms với 5.000 công thức trên máy tính, có thể vượt ngưỡng 300 ms trên điện thoại (TESTING, D-006)
+- Đang làm dở: không có. G3 (sao lưu bền lâu) xong phần code: lint sạch, 131 test đạt, APK release 67,7 MB, không thêm quyền. CHƯA thử máy thật G1, G2, G3. Người dùng đã bảo bỏ qua việc thử và làm tiếp (2026-11-04); 5 agent đã làm xong phần logic thuần của G4, G5, G8, G9 trên các nhánh `worktree-agent-*` (chưa ghép)
+- Bước tiếp theo: ghép các nhánh agent vào cây chính, rồi tích hợp giao diện G4 (nhập từ web), G5 (chế độ nấu), G6, G7, G8 (cần người dùng duyệt thư viện OCR), G9, G10
+- Đang chờ (ai/cái gì): người dùng: thử máy thật (nhất là sao lưu vào Google Drive), duyệt phương án OCR (Tesseract4Android, docs/audits/OCR-RESEARCH-2026-11.md), phát hành dưới tên cá nhân hay công ty, Play Age Signals; file mẫu xuất từ Paprika và Recipe Keeper (cần ở G9)
+- Lưu ý dễ vấp: (1) Không dùng ML Kit, vì nó gửi số liệu về Google (D-003). (2) Chưa biết Google Drive trên Android có cho ghi tự động vào thư mục không (D-007). (3) Galaxy A13 chạy 32-bit: build APK đủ kiến trúc (L-011). (4) Định dạng sao lưu chỉ được mở rộng (docs/BACKUP-FORMAT.md); bảng mới phải vào backup_data.dart và có file mẫu. (5) Flutter chưa có trong PATH, xem mục "Lệnh". (6) Máy thử là máy người dùng: không tự chạy adb. (7) Danh sách tải toàn bộ công thức: 338 ms với 5.000 công thức trên máy tính (TESTING, D-006). (8) Trong widget test dùng `pump(Duration)` khi chờ mã có Future.delayed; xem ARCHITECTURE. (9) Tiến trình `flutter_tester` treo giữ khóa sqlite3.dll: `taskkill //F //IM flutter_tester.exe`
 
 ## Mô tả
 - Mục đích: Sổ tay công thức nấu ăn: lưu và nhập công thức từ web hoặc ảnh, chế độ nấu, danh sách đi chợ, lịch thực đơn, tủ bếp; offline, sao lưu tự động (chức năng tương đương Paprika 3, Recipe Keeper, CookBook)
@@ -37,7 +37,7 @@ Flutter 3.47.8 ở `C:/src/flutter`, CHƯA có trong PATH. Trong Git Bash chạy
 
 ## Quy ước riêng của app
 - Cấu trúc thư mục code: `lib/src/data/` (drift, kho dữ liệu, ảnh), `lib/src/features/<tính năng>/` (màn hình), `lib/src/ui/` (widget dùng chung), `lib/src/providers.dart`, `lib/src/app.dart` (router, theme), `lib/l10n/` (file dịch .arb và mã sinh). Test phản chiếu ở `test/`.
-- Đặt tên, quản lý state, điều hướng, lưu dữ liệu: Riverpod 3 (provider viết tay), go_router, drift/SQLite (D-004 tới D-006). Mọi chữ giao diện nằm trong `.arb`. Dữ liệu chỉ trên máy, mạng chỉ dùng cho nhập từ web (D-002)
+- Đặt tên, quản lý state, điều hướng, lưu dữ liệu: Riverpod 3 (provider viết tay), go_router, drift/SQLite (D-004 tới D-007). Mọi chữ giao diện nằm trong `.arb`. Dữ liệu chỉ trên máy, mạng chỉ dùng cho nhập từ web (D-002)
 
 ## Bài học áp dụng cho app này
 ID bài học liên quan trong `../../lessons/LESSONS.md`: L-001, L-002, L-003, L-004 (nhập từ web), L-007, L-008, L-009, L-010 (camera, thông báo), L-011 (build đủ kiến trúc)

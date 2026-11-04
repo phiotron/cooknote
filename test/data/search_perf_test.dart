@@ -4,7 +4,6 @@ import 'package:cooknote/src/data/database.dart';
 import 'package:cooknote/src/data/image_store.dart';
 import 'package:cooknote/src/data/recipe_query.dart';
 import 'package:cooknote/src/data/recipe_repository.dart';
-import 'package:cooknote/src/data/text_normalize.dart';
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';

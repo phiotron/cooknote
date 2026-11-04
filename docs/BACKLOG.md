@@ -32,17 +32,17 @@ Hai lý do đặt sao lưu sớm (G3): người dùng ưu tiên giữ dữ liệ
 - [x] Xem dạng lưới hoặc dòng, nhớ lựa chọn (AC-14)
 - [x] Lịch sử "Đã nấu" (AC-15)
 
-### G3 · Sao lưu bền lâu và khôi phục — trạng thái: todo
-- [ ] Viết `docs/BACKUP-FORMAT.md` phiên bản 1. Tạo gói `.cooknote` gồm manifest, mã băm, ảnh, và HTML đọc được không cần app (AC-49)
-- [ ] Thử thật quyền ghi thư mục lâu dài trên Galaxy A13 với thư mục trên máy, Google Drive, OneDrive; ghi kết quả và D-xxx (SPEC mục 7, AC-50)
-- [ ] Sao lưu tự động theo chu kỳ khi mở app hoặc vào nền, xoay vòng N bản, chỉ xóa file của mình (AC-50)
-- [ ] Đọc lại và kiểm mã băm sau khi ghi; cảnh báo khi mất quyền ghi (AC-51)
-- [ ] "Sao lưu ngay" qua bảng chia sẻ hoặc trình lưu file (AC-52)
-- [ ] Màn Sao lưu: lần gần nhất, dung lượng, nhắc khi quá 7 ngày, gợi ý bật khi có 10 công thức (AC-53)
-- [ ] Khôi phục: kiểm trước, thay thế hoặc gộp, tự sao lưu trước khi thay thế (AC-54)
-- [ ] Đưa file mẫu phiên bản 1 vào `test/`; test khôi phục chạy trên mọi phiên bản định dạng (AC-55)
-- [ ] Android Auto Backup: tra giới hạn hiện hành, chỉ cấu hình cơ sở dữ liệu và cài đặt, thử đổi máy hoặc cài lại (AC-56)
-- [ ] Đo sao lưu và khôi phục 1.000 công thức có 2.000 ảnh, có thanh tiến độ, hủy được (AC-57). Quyết có cần sao lưu tăng dần không (SPEC mục 7)
+### G3 · Sao lưu bền lâu và khôi phục — trạng thái: done (code, lint, test đạt; chưa thử máy thật, xem việc còn lại)
+- [x] Viết `docs/BACKUP-FORMAT.md` phiên bản 1. Tạo gói `.cooknote` gồm manifest, mã băm, ảnh, và HTML đọc được không cần app (AC-49)
+- [ ] CHƯA LÀM (cần máy thật): thử thật quyền ghi thư mục lâu dài trên Galaxy A13 với thư mục trên máy, Google Drive, OneDrive; ghi kết quả và D-xxx (SPEC mục 7, AC-50)
+- [x] Sao lưu tự động theo chu kỳ khi mở app hoặc vào nền, xoay vòng N bản, chỉ xóa file của mình (AC-50)
+- [x] Đọc lại và kiểm mã băm sau khi ghi; cảnh báo khi mất quyền ghi (AC-51)
+- [x] "Sao lưu ngay" qua bảng chia sẻ hoặc trình lưu file (AC-52)
+- [x] Màn Sao lưu: lần gần nhất, dung lượng, nhắc khi quá 7 ngày, gợi ý bật khi có 10 công thức (AC-53)
+- [x] Khôi phục: kiểm trước, thay thế hoặc gộp, tự sao lưu trước khi thay thế (AC-54)
+- [x] Đưa file mẫu phiên bản 1 vào `test/`; test khôi phục chạy trên mọi phiên bản định dạng (AC-55)
+- [x] Android Auto Backup: đã cấu hình (loại ảnh, giữ cơ sở dữ liệu). CHƯA kiểm chứng: tra lại giới hạn hiện hành của Google, thử đổi máy hoặc cài lại (AC-56)
+- [x] Thanh tiến độ và nút Hủy khi sao lưu (AC-57) đã làm. [ ] CHƯA ĐO: thời gian sao lưu và khôi phục 1.000 công thức có 2.000 ảnh trên máy thật, và quyết có cần sao lưu tăng dần không (SPEC mục 7)
 
 ### G4 · Nhập công thức từ web — trạng thái: todo
 - [ ] Trình duyệt trong app có nút "Lưu công thức" (AC-16)
@@ -103,7 +103,7 @@ Hai lý do đặt sao lưu sớm (G3): người dùng ưu tiên giữ dữ liệ
 
 ## Việc kế tiếp (tối đa 5, theo thứ tự)
 1. Người dùng thử G1 và G2 trên điện thoại thật (xem "Biên bản thử máy thật") và trả lời câu về AC-03 (kéo thả dòng)
-2. Sau khi qua cổng G2: G3 (sao lưu bền lâu, thử sớm rủi ro Google Drive)
+2. Người dùng thử Sao lưu trên máy thật, nhất là thư mục Google Drive/OneDrive (rủi ro số 1, SPEC mục 7, D-007)
 
 ## Lỗi đã biết (đang mở)
 Mỗi lỗi: BUG-xxx · mô tả · cách tái hiện · mức độ (chặn / nặng / nhẹ) · cách tạm tránh.
@@ -127,6 +127,15 @@ Mỗi lỗi: BUG-xxx · nguyên nhân gốc · cách sửa · làm sao tránh l�
 ## Biên bản thử máy thật
 Mỗi lần thử: ngày · máy và phiên bản hệ điều hành · bản app · đã thử gì · kết quả · lỗi phát hiện.
 (Chưa có lần nào.)
+
+### Việc người dùng cần thử cho cổng G3 (CHƯA kiểm chứng trên máy thật)
+APK mới nhất cài đè bản cũ. Mục Thêm > Sao lưu.
+- Chọn thư mục tự động: thử LẦN LƯỢT một thư mục trên máy, một thư mục trong Google Drive, một thư mục trong OneDrive (nếu có). Với mỗi nơi: bấm "Sao lưu vào thư mục ngay" thì phải thấy file `CookNote-....cooknote` xuất hiện và thông báo "Đã sao lưu". GHI LẠI nơi nào không ghi được (đây là kết quả rủi ro số 1).
+- Tắt hẳn app, mở lại: không sao lưu trùng (dữ liệu không đổi). Thêm một công thức rồi sang ngày sau hoặc đổi chu kỳ để thử tự động.
+- "Sao lưu ngay và lưu ở nơi khác": mở bảng chia sẻ, lưu vào Tệp hoặc Drive.
+- Khôi phục: từ danh sách trong thư mục, và từ file qua "Khôi phục từ file...". Thử cả "Gộp" và "Thay thế toàn bộ". Thử chọn một file ảnh bất kỳ (không phải sao lưu) thì phải báo lỗi và không đổi dữ liệu.
+- Mở file `.cooknote` đổi đuôi thành `.zip` trên máy tính, mở `html/index.html` bằng trình duyệt: đọc được công thức, có ảnh.
+- Gỡ ứng dụng (hoặc xóa dữ liệu) rồi cài lại và khôi phục từ file: mọi công thức và ảnh trở lại (SPEC mục 8).
 
 ### Việc người dùng cần thử cho cổng G2 (CHƯA kiểm chứng trên máy thật)
 Cài đè APK mới lên bản G1: dữ liệu cũ phải còn (migration, AC kiểm bằng test trên máy tính, chưa thử trên máy).

@@ -2,6 +2,22 @@
 
 Mỗi quyết định một mục, mới nhất ở trên cùng.
 
+## D-007 · Sao lưu: gói zip mở, ghi vào thư mục người dùng chọn qua SAF, đọc lại để xác minh · 2026-11-04
+- Bối cảnh: G3 làm F-11. Người dùng giữ công thức cả đời (D-002) nên sao lưu là tính năng sống còn, và phải đọc được dù CookNote không còn.
+- Quyết định:
+  - Định dạng `.cooknote`: zip chứa `manifest.json` (mã băm SHA-256 từng file), `data.json` (JSON thuần, độc lập với bảng cơ sở dữ liệu), `images/`, `html/` (đọc bằng trình duyệt), `README.txt`. Tài liệu ở `docs/BACKUP-FORMAT.md`. Chỉ được mở rộng, có file mẫu mỗi phiên bản trong `test/fixtures/` và test khôi phục tất cả (AC-55).
+  - Thư viện: `archive` (zip), `crypto` (SHA-256), `saf_util` + `saf_stream` (thư mục Storage Access Framework), `file_picker` (chọn file để khôi phục), `share_plus` (bảng chia sẻ cho "Sao lưu ngay"), `package_info_plus` (phiên bản app trong manifest). Không thêm quyền nào vào manifest (kiểm trên APK, 2026-11-04).
+  - Sao lưu tự động: chọn thư mục MỘT lần bằng trình chọn thư mục của Android (quyền ghi lâu dài), chu kỳ hằng ngày (23 giờ) hoặc hằng tuần (6 ngày 23 giờ) tính từ lần kiểm gần nhất, chạy lúc mở app (`startupProvider`) và lúc app vào nền (`BackupLifecycleObserver`). Chỉ ghi file mới khi mã băm `data.json` khác lần trước. Lỗi không làm chu kỳ trôi: lần mở app sau thử lại.
+  - Mỗi lần ghi: tạo file tạm, đọc lại kiểm mã băm, ghi vào thư mục, LIỆT KÊ và ĐỌC LẠI đúng file vừa ghi ở nơi lưu rồi kiểm mã băm lần nữa (AC-51). Hỏng thì xóa file hỏng, không tính thành công. Chỉ sau đó mới xoay vòng.
+  - Xoay vòng: giữ N bản mới nhất (1 tới 30, mặc định 5), chỉ xóa file có tên đúng mẫu `CookNote-YYYY-MM-DD-HHmmss.cooknote`. SPEC AC-50 còn đòi nhận bằng `manifest.json`; bản này CHỈ nhận bằng tên (đọc manifest của từng file ở nơi lưu từ xa tốn thời gian và băng thông), nên file người dùng tự đặt đúng tên đó trong thư mục sao lưu cũng bị tính là của app.
+  - Khôi phục: kiểm toàn bộ TRƯỚC, hai chế độ (thay thế, gộp), thay thế thì tự sao lưu dữ liệu hiện tại vào thư mục riêng của app (giữ 2 bản).
+  - Android Auto Backup làm lớp phụ: `allowBackup=true`, loại thư mục `photos` và `safety` khỏi sao lưu đám mây (giới hạn 25 MB), chuyển máy trực tiếp vẫn mang ảnh. Đường dẫn `app_flutter` là của `path_provider` trên Android, CHƯA kiểm chứng trên máy thật.
+- Lý do / phương án đã loại: Đồng bộ qua đăng nhập Google Drive (loại, D-002). Ghi trực tiếp bằng đường dẫn `dart:io` vào thư mục ngoài (loại: Android 11 trở lên không cho). Mã hóa file bằng mật khẩu (để Ý tưởng: cần quản lý mật khẩu, mất mật khẩu là mất dữ liệu). Nén thêm ảnh trong gói (loại: ảnh JPEG đã nén, chỉ tốn CPU).
+- Hệ quả cần nhớ:
+  - CHƯA kiểm chứng trên máy thật: Google Drive và OneDrive có cho ghi định kỳ vào thư mục qua SAF không (rủi ro số 1 của SPEC mục 7); `pasteLocalFile` với file lớn; Auto Backup. Nếu Drive không cho, "Sao lưu ngay và lưu ở nơi khác" cùng lời nhắc là lớp chính.
+  - Mọi bảng hoặc cột mới ở G5 tới G9 phải thêm vào `exportData` và `importData` (`lib/src/backup/backup_data.dart`) và có test khôi phục.
+  - Trong widget test, hàm chờ phải tiến thời gian giả (`pump(Duration)`), vì mã sao lưu dùng `Future.delayed(Duration.zero)` để nhường giao diện.
+
 ## D-006 · Tìm kiếm không dấu bằng cột chỉ mục; danh mục, thẻ, lịch sử nấu là bảng riêng · 2026-11-04
 - Bối cảnh: G2 làm F-02 (AC-10 tới AC-15). Tìm "pho bo" phải ra "Phở bò", phải đủ nhanh với 5.000 công thức, và lên được từ cơ sở dữ liệu G1 mà không mất dữ liệu.
 - Quyết định:

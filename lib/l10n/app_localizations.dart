@@ -859,6 +859,300 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Cooking recorded'**
   String get cookedRecorded;
+
+  /// No description provided for @backup.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup'**
+  String get backup;
+
+  /// No description provided for @backupAutoTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Automatic backup'**
+  String get backupAutoTitle;
+
+  /// No description provided for @backupLast.
+  ///
+  /// In en, this message translates to:
+  /// **'Last successful backup'**
+  String get backupLast;
+
+  /// No description provided for @backupNever.
+  ///
+  /// In en, this message translates to:
+  /// **'No successful backup yet'**
+  String get backupNever;
+
+  /// No description provided for @backupLastDetail.
+  ///
+  /// In en, this message translates to:
+  /// **'{when} · {size}'**
+  String backupLastDetail(String when, String size);
+
+  /// No description provided for @backupFolder.
+  ///
+  /// In en, this message translates to:
+  /// **'Folder: {name}'**
+  String backupFolder(String name);
+
+  /// No description provided for @backupChooseFolder.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose automatic backup folder'**
+  String get backupChooseFolder;
+
+  /// No description provided for @backupChangeFolder.
+  ///
+  /// In en, this message translates to:
+  /// **'Change folder'**
+  String get backupChangeFolder;
+
+  /// No description provided for @backupDisable.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn off automatic backup'**
+  String get backupDisable;
+
+  /// No description provided for @backupFolderHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick a folder once, on this phone or in Google Drive or OneDrive. CookNote writes backups there when you open or leave the app and keeps the latest few. If the cloud app does not allow automatic writes, use \"Back up now and save elsewhere\" below.'**
+  String get backupFolderHint;
+
+  /// No description provided for @backupInterval.
+  ///
+  /// In en, this message translates to:
+  /// **'Schedule'**
+  String get backupInterval;
+
+  /// No description provided for @intervalDaily.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily'**
+  String get intervalDaily;
+
+  /// No description provided for @intervalWeekly.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly'**
+  String get intervalWeekly;
+
+  /// No description provided for @backupKeepLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Copies to keep'**
+  String get backupKeepLabel;
+
+  /// No description provided for @backupKeepValue.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} copies'**
+  String backupKeepValue(int count);
+
+  /// No description provided for @backupRunNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Back up to the folder now'**
+  String get backupRunNow;
+
+  /// No description provided for @backupSaveElsewhere.
+  ///
+  /// In en, this message translates to:
+  /// **'Back up now and save elsewhere'**
+  String get backupSaveElsewhere;
+
+  /// No description provided for @backupSaveElsewhereHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Creates a backup file and opens the share sheet: save to Files, Google Drive, send by email...'**
+  String get backupSaveElsewhereHint;
+
+  /// No description provided for @backupRestoreTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore'**
+  String get backupRestoreTitle;
+
+  /// No description provided for @backupRestoreFile.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore from a file...'**
+  String get backupRestoreFile;
+
+  /// No description provided for @backupRestoreFromFolder.
+  ///
+  /// In en, this message translates to:
+  /// **'Backups in the automatic folder'**
+  String get backupRestoreFromFolder;
+
+  /// No description provided for @backupNoFiles.
+  ///
+  /// In en, this message translates to:
+  /// **'No backups in the folder yet'**
+  String get backupNoFiles;
+
+  /// No description provided for @backupListError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not read the backup folder'**
+  String get backupListError;
+
+  /// No description provided for @restoreReplace.
+  ///
+  /// In en, this message translates to:
+  /// **'Replace everything'**
+  String get restoreReplace;
+
+  /// No description provided for @restoreMerge.
+  ///
+  /// In en, this message translates to:
+  /// **'Merge (only add missing recipes)'**
+  String get restoreMerge;
+
+  /// No description provided for @restoreReplaceWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'All current data will be replaced. CookNote saves a copy of the current data first.'**
+  String get restoreReplaceWarning;
+
+  /// No description provided for @restoreMergeInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Recipes you already have (same name, same creation time) are kept as they are.'**
+  String get restoreMergeInfo;
+
+  /// No description provided for @restoreChooseMode.
+  ///
+  /// In en, this message translates to:
+  /// **'How do you want to restore?'**
+  String get restoreChooseMode;
+
+  /// No description provided for @restoreInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'{recipes} recipes, {photos} photos, created {when}'**
+  String restoreInfo(int recipes, int photos, String when);
+
+  /// No description provided for @restoreDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Restored: {added} added, {skipped} already there'**
+  String restoreDone(int added, int skipped);
+
+  /// No description provided for @errBackupNotABackup.
+  ///
+  /// In en, this message translates to:
+  /// **'This is not a CookNote backup file'**
+  String get errBackupNotABackup;
+
+  /// No description provided for @errBackupNewer.
+  ///
+  /// In en, this message translates to:
+  /// **'This file was made by a newer CookNote. Update the app and try again'**
+  String get errBackupNewer;
+
+  /// No description provided for @errBackupChecksum.
+  ///
+  /// In en, this message translates to:
+  /// **'The file is damaged (checksum mismatch). Your data was not changed'**
+  String get errBackupChecksum;
+
+  /// No description provided for @errBackupMissing.
+  ///
+  /// In en, this message translates to:
+  /// **'The file is missing part of its data. Your data was not changed'**
+  String get errBackupMissing;
+
+  /// No description provided for @errBackupBad.
+  ///
+  /// In en, this message translates to:
+  /// **'The file content is malformed. Your data was not changed'**
+  String get errBackupBad;
+
+  /// No description provided for @backupDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Backed up ({size})'**
+  String backupDone(String size);
+
+  /// No description provided for @backupUnchanged.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing changed since the last backup'**
+  String get backupUnchanged;
+
+  /// No description provided for @backupFailedTarget.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not write to the backup folder. Check permissions or choose the folder again.'**
+  String get backupFailedTarget;
+
+  /// No description provided for @backupFailedVerify.
+  ///
+  /// In en, this message translates to:
+  /// **'The written file failed the read-back check, so it does not count as a successful backup. Try again or pick another folder.'**
+  String get backupFailedVerify;
+
+  /// No description provided for @backupFailedOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup failed'**
+  String get backupFailedOther;
+
+  /// No description provided for @backupCancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup cancelled'**
+  String get backupCancelled;
+
+  /// No description provided for @backupWorking.
+  ///
+  /// In en, this message translates to:
+  /// **'Backing up...'**
+  String get backupWorking;
+
+  /// No description provided for @restoreWorking.
+  ///
+  /// In en, this message translates to:
+  /// **'Restoring...'**
+  String get restoreWorking;
+
+  /// No description provided for @backupUnencrypted.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup files are NOT encrypted: anyone with the file can read your recipes. Keep it somewhere safe.'**
+  String get backupUnencrypted;
+
+  /// No description provided for @backupSystemLayer.
+  ///
+  /// In en, this message translates to:
+  /// **'If Android backup is on, the system also backs up the database (without photos) to your Google account. That layer has size limits and does not replace the backups above.'**
+  String get backupSystemLayer;
+
+  /// No description provided for @noticeSuggest.
+  ///
+  /// In en, this message translates to:
+  /// **'You have {count} recipes. Turn on automatic backup so you do not lose them.'**
+  String noticeSuggest(int count);
+
+  /// No description provided for @noticeOverdue.
+  ///
+  /// In en, this message translates to:
+  /// **'More than 7 days without a successful backup.'**
+  String get noticeOverdue;
+
+  /// No description provided for @noticeError.
+  ///
+  /// In en, this message translates to:
+  /// **'Automatic backup is failing. Open to review and choose the folder again.'**
+  String get noticeError;
+
+  /// No description provided for @noticeOpen.
+  ///
+  /// In en, this message translates to:
+  /// **'Open Backup'**
+  String get noticeOpen;
 }
 
 class _AppLocalizationsDelegate

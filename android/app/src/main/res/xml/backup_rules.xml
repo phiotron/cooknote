@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Android 11 trở xuống. Sao lưu tự động của hệ thống: giữ cơ sở dữ liệu
+     (nằm trong app_flutter), bỏ thư mục ảnh vì giới hạn dung lượng 25 MB của
+     Auto Backup, và bỏ bản an toàn trước khi khôi phục (AC-56, D-007). -->
+<full-backup-content>
+    <exclude domain="root" path="app_flutter/photos" />
+    <exclude domain="root" path="app_flutter/safety" />
+</full-backup-content>

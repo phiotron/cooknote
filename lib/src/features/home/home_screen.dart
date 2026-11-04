@@ -110,6 +110,11 @@ class _MoreTab extends StatelessWidget {
     return ListView(
       children: [
         ListTile(
+          leading: const Icon(Icons.backup_outlined),
+          title: Text(l.backup),
+          onTap: () => context.push('/backup'),
+        ),
+        ListTile(
           leading: const Icon(Icons.folder_outlined),
           title: Text(l.categories),
           onTap: () => context.push('/categories'),

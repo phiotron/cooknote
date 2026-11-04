@@ -260,6 +260,16 @@ class RecipeRepository {
     RecipeQuery query = const RecipeQuery(),
   }) => _changes().asyncMap((_) => search(query));
 
+  /// Số công thức đang dùng, không tính thùng rác.
+  Stream<int> watchCount() {
+    final count = _db.recipes.id.count();
+    return (_db.selectOnly(_db.recipes)
+          ..addColumns([count])
+          ..where(_db.recipes.deletedAt.isNull()))
+        .map((r) => r.read(count) ?? 0)
+        .watchSingle();
+  }
+
   /// Công thức trong thùng rác, mới xóa ở trên (AC-05).
   Stream<List<RecipeSummary>> watchTrash() =>
       _changes().asyncMap((_) => _summaries(trashed: true));
