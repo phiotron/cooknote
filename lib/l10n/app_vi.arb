@@ -127,6 +127,112 @@
   "cookedTimes": "{count, plural, =0{Chưa nấu lần nào} other{Đã nấu {count} lần}}",
   "lastCooked": "Lần gần nhất: {date}",
   "cookedRecorded": "Đã ghi lần nấu",
+  "cookButton": "Nấu",
+  "cookModeTitle": "Chế độ nấu",
+  "scaleFactorLabel": "Hệ số",
+  "scaleServingsButton": "Khẩu phần…",
+  "scaleCustomButton": "Tự nhập…",
+  "scaleServingsTitle": "Khẩu phần mới",
+  "scaleCustomTitle": "Nhập hệ số (ví dụ 1,5 hoặc 1/2)",
+  "scaleInvalid": "Số không hợp lệ",
+  "unitOriginal": "Gốc",
+  "unitMetric": "Hệ mét",
+  "unitUs": "Hệ Mỹ",
+  "viewingScaled": "Đang xem ×{factor}. Công thức gốc không đổi.",
+  "@viewingScaled": {
+    "placeholders": {
+      "factor": {
+        "type": "String"
+      }
+    }
+  },
+  "viewingUnitsOnly": "Đang xem đổi đơn vị. Công thức gốc không đổi.",
+  "resetView": "Về gốc",
+  "saveScaled": "Lưu theo khẩu phần này",
+  "saveScaledTitle": "Ghi đè công thức?",
+  "saveScaledBody": "Nguyên liệu và khẩu phần đang xem sẽ thay cho bản gốc.",
+  "scaledSaved": "Đã lưu theo khẩu phần mới",
+  "cannotScale": "không tự nhân được",
+  "cookFontSize": "Cỡ chữ",
+  "cookPin": "Ghim để nấu nhanh",
+  "cookUnpin": "Bỏ ghim",
+  "cookPinLimit": "Chỉ ghim được tối đa {max} công thức. Bỏ ghim một công thức trước.",
+  "@cookPinLimit": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "cookNoSteps": "Công thức chưa có bước nào.",
+  "cookTapHint": "Chạm một dòng để gạch đi.",
+  "cookStepN": "Bước {n}",
+  "@cookStepN": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "timerButtonTooltip": "Hẹn giờ {label}",
+  "@timerButtonTooltip": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "timerName": "{step} · {label}",
+  "@timerName": {
+    "placeholders": {
+      "step": {
+        "type": "String"
+      },
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "timersRunning": "Hẹn giờ đang chạy",
+  "timerCancel": "Hủy hẹn giờ",
+  "timerDone": "Hết giờ: {name}",
+  "@timerDone": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "timerDismiss": "Tắt",
+  "timerNotifBody": "{recipe}: hết giờ",
+  "@timerNotifBody": {
+    "placeholders": {
+      "recipe": {
+        "type": "String"
+      }
+    }
+  },
+  "notifChannelName": "Hẹn giờ nấu",
+  "notifChannelDescription": "Báo khi hẹn giờ nấu kết thúc",
+  "notifRationaleTitle": "Báo khi hết giờ",
+  "notifRationaleBody": "CookNote cần quyền thông báo để báo bạn khi hẹn giờ kết thúc, kể cả khi màn hình khóa hoặc app ở nền. Quyền này chỉ dùng cho hẹn giờ nấu.",
+  "notifContinue": "Tiếp tục",
+  "notifLater": "Để sau",
+  "notifDeniedWarning": "Chưa có quyền thông báo: hẹn giờ vẫn chạy nhưng sẽ không báo khi app ở nền.",
+  "speakStep": "Đọc bước",
+  "stopSpeaking": "Dừng đọc",
+  "noVoiceTitle": "Máy chưa có giọng đọc {language}",
+  "@noVoiceTitle": {
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
+  },
+  "noVoiceBody": "Vào Cài đặt của máy, tìm \"Chuyển văn bản thành giọng nói\" (tên có thể khác tùy hãng), chọn ngôn ngữ rồi tải giọng đọc.",
+  "languageVietnamese": "tiếng Việt",
+  "languageEnglish": "tiếng Anh",
+  "speakError": "Không đọc được bước này",
   "backup": "Sao lưu",
   "backupAutoTitle": "Sao lưu tự động",
   "backupLast": "Lần sao lưu thành công gần nhất",
