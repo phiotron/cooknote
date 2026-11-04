@@ -12,7 +12,7 @@ App mobile CHỈ dành cho điện thoại. Mở Claude ngay trong thư mục n�
 ## Điểm dừng (Claude cập nhật bằng /end; đọc mục này đầu tiên khi quay lại app sau thời gian dài)
 - Cập nhật lần cuối: 2026-11-04
 - Đang làm dở: không có. G1 xong phần code: lint sạch, 38 test đạt, APK release build được (61,9 MB, đủ 3 kiến trúc, không có quyền INTERNET/CAMERA/bộ nhớ). CHƯA thử trên điện thoại thật
-- Bước tiếp theo: người dùng thử G1 trên máy thật (danh sách ở BACKLOG, mục "Biên bản thử máy thật") và trả lời 2 câu: (1) có chấp nhận sửa nguyên liệu/bước bằng ô nhiều dòng thay vì kéo thả từng dòng (AC-03)? (2) có chấp nhận chụp ảnh bằng app camera hệ thống, không xin quyền camera (D-005, lệch AC-08)? Sau đó /phase APP-005 làm G2
+- Bước tiếp theo: người dùng thử G1 trên máy thật (danh sách ở BACKLOG, mục "Biên bản thử máy thật") và trả lời câu còn lại: (1) có chấp nhận sửa nguyên liệu/bước bằng ô nhiều dòng thay vì kéo thả từng dòng (AC-03)? (2) ĐÃ chốt 2026-11-04: chụp ảnh bằng app camera hệ thống, không xin quyền camera (D-005, SPEC AC-08 đã sửa). Sau đó /phase APP-005 làm G2
 - Đang chờ (ai/cái gì): người dùng: thử máy thật G1, hai câu trên, phát hành dưới tên cá nhân hay công ty, Play Age Signals; file mẫu xuất từ Paprika và Recipe Keeper (cần ở G9)
 - Lưu ý dễ vấp: (1) Không dùng ML Kit, vì nó gửi số liệu về Google (D-003). (2) Chưa biết Google Drive trên Android có cho ghi tự động vào thư mục không, phải thử ở G3 (SPEC mục 7). (3) Galaxy A13 chạy 32-bit: build APK đủ kiến trúc (L-011). (4) Định dạng sao lưu chỉ được mở rộng, không phá vỡ (AC-55). (5) Flutter chưa có trong PATH, xem mục "Lệnh". (6) Máy thử là máy người dùng: không tự chạy adb (xem bộ nhớ "hỏi trước khi dùng điện thoại")
 

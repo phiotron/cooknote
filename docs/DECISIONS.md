@@ -12,7 +12,7 @@ Mỗi quyết định một mục, mới nhất ở trên cùng.
   - Chụp ảnh bằng ứng dụng camera của hệ điều hành qua `image_picker`, nên KHÔNG khai quyền `CAMERA` trong manifest và không có hộp xin quyền camera.
 - Lý do / phương án đã loại: Lưu ảnh dạng blob trong SQLite (loại: cơ sở dữ liệu phình to, sao lưu và đọc chậm). Lưu nguyên liệu thành bảng riêng ngay từ G1 (loại: chưa có bộ tách, tách sai thì mất dữ liệu gốc). Màn camera tự viết bằng thư viện camera (loại: cần quyền `CAMERA`, thêm mã, không cần cho G1).
 - Hệ quả cần nhớ:
-  - AC-08 của SPEC (màn giải thích rồi xin quyền camera) không còn áp dụng cho chụp ảnh món; quyền camera chỉ cần nếu G8 (quét ảnh) tự mở camera. Phải nói với người dùng và cập nhật SPEC mục 5 khi người dùng đồng ý.
+  - Người dùng đã đồng ý ngày 2026-11-04; SPEC AC-08 và mục 5 đã sửa theo. Quyền camera chỉ cần nếu G8 (quét ảnh) tự mở camera, khi đó hỏi lại.
   - Mọi cột hoặc bảng mới phải thêm migration (`schemaVersion` hiện là 1) và vào định dạng sao lưu (AC-55).
   - `ImageStore.delete` bỏ qua lỗi file bị khóa; ảnh mồ côi được dọn ở lần mở app sau.
 

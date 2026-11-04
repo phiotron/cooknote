@@ -17,7 +17,7 @@ Hai lý do đặt sao lưu sớm (G3): người dùng ưu tiên giữ dữ liệ
 - [ ] Kéo để sắp xếp dòng nguyên liệu và bước (AC-03): CHƯA làm. Ô nhập nhiều dòng không kéo được từng dòng; cần đổi thiết kế (danh sách dòng kéo thả) nên hỏi người dùng trước, xem G2
 - [x] Sửa, xóa có hoàn tác, thùng rác 30 ngày, nhân bản (AC-05, AC-06)
 - [x] Ảnh (AC-07, AC-08):
-  - Trình chọn ảnh hệ thống; chụp bằng ứng dụng camera của hệ điều hành nên không có quyền camera để xin (D-005; lệch AC-08, chờ người dùng đồng ý).
+  - Trình chọn ảnh hệ thống; chụp bằng ứng dụng camera của hệ điều hành nên không có quyền camera để xin (D-005; AC-08 đã sửa theo, người dùng đồng ý 2026-11-04).
   - Chép vào bộ nhớ riêng, thu nhỏ còn 2048 px, bỏ EXIF vị trí.
   - Dọn file thừa.
 - [x] Màn xem công thức, xem ảnh toàn màn hình (AC-09)
@@ -102,7 +102,7 @@ Hai lý do đặt sao lưu sớm (G3): người dùng ưu tiên giữ dữ liệ
 - [ ] Thử khôi phục trên máy Android khác, hoặc sau khi gỡ và cài lại app (SPEC mục 8)
 
 ## Việc kế tiếp (tối đa 5, theo thứ tự)
-1. Người dùng thử G1 trên điện thoại thật (xem "Biên bản thử máy thật") và trả lời hai câu về AC-03 và AC-08
+1. Người dùng thử G1 trên điện thoại thật (xem "Biên bản thử máy thật") và trả lời câu về AC-03 (kéo thả dòng)
 2. Sau khi qua cổng G1: G2 (danh mục, thẻ, tìm không dấu, lọc, sắp xếp, "Đã nấu")
 3. G3: sao lưu bền lâu, và thử sớm rủi ro Google Drive
 

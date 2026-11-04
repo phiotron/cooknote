@@ -39,7 +39,7 @@ Quy ước kiểm chứng:
 - AC-05: Sửa được mọi trường. Xóa thì hỏi xác nhận, sau đó có thanh "Đã xóa · Hoàn tác" trong 5 giây. Công thức đã xóa vào "Thùng rác", giữ 30 ngày rồi mới xóa hẳn cùng ảnh của nó. Khôi phục được từ thùng rác. [T]
 - AC-06: Nhân bản được một công thức (để làm biến thể). [T]
 - AC-07: Ảnh chọn bằng trình chọn ảnh của hệ điều hành (không xin quyền bộ nhớ hay thư viện ảnh) hoặc chụp bằng camera. Ảnh được chép vào bộ nhớ riêng của app và thu nhỏ để cạnh dài nhất không quá 2048 px. Xóa ảnh gốc trong máy không làm mất ảnh trong công thức. Gỡ ảnh hoặc xóa hẳn công thức thì file ảnh bị xóa theo, không để lại file thừa. [T]
-- AC-08: Quyền camera chỉ xin lần đầu bấm "Chụp", có màn giải thích lý do trước. Từ chối thì vẫn chọn được ảnh từ thư viện, và có nút mở Cài đặt hệ thống. [M]
+- AC-08: Chụp ảnh bằng ứng dụng camera của hệ điều hành (qua trình chọn ảnh), nên CookNote không khai và không xin quyền camera. Người dùng hủy việc chụp thì không có gì thay đổi, vẫn chọn được ảnh từ thư viện. Người dùng đã duyệt thay đổi này ngày 2026-11-04 (D-005). [M]
 - AC-09: Màn xem công thức hiện ảnh bìa, thông tin chung, nguyên liệu, các bước, ghi chú. URL trong ghi chú và trong bước chạm được để mở. Chạm ảnh thì xem toàn màn hình, vuốt để chuyển, chụm hai ngón để phóng to. [M]
 
 ### F-02 · Tổ chức, tìm kiếm, lọc
@@ -164,7 +164,7 @@ Quy ước kiểm chứng:
   - Sao lưu tự động vào thư mục đám mây: hệ điều hành và ứng dụng đám mây tự đẩy lên khi có mạng; app chỉ ghi file (mục 7).
 - Quyền thiết bị (chỉ xin khi người dùng dùng tính năng cần quyền đó, có giải thích trước; L-010):
   - Internet (`INTERNET`, không cần hỏi người dùng): chỉ cho F-03.
-  - Camera (`CAMERA`): chụp ảnh món và quét công thức. Xin khi bấm "Chụp" lần đầu.
+  - Camera: G1 chụp ảnh món bằng ứng dụng camera của hệ điều hành nên KHÔNG cần quyền `CAMERA` (AC-08, D-005). Quét công thức ở G8 chỉ xin `CAMERA` nếu tự mở camera, và phải hỏi lại người dùng trước khi thêm.
   - Thông báo (`POST_NOTIFICATIONS`, Android 13 trở lên): báo hết giờ nấu. Xin khi bấm hẹn giờ lần đầu.
   - Báo giờ chính xác cho hẹn giờ nấu: cách làm (dịch vụ chạy nền có thông báo trong lúc đếm giờ, hoặc `SCHEDULE_EXACT_ALARM`) chốt ở G5 theo chính sách Google Play hiện hành, ghi D-xxx và hỏi người dùng trước khi thêm quyền.
   - Giữ màn hình sáng ở chế độ nấu: dùng cờ của cửa sổ, không cần quyền `WAKE_LOCK` nếu thư viện cho phép (kiểm ở G5).
