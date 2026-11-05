@@ -60,3 +60,8 @@ key.properties
 
 # Kotlin compiler session files
 **/android/.kotlin/
+
+# Claude Design exports: zip + PNG chỉ ở máy (HTML, token, asset vào git)
+design/*.zip
+design/hifi/*.zip
+design/hifi/**/*.png

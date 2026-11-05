@@ -1,0 +1,473 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bepbook android/light/25_cook~notif-rationale__default</title><style>@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(../../assets/fonts/noto-sans-vietnamese-400-normal.woff2) format('woff2');
+  unicode-range: U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;
+}
+
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(../../assets/fonts/noto-sans-latin-ext-400-normal.woff2) format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(../../assets/fonts/noto-sans-latin-400-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(../../assets/fonts/noto-sans-vietnamese-500-normal.woff2) format('woff2');
+  unicode-range: U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;
+}
+
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(../../assets/fonts/noto-sans-latin-ext-500-normal.woff2) format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(../../assets/fonts/noto-sans-latin-500-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../../assets/fonts/noto-sans-vietnamese-600-normal.woff2) format('woff2');
+  unicode-range: U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;
+}
+
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../../assets/fonts/noto-sans-latin-ext-600-normal.woff2) format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../../assets/fonts/noto-sans-latin-600-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(../../assets/fonts/noto-sans-vietnamese-700-normal.woff2) format('woff2');
+  unicode-range: U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;
+}
+
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(../../assets/fonts/noto-sans-latin-ext-700-normal.woff2) format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(../../assets/fonts/noto-sans-latin-700-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(../../assets/fonts/lora-vietnamese-500-normal.woff2) format('woff2');
+  unicode-range: U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;
+}
+
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(../../assets/fonts/lora-latin-ext-500-normal.woff2) format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(../../assets/fonts/lora-latin-500-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../../assets/fonts/lora-vietnamese-600-normal.woff2) format('woff2');
+  unicode-range: U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;
+}
+
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../../assets/fonts/lora-latin-ext-600-normal.woff2) format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../../assets/fonts/lora-latin-600-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(../../assets/fonts/lora-vietnamese-700-normal.woff2) format('woff2');
+  unicode-range: U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;
+}
+
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(../../assets/fonts/lora-latin-ext-700-normal.woff2) format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(../../assets/fonts/lora-latin-700-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 500;
+  src: url(../../assets/fonts/lora-vietnamese-500-italic.woff2) format('woff2');
+  unicode-range: U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;
+}
+
+
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 500;
+  src: url(../../assets/fonts/lora-latin-ext-500-italic.woff2) format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 500;
+  src: url(../../assets/fonts/lora-latin-500-italic.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+:root{--primary:#9A4518;--onPrimary:#FFF8F2;--primaryContainer:#F8DCC8;--onPrimaryContainer:#3B1605;--secondary:#3B6A45;--onSecondary:#F3FAF2;--secondaryContainer:#D2E8D0;--onSecondaryContainer:#0F2A18;--tertiary:#7E5A00;--onTertiary:#FFF9EE;--tertiaryContainer:#FBE2A2;--onTertiaryContainer:#2B1E00;--surface:#FBF6EC;--onSurface:#2A2119;--onSurfaceVariant:#5C5043;--surfaceContainerLowest:#FFFDF8;--surfaceContainerLow:#F7F0E3;--surfaceContainer:#F2EADA;--surfaceContainerHigh:#ECE2D0;--surfaceContainerHighest:#E5DAC6;--outline:#857664;--outlineVariant:#D8CBB6;--error:#B0261B;--onError:#FFF7F5;--errorContainer:#F9DAD3;--onErrorContainer:#410B05;--inverseSurface:#352C24;--onInverseSurface:#F7EEE2;--inversePrimary:#F2A877;--scrim:#000000;--success:#2D6A39;--onSuccess:#F3FAF2;--successContainer:#D3EBD3;--onSuccessContainer:#0D2A15;--warning:#8A5300;--onWarning:#FFF8EE;--warningContainer:#FBE0B4;--onWarningContainer:#2E1B00;--info:#2B5C86;--onInfo:#F3F8FD;--infoContainer:#D6E5F3;--onInfoContainer:#0B2238;--crossedOff:#7C6F60;--currentStep:#FBE2A2;--onCurrentStep:#2B1E00;--currentStepEdge:#7E5A00;--timerActive:#3B6A45;--onTimerActive:#F3FAF2;--expiringSoon:#8A5300;--expired:#B0261B;--suggested:#2B5C86;--suggestedContainer:#D6E5F3;--ribbon:#B8461E;--cookSurface:#FFFDF8;--cookInk:#1E1711;--photoPlaceholder1:#E9C9A8;--photoPlaceholder2:#CFDCC0;--photoPlaceholder3:#F1D68E;--photoPlaceholder4:#E7B9A6;--photoPlaceholder5:#C9D6DD;--photoPlaceholder6:#DCCBE0;--photoPlaceholder7:#D9D0B8;--photoPlaceholder8:#BFD5C8;--onPhotoPlaceholder:#3A2A1C;--ts:1;--ck:1;--sans:'Noto Sans', system-ui, sans-serif;--serif:'Lora', 'Noto Serif', Georgia, serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--surface);color:var(--onSurface);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+.displaySmall,.dS{font-family:'Lora', 'Noto Serif', Georgia, serif;font-size:calc(var(--ts)*34px);line-height:1.235;font-weight:600;letter-spacing:0px;}
+.headlineMedium,.hM{font-family:'Lora', 'Noto Serif', Georgia, serif;font-size:calc(var(--ts)*28px);line-height:1.286;font-weight:600;letter-spacing:0px;}
+.headlineSmall,.hS{font-family:'Lora', 'Noto Serif', Georgia, serif;font-size:calc(var(--ts)*24px);line-height:1.333;font-weight:600;letter-spacing:0px;}
+.titleLarge,.tL{font-family:'Lora', 'Noto Serif', Georgia, serif;font-size:calc(var(--ts)*21px);line-height:1.333;font-weight:600;letter-spacing:0px;}
+.titleMedium,.tM{font-family:'Noto Sans', system-ui, sans-serif;font-size:calc(var(--ts)*16px);line-height:1.500;font-weight:600;letter-spacing:0.1px;}
+.titleSmall,.tS{font-family:'Noto Sans', system-ui, sans-serif;font-size:calc(var(--ts)*14px);line-height:1.429;font-weight:600;letter-spacing:0.1px;}
+.bodyLarge,.bL{font-family:'Noto Sans', system-ui, sans-serif;font-size:calc(var(--ts)*16px);line-height:1.500;font-weight:400;letter-spacing:0.1px;}
+.bodyMedium,.bM{font-family:'Noto Sans', system-ui, sans-serif;font-size:calc(var(--ts)*14px);line-height:1.500;font-weight:400;letter-spacing:0.15px;}
+.bodySmall,.bS{font-family:'Noto Sans', system-ui, sans-serif;font-size:calc(var(--ts)*12.5px);line-height:1.440;font-weight:400;letter-spacing:0.2px;}
+.labelLarge,.lL{font-family:'Noto Sans', system-ui, sans-serif;font-size:calc(var(--ts)*14px);line-height:1.429;font-weight:600;letter-spacing:0.1px;}
+.labelMedium,.lM{font-family:'Noto Sans', system-ui, sans-serif;font-size:calc(var(--ts)*12.5px);line-height:1.280;font-weight:600;letter-spacing:0.3px;}
+.labelSmall,.lS{font-family:'Noto Sans', system-ui, sans-serif;font-size:calc(var(--ts)*11.5px);line-height:1.391;font-weight:600;letter-spacing:0.4px;}
+.cookIngredient{font-family:'Noto Sans', system-ui, sans-serif;font-size:calc(var(--ts)*22px);line-height:1.455;font-weight:400;letter-spacing:0px;}
+.cookStep{font-family:'Noto Sans', system-ui, sans-serif;font-size:calc(var(--ts)*24px);line-height:1.417;font-weight:400;letter-spacing:0px;}
+.cookStepCurrent{font-family:'Noto Sans', system-ui, sans-serif;font-size:calc(var(--ts)*28px);line-height:1.429;font-weight:500;letter-spacing:0px;}
+.timer{font-family:'Noto Sans', system-ui, sans-serif;font-size:calc(var(--ts)*22px);line-height:1.273;font-weight:700;letter-spacing:0px;font-variant-numeric:tabular-nums;}
+.timerLarge{font-family:'Noto Sans', system-ui, sans-serif;font-size:calc(var(--ts)*44px);line-height:1.182;font-weight:700;letter-spacing:0px;font-variant-numeric:tabular-nums;}
+.tab-num,.num{font-variant-numeric:tabular-nums}
+.ic{flex:none;display:block}
+.dev{position:relative;overflow:hidden;background:var(--surface);color:var(--onSurface);display:flex;flex-direction:column;font-family:var(--sans)}
+.status{flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 16px;font-size:13px;font-weight:600;color:var(--onSurface);position:relative;z-index:6}
+.android .status{height:28px;padding:0 18px}
+.ios .status{height:54px;padding:0 30px 0 44px;font-size:16px}
+.ios .island{position:absolute;left:50%;top:11px;width:124px;height:36px;margin-left:-62px;border-radius:20px;background:#000}
+.status .sig{display:flex;gap:4px;align-items:center}
+.scr{flex:1;display:flex;flex-direction:column;min-height:0;position:relative}
+.body{flex:1;overflow:hidden;position:relative;min-height:0}
+.pad{padding:0 16px}
+.gest{flex:none;display:flex;justify-content:center;align-items:center;background:inherit}
+.android .gest{height:20px}.android .gest i{width:108px;height:4px;border-radius:2px;background:var(--onSurface);opacity:.55}
+.ios .gest{height:34px}.ios .gest i{width:134px;height:5px;border-radius:3px;background:var(--onSurface);margin-top:12px}
+.row{display:flex;align-items:center;gap:8px}.col{display:flex;flex-direction:column}.wrap{flex-wrap:wrap}.grow{flex:1;min-width:0}
+.muted{color:var(--onSurfaceVariant)}.pri{color:var(--primary)}
+.ell{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cl2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+/* app bars */
+.appbar{flex:none;display:flex;align-items:center;gap:4px;min-height:64px;padding:4px 4px 4px 16px}
+.appbar.sm{padding-left:4px}
+.appbar .ttl{flex:1;min-width:0}
+.ios .appbar.sm .ttl{text-align:center}
+.ibtn{width:48px;height:48px;border-radius:24px;border:0;background:transparent;color:var(--onSurfaceVariant);display:inline-flex;align-items:center;justify-content:center;flex:none;padding:0;position:relative}
+.ibtn.on{color:var(--primary)}
+.ibtn .badge{position:absolute;top:8px;right:6px;min-width:16px;height:16px;border-radius:8px;background:var(--error);color:var(--onError);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 4px}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:10px 22px;border-radius:999px;border:0;font-family:var(--sans);font-size:calc(var(--ts)*14px);line-height:1.3;font-weight:600;letter-spacing:.1px;text-decoration:none;text-align:center}
+.btn.filled{background:var(--primary);color:var(--onPrimary)}
+.btn.tonal{background:var(--secondaryContainer);color:var(--onSecondaryContainer)}
+.btn.outlined{background:transparent;color:var(--primary);box-shadow:inset 0 0 0 1px var(--outline)}
+.btn.text{background:transparent;color:var(--primary);padding:10px 12px}
+.btn.danger{background:var(--error);color:var(--onError)}
+.btn.dangertext{background:transparent;color:var(--error);padding:10px 12px}
+.btn.big{min-height:56px;font-size:calc(var(--ts)*16px);padding:12px 28px}
+.btn.cook{min-height:64px;font-size:calc(var(--ts)*18px);padding:14px 28px}
+.btn.block{display:flex;width:100%}
+.btn.dis{background:var(--surfaceContainerHighest);color:var(--onSurfaceVariant)}
+.fab{position:absolute;right:16px;bottom:16px;height:56px;min-width:56px;border-radius:18px;background:var(--primary);color:var(--onPrimary);display:flex;align-items:center;justify-content:center;gap:10px;padding:0 18px;box-shadow:0 3px 8px rgba(40,20,5,.28),0 1px 2px rgba(40,20,5,.2);font-weight:600;font-size:calc(var(--ts)*15px);z-index:4;border:0}
+.dark .fab{box-shadow:none}
+/* fields */
+.field{min-height:56px;border-radius:12px;background:var(--surfaceContainerLowest);box-shadow:inset 0 0 0 1px var(--outline);padding:8px 14px;display:flex;flex-direction:column;justify-content:center}
+.field .lab{font-size:calc(var(--ts)*12px);color:var(--onSurfaceVariant);font-weight:600}
+.field .val{font-size:calc(var(--ts)*16px);line-height:1.45}
+.field.err{box-shadow:inset 0 0 0 2px var(--error)}
+.field.focus{box-shadow:inset 0 0 0 2px var(--primary)}
+.search{display:flex;align-items:center;gap:10px;height:52px;border-radius:26px;background:var(--surfaceContainerHigh);padding:0 6px 0 16px;color:var(--onSurfaceVariant);font-size:calc(var(--ts)*16px)}
+.help{font-size:calc(var(--ts)*12.5px);color:var(--onSurfaceVariant);line-height:1.4}
+.errt{font-size:calc(var(--ts)*12.5px);color:var(--error);display:flex;gap:4px;align-items:center;font-weight:600}
+/* chips */
+.chip{display:inline-flex;align-items:center;gap:6px;min-height:34px;padding:5px 12px;border-radius:9px;box-shadow:inset 0 0 0 1px var(--outline);color:var(--onSurfaceVariant);font-size:calc(var(--ts)*13.5px);font-weight:600;line-height:1.3;background:transparent;white-space:nowrap}
+.chip.sel{background:var(--secondaryContainer);color:var(--onSecondaryContainer);box-shadow:none}
+.chip.pri{background:var(--primaryContainer);color:var(--onPrimaryContainer);box-shadow:none}
+.chip.soft{background:var(--surfaceContainerHigh);box-shadow:none;color:var(--onSurface)}
+.chip .x{margin-right:-6px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips.scroll{flex-wrap:nowrap;overflow:hidden}
+.tag{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:6px;font-size:calc(var(--ts)*12px);font-weight:600;line-height:1.4}
+.tag.ok{background:var(--successContainer);color:var(--onSuccessContainer)}
+.tag.warn{background:var(--warningContainer);color:var(--onWarningContainer)}
+.tag.bad{background:var(--errorContainer);color:var(--onErrorContainer)}
+.tag.info{background:var(--infoContainer);color:var(--onInfoContainer)}
+.tag.neutral{background:var(--surfaceContainerHigh);color:var(--onSurfaceVariant)}
+.tag.sug{background:var(--suggestedContainer);color:var(--suggested);box-shadow:inset 0 0 0 1px var(--suggested)}
+/* segmented */
+.seg{display:flex;border-radius:24px;box-shadow:inset 0 0 0 1px var(--outline);overflow:hidden;min-height:48px}
+.seg>span{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:6px 10px;font-size:calc(var(--ts)*13.5px);font-weight:600;color:var(--onSurface);text-align:center;line-height:1.25}
+.seg>span+span{box-shadow:inset 1px 0 0 var(--outline)}
+.seg>span.on{background:var(--secondaryContainer);color:var(--onSecondaryContainer)}
+.tsbig .seg{flex-direction:column;border-radius:16px}.tsbig .seg>span+span{box-shadow:inset 0 1px 0 var(--outline)}
+/* switch */
+.sw{width:52px;height:32px;border-radius:16px;box-shadow:inset 0 0 0 2px var(--outline);background:var(--surfaceContainerHighest);position:relative;flex:none}
+.sw::after{content:'';position:absolute;left:8px;top:8px;width:16px;height:16px;border-radius:8px;background:var(--outline)}
+.sw.on{background:var(--primary);box-shadow:none}.sw.on::after{left:24px;top:4px;width:24px;height:24px;border-radius:12px;background:var(--onPrimary)}
+/* checkbox */
+.cb{width:24px;height:24px;border-radius:6px;box-shadow:inset 0 0 0 2px var(--onSurfaceVariant);flex:none;display:flex;align-items:center;justify-content:center;color:var(--onPrimary)}
+.cb.on{background:var(--primary);box-shadow:none}
+.cb.big{width:30px;height:30px;border-radius:8px}
+.radio{width:22px;height:22px;border-radius:11px;box-shadow:inset 0 0 0 2px var(--onSurfaceVariant);flex:none}
+.radio.on{box-shadow:inset 0 0 0 2px var(--primary),inset 0 0 0 6px var(--surface),inset 0 0 0 12px var(--primary)}
+/* lists */
+.li{display:flex;align-items:center;gap:14px;min-height:56px;padding:8px 16px}
+.li .lt{flex:1;min-width:0}
+.li .ttl{font-size:calc(var(--ts)*16px);line-height:1.4}
+.li .sub{font-size:calc(var(--ts)*13.5px);line-height:1.4;color:var(--onSurfaceVariant)}
+.li>.ic{color:var(--onSurfaceVariant)}
+.rule{border-bottom:1px solid var(--outlineVariant)}
+.divider{height:1px;background:var(--outlineVariant);margin:4px 0}
+.group{margin:8px 16px;border-radius:16px;background:var(--surfaceContainerLowest);box-shadow:inset 0 0 0 1px var(--outlineVariant);overflow:hidden}
+.dark .group{background:var(--surfaceContainerLow)}
+.group .li+.li{box-shadow:inset 0 1px 0 var(--outlineVariant)}
+.gl{padding:18px 32px 6px;font-size:calc(var(--ts)*13px);font-weight:700;color:var(--primary);letter-spacing:.3px}
+/* notebook-tab section header */
+.tabh{display:flex;align-items:flex-end;gap:8px;border-bottom:1.5px solid var(--outline);margin:14px 16px 4px}
+.tabh .tb{background:var(--surfaceContainerHigh);border-radius:9px 9px 0 0;padding:5px 12px 4px;font-family:var(--serif);font-weight:600;font-size:calc(var(--ts)*15px);line-height:1.35;color:var(--onSurface);box-shadow:inset 1px 1px 0 var(--outlineVariant),inset -1px 0 0 var(--outlineVariant)}
+.tabh .cnt{margin-left:auto;padding-bottom:4px;font-size:calc(var(--ts)*12.5px);color:var(--onSurfaceVariant);font-weight:600}
+.sech{display:flex;align-items:center;gap:8px;padding:20px 16px 6px}
+.sech h2{margin:0;flex:1}
+/* cards */
+.card{border-radius:14px;background:var(--surfaceContainerLowest);box-shadow:inset 0 0 0 1px var(--outlineVariant);overflow:hidden;position:relative}
+.dark .card{background:var(--surfaceContainerLow)}
+.photo{display:block;width:100%;height:100%}
+.ph{position:relative;overflow:hidden;background:var(--surfaceContainerHigh)}
+.ribbon{position:absolute;top:0;right:12px;width:20px;height:30px;background:var(--ribbon);clip-path:polygon(0 0,100% 0,100% 100%,50% 76%,0 100%);display:flex;justify-content:center;padding-top:5px;color:#fff}
+.place{position:absolute;inset:0;background-image:repeating-linear-gradient(to bottom,transparent 0 17px,rgba(60,40,20,.13) 17px 18px);display:flex;align-items:center;justify-content:center;flex-direction:column}
+.dark .place{background-image:repeating-linear-gradient(to bottom,transparent 0 17px,rgba(255,240,220,.08) 17px 18px)}
+.place::before{content:'';position:absolute;top:0;bottom:0;left:18px;width:1.5px;background:rgba(176,38,27,.35)}
+.place .ini{font-family:var(--serif);font-weight:600;color:var(--onPhotoPlaceholder);line-height:1}
+.place .cat{font-size:11.5px;font-weight:700;color:var(--onPhotoPlaceholder);letter-spacing:.5px;margin-top:4px;opacity:.9}
+.stars{display:inline-flex;gap:1px;color:var(--tertiary)}
+.stars .off{color:var(--outline)}
+.meta{display:flex;align-items:center;gap:4px 10px;flex-wrap:wrap;font-size:calc(var(--ts)*12.5px);color:var(--onSurfaceVariant);line-height:1.35}
+.meta>span{display:inline-flex;align-items:center;gap:3px}
+/* bottom nav */
+.nav{flex:none;display:flex;background:var(--surfaceContainer);padding:10px 0 12px;box-shadow:inset 0 1px 0 var(--outlineVariant)}
+.nav a{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--onSurfaceVariant);text-decoration:none}
+.nav .pill{width:60px;height:32px;border-radius:16px;display:flex;align-items:center;justify-content:center}
+.nav a.on .pill{background:var(--primaryContainer);color:var(--onPrimaryContainer)}
+.nav a.on{color:var(--onSurface)}
+.nav .nl{font-size:calc(min(var(--ts),1.3)*12.5px);font-weight:600;line-height:1.25;max-width:100%;padding:0 2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nav a.on .nl{font-weight:700}
+/* overlays */
+.scrim{position:absolute;inset:0;background:rgba(15,8,2,.42);z-index:8}
+.dark .scrim{background:rgba(0,0,0,.6)}
+.sheet{position:absolute;left:0;right:0;bottom:0;z-index:9;background:var(--surfaceContainerLow);border-radius:28px 28px 0 0;display:flex;flex-direction:column;max-height:92%;overflow:hidden}
+.sheet .grab{width:36px;height:4px;border-radius:2px;background:var(--outline);margin:12px auto 6px;flex:none}
+.sheet .shd{padding:6px 20px 10px;display:flex;align-items:center;gap:8px}
+.sheet .sbody{overflow:hidden;flex:1;min-height:0}
+.sheet .sfoot{flex:none;display:flex;gap:10px;align-items:center;padding:12px 16px;box-shadow:inset 0 1px 0 var(--outlineVariant);background:var(--surfaceContainerLow)}
+.dialog{position:absolute;left:24px;right:24px;top:50%;transform:translateY(-50%);z-index:9;background:var(--surfaceContainerHigh);border-radius:28px;padding:24px 24px 14px;display:flex;flex-direction:column;gap:14px;max-height:88%;overflow:hidden}
+.dialog .dacts{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:4px 6px;margin-top:4px}
+.dialog .dic{color:var(--secondary);align-self:center}
+.dialog.danger .dic{color:var(--error)}
+.snack{position:absolute;left:12px;right:12px;z-index:7;background:var(--inverseSurface);color:var(--onInverseSurface);border-radius:10px;padding:6px 6px 6px 16px;min-height:48px;display:flex;align-items:center;gap:8px;font-size:calc(var(--ts)*14px);line-height:1.35;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+.snack .btn{color:var(--inversePrimary);padding:10px 12px}
+.toastcard{position:absolute;left:12px;right:12px;z-index:7}
+/* banners & notices */
+.banner{display:flex;gap:12px;align-items:flex-start;padding:12px 12px 12px 14px;border-radius:14px;font-size:calc(var(--ts)*14px);line-height:1.4}
+.banner .bt{flex:1;min-width:0}
+.banner.info{background:var(--infoContainer);color:var(--onInfoContainer)}
+.banner.warn{background:var(--warningContainer);color:var(--onWarningContainer)}
+.banner.bad{background:var(--errorContainer);color:var(--onErrorContainer)}
+.banner.ok{background:var(--successContainer);color:var(--onSuccessContainer)}
+.banner.neutral{background:var(--surfaceContainerHigh);color:var(--onSurface)}
+.banner.view{background:var(--tertiaryContainer);color:var(--onTertiaryContainer)}
+.banner .bacts{display:flex;gap:4px;flex-wrap:wrap;margin:4px 0 -6px -12px}
+.banner .bacts .btn{min-height:40px;color:inherit;text-decoration:underline;text-underline-offset:3px}
+.note{display:flex;gap:10px;align-items:flex-start;font-size:calc(var(--ts)*13px);line-height:1.45;color:var(--onSurfaceVariant)}
+/* ingredients / steps */
+.ing{display:flex;align-items:baseline;gap:10px;padding:10px 16px;border-bottom:1px solid var(--outlineVariant);font-size:calc(var(--ts)*16px);line-height:1.45}
+.ing .q{font-weight:700;font-variant-numeric:tabular-nums;color:var(--onSurface);white-space:nowrap}
+.ing .unsc{display:flex;align-items:center;gap:4px;font-size:calc(var(--ts)*12.5px);color:var(--warning);font-weight:600;margin-top:2px}
+.grp{font-family:var(--serif);font-weight:600;font-style:italic;font-size:calc(var(--ts)*15.5px);color:var(--primary);padding:16px 16px 4px}
+.step{display:flex;gap:14px;padding:12px 16px;font-size:calc(var(--ts)*16px);line-height:1.55}
+.step .n{flex:none;width:30px;height:30px;border-radius:15px;background:var(--surfaceContainerHigh);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:calc(var(--ts)*14px);color:var(--onSurface)}
+.tchip{display:inline-flex;align-items:center;gap:4px;padding:1px 9px 1px 6px;border-radius:8px;background:var(--secondaryContainer);color:var(--onSecondaryContainer);font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;vertical-align:baseline}
+.conv{display:inline-flex;align-items:center;padding:0 5px;margin-left:3px;border-radius:5px;font-size:.72em;font-weight:700;background:var(--tertiaryContainer);color:var(--onTertiaryContainer);vertical-align:2px}
+.link{color:var(--primary);text-decoration:underline;text-underline-offset:3px}
+/* cook */
+.cook{background:var(--cookSurface);color:var(--cookInk)}
+.cstep{border-radius:20px;padding:16px 16px 18px;display:flex;gap:14px;background:var(--surfaceContainerLow);box-shadow:inset 0 0 0 1px var(--outlineVariant);font-size:calc(var(--ts)*var(--ck)*24px);line-height:1.42}
+.dark .cstep{background:var(--surfaceContainerLow)}
+.cstep .n{flex:none;width:44px;height:44px;border-radius:22px;background:var(--surfaceContainerHighest);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:calc(var(--ts)*18px)}
+.cstep.cur{background:var(--currentStep);color:var(--onCurrentStep);box-shadow:inset 0 0 0 3px var(--currentStepEdge);font-size:calc(var(--ts)*var(--ck)*28px);font-weight:500}
+.cstep.cur .n{background:var(--currentStepEdge);color:var(--cookSurface)}
+.cstep.x{color:var(--crossedOff);background:transparent;box-shadow:inset 0 0 0 1px var(--outlineVariant);font-size:calc(var(--ts)*var(--ck)*20px)}
+.cstep.x .txt{text-decoration:line-through;text-decoration-thickness:2px}
+.cstep.x .n{background:transparent;color:var(--success)}
+.now{display:inline-flex;align-items:center;gap:4px;font-size:calc(var(--ts)*13px);font-weight:800;letter-spacing:.8px;text-transform:uppercase;background:var(--currentStepEdge);color:var(--cookSurface);border-radius:6px;padding:2px 8px;margin-bottom:6px}
+.ctimer{display:inline-flex;align-items:center;gap:8px;min-height:64px;padding:8px 18px 8px 14px;border-radius:16px;background:var(--timerActive);color:var(--onTimerActive);font-weight:700;font-size:calc(var(--ts)*20px);font-variant-numeric:tabular-nums;margin-top:12px}
+.cing{display:flex;align-items:center;gap:14px;min-height:64px;padding:10px 16px;border-bottom:1px solid var(--outlineVariant);font-size:calc(var(--ts)*var(--ck)*22px);line-height:1.38}
+.cing.x{color:var(--crossedOff)}.cing.x .t{text-decoration:line-through;text-decoration-thickness:2px}
+.cing .ck{flex:none;width:34px;height:34px;border-radius:17px;box-shadow:inset 0 0 0 2.5px var(--onSurfaceVariant);display:flex;align-items:center;justify-content:center}
+.cing.x .ck{background:var(--success);box-shadow:none;color:var(--onSuccess)}
+.tray{display:flex;gap:8px;overflow:hidden}
+.tpill{display:flex;align-items:center;gap:8px;min-height:52px;padding:4px 14px 4px 10px;border-radius:16px;background:var(--timerActive);color:var(--onTimerActive);flex:none}
+.tpill .tn{font-size:calc(var(--ts)*12px);font-weight:600;line-height:1.2;opacity:.92}
+.tpill .tr{font-size:calc(var(--ts)*20px);font-weight:700;font-variant-numeric:tabular-nums;line-height:1.15}
+.runpill{position:absolute;left:50%;transform:translateX(-50%);z-index:5;display:flex;align-items:center;gap:8px;height:44px;padding:0 18px 0 14px;border-radius:22px;background:var(--timerActive);color:var(--onTimerActive);font-weight:700;font-size:calc(var(--ts)*14.5px);font-variant-numeric:tabular-nums;box-shadow:0 3px 10px rgba(0,0,0,.22);white-space:nowrap}
+/* status card */
+.stat{border-radius:20px;padding:16px;display:flex;gap:14px;align-items:flex-start}
+.stat .sic{width:44px;height:44px;border-radius:22px;display:flex;align-items:center;justify-content:center;flex:none}
+.stat.ok{background:var(--successContainer);color:var(--onSuccessContainer)}.stat.ok .sic{background:var(--success);color:var(--onSuccess)}
+.stat.warn{background:var(--warningContainer);color:var(--onWarningContainer)}.stat.warn .sic{background:var(--warning);color:var(--onWarning)}
+.stat.bad{background:var(--errorContainer);color:var(--onErrorContainer)}.stat.bad .sic{background:var(--error);color:var(--onError)}
+.stat.none{background:var(--surfaceContainerHigh);color:var(--onSurface)}.stat.none .sic{background:var(--outline);color:var(--surface)}
+.meter{height:10px;border-radius:5px;background:var(--surfaceContainerHighest);overflow:hidden;box-shadow:inset 0 0 0 1px var(--outlineVariant)}
+.meter>i{display:block;height:100%;background:var(--secondary);border-radius:5px}
+.prog{height:6px;border-radius:3px;background:var(--surfaceContainerHighest);overflow:hidden}.prog>i{display:block;height:100%;background:var(--primary)}
+.stepper{display:flex;align-items:center;border-radius:28px;box-shadow:inset 0 0 0 1px var(--outline);min-height:52px}
+.stepper .sv{flex:1;text-align:center;font-weight:700;font-size:calc(var(--ts)*17px);font-variant-numeric:tabular-nums;padding:4px}
+.handle{color:var(--onSurfaceVariant)}
+.osph{position:absolute;inset:0;z-index:9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:repeating-linear-gradient(135deg,#9a9a9a 0 12px,#a8a8a8 12px 24px);color:#222;font:600 14px/1.4 var(--sans);text-align:center;padding:24px}
+.osph b{background:#eee;padding:8px 12px;border-radius:8px}
+.webpage{background:#fff;color:#222;font-family:Georgia,serif}
+.sel-hl{background:rgba(66,133,244,.32)}
+.picked{box-shadow:inset 3px 0 0 #2B5C86;background:rgba(43,92,134,.08)}
+.role{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:6px;font-size:calc(var(--ts)*12px);font-weight:700;flex:none}
+.r-name{background:var(--primaryContainer);color:var(--onPrimaryContainer)}
+.r-ing{background:var(--secondaryContainer);color:var(--onSecondaryContainer)}
+.r-step{background:var(--tertiaryContainer);color:var(--onTertiaryContainer)}
+.r-head{background:var(--surfaceContainerHighest);color:var(--onSurface)}
+.r-note{background:var(--infoContainer);color:var(--onInfoContainer)}
+.r-ign{background:transparent;color:var(--onSurfaceVariant);box-shadow:inset 0 0 0 1px var(--outline);text-decoration:line-through}
+.focusring{outline:2px solid var(--primary);outline-offset:2px}
+
+html{background:#e9e3d8}body{background:transparent;padding:32px;display:flex;gap:32px;align-items:flex-start}
+.frame-notes{max-width:340px;font:13px/1.55 'Noto Sans',sans-serif;color:#3a2f25}.frame-notes p{margin:0 0 6px}
+.dev{border-radius:28px;box-shadow:0 0 0 10px #111,0 20px 50px rgba(0,0,0,.3)}</style></head>
+<body><div class="dev android light  cook" style="width:360px;height:800px;background:var(--cookSurface);">
+<div class="status " aria-hidden="true"><span>21:14</span><span class="sig"><svg class="ic " aria-hidden="true" width="16" height="16" viewBox="0 -960 960 960" fill="currentColor"><path d="M214.5-174.58Q200-189.17 200-210v-140q0-20.83 14.62-35.42Q229.24-400 250.12-400q20.88 0 35.38 14.58Q300-370.83 300-350v140q0 20.83-14.62 35.42Q270.76-160 249.88-160q-20.88 0-35.38-14.58Zm250 0Q450-189.17 450-210v-340q0-20.83 14.62-35.42Q479.24-600 500.12-600q20.88 0 35.38 14.58Q550-570.83 550-550v340q0 20.83-14.62 35.42Q520.76-160 499.88-160q-20.88 0-35.38-14.58Zm250 0Q700-189.17 700-210v-540q0-20.83 14.62-35.42Q729.24-800 750.12-800q20.88 0 35.38 14.58Q800-770.83 800-750v540q0 20.83-14.62 35.42Q770.76-160 749.88-160q-20.88 0-35.38-14.58Z"/></svg><svg class="ic " aria-hidden="true" width="16" height="16" viewBox="0 -960 960 960" fill="currentColor"><path d="M417-154q-27-27-27-63t27-63q27-27 63-27t63 27q27 27 27 63t-27 63q-27 27-63 27t-63-27Zm209-378.5Q694-505 757-451q14 12 15 30.5T759-388q-14 14-32 13t-33-13q-53-44-106.5-63T480-470q-54 0-107.5 19T266-388q-15 12-33 13t-32-13q-14-14-13-32.5t15-30.5q63-54 131-81.5T480-560q78 0 146 27.5Zm95.5-219Q835-703 926-622q14 13 15.5 31.5T929-558q-14 14-33.5 13.5T861-558q-83-70-178-111t-203-41q-108 0-203 41T99-558q-15 13-34 13.5T32-558q-14-14-13-32.5T34-622q91-81 204.5-129.5T480-800q128 0 241.5 48.5Z"/></svg><svg class="ic " aria-hidden="true" width="16" height="16" viewBox="0 -960 960 960" fill="currentColor"><path d="M310-80q-12.75 0-21.37-8.63Q280-97.25 280-110v-676q0-12.75 8.63-21.38Q297.25-816 310-816h90v-34q0-12.75 8.63-21.38Q417.25-880 430-880h100q12.75 0 21.38 8.62Q560-862.75 560-850v34h90q12.75 0 21.38 8.62Q680-798.75 680-786v676q0 12.75-8.62 21.37Q662.75-80 650-80H310Z"/></svg></span></div><div class="scr"><div class="body"><div class="col" style="height:100%;--ck:1"><div style="flex:none;padding:2px 0 0"><div class="row" style="gap:6px;padding:0 0 0 4px"><div class="row grow" style="gap:6px;overflow:hidden" data-hscroll><button class="ibtn " aria-label="Leave cooking mode" style="color:var(--cookInk)"><svg class="ic " aria-hidden="true" width="24" height="24" viewBox="0 -960 960 960" fill="currentColor"><path d="M480-438 270-228q-9 9-21 9t-21-9q-9-9-9-21t9-21l210-210-210-210q-9-9-9-21t9-21q9-9 21-9t21 9l210 210 210-210q9-9 21-9t21 9q9 9 9 21t-9 21L522-480l210 210q9 9 9 21t-9 21q-9 9-21 9t-21-9L480-438Z"/></svg></button><button class="row" aria-label="Phở bò Hà Nội, current" style="flex:none;gap:8px;min-height:48px;padding:4px 14px 4px 4px;border-radius:24px;border:0;background:var(--primaryContainer);color:var(--onPrimaryContainer);font:600 calc(min(var(--ts),1.4)*13.5px)/1.2 var(--sans)"><span style="width:40px;height:40px;border-radius:20px;overflow:hidden;flex:none"><div class="ph" style="height:40px;"><svg class="photo " aria-hidden="true" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="lp1066" cx="35%" cy="25%" r="85%"><stop offset="0" stop-color="#fff" stop-opacity=".28"/><stop offset=".6" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".28"/></radialGradient>
+<linearGradient id="tp1066" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9C6B45"/><stop offset="1" stop-color="#6B4429"/></linearGradient>
+<filter id="sp1066" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#000" flood-opacity=".32"/></filter></defs>
+<rect width="400" height="300" fill="url(#tp1066)"/><path d="M0 40 C120 32 260 50 400 36" stroke="#5A3820" stroke-opacity=".25" stroke-width="2" fill="none"/><path d="M0 95 C120 87 260 105 400 91" stroke="#5A3820" stroke-opacity=".25" stroke-width="2" fill="none"/><path d="M0 160 C120 152 260 170 400 156" stroke="#5A3820" stroke-opacity=".25" stroke-width="2" fill="none"/><path d="M0 215 C120 207 260 225 400 211" stroke="#5A3820" stroke-opacity=".25" stroke-width="2" fill="none"/><path d="M0 270 C120 262 260 280 400 266" stroke="#5A3820" stroke-opacity=".25" stroke-width="2" fill="none"/><g filter="url(#sp1066)"><circle cx="200" cy="152" r="118" fill="#F4EFE6"/><circle cx="200" cy="152" r="112" fill="none" stroke="#2F5D8A" stroke-width="3" stroke-opacity=".55"/></g><circle cx="200" cy="152" r="104" fill="#C9852F"/>
+<g stroke="#FFF6E2" stroke-width="5" stroke-linecap="round" fill="none" opacity=".9"><path d="M130 110 q35 -16 70 0 t70 0"/><path d="M138 124 q35 -16 70 0 t70 0"/><path d="M146 138 q35 -16 70 0 t70 0"/><path d="M154 152 q35 -16 70 0 t70 0"/><path d="M162 166 q35 -16 70 0 t70 0"/><path d="M170 180 q35 -16 70 0 t70 0"/></g>
+<path d="M143 120 q22 -14 44 0 q-22 12 -44 0z" fill="#8E4A35" stroke="#6B3022" stroke-width="2"/><path d="M193 105 q22 -14 44 0 q-22 12 -44 0z" fill="#8E4A35" stroke="#6B3022" stroke-width="2"/><path d="M223 150 q22 -14 44 0 q-22 12 -44 0z" fill="#8E4A35" stroke="#6B3022" stroke-width="2"/><path d="M158 175 q22 -14 44 0 q-22 12 -44 0z" fill="#8E4A35" stroke="#6B3022" stroke-width="2"/><path d="M203 190 q22 -14 44 0 q-22 12 -44 0z" fill="#8E4A35" stroke="#6B3022" stroke-width="2"/>
+<ellipse cx="133.8332866469712" cy="118.26694751225773" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(28 133.8332866469712 118.26694751225773)"/><ellipse cx="174.79545091344824" cy="169.17319388573057" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(122 174.79545091344824 169.17319388573057)"/><ellipse cx="180.09967423323482" cy="167.28559658187814" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(175 180.09967423323482 167.28559658187814)"/><ellipse cx="225.9866680291714" cy="142.77623389942633" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(82 225.9866680291714 142.77623389942633)"/><ellipse cx="139.38953719408465" cy="140.3075382428582" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(99 139.38953719408465 140.3075382428582)"/><ellipse cx="122.11224729362772" cy="146.0979014091486" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(121 122.11224729362772 146.0979014091486)"/><ellipse cx="172.67365410711494" cy="206.4791672614398" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(42 172.67365410711494 206.4791672614398)"/><ellipse cx="140.6148903720307" cy="203.59420486980218" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(118 140.6148903720307 203.59420486980218)"/><ellipse cx="244.74225614069152" cy="186.51628619419094" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(63 244.74225614069152 186.51628619419094)"/><ellipse cx="253.28849442924303" cy="118.81082968394915" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(133 253.28849442924303 118.81082968394915)"/><ellipse cx="211.9025381470979" cy="212.89105117715212" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(42 211.9025381470979 212.89105117715212)"/><ellipse cx="180.20160908707462" cy="157.9736611926109" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(47 180.20160908707462 157.9736611926109)"/><ellipse cx="244.10686319779632" cy="146.9207568799384" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(40 244.10686319779632 146.9207568799384)"/><ellipse cx="184.16145300358198" cy="217.90277254705612" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(99 184.16145300358198 217.90277254705612)"/><ellipse cx="199.23670551269925" cy="76.23085660434896" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(116 199.23670551269925 76.23085660434896)"/><ellipse cx="220.45325684732137" cy="72.89165281146146" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(169 220.45325684732137 72.89165281146146)"/><ellipse cx="230.6968577308552" cy="95.67958909693363" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(151 230.6968577308552 95.67958909693363)"/><ellipse cx="193.94889553814826" cy="175.67943764002257" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(138 193.94889553814826 175.67943764002257)"/><ellipse cx="131.43572170235814" cy="116.25425756528651" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(24 131.43572170235814 116.25425756528651)"/><ellipse cx="241.4450036915646" cy="182.76187533689972" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(65 241.4450036915646 182.76187533689972)"/><ellipse cx="191.6697230488704" cy="173.38595266850967" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(155 191.6697230488704 173.38595266850967)"/><ellipse cx="161.46227657547615" cy="127.70317511384464" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(10 161.46227657547615 127.70317511384464)"/><ellipse cx="164.1389231568421" cy="193.24006628415572" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(64 164.1389231568421 193.24006628415572)"/><ellipse cx="219.04728116952805" cy="156.3569612703046" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(33 219.04728116952805 156.3569612703046)"/><ellipse cx="247.32202424370035" cy="173.4960922431102" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(172 247.32202424370035 173.4960922431102)"/><ellipse cx="207.55172116769825" cy="138.59606661253454" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(15 207.55172116769825 138.59606661253454)"/><circle cx="206.0595378227775" cy="114.90353380116548" r="4" fill="#EDE6C8"/><circle cx="237.8164551990767" cy="148.4102924096353" r="4" fill="#EDE6C8"/><circle cx="179.68777786033738" cy="144.54722701206848" r="4" fill="#EDE6C8"/><circle cx="212.9064379691957" cy="114.2689805357947" r="4" fill="#EDE6C8"/><circle cx="217.0626472378575" cy="92.5765525458306" r="4" fill="#EDE6C8"/><circle cx="246.5021669967097" cy="129.4885665160233" r="4" fill="#EDE6C8"/><circle cx="134.57992789118703" cy="153.89228273204648" r="4" fill="#EDE6C8"/><circle cx="184.89835675016406" cy="103.04827610575248" r="4" fill="#EDE6C8"/>
+<path d="M298 72 a28 28 0 0 1 40 30 z" fill="#9BC34A" stroke="#5E8A22" stroke-width="3"/><rect width="400" height="300" fill="url(#lp1066)"/></svg></div></span>Phở bò</button><button class="row" aria-label="Classic Banana Bread" style="flex:none;gap:8px;min-height:48px;padding:4px 14px 4px 4px;border-radius:24px;border:0;background:var(--surfaceContainerHigh);color:var(--onSurface);font:600 calc(min(var(--ts),1.4)*13.5px)/1.2 var(--sans)"><span style="width:40px;height:40px;border-radius:20px;overflow:hidden;flex:none"><div class="ph" style="height:40px;"><svg class="photo " aria-hidden="true" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="lp1067" cx="35%" cy="25%" r="85%"><stop offset="0" stop-color="#fff" stop-opacity=".28"/><stop offset=".6" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".28"/></radialGradient>
+<linearGradient id="tp1067" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E9DFCF"/><stop offset="1" stop-color="#D6C7AF"/></linearGradient>
+<filter id="sp1067" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#000" flood-opacity=".32"/></filter></defs>
+<rect width="400" height="300" fill="url(#tp1067)"/><g filter="url(#sp1067)"><rect x="70" y="85" width="230" height="120" rx="26" fill="#8A4F22"/></g><rect x="78" y="90" width="214" height="34" rx="16" fill="#B06A2E"/><path d="M100 110 q90 -30 180 0" stroke="#5C3214" stroke-width="5" fill="none"/>
+<g filter="url(#sp1067)"><rect x="240" y="150" width="30" height="100" rx="8" fill="#E8C48E" stroke="#8A4F22" stroke-width="5" transform="rotate(-12 255 200)"/></g><g filter="url(#sp1067)"><rect x="274" y="160" width="30" height="100" rx="8" fill="#E8C48E" stroke="#8A4F22" stroke-width="5" transform="rotate(-12 289 200)"/></g><g filter="url(#sp1067)"><rect x="308" y="170" width="30" height="100" rx="8" fill="#E8C48E" stroke="#8A4F22" stroke-width="5" transform="rotate(-12 323 200)"/></g>
+<path d="M40 250 q60 30 130 -10" stroke="#F2D04A" stroke-width="22" stroke-linecap="round" fill="none"/><rect width="400" height="300" fill="url(#lp1067)"/></svg></div></span>Banana bread</button></div><button class="ibtn on" aria-label="Unpin" ><svg class="ic " aria-hidden="true" width="24" height="24" viewBox="0 -960 960 960" fill="currentColor"><path d="M634-780v332l77 68q5 5 7 10.6 2 5.59 2 11.56v17.16q0 12.68-8.62 21.18-8.63 8.5-21.38 8.5H510v236q0 12.75-8.68 21.37-8.67 8.63-21.5 8.63-12.82 0-21.32-8.63Q450-62.25 450-75v-236H270q-12.75 0-21.37-8.58-8.63-8.59-8.63-21.28v-17.17q0-5.97 2-11.47 2-5.5 7-10.5l71-68v-332h-20q-12.75 0-21.37-8.68-8.63-8.67-8.63-21.5 0-12.82 8.63-21.32 8.62-8.5 21.37-8.5h354q12.75 0 21.38 8.68 8.62 8.67 8.62 21.5 0 12.82-8.62 21.32-8.63 8.5-21.38 8.5h-20Z"/></svg></button></div>
+<div style="padding:6px 16px 0"><h1 class="hS cl2" style="margin:0;font-size:calc(var(--ts)*21px);line-height:1.3">Phở bò Hà Nội</h1><div class="row" style="gap:5px;color:var(--onSurfaceVariant);margin-top:2px"><svg class="ic " aria-hidden="true" width="14" height="14" viewBox="0 -960 960 960" fill="currentColor"><path d="M579-380.76q41-40.77 41-99Q620-538 579.24-579q-40.77-41-99-41Q422-620 381-579.24q-41 40.77-41 99Q340-422 380.76-381q40.77 41 99 41Q538-340 579-380.76ZM338.5-338.5Q280-397 280-480t58.5-141.5Q397-680 480-680t141.5 58.5Q680-563 680-480t-58.5 141.5Q563-280 480-280t-141.5-58.5ZM70-450q-12.75 0-21.37-8.68-8.63-8.67-8.63-21.5 0-12.82 8.63-21.32Q57.25-510 70-510h100q12.75 0 21.38 8.68 8.62 8.67 8.62 21.5 0 12.82-8.62 21.32-8.63 8.5-21.38 8.5H70Zm720 0q-12.75 0-21.37-8.68-8.63-8.67-8.63-21.5 0-12.82 8.63-21.32 8.62-8.5 21.37-8.5h100q12.75 0 21.38 8.68 8.62 8.67 8.62 21.5 0 12.82-8.62 21.32-8.63 8.5-21.38 8.5H790ZM458.5-768.63Q450-777.25 450-790v-100q0-12.75 8.68-21.38 8.67-8.62 21.5-8.62 12.82 0 21.32 8.62 8.5 8.63 8.5 21.38v100q0 12.75-8.68 21.37-8.67 8.63-21.5 8.63-12.82 0-21.32-8.63Zm0 720Q450-57.25 450-70v-100q0-12.75 8.68-21.38 8.67-8.62 21.5-8.62 12.82 0 21.32 8.62 8.5 8.63 8.5 21.38v100q0 12.75-8.68 21.37-8.67 8.63-21.5 8.63-12.82 0-21.32-8.63ZM240-678l-57-56q-9-9-8.63-21.6.37-12.61 8.53-21.5 8.89-8.9 21.5-8.9 12.6 0 21.6 9l56 57q8 9 8 21t-8 20.5q-8 8.5-20.5 8.5t-21.5-8Zm494 495-56-57q-8-9-8-21.38 0-12.37 8.5-20.62 8.5-9 20.5-9t21 9l57 56q9 9 8.63 21.6-.37 12.61-8.53 21.5-8.89 8.9-21.5 8.9-12.6 0-21.6-9Zm-56-495q-9-9-9-21t9-21l56-57q9-9 21.6-8.63 12.61.37 21.5 8.53 8.9 8.89 8.9 21.5 0 12.6-9 21.6l-57 56q-8 8-20.36 8-12.37 0-21.64-8ZM182.9-182.9q-8.9-8.89-8.9-21.5 0-12.6 9-21.6l57-56q8.8-9 20.9-9 12.1 0 20.71 9 9.39 9 9.39 21t-9 21l-56 57q-9 9-21.6 8.63-12.61-.37-21.5-8.53ZM480-480Z"/></svg><span class="lS">Screen stays on</span></div></div>
+<div class="row" style="gap:6px;padding:6px 12px 4px 16px;flex-wrap:nowrap"><button class="chip pri" style="border:0;min-height:48px;padding:5px 10px;flex:1 1 auto;min-width:0;overflow:hidden" aria-label="Servings and units: "><span class="ell">×1 · Original</span></button>
+<div class="row" style="gap:0;border-radius:24px;box-shadow:inset 0 0 0 1px var(--outline);flex:none" role="group" aria-label="Text size, 3 of 5"><button class="ibtn " aria-label="Smaller text" style="color:var(--cookInk)"><svg class="ic " aria-hidden="true" width="24" height="24" viewBox="0 -960 960 960" fill="currentColor"><path d="M640-450q-13 0-21.5-8.5T610-480q0-13 8.5-21.5T640-510h250q13 0 21.5 8.5T920-480q0 13-8.5 21.5T890-450H640ZM172-350l-49 128q-4 10-12.5 16T91-200q-19 0-29-15.5T59-248l192-488q5-11 14-17.5t20-6.5h30q11 0 20 6.5t14 17.5l192 489q7 17-3.5 32T509-200q-11 0-20-6t-13-17l-48-127H172Zm24-64h208L302-685h-4L196-414Z"/></svg></button><button class="ibtn " aria-label="Larger text" style="color:var(--cookInk)"><svg class="ic " aria-hidden="true" width="24" height="24" viewBox="0 -960 960 960" fill="currentColor"><path d="m172-350-49 128q-4 10-12.56 16-8.55 6-19.44 6-19 0-29-15.5T59-248l192-488q5-11 14.16-17.5T285-760h30q11.45 0 20.22 6.5Q344-747 349-736l192 489q7 17-3.55 32-10.54 15-28.51 15-10.94 0-20.04-6.13-9.11-6.14-12.9-16.87l-48-127H172Zm24-64h208L302-685h-4L196-414Zm534-36H630q-12.75 0-21.37-8.68-8.63-8.67-8.63-21.5 0-12.82 8.63-21.32 8.62-8.5 21.37-8.5h100v-100q0-12.75 8.68-21.38 8.67-8.62 21.5-8.62 12.82 0 21.32 8.62 8.5 8.63 8.5 21.38v100h100q12.75 0 21.38 8.68 8.62 8.67 8.62 21.5 0 12.82-8.62 21.32-8.63 8.5-21.38 8.5H790v100q0 12.75-8.68 21.37-8.67 8.63-21.5 8.63-12.82 0-21.32-8.63-8.5-8.62-8.5-21.37v-100Z"/></svg></button></div>
+<button class="chip " style="border:0;min-height:48px;flex:none;box-shadow:inset 0 0 0 1px var(--outline)"><svg class="ic " aria-hidden="true" width="20" height="20" viewBox="0 -960 960 960" fill="currentColor"><path d="M780-481q0-94-52.5-169T590-759q-12-5-17-16t0-22q5-12 17.5-16.5t25.5.5q101 41 162.5 131T840-481q0 111-61.5 201T616-149q-13 5-25.5.5T573-165q-5-11 0-22t17-16q85-34 137.5-109T780-481ZM280-360H150q-13 0-21.5-8.5T120-390v-180q0-13 8.5-21.5T150-600h130l149-149q14-14 32.5-6.5T480-728v496q0 20-18.5 27.5T429-211L280-360Zm380-120q0 52-26 94t-73 64q-8 4-14.5-1t-6.5-13v-289q0-8 6.5-13t14.5-1q47 22 73 65t26 94ZM420-648 307-540H180v120h127l113 109v-337ZM298-480Z"/></svg>Read step</button></div></div><div style="padding:4px 16px 8px"><div class="seg" style="min-height:56px" role="radiogroup"><span role="radio" aria-checked="false" class="">Ingredients · 3/13</span><span role="radio" aria-checked="true" class="on"><svg class="ic " aria-hidden="true" width="18" height="18" viewBox="0 -960 960 960" fill="currentColor"><path d="m378-332 363-363q9-9 21.5-9t21.5 9q9 9 9 21.5t-9 21.5L399-267q-9 9-21 9t-21-9L175-449q-9-9-8.5-21.5T176-492q9-9 21.5-9t21.5 9l159 160Z"/></svg>Steps · 0/6</span></div></div><div style="flex:1;overflow:hidden;min-height:0"><div class="col" style="gap:10px;padding:0 12px 16px"><div class="grp" style="padding:8px 4px 2px;color:var(--primary);font-size:calc(var(--ts)*17px)">Nấu nước dùng</div><div class="cstep cur" role="button" aria-label="Step 1 of 6, current: Chần xương ống bò trong nước sôi 5 phút, rửa sạch.. Not crossed off. Double-tap to cross off." style="flex-direction:column;gap:10px"><div class="row" style="gap:10px;flex-wrap:wrap"><span class="n">1</span><span class="now" style="margin:0"><svg class="ic " aria-hidden="true" width="14" height="14" viewBox="0 -960 960 960" fill="currentColor"><path d="M686-450H190q-13 0-21.5-8.5T160-480q0-13 8.5-21.5T190-510h496L459-737q-9-9-9-21t9-21q9-9 21-9t21 9l278 278q5 5 7 10t2 11q0 6-2 11t-7 10L501-181q-9 9-21 9t-21-9q-9-9-9-21t9-21l227-227Z"/></svg>Now</span><span class="grow"></span><button class="ctimer" style="border:0;margin-top:0" aria-label="Start timer, 5 phút, for step 1"><svg class="ic " aria-hidden="true" width="24" height="24" viewBox="0 -960 960 960" fill="currentColor"><path d="M390-860q-13 0-21.5-8.5T360-890q0-13 8.5-21.5T390-920h180q13 0 21.5 8.5T600-890q0 13-8.5 21.5T570-860H390Zm111.5 438.5Q510-430 510-443v-170q0-13-8.5-21.5T480-643q-13 0-21.5 8.5T450-613v170q0 13 8.5 21.5T480-413q13 0 21.5-8.5Zm-161 312Q275-138 226-187t-77.5-114.5Q120-367 120-441t28.5-139.5Q177-646 226-695t114.5-77.5Q406-801 480-801q67 0 126 22.5T711-716l30-30q9-9 21-9t21 9q9 9 9 21t-9 21l-30 30q36 40 61.5 97T840-441q0 74-28.5 139.5T734-187q-49 49-114.5 77.5T480-81q-74 0-139.5-28.5Zm352-119Q780-316 780-441t-87.5-212.5Q605-741 480-741t-212.5 87.5Q180-566 180-441t87.5 212.5Q355-141 480-141t212.5-87.5ZM480-440Z"/></svg>5 phút</button></div><span class="txt">Chần xương ống bò trong nước sôi 5 phút, rửa sạch.</span></div><div class="cstep " role="button" aria-label="Step 2 of 6: Nướng hành tây và gừng cho thơm.. Not crossed off. Double-tap to cross off."><span class="n">2</span><div class="grow"><span class="txt">Nướng hành tây và gừng cho thơm.</span></div></div><div class="cstep " role="button" aria-label="Step 3 of 6: Cho xương, nạm, hành, gừng vào nồi với 4 lít nước, ninh lửa nhỏ 3 tiếng, thỉnh thoảng hớt bọt.. Not crossed off. Double-tap to cross off."><span class="n">3</span><div class="grow"><span class="txt">Cho xương, nạm, hành, gừng vào nồi với 4 lít nước, ninh lửa nhỏ 3 tiếng, thỉnh thoảng hớt bọt.</span><div><button class="ctimer" style="border:0;" aria-label="Start timer, 3 tiếng, for step 3"><svg class="ic " aria-hidden="true" width="24" height="24" viewBox="0 -960 960 960" fill="currentColor"><path d="M390-860q-13 0-21.5-8.5T360-890q0-13 8.5-21.5T390-920h180q13 0 21.5 8.5T600-890q0 13-8.5 21.5T570-860H390Zm111.5 438.5Q510-430 510-443v-170q0-13-8.5-21.5T480-643q-13 0-21.5 8.5T450-613v170q0 13 8.5 21.5T480-413q13 0 21.5-8.5Zm-161 312Q275-138 226-187t-77.5-114.5Q120-367 120-441t28.5-139.5Q177-646 226-695t114.5-77.5Q406-801 480-801q67 0 126 22.5T711-716l30-30q9-9 21-9t21 9q9 9 9 21t-9 21l-30 30q36 40 61.5 97T840-441q0 74-28.5 139.5T734-187q-49 49-114.5 77.5T480-81q-74 0-139.5-28.5Zm352-119Q780-316 780-441t-87.5-212.5Q605-741 480-741t-212.5 87.5Q180-566 180-441t87.5 212.5Q355-141 480-141t212.5-87.5ZM480-440Z"/></svg>3 tiếng</button></div></div></div></div></div><div style="flex:none;padding:10px 12px 10px;background:var(--cookSurface);box-shadow:0 -1px 0 var(--outlineVariant)"><div style="margin-bottom:10px"><div class="tray" data-hscroll role="region" aria-label="Running timers"><button class="tpill" style="border:0;" aria-label="Bước 1 · 5 phút, remaining 0:04:59"><svg class="ic " aria-hidden="true" width="24" height="24" viewBox="0 -960 960 960" fill="currentColor"><path d="M390-860q-12.75 0-21.37-8.68-8.63-8.67-8.63-21.5 0-12.82 8.63-21.32 8.62-8.5 21.37-8.5h180q12.75 0 21.38 8.68 8.62 8.67 8.62 21.5 0 12.82-8.62 21.32-8.63 8.5-21.38 8.5H390Zm111.5 438.37q8.5-8.62 8.5-21.37v-170q0-12.75-8.68-21.38-8.67-8.62-21.5-8.62-12.82 0-21.32 8.62-8.5 8.63-8.5 21.38v170q0 12.75 8.68 21.37 8.67 8.63 21.5 8.63 12.82 0 21.32-8.63Zm-161 312.13Q275-138 226-187t-77.5-114.5Q120-367 120-441t28.5-139.5Q177-646 226-695t114.5-77.5Q406-801 480-801q67 0 125.5 22T710-717l30-30q9-9 21.5-9t21.5 9q9 9 9 21.5t-9 21.5l-30 30q36 40 61.5 97T840-441q0 74-28.5 139.5T734-187q-49 49-114.5 77.5T480-81q-74 0-139.5-28.5Z"/></svg><span class="col" style="align-items:flex-start"><span class="tn">Bước 1 · 5 phút</span><span class="tr">0:04:59</span></span></button></div></div><button class="btn filled cook block" ><svg class="ic " aria-hidden="true" width="20" height="20" viewBox="0 -960 960 960" fill="currentColor"><path d="M450-274v-496q0-13 8.5-21.5T480-800q13 0 21.5 8.5T510-770v496l227-227q9-9 21-9t21 9q9 9 9 21t-9 21L501-181q-5 5-10 7t-11 2q-6 0-11-2t-10-7L181-459q-9-9-9-21t9-21q9-9 21-9t21 9l227 227Z"/></svg><span>Next step</span></button></div></div></div></div><div class="gest" style="background:var(--cookSurface)"><i></i></div><div class="scrim"></div><section class="dialog " role="alertdialog"><div class="dic"><svg class="ic " aria-hidden="true" width="28" height="28" viewBox="0 -960 960 960" fill="currentColor"><path d="M190-200q-13 0-21.5-8.5T160-230q0-13 8.5-21.5T190-260h50v-304q0-84 49.5-150.5T420-798v-22q0-25 17.5-42.5T480-880q25 0 42.5 17.5T540-820v22q81 17 130.5 83.5T720-564v304h50q13 0 21.5 8.5T800-230q0 13-8.5 21.5T770-200H190Zm290-302Zm0 422q-33 0-56.5-23.5T400-160h160q0 33-23.5 56.5T480-80ZM300-260h360v-304q0-75-52.5-127.5T480-744q-75 0-127.5 52.5T300-564v304ZM150-566q-13 0-21.5-9t-7.5-22q6-71 38-132t83-106q10-9 22.5-8.5T285-832q8 11 5.5 23.5T278-787q-40 36-65 84t-31 105q-2 14-10.5 23t-21.5 9Zm660 0q-13 0-21.5-9T778-598q-6-57-31-105t-65-84q-10-9-12.5-21.5T675-832q8-11 20.5-11.5T718-835q51 45 83 106t38 132q1 13-7.5 22t-21.5 9Z"/></svg></div><h2 class="hS" style="margin:0;text-align:center">Alert when time is up</h2><div class="bM muted" style="font-size:calc(var(--ts)*15px);line-height:1.5">Bepbook needs notification permission to alert you when a timer ends, even when the screen is locked or the app is in the background. It is used only for cooking timers.<div class="tag ok" style="margin-top:10px"><svg class="ic " aria-hidden="true" width="14" height="14" viewBox="0 -960 960 960" fill="currentColor"><path d="M390-860q-13 0-21.5-8.5T360-890q0-13 8.5-21.5T390-920h180q13 0 21.5 8.5T600-890q0 13-8.5 21.5T570-860H390Zm111.5 438.5Q510-430 510-443v-170q0-13-8.5-21.5T480-643q-13 0-21.5 8.5T450-613v170q0 13 8.5 21.5T480-413q13 0 21.5-8.5Zm-161 312Q275-138 226-187t-77.5-114.5Q120-367 120-441t28.5-139.5Q177-646 226-695t114.5-77.5Q406-801 480-801q67 0 126 22.5T711-716l30-30q9-9 21-9t21 9q9 9 9 21t-9 21l-30 30q36 40 61.5 97T840-441q0 74-28.5 139.5T734-187q-49 49-114.5 77.5T480-81q-74 0-139.5-28.5Zm352-119Q780-316 780-441t-87.5-212.5Q605-741 480-741t-212.5 87.5Q180-566 180-441t87.5 212.5Q355-141 480-141t212.5-87.5ZM480-440Z"/></svg>Your timer has already started</div></div><div class="dacts"><button class="btn text " ><span>Not now</span></button><button class="btn filled " ><span>Continue</span></button></div></section></div><aside class="frame-notes"><p><b>SCR-25 · cook~notif-rationale · default</b></p><p>Android 360×800 dp · light · EN</p><p>AC: AC-28</p><p>Note: First timer tap. Timer starts anyway.</p></aside></body></html>

@@ -1,0 +1,479 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bepbook ios/dark/07_recipe__long-text</title><style>@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(../../assets/fonts/noto-sans-vietnamese-400-normal.woff2) format('woff2');
+  unicode-range: U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;
+}
+
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(../../assets/fonts/noto-sans-latin-ext-400-normal.woff2) format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(../../assets/fonts/noto-sans-latin-400-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(../../assets/fonts/noto-sans-vietnamese-500-normal.woff2) format('woff2');
+  unicode-range: U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;
+}
+
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(../../assets/fonts/noto-sans-latin-ext-500-normal.woff2) format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(../../assets/fonts/noto-sans-latin-500-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../../assets/fonts/noto-sans-vietnamese-600-normal.woff2) format('woff2');
+  unicode-range: U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;
+}
+
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../../assets/fonts/noto-sans-latin-ext-600-normal.woff2) format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../../assets/fonts/noto-sans-latin-600-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(../../assets/fonts/noto-sans-vietnamese-700-normal.woff2) format('woff2');
+  unicode-range: U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;
+}
+
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(../../assets/fonts/noto-sans-latin-ext-700-normal.woff2) format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(../../assets/fonts/noto-sans-latin-700-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(../../assets/fonts/lora-vietnamese-500-normal.woff2) format('woff2');
+  unicode-range: U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;
+}
+
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(../../assets/fonts/lora-latin-ext-500-normal.woff2) format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(../../assets/fonts/lora-latin-500-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../../assets/fonts/lora-vietnamese-600-normal.woff2) format('woff2');
+  unicode-range: U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;
+}
+
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../../assets/fonts/lora-latin-ext-600-normal.woff2) format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../../assets/fonts/lora-latin-600-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(../../assets/fonts/lora-vietnamese-700-normal.woff2) format('woff2');
+  unicode-range: U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;
+}
+
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(../../assets/fonts/lora-latin-ext-700-normal.woff2) format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(../../assets/fonts/lora-latin-700-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 500;
+  src: url(../../assets/fonts/lora-vietnamese-500-italic.woff2) format('woff2');
+  unicode-range: U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;
+}
+
+
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 500;
+  src: url(../../assets/fonts/lora-latin-ext-500-italic.woff2) format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 500;
+  src: url(../../assets/fonts/lora-latin-500-italic.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+:root{--primary:#F2A877;--onPrimary:#4A1F05;--primaryContainer:#713413;--onPrimaryContainer:#FFDCC6;--secondary:#A3D2A8;--onSecondary:#0C3217;--secondaryContainer:#27502F;--onSecondaryContainer:#D2EED2;--tertiary:#F0C451;--onTertiary:#3A2A00;--tertiaryContainer:#5A4300;--onTertiaryContainer:#FFE7A8;--surface:#1C1814;--onSurface:#F1E8DB;--onSurfaceVariant:#CFC1AE;--surfaceContainerLowest:#15120F;--surfaceContainerLow:#221D18;--surfaceContainer:#27211B;--surfaceContainerHigh:#312A23;--surfaceContainerHighest:#3B332B;--outline:#9C8D7A;--outlineVariant:#4B4137;--error:#FFB4A6;--onError:#5F150C;--errorContainer:#87251A;--onErrorContainer:#FFDAD3;--inverseSurface:#F1E8DB;--onInverseSurface:#2E2720;--inversePrimary:#9A4518;--scrim:#000000;--success:#9ED5A5;--onSuccess:#0B3216;--successContainer:#22512D;--onSuccessContainer:#D3EED4;--warning:#F5C072;--onWarning:#3F2700;--warningContainer:#5E3D00;--onWarningContainer:#FFE1B5;--info:#A6CBEE;--onInfo:#0B2B47;--infoContainer:#1F4567;--onInfoContainer:#D6E8FA;--crossedOff:#A79987;--currentStep:#4A3800;--onCurrentStep:#FFF0CB;--currentStepEdge:#F0C451;--timerActive:#A3D2A8;--onTimerActive:#0C3217;--expiringSoon:#F5C072;--expired:#FFB4A6;--suggested:#A6CBEE;--suggestedContainer:#1F4567;--ribbon:#F08A5D;--cookSurface:#15120F;--cookInk:#F7EFE4;--photoPlaceholder1:#5A4030;--photoPlaceholder2:#3E4D38;--photoPlaceholder3:#5C4A1E;--photoPlaceholder4:#5A3A30;--photoPlaceholder5:#34454E;--photoPlaceholder6:#4A3D50;--photoPlaceholder7:#4B4434;--photoPlaceholder8:#33493D;--onPhotoPlaceholder:#F7EFE4;--ts:1;--ck:1;--sans:'Noto Sans', system-ui, sans-serif;--serif:'Lora', 'Noto Serif', Georgia, serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--surface);color:var(--onSurface);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+.displaySmall,.dS{font-family:'Lora', 'Noto Serif', Georgia, serif;font-size:calc(var(--ts)*34px);line-height:1.235;font-weight:600;letter-spacing:0px;}
+.headlineMedium,.hM{font-family:'Lora', 'Noto Serif', Georgia, serif;font-size:calc(var(--ts)*28px);line-height:1.286;font-weight:600;letter-spacing:0px;}
+.headlineSmall,.hS{font-family:'Lora', 'Noto Serif', Georgia, serif;font-size:calc(var(--ts)*24px);line-height:1.333;font-weight:600;letter-spacing:0px;}
+.titleLarge,.tL{font-family:'Lora', 'Noto Serif', Georgia, serif;font-size:calc(var(--ts)*21px);line-height:1.333;font-weight:600;letter-spacing:0px;}
+.titleMedium,.tM{font-family:'Noto Sans', system-ui, sans-serif;font-size:calc(var(--ts)*16px);line-height:1.500;font-weight:600;letter-spacing:0.1px;}
+.titleSmall,.tS{font-family:'Noto Sans', system-ui, sans-serif;font-size:calc(var(--ts)*14px);line-height:1.429;font-weight:600;letter-spacing:0.1px;}
+.bodyLarge,.bL{font-family:'Noto Sans', system-ui, sans-serif;font-size:calc(var(--ts)*16px);line-height:1.500;font-weight:400;letter-spacing:0.1px;}
+.bodyMedium,.bM{font-family:'Noto Sans', system-ui, sans-serif;font-size:calc(var(--ts)*14px);line-height:1.500;font-weight:400;letter-spacing:0.15px;}
+.bodySmall,.bS{font-family:'Noto Sans', system-ui, sans-serif;font-size:calc(var(--ts)*12.5px);line-height:1.440;font-weight:400;letter-spacing:0.2px;}
+.labelLarge,.lL{font-family:'Noto Sans', system-ui, sans-serif;font-size:calc(var(--ts)*14px);line-height:1.429;font-weight:600;letter-spacing:0.1px;}
+.labelMedium,.lM{font-family:'Noto Sans', system-ui, sans-serif;font-size:calc(var(--ts)*12.5px);line-height:1.280;font-weight:600;letter-spacing:0.3px;}
+.labelSmall,.lS{font-family:'Noto Sans', system-ui, sans-serif;font-size:calc(var(--ts)*11.5px);line-height:1.391;font-weight:600;letter-spacing:0.4px;}
+.cookIngredient{font-family:'Noto Sans', system-ui, sans-serif;font-size:calc(var(--ts)*22px);line-height:1.455;font-weight:400;letter-spacing:0px;}
+.cookStep{font-family:'Noto Sans', system-ui, sans-serif;font-size:calc(var(--ts)*24px);line-height:1.417;font-weight:400;letter-spacing:0px;}
+.cookStepCurrent{font-family:'Noto Sans', system-ui, sans-serif;font-size:calc(var(--ts)*28px);line-height:1.429;font-weight:500;letter-spacing:0px;}
+.timer{font-family:'Noto Sans', system-ui, sans-serif;font-size:calc(var(--ts)*22px);line-height:1.273;font-weight:700;letter-spacing:0px;font-variant-numeric:tabular-nums;}
+.timerLarge{font-family:'Noto Sans', system-ui, sans-serif;font-size:calc(var(--ts)*44px);line-height:1.182;font-weight:700;letter-spacing:0px;font-variant-numeric:tabular-nums;}
+.tab-num,.num{font-variant-numeric:tabular-nums}
+.ic{flex:none;display:block}
+.dev{position:relative;overflow:hidden;background:var(--surface);color:var(--onSurface);display:flex;flex-direction:column;font-family:var(--sans)}
+.status{flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 16px;font-size:13px;font-weight:600;color:var(--onSurface);position:relative;z-index:6}
+.android .status{height:28px;padding:0 18px}
+.ios .status{height:54px;padding:0 30px 0 44px;font-size:16px}
+.ios .island{position:absolute;left:50%;top:11px;width:124px;height:36px;margin-left:-62px;border-radius:20px;background:#000}
+.status .sig{display:flex;gap:4px;align-items:center}
+.scr{flex:1;display:flex;flex-direction:column;min-height:0;position:relative}
+.body{flex:1;overflow:hidden;position:relative;min-height:0}
+.pad{padding:0 16px}
+.gest{flex:none;display:flex;justify-content:center;align-items:center;background:inherit}
+.android .gest{height:20px}.android .gest i{width:108px;height:4px;border-radius:2px;background:var(--onSurface);opacity:.55}
+.ios .gest{height:34px}.ios .gest i{width:134px;height:5px;border-radius:3px;background:var(--onSurface);margin-top:12px}
+.row{display:flex;align-items:center;gap:8px}.col{display:flex;flex-direction:column}.wrap{flex-wrap:wrap}.grow{flex:1;min-width:0}
+.muted{color:var(--onSurfaceVariant)}.pri{color:var(--primary)}
+.ell{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cl2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+/* app bars */
+.appbar{flex:none;display:flex;align-items:center;gap:4px;min-height:64px;padding:4px 4px 4px 16px}
+.appbar.sm{padding-left:4px}
+.appbar .ttl{flex:1;min-width:0}
+.ios .appbar.sm .ttl{text-align:center}
+.ibtn{width:48px;height:48px;border-radius:24px;border:0;background:transparent;color:var(--onSurfaceVariant);display:inline-flex;align-items:center;justify-content:center;flex:none;padding:0;position:relative}
+.ibtn.on{color:var(--primary)}
+.ibtn .badge{position:absolute;top:8px;right:6px;min-width:16px;height:16px;border-radius:8px;background:var(--error);color:var(--onError);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 4px}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:10px 22px;border-radius:999px;border:0;font-family:var(--sans);font-size:calc(var(--ts)*14px);line-height:1.3;font-weight:600;letter-spacing:.1px;text-decoration:none;text-align:center}
+.btn.filled{background:var(--primary);color:var(--onPrimary)}
+.btn.tonal{background:var(--secondaryContainer);color:var(--onSecondaryContainer)}
+.btn.outlined{background:transparent;color:var(--primary);box-shadow:inset 0 0 0 1px var(--outline)}
+.btn.text{background:transparent;color:var(--primary);padding:10px 12px}
+.btn.danger{background:var(--error);color:var(--onError)}
+.btn.dangertext{background:transparent;color:var(--error);padding:10px 12px}
+.btn.big{min-height:56px;font-size:calc(var(--ts)*16px);padding:12px 28px}
+.btn.cook{min-height:64px;font-size:calc(var(--ts)*18px);padding:14px 28px}
+.btn.block{display:flex;width:100%}
+.btn.dis{background:var(--surfaceContainerHighest);color:var(--onSurfaceVariant)}
+.fab{position:absolute;right:16px;bottom:16px;height:56px;min-width:56px;border-radius:18px;background:var(--primary);color:var(--onPrimary);display:flex;align-items:center;justify-content:center;gap:10px;padding:0 18px;box-shadow:0 3px 8px rgba(40,20,5,.28),0 1px 2px rgba(40,20,5,.2);font-weight:600;font-size:calc(var(--ts)*15px);z-index:4;border:0}
+.dark .fab{box-shadow:none}
+/* fields */
+.field{min-height:56px;border-radius:12px;background:var(--surfaceContainerLowest);box-shadow:inset 0 0 0 1px var(--outline);padding:8px 14px;display:flex;flex-direction:column;justify-content:center}
+.field .lab{font-size:calc(var(--ts)*12px);color:var(--onSurfaceVariant);font-weight:600}
+.field .val{font-size:calc(var(--ts)*16px);line-height:1.45}
+.field.err{box-shadow:inset 0 0 0 2px var(--error)}
+.field.focus{box-shadow:inset 0 0 0 2px var(--primary)}
+.search{display:flex;align-items:center;gap:10px;height:52px;border-radius:26px;background:var(--surfaceContainerHigh);padding:0 6px 0 16px;color:var(--onSurfaceVariant);font-size:calc(var(--ts)*16px)}
+.help{font-size:calc(var(--ts)*12.5px);color:var(--onSurfaceVariant);line-height:1.4}
+.errt{font-size:calc(var(--ts)*12.5px);color:var(--error);display:flex;gap:4px;align-items:center;font-weight:600}
+/* chips */
+.chip{display:inline-flex;align-items:center;gap:6px;min-height:34px;padding:5px 12px;border-radius:9px;box-shadow:inset 0 0 0 1px var(--outline);color:var(--onSurfaceVariant);font-size:calc(var(--ts)*13.5px);font-weight:600;line-height:1.3;background:transparent;white-space:nowrap}
+.chip.sel{background:var(--secondaryContainer);color:var(--onSecondaryContainer);box-shadow:none}
+.chip.pri{background:var(--primaryContainer);color:var(--onPrimaryContainer);box-shadow:none}
+.chip.soft{background:var(--surfaceContainerHigh);box-shadow:none;color:var(--onSurface)}
+.chip .x{margin-right:-6px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips.scroll{flex-wrap:nowrap;overflow:hidden}
+.tag{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:6px;font-size:calc(var(--ts)*12px);font-weight:600;line-height:1.4}
+.tag.ok{background:var(--successContainer);color:var(--onSuccessContainer)}
+.tag.warn{background:var(--warningContainer);color:var(--onWarningContainer)}
+.tag.bad{background:var(--errorContainer);color:var(--onErrorContainer)}
+.tag.info{background:var(--infoContainer);color:var(--onInfoContainer)}
+.tag.neutral{background:var(--surfaceContainerHigh);color:var(--onSurfaceVariant)}
+.tag.sug{background:var(--suggestedContainer);color:var(--suggested);box-shadow:inset 0 0 0 1px var(--suggested)}
+/* segmented */
+.seg{display:flex;border-radius:24px;box-shadow:inset 0 0 0 1px var(--outline);overflow:hidden;min-height:48px}
+.seg>span{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:6px 10px;font-size:calc(var(--ts)*13.5px);font-weight:600;color:var(--onSurface);text-align:center;line-height:1.25}
+.seg>span+span{box-shadow:inset 1px 0 0 var(--outline)}
+.seg>span.on{background:var(--secondaryContainer);color:var(--onSecondaryContainer)}
+.tsbig .seg{flex-direction:column;border-radius:16px}.tsbig .seg>span+span{box-shadow:inset 0 1px 0 var(--outline)}
+/* switch */
+.sw{width:52px;height:32px;border-radius:16px;box-shadow:inset 0 0 0 2px var(--outline);background:var(--surfaceContainerHighest);position:relative;flex:none}
+.sw::after{content:'';position:absolute;left:8px;top:8px;width:16px;height:16px;border-radius:8px;background:var(--outline)}
+.sw.on{background:var(--primary);box-shadow:none}.sw.on::after{left:24px;top:4px;width:24px;height:24px;border-radius:12px;background:var(--onPrimary)}
+/* checkbox */
+.cb{width:24px;height:24px;border-radius:6px;box-shadow:inset 0 0 0 2px var(--onSurfaceVariant);flex:none;display:flex;align-items:center;justify-content:center;color:var(--onPrimary)}
+.cb.on{background:var(--primary);box-shadow:none}
+.cb.big{width:30px;height:30px;border-radius:8px}
+.radio{width:22px;height:22px;border-radius:11px;box-shadow:inset 0 0 0 2px var(--onSurfaceVariant);flex:none}
+.radio.on{box-shadow:inset 0 0 0 2px var(--primary),inset 0 0 0 6px var(--surface),inset 0 0 0 12px var(--primary)}
+/* lists */
+.li{display:flex;align-items:center;gap:14px;min-height:56px;padding:8px 16px}
+.li .lt{flex:1;min-width:0}
+.li .ttl{font-size:calc(var(--ts)*16px);line-height:1.4}
+.li .sub{font-size:calc(var(--ts)*13.5px);line-height:1.4;color:var(--onSurfaceVariant)}
+.li>.ic{color:var(--onSurfaceVariant)}
+.rule{border-bottom:1px solid var(--outlineVariant)}
+.divider{height:1px;background:var(--outlineVariant);margin:4px 0}
+.group{margin:8px 16px;border-radius:16px;background:var(--surfaceContainerLowest);box-shadow:inset 0 0 0 1px var(--outlineVariant);overflow:hidden}
+.dark .group{background:var(--surfaceContainerLow)}
+.group .li+.li{box-shadow:inset 0 1px 0 var(--outlineVariant)}
+.gl{padding:18px 32px 6px;font-size:calc(var(--ts)*13px);font-weight:700;color:var(--primary);letter-spacing:.3px}
+/* notebook-tab section header */
+.tabh{display:flex;align-items:flex-end;gap:8px;border-bottom:1.5px solid var(--outline);margin:14px 16px 4px}
+.tabh .tb{background:var(--surfaceContainerHigh);border-radius:9px 9px 0 0;padding:5px 12px 4px;font-family:var(--serif);font-weight:600;font-size:calc(var(--ts)*15px);line-height:1.35;color:var(--onSurface);box-shadow:inset 1px 1px 0 var(--outlineVariant),inset -1px 0 0 var(--outlineVariant)}
+.tabh .cnt{margin-left:auto;padding-bottom:4px;font-size:calc(var(--ts)*12.5px);color:var(--onSurfaceVariant);font-weight:600}
+.sech{display:flex;align-items:center;gap:8px;padding:20px 16px 6px}
+.sech h2{margin:0;flex:1}
+/* cards */
+.card{border-radius:14px;background:var(--surfaceContainerLowest);box-shadow:inset 0 0 0 1px var(--outlineVariant);overflow:hidden;position:relative}
+.dark .card{background:var(--surfaceContainerLow)}
+.photo{display:block;width:100%;height:100%}
+.ph{position:relative;overflow:hidden;background:var(--surfaceContainerHigh)}
+.ribbon{position:absolute;top:0;right:12px;width:20px;height:30px;background:var(--ribbon);clip-path:polygon(0 0,100% 0,100% 100%,50% 76%,0 100%);display:flex;justify-content:center;padding-top:5px;color:#fff}
+.place{position:absolute;inset:0;background-image:repeating-linear-gradient(to bottom,transparent 0 17px,rgba(60,40,20,.13) 17px 18px);display:flex;align-items:center;justify-content:center;flex-direction:column}
+.dark .place{background-image:repeating-linear-gradient(to bottom,transparent 0 17px,rgba(255,240,220,.08) 17px 18px)}
+.place::before{content:'';position:absolute;top:0;bottom:0;left:18px;width:1.5px;background:rgba(176,38,27,.35)}
+.place .ini{font-family:var(--serif);font-weight:600;color:var(--onPhotoPlaceholder);line-height:1}
+.place .cat{font-size:11.5px;font-weight:700;color:var(--onPhotoPlaceholder);letter-spacing:.5px;margin-top:4px;opacity:.9}
+.stars{display:inline-flex;gap:1px;color:var(--tertiary)}
+.stars .off{color:var(--outline)}
+.meta{display:flex;align-items:center;gap:4px 10px;flex-wrap:wrap;font-size:calc(var(--ts)*12.5px);color:var(--onSurfaceVariant);line-height:1.35}
+.meta>span{display:inline-flex;align-items:center;gap:3px}
+/* bottom nav */
+.nav{flex:none;display:flex;background:var(--surfaceContainer);padding:10px 0 12px;box-shadow:inset 0 1px 0 var(--outlineVariant)}
+.nav a{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--onSurfaceVariant);text-decoration:none}
+.nav .pill{width:60px;height:32px;border-radius:16px;display:flex;align-items:center;justify-content:center}
+.nav a.on .pill{background:var(--primaryContainer);color:var(--onPrimaryContainer)}
+.nav a.on{color:var(--onSurface)}
+.nav .nl{font-size:calc(min(var(--ts),1.3)*12.5px);font-weight:600;line-height:1.25;max-width:100%;padding:0 2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nav a.on .nl{font-weight:700}
+/* overlays */
+.scrim{position:absolute;inset:0;background:rgba(15,8,2,.42);z-index:8}
+.dark .scrim{background:rgba(0,0,0,.6)}
+.sheet{position:absolute;left:0;right:0;bottom:0;z-index:9;background:var(--surfaceContainerLow);border-radius:28px 28px 0 0;display:flex;flex-direction:column;max-height:92%;overflow:hidden}
+.sheet .grab{width:36px;height:4px;border-radius:2px;background:var(--outline);margin:12px auto 6px;flex:none}
+.sheet .shd{padding:6px 20px 10px;display:flex;align-items:center;gap:8px}
+.sheet .sbody{overflow:hidden;flex:1;min-height:0}
+.sheet .sfoot{flex:none;display:flex;gap:10px;align-items:center;padding:12px 16px;box-shadow:inset 0 1px 0 var(--outlineVariant);background:var(--surfaceContainerLow)}
+.dialog{position:absolute;left:24px;right:24px;top:50%;transform:translateY(-50%);z-index:9;background:var(--surfaceContainerHigh);border-radius:28px;padding:24px 24px 14px;display:flex;flex-direction:column;gap:14px;max-height:88%;overflow:hidden}
+.dialog .dacts{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:4px 6px;margin-top:4px}
+.dialog .dic{color:var(--secondary);align-self:center}
+.dialog.danger .dic{color:var(--error)}
+.snack{position:absolute;left:12px;right:12px;z-index:7;background:var(--inverseSurface);color:var(--onInverseSurface);border-radius:10px;padding:6px 6px 6px 16px;min-height:48px;display:flex;align-items:center;gap:8px;font-size:calc(var(--ts)*14px);line-height:1.35;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+.snack .btn{color:var(--inversePrimary);padding:10px 12px}
+.toastcard{position:absolute;left:12px;right:12px;z-index:7}
+/* banners & notices */
+.banner{display:flex;gap:12px;align-items:flex-start;padding:12px 12px 12px 14px;border-radius:14px;font-size:calc(var(--ts)*14px);line-height:1.4}
+.banner .bt{flex:1;min-width:0}
+.banner.info{background:var(--infoContainer);color:var(--onInfoContainer)}
+.banner.warn{background:var(--warningContainer);color:var(--onWarningContainer)}
+.banner.bad{background:var(--errorContainer);color:var(--onErrorContainer)}
+.banner.ok{background:var(--successContainer);color:var(--onSuccessContainer)}
+.banner.neutral{background:var(--surfaceContainerHigh);color:var(--onSurface)}
+.banner.view{background:var(--tertiaryContainer);color:var(--onTertiaryContainer)}
+.banner .bacts{display:flex;gap:4px;flex-wrap:wrap;margin:4px 0 -6px -12px}
+.banner .bacts .btn{min-height:40px;color:inherit;text-decoration:underline;text-underline-offset:3px}
+.note{display:flex;gap:10px;align-items:flex-start;font-size:calc(var(--ts)*13px);line-height:1.45;color:var(--onSurfaceVariant)}
+/* ingredients / steps */
+.ing{display:flex;align-items:baseline;gap:10px;padding:10px 16px;border-bottom:1px solid var(--outlineVariant);font-size:calc(var(--ts)*16px);line-height:1.45}
+.ing .q{font-weight:700;font-variant-numeric:tabular-nums;color:var(--onSurface);white-space:nowrap}
+.ing .unsc{display:flex;align-items:center;gap:4px;font-size:calc(var(--ts)*12.5px);color:var(--warning);font-weight:600;margin-top:2px}
+.grp{font-family:var(--serif);font-weight:600;font-style:italic;font-size:calc(var(--ts)*15.5px);color:var(--primary);padding:16px 16px 4px}
+.step{display:flex;gap:14px;padding:12px 16px;font-size:calc(var(--ts)*16px);line-height:1.55}
+.step .n{flex:none;width:30px;height:30px;border-radius:15px;background:var(--surfaceContainerHigh);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:calc(var(--ts)*14px);color:var(--onSurface)}
+.tchip{display:inline-flex;align-items:center;gap:4px;padding:1px 9px 1px 6px;border-radius:8px;background:var(--secondaryContainer);color:var(--onSecondaryContainer);font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;vertical-align:baseline}
+.conv{display:inline-flex;align-items:center;padding:0 5px;margin-left:3px;border-radius:5px;font-size:.72em;font-weight:700;background:var(--tertiaryContainer);color:var(--onTertiaryContainer);vertical-align:2px}
+.link{color:var(--primary);text-decoration:underline;text-underline-offset:3px}
+/* cook */
+.cook{background:var(--cookSurface);color:var(--cookInk)}
+.cstep{border-radius:20px;padding:16px 16px 18px;display:flex;gap:14px;background:var(--surfaceContainerLow);box-shadow:inset 0 0 0 1px var(--outlineVariant);font-size:calc(var(--ts)*var(--ck)*24px);line-height:1.42}
+.dark .cstep{background:var(--surfaceContainerLow)}
+.cstep .n{flex:none;width:44px;height:44px;border-radius:22px;background:var(--surfaceContainerHighest);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:calc(var(--ts)*18px)}
+.cstep.cur{background:var(--currentStep);color:var(--onCurrentStep);box-shadow:inset 0 0 0 3px var(--currentStepEdge);font-size:calc(var(--ts)*var(--ck)*28px);font-weight:500}
+.cstep.cur .n{background:var(--currentStepEdge);color:var(--cookSurface)}
+.cstep.x{color:var(--crossedOff);background:transparent;box-shadow:inset 0 0 0 1px var(--outlineVariant);font-size:calc(var(--ts)*var(--ck)*20px)}
+.cstep.x .txt{text-decoration:line-through;text-decoration-thickness:2px}
+.cstep.x .n{background:transparent;color:var(--success)}
+.now{display:inline-flex;align-items:center;gap:4px;font-size:calc(var(--ts)*13px);font-weight:800;letter-spacing:.8px;text-transform:uppercase;background:var(--currentStepEdge);color:var(--cookSurface);border-radius:6px;padding:2px 8px;margin-bottom:6px}
+.ctimer{display:inline-flex;align-items:center;gap:8px;min-height:64px;padding:8px 18px 8px 14px;border-radius:16px;background:var(--timerActive);color:var(--onTimerActive);font-weight:700;font-size:calc(var(--ts)*20px);font-variant-numeric:tabular-nums;margin-top:12px}
+.cing{display:flex;align-items:center;gap:14px;min-height:64px;padding:10px 16px;border-bottom:1px solid var(--outlineVariant);font-size:calc(var(--ts)*var(--ck)*22px);line-height:1.38}
+.cing.x{color:var(--crossedOff)}.cing.x .t{text-decoration:line-through;text-decoration-thickness:2px}
+.cing .ck{flex:none;width:34px;height:34px;border-radius:17px;box-shadow:inset 0 0 0 2.5px var(--onSurfaceVariant);display:flex;align-items:center;justify-content:center}
+.cing.x .ck{background:var(--success);box-shadow:none;color:var(--onSuccess)}
+.tray{display:flex;gap:8px;overflow:hidden}
+.tpill{display:flex;align-items:center;gap:8px;min-height:52px;padding:4px 14px 4px 10px;border-radius:16px;background:var(--timerActive);color:var(--onTimerActive);flex:none}
+.tpill .tn{font-size:calc(var(--ts)*12px);font-weight:600;line-height:1.2;opacity:.92}
+.tpill .tr{font-size:calc(var(--ts)*20px);font-weight:700;font-variant-numeric:tabular-nums;line-height:1.15}
+.runpill{position:absolute;left:50%;transform:translateX(-50%);z-index:5;display:flex;align-items:center;gap:8px;height:44px;padding:0 18px 0 14px;border-radius:22px;background:var(--timerActive);color:var(--onTimerActive);font-weight:700;font-size:calc(var(--ts)*14.5px);font-variant-numeric:tabular-nums;box-shadow:0 3px 10px rgba(0,0,0,.22);white-space:nowrap}
+/* status card */
+.stat{border-radius:20px;padding:16px;display:flex;gap:14px;align-items:flex-start}
+.stat .sic{width:44px;height:44px;border-radius:22px;display:flex;align-items:center;justify-content:center;flex:none}
+.stat.ok{background:var(--successContainer);color:var(--onSuccessContainer)}.stat.ok .sic{background:var(--success);color:var(--onSuccess)}
+.stat.warn{background:var(--warningContainer);color:var(--onWarningContainer)}.stat.warn .sic{background:var(--warning);color:var(--onWarning)}
+.stat.bad{background:var(--errorContainer);color:var(--onErrorContainer)}.stat.bad .sic{background:var(--error);color:var(--onError)}
+.stat.none{background:var(--surfaceContainerHigh);color:var(--onSurface)}.stat.none .sic{background:var(--outline);color:var(--surface)}
+.meter{height:10px;border-radius:5px;background:var(--surfaceContainerHighest);overflow:hidden;box-shadow:inset 0 0 0 1px var(--outlineVariant)}
+.meter>i{display:block;height:100%;background:var(--secondary);border-radius:5px}
+.prog{height:6px;border-radius:3px;background:var(--surfaceContainerHighest);overflow:hidden}.prog>i{display:block;height:100%;background:var(--primary)}
+.stepper{display:flex;align-items:center;border-radius:28px;box-shadow:inset 0 0 0 1px var(--outline);min-height:52px}
+.stepper .sv{flex:1;text-align:center;font-weight:700;font-size:calc(var(--ts)*17px);font-variant-numeric:tabular-nums;padding:4px}
+.handle{color:var(--onSurfaceVariant)}
+.osph{position:absolute;inset:0;z-index:9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:repeating-linear-gradient(135deg,#9a9a9a 0 12px,#a8a8a8 12px 24px);color:#222;font:600 14px/1.4 var(--sans);text-align:center;padding:24px}
+.osph b{background:#eee;padding:8px 12px;border-radius:8px}
+.webpage{background:#fff;color:#222;font-family:Georgia,serif}
+.sel-hl{background:rgba(66,133,244,.32)}
+.picked{box-shadow:inset 3px 0 0 #2B5C86;background:rgba(43,92,134,.08)}
+.role{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:6px;font-size:calc(var(--ts)*12px);font-weight:700;flex:none}
+.r-name{background:var(--primaryContainer);color:var(--onPrimaryContainer)}
+.r-ing{background:var(--secondaryContainer);color:var(--onSecondaryContainer)}
+.r-step{background:var(--tertiaryContainer);color:var(--onTertiaryContainer)}
+.r-head{background:var(--surfaceContainerHighest);color:var(--onSurface)}
+.r-note{background:var(--infoContainer);color:var(--onInfoContainer)}
+.r-ign{background:transparent;color:var(--onSurfaceVariant);box-shadow:inset 0 0 0 1px var(--outline);text-decoration:line-through}
+.focusring{outline:2px solid var(--primary);outline-offset:2px}
+
+html{background:#0f0d0b}body{background:transparent;padding:32px;display:flex;gap:32px;align-items:flex-start}
+.frame-notes{max-width:340px;font:13px/1.55 'Noto Sans',sans-serif;color:#e9e0d3}.frame-notes p{margin:0 0 6px}
+.dev{border-radius:48px;box-shadow:0 0 0 10px #111,0 20px 50px rgba(0,0,0,.3)}</style></head>
+<body><div class="dev ios dark  " style="width:393px;height:852px;">
+<div class="status" style="position:absolute;top:0;left:0;right:0;color:#fff;height:54px" aria-hidden="true"><span>21:14</span><div class="island"></div><span class="sig"><svg class="ic " aria-hidden="true" width="18" height="18" viewBox="0 -960 960 960" fill="currentColor"><path d="M214.5-174.58Q200-189.17 200-210v-140q0-20.83 14.62-35.42Q229.24-400 250.12-400q20.88 0 35.38 14.58Q300-370.83 300-350v140q0 20.83-14.62 35.42Q270.76-160 249.88-160q-20.88 0-35.38-14.58Zm250 0Q450-189.17 450-210v-340q0-20.83 14.62-35.42Q479.24-600 500.12-600q20.88 0 35.38 14.58Q550-570.83 550-550v340q0 20.83-14.62 35.42Q520.76-160 499.88-160q-20.88 0-35.38-14.58Zm250 0Q700-189.17 700-210v-540q0-20.83 14.62-35.42Q729.24-800 750.12-800q20.88 0 35.38 14.58Q800-770.83 800-750v540q0 20.83-14.62 35.42Q770.76-160 749.88-160q-20.88 0-35.38-14.58Z"/></svg><svg class="ic " aria-hidden="true" width="18" height="18" viewBox="0 -960 960 960" fill="currentColor"><path d="M417-154q-27-27-27-63t27-63q27-27 63-27t63 27q27 27 27 63t-27 63q-27 27-63 27t-63-27Zm209-378.5Q694-505 757-451q14 12 15 30.5T759-388q-14 14-32 13t-33-13q-53-44-106.5-63T480-470q-54 0-107.5 19T266-388q-15 12-33 13t-32-13q-14-14-13-32.5t15-30.5q63-54 131-81.5T480-560q78 0 146 27.5Zm95.5-219Q835-703 926-622q14 13 15.5 31.5T929-558q-14 14-33.5 13.5T861-558q-83-70-178-111t-203-41q-108 0-203 41T99-558q-15 13-34 13.5T32-558q-14-14-13-32.5T34-622q91-81 204.5-129.5T480-800q128 0 241.5 48.5Z"/></svg><svg class="ic " aria-hidden="true" width="20" height="20" viewBox="0 -960 960 960" fill="currentColor"><path d="M310-80q-12.75 0-21.37-8.63Q280-97.25 280-110v-676q0-12.75 8.63-21.38Q297.25-816 310-816h90v-34q0-12.75 8.63-21.38Q417.25-880 430-880h100q12.75 0 21.38 8.62Q560-862.75 560-850v34h90q12.75 0 21.38 8.62Q680-798.75 680-786v676q0 12.75-8.62 21.37Q662.75-80 650-80H310Z"/></svg></span></div><div class="scr" style=""><div class="body"><div style="transform:translateY(-0px)"><div style="position:relative"><div class="ph" style="height:290px;"><svg class="photo " aria-hidden="true" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="lp462" cx="35%" cy="25%" r="85%"><stop offset="0" stop-color="#fff" stop-opacity=".28"/><stop offset=".6" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".28"/></radialGradient>
+<linearGradient id="tp462" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9C6B45"/><stop offset="1" stop-color="#6B4429"/></linearGradient>
+<filter id="sp462" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#000" flood-opacity=".32"/></filter></defs>
+<rect width="400" height="300" fill="url(#tp462)"/><path d="M0 40 C120 32 260 50 400 36" stroke="#5A3820" stroke-opacity=".25" stroke-width="2" fill="none"/><path d="M0 95 C120 87 260 105 400 91" stroke="#5A3820" stroke-opacity=".25" stroke-width="2" fill="none"/><path d="M0 160 C120 152 260 170 400 156" stroke="#5A3820" stroke-opacity=".25" stroke-width="2" fill="none"/><path d="M0 215 C120 207 260 225 400 211" stroke="#5A3820" stroke-opacity=".25" stroke-width="2" fill="none"/><path d="M0 270 C120 262 260 280 400 266" stroke="#5A3820" stroke-opacity=".25" stroke-width="2" fill="none"/><g filter="url(#sp462)"><circle cx="200" cy="152" r="118" fill="#F4EFE6"/><circle cx="200" cy="152" r="112" fill="none" stroke="#2F5D8A" stroke-width="3" stroke-opacity=".55"/></g><circle cx="200" cy="152" r="104" fill="#C9852F"/>
+<g stroke="#FFF6E2" stroke-width="5" stroke-linecap="round" fill="none" opacity=".9"><path d="M130 110 q35 -16 70 0 t70 0"/><path d="M138 124 q35 -16 70 0 t70 0"/><path d="M146 138 q35 -16 70 0 t70 0"/><path d="M154 152 q35 -16 70 0 t70 0"/><path d="M162 166 q35 -16 70 0 t70 0"/><path d="M170 180 q35 -16 70 0 t70 0"/></g>
+<path d="M143 120 q22 -14 44 0 q-22 12 -44 0z" fill="#8E4A35" stroke="#6B3022" stroke-width="2"/><path d="M193 105 q22 -14 44 0 q-22 12 -44 0z" fill="#8E4A35" stroke="#6B3022" stroke-width="2"/><path d="M223 150 q22 -14 44 0 q-22 12 -44 0z" fill="#8E4A35" stroke="#6B3022" stroke-width="2"/><path d="M158 175 q22 -14 44 0 q-22 12 -44 0z" fill="#8E4A35" stroke="#6B3022" stroke-width="2"/><path d="M203 190 q22 -14 44 0 q-22 12 -44 0z" fill="#8E4A35" stroke="#6B3022" stroke-width="2"/>
+<ellipse cx="133.8332866469712" cy="118.26694751225773" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(28 133.8332866469712 118.26694751225773)"/><ellipse cx="174.79545091344824" cy="169.17319388573057" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(122 174.79545091344824 169.17319388573057)"/><ellipse cx="180.09967423323482" cy="167.28559658187814" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(175 180.09967423323482 167.28559658187814)"/><ellipse cx="225.9866680291714" cy="142.77623389942633" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(82 225.9866680291714 142.77623389942633)"/><ellipse cx="139.38953719408465" cy="140.3075382428582" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(99 139.38953719408465 140.3075382428582)"/><ellipse cx="122.11224729362772" cy="146.0979014091486" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(121 122.11224729362772 146.0979014091486)"/><ellipse cx="172.67365410711494" cy="206.4791672614398" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(42 172.67365410711494 206.4791672614398)"/><ellipse cx="140.6148903720307" cy="203.59420486980218" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(118 140.6148903720307 203.59420486980218)"/><ellipse cx="244.74225614069152" cy="186.51628619419094" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(63 244.74225614069152 186.51628619419094)"/><ellipse cx="253.28849442924303" cy="118.81082968394915" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(133 253.28849442924303 118.81082968394915)"/><ellipse cx="211.9025381470979" cy="212.89105117715212" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(42 211.9025381470979 212.89105117715212)"/><ellipse cx="180.20160908707462" cy="157.9736611926109" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(47 180.20160908707462 157.9736611926109)"/><ellipse cx="244.10686319779632" cy="146.9207568799384" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(40 244.10686319779632 146.9207568799384)"/><ellipse cx="184.16145300358198" cy="217.90277254705612" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(99 184.16145300358198 217.90277254705612)"/><ellipse cx="199.23670551269925" cy="76.23085660434896" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(116 199.23670551269925 76.23085660434896)"/><ellipse cx="220.45325684732137" cy="72.89165281146146" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(169 220.45325684732137 72.89165281146146)"/><ellipse cx="230.6968577308552" cy="95.67958909693363" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(151 230.6968577308552 95.67958909693363)"/><ellipse cx="193.94889553814826" cy="175.67943764002257" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(138 193.94889553814826 175.67943764002257)"/><ellipse cx="131.43572170235814" cy="116.25425756528651" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(24 131.43572170235814 116.25425756528651)"/><ellipse cx="241.4450036915646" cy="182.76187533689972" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(65 241.4450036915646 182.76187533689972)"/><ellipse cx="191.6697230488704" cy="173.38595266850967" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(155 191.6697230488704 173.38595266850967)"/><ellipse cx="161.46227657547615" cy="127.70317511384464" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(10 161.46227657547615 127.70317511384464)"/><ellipse cx="164.1389231568421" cy="193.24006628415572" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(64 164.1389231568421 193.24006628415572)"/><ellipse cx="219.04728116952805" cy="156.3569612703046" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(33 219.04728116952805 156.3569612703046)"/><ellipse cx="247.32202424370035" cy="173.4960922431102" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(172 247.32202424370035 173.4960922431102)"/><ellipse cx="207.55172116769825" cy="138.59606661253454" rx="7" ry="3.5" fill="#4E8A3A" transform="rotate(15 207.55172116769825 138.59606661253454)"/><circle cx="206.0595378227775" cy="114.90353380116548" r="4" fill="#EDE6C8"/><circle cx="237.8164551990767" cy="148.4102924096353" r="4" fill="#EDE6C8"/><circle cx="179.68777786033738" cy="144.54722701206848" r="4" fill="#EDE6C8"/><circle cx="212.9064379691957" cy="114.2689805357947" r="4" fill="#EDE6C8"/><circle cx="217.0626472378575" cy="92.5765525458306" r="4" fill="#EDE6C8"/><circle cx="246.5021669967097" cy="129.4885665160233" r="4" fill="#EDE6C8"/><circle cx="134.57992789118703" cy="153.89228273204648" r="4" fill="#EDE6C8"/><circle cx="184.89835675016406" cy="103.04827610575248" r="4" fill="#EDE6C8"/>
+<path d="M298 72 a28 28 0 0 1 40 30 z" fill="#9BC34A" stroke="#5E8A22" stroke-width="3"/><rect width="400" height="300" fill="url(#lp462)"/></svg></div><div style="position:absolute;inset:0 0 auto 0;height:130px;background:linear-gradient(rgba(0,0,0,.55),transparent)"></div>
+<div class="row" style="position:absolute;top:50px;left:4px;right:4px;color:#fff"><button class="ibtn " aria-label="Back" style="color:#fff"><svg class="ic " aria-hidden="true" width="24" height="24" viewBox="0 -960 960 960" fill="currentColor"><path d="m368-480 315 315q11 11 11 27.5T683-109q-12 12-28.5 12T626-109L297-438q-9-9-13-20t-4-22q0-11 4-22t13-20l330-330q12-12 28-11.5t28 12.5q11 12 11.5 28T683-795L368-480Z"/></svg></button><span class="grow"></span><button class="ibtn " aria-label="Favourite, on" style="color:#fff"><svg class="ic " aria-hidden="true" width="24" height="24" viewBox="0 -960 960 960" fill="currentColor"><path d="M458-144q-11-4-19-12l-53-49Q262-320 171-424.5T80-643q0-90 60.5-150.5T290-854q51 0 101 24.5t89 80.5q44-56 91-80.5t99-24.5q89 0 149.5 60.5T880-643q0 114-91 218.5T574-205l-53 49q-8 8-19 12t-22 4q-11 0-22-4Z"/></svg></button><button class="ibtn " aria-label="Share" style="color:#fff"><svg class="ic " aria-hidden="true" width="24" height="24" viewBox="0 -960 960 960" fill="currentColor"><path d="M220-80q-24 0-42-18t-18-42v-469q0-24 18-42t42-18h139q12.75 0 21.38 8.68 8.62 8.67 8.62 21.5 0 12.82-8.62 21.32-8.63 8.5-21.38 8.5H220v469h520v-469H599q-12.75 0-21.37-8.68-8.63-8.67-8.63-21.5 0-12.82 8.63-21.32 8.62-8.5 21.37-8.5h141q24 0 42 18t18 42v469q0 24-18 42t-42 18H220Zm237.5-275.63Q449-364.25 449-377v-427l-67 67q-9 9-21 9t-21.39-9q-8.61-9-8.61-21.5t9-21.5l118-119q5-5 10.13-7 5.14-2 11-2 5.87 0 10.87 2 5 2 10 7l119 119q9 9 9 21.16t-8.61 21Q610-729 597.53-729q-12.46 0-21.53-9l-67-66v427q0 12.75-8.68 21.37-8.67 8.63-21.5 8.63-12.82 0-21.32-8.63Z"/></svg></button><button class="ibtn " aria-label="More options" style="color:#fff"><svg class="ic " aria-hidden="true" width="24" height="24" viewBox="0 -960 960 960" fill="currentColor"><path d="M479.86-160Q460-160 446-174.14t-14-34Q432-228 446.14-242t34-14Q500-256 514-241.86t14 34Q528-188 513.86-174t-34 14Zm0-272Q460-432 446-446.14t-14-34Q432-500 446.14-514t34-14Q500-528 514-513.86t14 34Q528-460 513.86-446t-34 14Zm0-272Q460-704 446-718.14t-14-34Q432-772 446.14-786t34-14Q500-800 514-785.86t14 34Q528-732 513.86-718t-34 14Z"/></svg></button></div>
+<span style="position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.62);color:#fff;font:600 12px/1 var(--sans);padding:6px 9px;border-radius:12px;display:flex;gap:4px;align-items:center"><svg class="ic " aria-hidden="true" width="14" height="14" viewBox="0 -960 960 960" fill="currentColor"><path d="m506-413-56-72q-5-6-12-5.5t-12 6.5l-63 83q-5 8-1.1 16 3.89 8 13.1 8h331q9.21 0 13.1-8 3.9-8-1.1-16l-97-131q-5-6-12-6t-12 6l-91 119ZM260-200q-24 0-42-18t-18-42v-560q0-24 18-42t42-18h560q24 0 42 18t18 42v560q0 24-18 42t-42 18H260Zm0-60h560v-560H260v560ZM140-80q-24 0-42-18t-18-42v-590q0-12.75 8.68-21.38 8.67-8.62 21.5-8.62 12.82 0 21.32 8.62 8.5 8.63 8.5 21.38v590h590q12.75 0 21.38 8.68 8.62 8.67 8.62 21.5 0 12.82-8.62 21.32Q742.75-80 730-80H140Zm120-740v560-560Z"/></svg>1/4</span>
+<span class="ribbon" style="right:auto;left:20px;bottom:-14px;top:auto;height:34px;width:22px;z-index:2"><svg class="ic " aria-hidden="true" width="12" height="12" viewBox="0 -960 960 960" fill="currentColor"><path d="M458-144q-11-4-19-12l-53-49Q262-320 171-424.5T80-643q0-90 60.5-150.5T290-854q51 0 101 24.5t89 80.5q44-56 91-80.5t99-24.5q89 0 149.5 60.5T880-643q0 114-91 218.5T574-205l-53 49q-8 8-19 12t-22 4q-11 0-22-4Z"/></svg></span></div><div style="padding:20px 16px 4px"><h1 class="hM" style="margin:0;font-size:calc(var(--ts)*26px);line-height:1.25">Bún bò Huế chuẩn vị cố đô với chả cua, giò heo và mắm ruốc nấu theo cách của bà ngoại ở làng Kim Long — bản đầy đủ cho mười người ăn, có nước dùng ninh xương bò, sả cây đập dập và ớt sa tế tự làm tại </h1>
+<div class="row wrap" style="margin-top:8px;gap:6px 10px"><span class="stars" role="img" aria-label="5 of 5 stars"><span class=""><svg class="ic " aria-hidden="true" width="18" height="18" viewBox="0 -960 960 960" fill="currentColor"><path d="M480-269 294-157q-8 5-17 4.5t-16-5.5q-7-5-10.5-13t-1.5-18l49-212-164-143q-8-7-9.5-15.5t.5-16.5q2-8 9-13.5t17-6.5l217-19 84-200q4-9 12-13.5t16-4.5q8 0 16 4.5t12 13.5l84 200 217 19q10 1 17 6.5t9 13.5q2 8 .5 16.5T826-544L662-401l49 212q2 10-1.5 18T699-158q-7 5-16 5.5t-17-4.5L480-269Z"/></svg></span><span class=""><svg class="ic " aria-hidden="true" width="18" height="18" viewBox="0 -960 960 960" fill="currentColor"><path d="M480-269 294-157q-8 5-17 4.5t-16-5.5q-7-5-10.5-13t-1.5-18l49-212-164-143q-8-7-9.5-15.5t.5-16.5q2-8 9-13.5t17-6.5l217-19 84-200q4-9 12-13.5t16-4.5q8 0 16 4.5t12 13.5l84 200 217 19q10 1 17 6.5t9 13.5q2 8 .5 16.5T826-544L662-401l49 212q2 10-1.5 18T699-158q-7 5-16 5.5t-17-4.5L480-269Z"/></svg></span><span class=""><svg class="ic " aria-hidden="true" width="18" height="18" viewBox="0 -960 960 960" fill="currentColor"><path d="M480-269 294-157q-8 5-17 4.5t-16-5.5q-7-5-10.5-13t-1.5-18l49-212-164-143q-8-7-9.5-15.5t.5-16.5q2-8 9-13.5t17-6.5l217-19 84-200q4-9 12-13.5t16-4.5q8 0 16 4.5t12 13.5l84 200 217 19q10 1 17 6.5t9 13.5q2 8 .5 16.5T826-544L662-401l49 212q2 10-1.5 18T699-158q-7 5-16 5.5t-17-4.5L480-269Z"/></svg></span><span class=""><svg class="ic " aria-hidden="true" width="18" height="18" viewBox="0 -960 960 960" fill="currentColor"><path d="M480-269 294-157q-8 5-17 4.5t-16-5.5q-7-5-10.5-13t-1.5-18l49-212-164-143q-8-7-9.5-15.5t.5-16.5q2-8 9-13.5t17-6.5l217-19 84-200q4-9 12-13.5t16-4.5q8 0 16 4.5t12 13.5l84 200 217 19q10 1 17 6.5t9 13.5q2 8 .5 16.5T826-544L662-401l49 212q2 10-1.5 18T699-158q-7 5-16 5.5t-17-4.5L480-269Z"/></svg></span><span class=""><svg class="ic " aria-hidden="true" width="18" height="18" viewBox="0 -960 960 960" fill="currentColor"><path d="M480-269 294-157q-8 5-17 4.5t-16-5.5q-7-5-10.5-13t-1.5-18l49-212-164-143q-8-7-9.5-15.5t.5-16.5q2-8 9-13.5t17-6.5l217-19 84-200q4-9 12-13.5t16-4.5q8 0 16 4.5t12 13.5l84 200 217 19q10 1 17 6.5t9 13.5q2 8 .5 16.5T826-544L662-401l49 212q2 10-1.5 18T699-158q-7 5-16 5.5t-17-4.5L480-269Z"/></svg></span></span><span class="bS muted">5 of 5</span></div>
+<div class="chips" style="margin-top:10px"><span class="chip soft"><svg class="ic " aria-hidden="true" width="16" height="16" viewBox="0 -960 960 960" fill="currentColor"><path d="M140-160q-24 0-42-18.5T80-220v-520q0-23 18-41.5t42-18.5h256q12.44 0 23.72 5t19.37 13.09L481-740h339q23 0 41.5 18.5T880-680v460q0 23-18.5 41.5T820-160H140Zm0-60h680v-460H456l-60-60H140v520Zm0 0v-520 520Z"/></svg>Noodle soups</span><span class="chip soft">#cuối tuần</span></div></div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;margin:12px 16px;border-radius:14px;overflow:hidden;background:var(--outlineVariant);box-shadow:0 0 0 1px var(--outlineVariant)"><div style="background:var(--surfaceContainerLowest);padding:10px 12px"><div class="lS muted">Servings</div><div class="tS" style="font-variant-numeric:tabular-nums">4 người</div></div><div style="background:var(--surfaceContainerLowest);padding:10px 12px"><div class="lS muted">Prep</div><div class="tS" style="font-variant-numeric:tabular-nums">30 min</div></div><div style="background:var(--surfaceContainerLowest);padding:10px 12px"><div class="lS muted">Cook</div><div class="tS" style="font-variant-numeric:tabular-nums">3 h</div></div><div style="background:var(--surfaceContainerLowest);padding:10px 12px"><div class="lS muted">Total</div><div class="tS" style="font-variant-numeric:tabular-nums">3 h 30 min</div></div><div style="background:var(--surfaceContainerLowest);padding:10px 12px"><div class="lS muted">Difficulty</div><div class="tS" style="font-variant-numeric:tabular-nums">Medium</div></div><div style="background:var(--surfaceContainerLowest)"></div></div>
+<div class="row pad" style="justify-content:space-between;gap:8px;flex-wrap:wrap;padding-top:4px;padding-bottom:8px"><div class="bM"><b>Cooked 6 times</b><div class="muted bS">Last time: Nov 1</div></div><button class="btn outlined " ><svg class="ic " aria-hidden="true" width="20" height="20" viewBox="0 -960 960 960" fill="currentColor"><path d="M480-80q-85 0-158-30.5T195-195q-54-54-84.5-127T80-480q0-84 30.5-157T195-764q54-54 127-85t158-31q60 0 117 17.5T704-811q11 7 13.5 19t-5.5 22q-8 10-20 11t-23-6q-42-27-90-41t-99-14q-145 0-242.5 97.5T140-480q0 145 97.5 242.5T480-140q145 0 242.5-97.5T820-480q0-19-1.5-37t-5.5-35q-2-13 4-24t18-13q13-3 24 4.5t13 20.5q4 20 6 41t2 43q0 85-31 158t-85 127q-54 54-127 84.5T480-80Zm-59-309 392-392q9-9 22-9t23 9q10 10 10 23t-10 23L442-319q-9 9-21 9t-21-9L278-442q-9-9-8.5-22.5T279-487q9-9 22.5-9t22.5 9l97 98Z"/></svg><span>Mark as cooked</span></button></div>
+<div class="row pad" style="gap:10px;padding-top:6px;padding-bottom:4px"><button class="btn tonal grow" ><svg class="ic " aria-hidden="true" width="20" height="20" viewBox="0 -960 960 960" fill="currentColor"><path d="M180-80q-24 0-42-18t-18-42v-620q0-24 18-42t42-18h65v-28q0-13.6 9-22.8 9-9.2 23.02-9.2t23.5 9.2Q310-861.6 310-848v28h340v-28q0-13.6 9-22.8 9-9.2 23.02-9.2t23.5 9.2Q715-861.6 715-848v28h65q24 0 42 18t18 42v620q0 24-18 42t-42 18H180Zm0-60h600v-430H180v430Zm0-490h600v-130H180v130Zm0 0v-130 130Zm300 230q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm-188.5-11.5Q280-423 280-440t11.5-28.5Q303-480 320-480t28.5 11.5Q360-457 360-440t-11.5 28.5Q337-400 320-400t-28.5-11.5ZM640-400q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM480-240q-17 0-28.5-11.5T440-280q0-17 11.5-28.5T480-320q17 0 28.5 11.5T520-280q0 17-11.5 28.5T480-240Zm-188.5-11.5Q280-263 280-280t11.5-28.5Q303-320 320-320t28.5 11.5Q360-297 360-280t-11.5 28.5Q337-240 320-240t-28.5-11.5ZM640-240q-17 0-28.5-11.5T600-280q0-17 11.5-28.5T640-320q17 0 28.5 11.5T680-280q0 17-11.5 28.5T640-240Z"/></svg><span>Add to menu</span></button><button class="btn tonal grow" ><svg class="ic " aria-hidden="true" width="20" height="20" viewBox="0 -960 960 960" fill="currentColor"><path d="M465-736h-94q-12.75 0-21.37-8.68-8.63-8.67-8.63-21.5 0-12.82 8.63-21.32 8.62-8.5 21.37-8.5h94v-93q0-12.75 8.68-21.38 8.67-8.62 21.5-8.62 12.82 0 21.32 8.62 8.5 8.63 8.5 21.38v93h93q12.75 0 21.38 8.68 8.62 8.67 8.62 21.5 0 12.82-8.62 21.32-8.63 8.5-21.38 8.5h-93v93q0 12.75-8.68 21.37-8.67 8.63-21.5 8.63-12.82 0-21.32-8.63-8.5-8.62-8.5-21.37v-93ZM239-101.21q-21-21.21-21-51T239.21-203q21.21-21 51-21T341-202.79q21 21.21 21 51T340.79-101q-21.21 21-51 21T239-101.21Zm404 0q-21-21.21-21-51T643.21-203q21.21-21 51-21T745-202.79q21 21.21 21 51T744.79-101q-21.21 21-51 21T643-101.21ZM140-820H92q-12.75 0-21.37-8.68-8.63-8.67-8.63-21.5 0-12.82 8.63-21.32Q79.25-880 92-880h67q9 0 16.2 4.43 7.2 4.44 10.8 12.57l162 347h288l152-265q4-7 10.75-11t15-4q17.25 0 25.75 14t.5 29L701-493q-11 19-28.56 30.5T634-451H331l-56 104h461q12.75 0 21.38 8.68 8.62 8.67 8.62 21.5 0 12.82-8.62 21.32-8.63 8.5-21.38 8.5H284q-37.66 0-57.33-30T224-378l64-118-148-324Z"/></svg><span>Add to shopping</span></button></div>
+<div class="sech"><h2 class="hS">Ingredients</h2></div>
+<div class="pad" style="padding-bottom:6px"><button class="chip " style="border:0;min-height:44px"><svg class="ic " aria-hidden="true" width="18" height="18" viewBox="0 -960 960 960" fill="currentColor"><path d="M290-80H112q-13 0-22-9.5T82-112q10-150 90.5-263T410-511v-139q-42-5-93-18t-97.5-36.5Q173-728 137.5-762T90-843q-4-14 5-25.5t24-11.5h722q15 0 24 11.5t5 25.5q-12 47-47.5 81t-82 57.5Q694-681 643-668t-93 18v139q157 23 237.5 136T878-112q1 13-8 22.5T848-80H670q-13 0-21.5-8.5T640-110q0-13 8.5-21.5T670-140h147q-18-152-111-234.5T480-457q-133 0-226 82.5T143-140h147q13 0 21.5 8.5T320-110q0 13-8.5 21.5T290-80Zm386-661.5Q766-778 795-820H165q29 42 119 78.5T480-705q106 0 196-36.5ZM480-80q-33 0-56.5-23.5T400-160q0-17 6.5-31t17.5-25q12-12 33-24.5t50-25.5l100-41q9-4 16 3.5t3 16.5l-41 100q-13 29-25 50t-24 33q-11 11-25 17.5T480-80Zm0-625Z"/></svg>4 người · ×1 · Original<svg class="ic " aria-hidden="true" width="18" height="18" viewBox="0 -960 960 960" fill="currentColor"><path d="M469-358q-5-2-10-7L261-563q-9-9-8.5-21.5T262-606q9-9 21.5-9t21.5 9l175 176 176-176q9-9 21-8.5t21 9.5q9 9 9 21.5t-9 21.5L501-365q-5 5-10 7t-11 2q-6 0-11-2Z"/></svg></button></div>
+
+<div class="grp" role="heading" aria-level="3">Phần nước dùng</div><div class="ing"><span class="q">1,5 kg</span><span class="grow">xương ống bò</span></div><div class="ing"><span class="q">500 g</span><span class="grow">thịt bò nạm</span></div><div class="ing"><span class="q">1 củ</span><span class="grow">hành tây</span></div><div class="ing"><span class="q">1 nhánh</span><span class="grow">gừng (khoảng 50 g)</span></div><div class="ing"><span class="q">3</span><span class="grow">hoa hồi</span></div><div class="ing"><span class="q">1 thanh</span><span class="grow">quế</span></div><div class="ing"><span class="q">2 muỗng canh</span><span class="grow">nước mắm</span></div><div class="ing"><span class="q">1 muỗng cà phê</span><span class="grow">muối</span></div><div class="grp" role="heading" aria-level="3">Phần ăn kèm</div><div class="ing"><span class="q">500 g</span><span class="grow">bánh phở</span></div><div class="ing"><span class="q">300 g</span><span class="grow">thịt bò thăn thái mỏng</span></div><div class="ing"><span class="grow">hành lá, rau thơm</span></div><div class="ing"><span class="q">1 quả</span><span class="grow">chanh</span></div><div class="ing"><span class="grow">ớt tươi tùy thích</span></div>
+<div class="sech"><h2 class="hS">Steps</h2></div><div class="grp" role="heading" aria-level="3">Nấu nước dùng</div><div class="step"><span class="n">1</span><span class="grow">Chần xương ống bò trong nước sôi <span class="tchip"><svg class="ic " aria-hidden="true" width="16" height="16" viewBox="0 -960 960 960" fill="currentColor"><path d="M390-860q-13 0-21.5-8.5T360-890q0-13 8.5-21.5T390-920h180q13 0 21.5 8.5T600-890q0 13-8.5 21.5T570-860H390Zm111.5 438.5Q510-430 510-443v-170q0-13-8.5-21.5T480-643q-13 0-21.5 8.5T450-613v170q0 13 8.5 21.5T480-413q13 0 21.5-8.5Zm-161 312Q275-138 226-187t-77.5-114.5Q120-367 120-441t28.5-139.5Q177-646 226-695t114.5-77.5Q406-801 480-801q67 0 126 22.5T711-716l30-30q9-9 21-9t21 9q9 9 9 21t-9 21l-30 30q36 40 61.5 97T840-441q0 74-28.5 139.5T734-187q-49 49-114.5 77.5T480-81q-74 0-139.5-28.5Zm352-119Q780-316 780-441t-87.5-212.5Q605-741 480-741t-212.5 87.5Q180-566 180-441t87.5 212.5Q355-141 480-141t212.5-87.5ZM480-440Z"/></svg>5 phút</span> , rửa sạch.</span></div><div class="step"><span class="n">2</span><span class="grow">Nướng hành tây và gừng cho thơm.</span></div><div class="step"><span class="n">3</span><span class="grow">Cho xương, nạm, hành, gừng vào nồi với 4 lít nước, ninh lửa nhỏ <span class="tchip"><svg class="ic " aria-hidden="true" width="16" height="16" viewBox="0 -960 960 960" fill="currentColor"><path d="M390-860q-13 0-21.5-8.5T360-890q0-13 8.5-21.5T390-920h180q13 0 21.5 8.5T600-890q0 13-8.5 21.5T570-860H390Zm111.5 438.5Q510-430 510-443v-170q0-13-8.5-21.5T480-643q-13 0-21.5 8.5T450-613v170q0 13 8.5 21.5T480-413q13 0 21.5-8.5Zm-161 312Q275-138 226-187t-77.5-114.5Q120-367 120-441t28.5-139.5Q177-646 226-695t114.5-77.5Q406-801 480-801q67 0 126 22.5T711-716l30-30q9-9 21-9t21 9q9 9 9 21t-9 21l-30 30q36 40 61.5 97T840-441q0 74-28.5 139.5T734-187q-49 49-114.5 77.5T480-81q-74 0-139.5-28.5Zm352-119Q780-316 780-441t-87.5-212.5Q605-741 480-741t-212.5 87.5Q180-566 180-441t87.5 212.5Q355-141 480-141t212.5-87.5ZM480-440Z"/></svg>3 tiếng</span> , thỉnh thoảng hớt bọt.</span></div><div class="step"><span class="n">4</span><span class="grow">Rang hồi, quế rồi thả vào nồi <span class="tchip"><svg class="ic " aria-hidden="true" width="16" height="16" viewBox="0 -960 960 960" fill="currentColor"><path d="M390-860q-13 0-21.5-8.5T360-890q0-13 8.5-21.5T390-920h180q13 0 21.5 8.5T600-890q0 13-8.5 21.5T570-860H390Zm111.5 438.5Q510-430 510-443v-170q0-13-8.5-21.5T480-643q-13 0-21.5 8.5T450-613v170q0 13 8.5 21.5T480-413q13 0 21.5-8.5Zm-161 312Q275-138 226-187t-77.5-114.5Q120-367 120-441t28.5-139.5Q177-646 226-695t114.5-77.5Q406-801 480-801q67 0 126 22.5T711-716l30-30q9-9 21-9t21 9q9 9 9 21t-9 21l-30 30q36 40 61.5 97T840-441q0 74-28.5 139.5T734-187q-49 49-114.5 77.5T480-81q-74 0-139.5-28.5Zm352-119Q780-316 780-441t-87.5-212.5Q605-741 480-741t-212.5 87.5Q180-566 180-441t87.5 212.5Q355-141 480-141t212.5-87.5ZM480-440Z"/></svg>30 phút</span>  cuối.</span></div><div class="grp" role="heading" aria-level="3">Hoàn thành</div><div class="step"><span class="n">5</span><span class="grow">Nêm nước mắm, muối vừa ăn.</span></div><div class="step"><span class="n">6</span><span class="grow">Trụng bánh phở 10–15 giây, xếp thịt thăn, chan nước dùng thật sôi.</span></div>
+<div class="sech"><h2 class="hS">Notes</h2></div><p class="pad bM" style="margin:0">Xương nên chần kỹ để nước trong. Xem cách nướng hành: <span class="link">amthuc.example/nuong-hanh</span></p>
+<div class="sech"><h2 class="hS">Source</h2></div><div class="li"><span class="pri"><svg class="ic " aria-hidden="true" width="24" height="24" viewBox="0 -960 960 960" fill="currentColor"><path d="M324-111.5Q251-143 197-197t-85.5-127Q80-397 80-480t31.5-156Q143-709 197-763t127-85.5Q397-880 480-880t156 31.5Q709-817 763-763t85.5 127Q880-563 880-480t-31.5 156Q817-251 763-197t-127 85.5Q563-80 480-80t-156-31.5ZM437-141v-82q-35 0-59-26t-24-61v-44L149-559q-5 20-7 39.5t-2 39.5q0 130 84.5 227T437-141Zm294-108q44-48 66.5-107.5T820-480q0-106-58-192.5T607-799v18q0 35-24 61t-59 26h-87v87q0 17-13.5 28T393-568h-83v88h258q17 0 28 13t11 30v127h43q29 0 51 17t30 44Z"/></svg></span><div class="lt"><div class="ttl">amthuc.example/pho-bo-ha-noi</div><div class="sub link">Open source link</div></div></div><div style="height:120px"></div></div><div style="position:absolute;left:0;right:0;bottom:0;padding:12px 16px 12px;background:linear-gradient(transparent,var(--surface) 30%);z-index:3"><button class="btn cook filled block"><svg class="ic " aria-hidden="true" width="26" height="26" viewBox="0 -960 960 960" fill="currentColor"><path d="M140-692q-21-31-30.5-58.5T101-810q0-13 8.5-21.5T131-840q11 0 19 8.5t8 20.5q1 26 10 48.5t31 53.5q21 31 31 58.5t8 61.5q-1 12-10 20.5t-22 8.5q-11 0-18.5-8.5T180-589q0-26-9.5-49T140-692Zm170 0q-21-31-31-58.5t-9-59.5q0-13 9-21.5t22-8.5q11 0 19 8.5t8 20.5q1 26 10 48.5t31 53.5q21 31 30.5 58.5T407-589q-1 12-9.5 20.5T376-560q-11 0-18.5-8.5T350-589q0-26-9.5-49T310-692Zm170 0q-21-31-31-58.5t-9-59.5q0-13 9-21.5t22-8.5q11 0 19 8.5t8 20.5q1 26 10 48.5t31 53.5q21 31 30.5 58.5T577-589q-1 12-9.5 20.5T546-560q-11 0-18.5-8.5T520-589q0-26-9.5-49T480-692ZM200-160q-51 0-85.5-34.5T80-280v-169q0-13 9-22t22-9h549q0-32 16-58.5t45-36.5l161-54q12-4 23 1.5t15 17.5q4 12-1.5 23T901-572l-161 53q-11 4-15.5 15.5T720-480v200q0 50-34.5 85T600-160H200Zm0-60h400q26 0 43-17.5t17-42.5v-140H140v140q0 26 17 43t43 17Zm200-100Z"/></svg><span>Cook</span></button></div></div></div><div class="gest" style="background:var(--surface)"><i></i></div></div><aside class="frame-notes"><p><b>SCR-07 · recipe · long-text</b></p><p>iPhone 393×852 pt · dark · EN</p><p>AC: AC-02, AC-61</p><p>Note: Stress: 200-character title wraps, never truncates.</p></aside></body></html>

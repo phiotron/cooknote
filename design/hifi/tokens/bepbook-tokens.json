@@ -1,0 +1,313 @@
+{
+  "name": "Bepbook",
+  "version": "1.0",
+  "flutter": {
+    "ColorScheme": {
+      "light": {
+        "primary": "#9A4518",
+        "onPrimary": "#FFF8F2",
+        "primaryContainer": "#F8DCC8",
+        "onPrimaryContainer": "#3B1605",
+        "secondary": "#3B6A45",
+        "onSecondary": "#F3FAF2",
+        "secondaryContainer": "#D2E8D0",
+        "onSecondaryContainer": "#0F2A18",
+        "tertiary": "#7E5A00",
+        "onTertiary": "#FFF9EE",
+        "tertiaryContainer": "#FBE2A2",
+        "onTertiaryContainer": "#2B1E00",
+        "surface": "#FBF6EC",
+        "onSurface": "#2A2119",
+        "onSurfaceVariant": "#5C5043",
+        "surfaceContainerLowest": "#FFFDF8",
+        "surfaceContainerLow": "#F7F0E3",
+        "surfaceContainer": "#F2EADA",
+        "surfaceContainerHigh": "#ECE2D0",
+        "surfaceContainerHighest": "#E5DAC6",
+        "outline": "#857664",
+        "outlineVariant": "#D8CBB6",
+        "error": "#B0261B",
+        "onError": "#FFF7F5",
+        "errorContainer": "#F9DAD3",
+        "onErrorContainer": "#410B05",
+        "inverseSurface": "#352C24",
+        "onInverseSurface": "#F7EEE2",
+        "inversePrimary": "#F2A877",
+        "scrim": "#000000"
+      },
+      "dark": {
+        "primary": "#F2A877",
+        "onPrimary": "#4A1F05",
+        "primaryContainer": "#713413",
+        "onPrimaryContainer": "#FFDCC6",
+        "secondary": "#A3D2A8",
+        "onSecondary": "#0C3217",
+        "secondaryContainer": "#27502F",
+        "onSecondaryContainer": "#D2EED2",
+        "tertiary": "#F0C451",
+        "onTertiary": "#3A2A00",
+        "tertiaryContainer": "#5A4300",
+        "onTertiaryContainer": "#FFE7A8",
+        "surface": "#1C1814",
+        "onSurface": "#F1E8DB",
+        "onSurfaceVariant": "#CFC1AE",
+        "surfaceContainerLowest": "#15120F",
+        "surfaceContainerLow": "#221D18",
+        "surfaceContainer": "#27211B",
+        "surfaceContainerHigh": "#312A23",
+        "surfaceContainerHighest": "#3B332B",
+        "outline": "#9C8D7A",
+        "outlineVariant": "#4B4137",
+        "error": "#FFB4A6",
+        "onError": "#5F150C",
+        "errorContainer": "#87251A",
+        "onErrorContainer": "#FFDAD3",
+        "inverseSurface": "#F1E8DB",
+        "onInverseSurface": "#2E2720",
+        "inversePrimary": "#9A4518",
+        "scrim": "#000000"
+      }
+    },
+    "CookNoteColors": {
+      "light": {
+        "success": "#2D6A39",
+        "onSuccess": "#F3FAF2",
+        "successContainer": "#D3EBD3",
+        "onSuccessContainer": "#0D2A15",
+        "warning": "#8A5300",
+        "onWarning": "#FFF8EE",
+        "warningContainer": "#FBE0B4",
+        "onWarningContainer": "#2E1B00",
+        "info": "#2B5C86",
+        "onInfo": "#F3F8FD",
+        "infoContainer": "#D6E5F3",
+        "onInfoContainer": "#0B2238",
+        "crossedOff": "#7C6F60",
+        "currentStep": "#FBE2A2",
+        "onCurrentStep": "#2B1E00",
+        "currentStepEdge": "#7E5A00",
+        "timerActive": "#3B6A45",
+        "onTimerActive": "#F3FAF2",
+        "expiringSoon": "#8A5300",
+        "expired": "#B0261B",
+        "suggested": "#2B5C86",
+        "suggestedContainer": "#D6E5F3",
+        "ribbon": "#B8461E",
+        "cookSurface": "#FFFDF8",
+        "cookInk": "#1E1711",
+        "photoPlaceholder1": "#E9C9A8",
+        "photoPlaceholder2": "#CFDCC0",
+        "photoPlaceholder3": "#F1D68E",
+        "photoPlaceholder4": "#E7B9A6",
+        "photoPlaceholder5": "#C9D6DD",
+        "photoPlaceholder6": "#DCCBE0",
+        "photoPlaceholder7": "#D9D0B8",
+        "photoPlaceholder8": "#BFD5C8",
+        "onPhotoPlaceholder": "#3A2A1C"
+      },
+      "dark": {
+        "success": "#9ED5A5",
+        "onSuccess": "#0B3216",
+        "successContainer": "#22512D",
+        "onSuccessContainer": "#D3EED4",
+        "warning": "#F5C072",
+        "onWarning": "#3F2700",
+        "warningContainer": "#5E3D00",
+        "onWarningContainer": "#FFE1B5",
+        "info": "#A6CBEE",
+        "onInfo": "#0B2B47",
+        "infoContainer": "#1F4567",
+        "onInfoContainer": "#D6E8FA",
+        "crossedOff": "#A79987",
+        "currentStep": "#4A3800",
+        "onCurrentStep": "#FFF0CB",
+        "currentStepEdge": "#F0C451",
+        "timerActive": "#A3D2A8",
+        "onTimerActive": "#0C3217",
+        "expiringSoon": "#F5C072",
+        "expired": "#FFB4A6",
+        "suggested": "#A6CBEE",
+        "suggestedContainer": "#1F4567",
+        "ribbon": "#F08A5D",
+        "cookSurface": "#15120F",
+        "cookInk": "#F7EFE4",
+        "photoPlaceholder1": "#5A4030",
+        "photoPlaceholder2": "#3E4D38",
+        "photoPlaceholder3": "#5C4A1E",
+        "photoPlaceholder4": "#5A3A30",
+        "photoPlaceholder5": "#34454E",
+        "photoPlaceholder6": "#4A3D50",
+        "photoPlaceholder7": "#4B4434",
+        "photoPlaceholder8": "#33493D",
+        "onPhotoPlaceholder": "#F7EFE4"
+      }
+    }
+  },
+  "type": {
+    "displaySmall": {
+      "family": "serif",
+      "size": 34,
+      "line": 42,
+      "weight": 600,
+      "track": 0
+    },
+    "headlineMedium": {
+      "family": "serif",
+      "size": 28,
+      "line": 36,
+      "weight": 600,
+      "track": 0
+    },
+    "headlineSmall": {
+      "family": "serif",
+      "size": 24,
+      "line": 32,
+      "weight": 600,
+      "track": 0
+    },
+    "titleLarge": {
+      "family": "serif",
+      "size": 21,
+      "line": 28,
+      "weight": 600,
+      "track": 0
+    },
+    "titleMedium": {
+      "family": "sans",
+      "size": 16,
+      "line": 24,
+      "weight": 600,
+      "track": 0.1
+    },
+    "titleSmall": {
+      "family": "sans",
+      "size": 14,
+      "line": 20,
+      "weight": 600,
+      "track": 0.1
+    },
+    "bodyLarge": {
+      "family": "sans",
+      "size": 16,
+      "line": 24,
+      "weight": 400,
+      "track": 0.1
+    },
+    "bodyMedium": {
+      "family": "sans",
+      "size": 14,
+      "line": 21,
+      "weight": 400,
+      "track": 0.15
+    },
+    "bodySmall": {
+      "family": "sans",
+      "size": 12.5,
+      "line": 18,
+      "weight": 400,
+      "track": 0.2
+    },
+    "labelLarge": {
+      "family": "sans",
+      "size": 14,
+      "line": 20,
+      "weight": 600,
+      "track": 0.1
+    },
+    "labelMedium": {
+      "family": "sans",
+      "size": 12.5,
+      "line": 16,
+      "weight": 600,
+      "track": 0.3
+    },
+    "labelSmall": {
+      "family": "sans",
+      "size": 11.5,
+      "line": 16,
+      "weight": 600,
+      "track": 0.4
+    },
+    "cookIngredient": {
+      "family": "sans",
+      "size": 22,
+      "line": 32,
+      "weight": 400,
+      "track": 0
+    },
+    "cookStep": {
+      "family": "sans",
+      "size": 24,
+      "line": 34,
+      "weight": 400,
+      "track": 0
+    },
+    "cookStepCurrent": {
+      "family": "sans",
+      "size": 28,
+      "line": 40,
+      "weight": 500,
+      "track": 0
+    },
+    "timer": {
+      "family": "sans",
+      "size": 22,
+      "line": 28,
+      "weight": 700,
+      "track": 0,
+      "tabular": true
+    },
+    "timerLarge": {
+      "family": "sans",
+      "size": 44,
+      "line": 52,
+      "weight": 700,
+      "track": 0,
+      "tabular": true
+    }
+  },
+  "cookSizeSteps": [
+    0.85,
+    1,
+    1.2,
+    1.45,
+    1.75
+  ],
+  "spacing": {
+    "space1": 4,
+    "space2": 8,
+    "space3": 12,
+    "space4": 16,
+    "space5": 20,
+    "space6": 24,
+    "space8": 32,
+    "space10": 40,
+    "space12": 48
+  },
+  "radius": {
+    "radiusXs": 4,
+    "radiusSm": 8,
+    "radiusMd": 12,
+    "radiusLg": 16,
+    "radiusXl": 24,
+    "radiusFull": 999
+  },
+  "tap": {
+    "tapMin": 48,
+    "tapIos": 44,
+    "tapCook": 64
+  },
+  "motion": {
+    "durShort": 150,
+    "durMedium": 200,
+    "durLong": 250,
+    "easeStandard": "cubic-bezier(0.2,0,0,1)",
+    "reduceMotion": "cross-fade 0 ms → instant; no slides, no pulsing"
+  },
+  "fonts": {
+    "body": "Noto Sans (OFL-1.1, bundled)",
+    "display": "Lora (OFL-1.1) — headings, recipe names, group titles",
+    "tabularFigures": "font-feature-settings: \"tnum\" on quantities and timers"
+  },
+  "icons": "Material Symbols Rounded, weight 400, fill 0 (fill 1 = selected/active) — Apache-2.0"
+}
