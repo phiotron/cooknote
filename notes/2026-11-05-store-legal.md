@@ -36,8 +36,8 @@ Console hay App Store Connect. Không dùng subagent.
 - `python -I store/check_limits.py` → 18 trường đều OK, exit 0 (bảng ở cuối `store/app-store.md`); keyword EN 98/100 byte, VI 88/100 byte.
   Kiểm cả NFC (chữ Việt dựng sẵn).
 - Đối chiếu code (chỉ đọc): `AndroidManifest.xml` (`allowBackup=true`, chưa khai quyền), `res/xml/backup_rules.xml`,
-  `data_extraction_rules.xml`, `pubspec.yaml` (không SDK analytics/ads/ML Kit), `ios/Runner/Info.plist` + `project.pbxproj` (chưa commit,
-  của phiên iOS), `lib/l10n/app_vi.arb` (nhãn "Sao lưu tự động", "Thùng rác").
+  `data_extraction_rules.xml`, `pubspec.yaml` (không SDK analytics/ads/ML Kit), `ios/Runner/Info.plist`, `project.pbxproj`, `PrivacyInfo.xcprivacy`
+  (lúc đầu chưa commit; đọc lại sau commit `9b646df` của phiên iOS và sửa tài liệu theo), `lib/l10n/app_vi.arb` (nhãn "Sao lưu tự động", "Thùng rác").
 - Không chạy `flutter analyze/test` (không đổi code).
 
 ## Phương phải làm
@@ -54,8 +54,7 @@ Console hay App Store Connect. Không dùng subagent.
 6. Gom 15–20 tester Android ngay (`store/closed-test.md`), gửi thư mời khi bản closed test được duyệt.
 
 ## Việc dở / rủi ro (cho phiên điều phối)
-- **iPad:** `ios/` hiện `TARGETED_DEVICE_FAMILY = "1,2"` → nếu giữ, App Store bắt ảnh iPad 13" và App Review thử trên iPad. Đề xuất chỉ iPhone ở v1 (việc của phiên iOS).
-- **`PrivacyInfo.xcprivacy` chưa có** (P-02) — phiên iOS thêm (tracking false, không loại dữ liệu, API cần lý do).
+- iPad, `PrivacyInfo.xcprivacy`: đã xong ở commit `9b646df` của phiên iOS (chỉ iPhone; tracking false, không loại dữ liệu) — tài liệu đã sửa theo. Còn đối chiếu cảnh báo App Store Connect khi upload build đầu.
 - **Sao lưu tự động trên iOS:** F-11 dùng `saf_util`/`saf_stream` (chỉ Android) → mô tả App Store cố ý không nhắc "sao lưu tự động vào thư mục". Có bản iOS thì thêm lại.
 - **iCloud:** chính sách + mô tả iOS nói dữ liệu nằm trong sao lưu iCloud — đúng chỉ khi DB/ảnh không bị đặt cờ loại khỏi sao lưu. Phiên iOS đổi chỗ lưu thì sửa chính sách mục 3.
 - **Quyền Android cuối cùng** (hẹn giờ: foreground service / exact alarm chốt ở G5) → khai báo Play riêng + sửa chính sách mục 4 nếu có.

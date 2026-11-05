@@ -20,7 +20,7 @@ Viết 2026-11-05. **Chụp thật ở phiên điều phối #3 với UI mới**
 |---|---|---|
 | iPhone | **Có — 1 đến 10 ảnh** mỗi localization | Trang Apple ghi cỡ **bắt buộc**: "iPhone with Dynamic Island (**medium display**)": **1206 × 2622** hoặc 1179 × 2556 (dọc). App Store Connect tự thu nhỏ từ cỡ cao nhất đã nộp |
 | iPhone 6.9" (large display) | Không bắt buộc | 1320 × 2868 / 1290 × 2796 / 1260 × 2736 (dọc). Nộp thêm nếu muốn ảnh nét trên máy lớn |
-| iPad 13" | **Chỉ khi app chạy trên iPad** | **2064 × 2752** hoặc 2048 × 2732 (dọc). Project hiện bật iPad (`TARGETED_DEVICE_FAMILY = "1,2"`, chưa commit) → giữ iPad thì **bắt buộc** bộ này; đề xuất v1 chỉ iPhone (`store/app-store.md`) |
+| iPad 13" | **Chỉ khi app chạy trên iPad** | **2064 × 2752** hoặc 2048 × 2732 (dọc). v1 **chỉ iPhone** (`TARGETED_DEVICE_FAMILY = 1`, commit `9b646df`) → không cần; bật iPad sau này thì bắt buộc |
 | iPhone Duo | Từ **tháng 4/2027** với app dùng SDK iOS 27.1 trở lên | 1398 × 2034 (ngoài), 2007 × 2853 (trong). Không áp dụng cho v1 nếu build bằng SDK 26 |
 | Icon App Store | Có | 1024 × 1024 PNG, không alpha, không bo góc (lấy từ `AppIcon` của `ios/`) |
 | App Preview (video) | Không | Bỏ |

@@ -5,7 +5,7 @@
 >   F-04, F-05, F-11, F-14), D-002, D-003, D-005, D-007, APP.md "Tiêu chuẩn áp dụng" (giữ bật Android Auto Backup và iCloud backup;
 >   đối tượng 13+). Đối chiếu code lúc viết: `android/app/src/main/AndroidManifest.xml` (`allowBackup="true"`, chưa khai quyền nào —
 >   plugin sẽ thêm `INTERNET`, `POST_NOTIFICATIONS`… ở #2), `res/xml/backup_rules.xml` + `data_extraction_rules.xml` (sao lưu đám mây
->   loại `photos/` và `safety/`; chuyển máy trực tiếp mang cả ảnh), `ios/Runner/Info.plist` chưa commit (có `NSCameraUsageDescription`,
+>   loại `photos/` và `safety/`; chuyển máy trực tiếp mang cả ảnh), `ios/Runner/Info.plist` (commit `9b646df`; có `NSCameraUsageDescription`,
 >   `NSPhotoLibraryUsageDescription`).
 > - **Trước khi đăng (phiên #3):** đối chiếu mục 4 với danh sách quyền thật (`aapt2 dump permissions` bản release + Info.plist), mục 3
 >   với cách lưu thật trên iOS (DB/ảnh có bị loại khỏi sao lưu không), mục 5 với cách hẹn giờ chốt ở G5, và bỏ dòng tính năng bị cắt

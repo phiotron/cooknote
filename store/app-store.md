@@ -5,9 +5,10 @@ Phương duyệt trước khi nộp. Phải khớp bản Play (`store/google-pla
 chính thức **2026-11-05** (nguồn cuối file). Không sao chép chữ của Paprika, Recipe Keeper, CookBook; không nêu tên app khác trong
 metadata (Apple: keyword không được chứa tên app/công ty khác).
 
-Trạng thái project iOS lúc viết (thư mục `ios/` **chưa commit**, phiên "iOS + CI" đang làm — đọc, không sửa):
+Trạng thái project iOS (đọc lại sau commit `9b646df` của phiên "iOS + CI", 2026-11-05 — chỉ đọc, không sửa):
 `CFBundleDisplayName = CookNote`, min iOS 15.0, `ITSAppUsesNonExemptEncryption = false`, có `NSCameraUsageDescription` và
-`NSPhotoLibraryUsageDescription`, **`TARGETED_DEVICE_FAMILY = "1,2"` (iPhone + iPad)**, chưa có `PrivacyInfo.xcprivacy`.
+`NSPhotoLibraryUsageDescription`, **chỉ iPhone** (`TARGETED_DEVICE_FAMILY = 1`), có Share Extension, có `PrivacyInfo.xcprivacy`
+(app + Share Extension), không đặt cờ loại dữ liệu khỏi sao lưu iCloud.
 Trước khi dán ở #3: đối chiếu lại `ios/Runner/Info.plist`, `project.pbxproj` và CI iOS.
 
 ## Tra trùng tên (S-71) — kiểm 2026-11-05
@@ -52,7 +53,7 @@ Tên nào cũng nên tra lại trực tiếp trên App Store (iPhone/App Store C
 | Danh mục chính / phụ | **Food & Drink** / **Productivity** |
 | Giá | Miễn phí; không In-App Purchase, không thuê bao, không quảng cáo |
 | Phân phối | Mọi quốc gia/vùng **trừ Trung Quốc đại lục** (S-88 không bật; cần số ICP). Không tự mã hoá → không cần khai báo Pháp (S-89 không bật) |
-| Thiết bị | **Đề xuất chỉ iPhone ở v1** (như A002): project hiện bật cả iPad (`"1,2"`) → nếu giữ iPad thì App Review thử trên iPad và **bắt buộc ảnh iPad 13"** (`store/screenshots-plan.md`). Quyết ở phiên điều phối / phiên iOS |
+| Thiết bị | **Chỉ iPhone** (`TARGETED_DEVICE_FAMILY = 1`, commit `9b646df`). Không bật "iPhone and iPad Apps on Apple Silicon Macs", "Apple Vision Pro" (chưa thử). Bật iPad sau này → bắt buộc ảnh iPad 13" |
 | Copyright | `2026 <họ tên người đăng ký Apple Developer>` (Apple tự thêm ký hiệu ©) |
 | Seller | Tài khoản **cá nhân** → App Store hiện họ tên thật; chính sách quyền riêng tư ghi cùng tên |
 | Trader status (EU, DSA) | Bắt buộc khai trước khi phát hành ở EU. App miễn phí, không quảng cáo → Phương cân nhắc khai **không phải trader**; khai là trader thì địa chỉ, điện thoại, email hiện công khai ở EU. Phương tự quyết |
@@ -242,7 +243,7 @@ Ghi kết quả thật vào COMPLIANCE P-05 khi điền.
     nhà phát triển không truy cập) không làm đổi nhãn.
   - Nhập từ web: app tải trang người dùng chọn từ chính trang đó; không gửi dữ liệu người dùng cho nhà phát triển hay đối tác.
   - Không SDK bên thứ ba thu dữ liệu, không analytics, không crash SDK, không quảng cáo → không tracking, không cần ATT (S-83 không bật).
-- `ios/Runner/PrivacyInfo.xcprivacy` (việc của phiên iOS, **chưa có** lúc viết): `NSPrivacyTracking = false`, `NSPrivacyTrackingDomains`
+- `ios/Runner/PrivacyInfo.xcprivacy` (có từ commit `9b646df`; đọc 2026-11-05: `NSPrivacyTracking = false`, không có loại dữ liệu thu thập, API cần lý do: FileTimestamp, DiskSpace, UserDefaults). Yêu cầu: `NSPrivacyTracking = false`, `NSPrivacyTrackingDomains`
   rỗng, `NSPrivacyCollectedDataTypes` rỗng, khai **API cần lý do** mà code và plugin dùng (ví dụ File timestamp, UserDefaults, Disk
   space — kiểm thật bằng cảnh báo của App Store Connect hoặc rà plugin). Plugin tự kèm manifest riêng.
 - Privacy Choices URL: không cần.
