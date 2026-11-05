@@ -11,7 +11,9 @@
 > **Scope = exactly `docs/SPEC.md` F‑01..F‑14 (AC‑01..AC‑65).** Every screen lists the AC it serves. Ideas outside the
 > SPEC go to §10 only, marked **Proposal**, in separate frames.
 >
-> Internal code `A004-cooknote` · Bundle ID `com.phiotron.cooknote` · Version 1.0 · Brief v1 · 2026‑11‑05.
+> Internal code `A004-cooknote` · Bundle ID `com.phiotron.cooknote` · Version 1.0 · Brief v1.1 · 2026‑11‑05
+> (v1.1 applies the product owner's answers, `docs/DECISIONS.md` D‑009: links open in the in‑app browser, duplicate
+> URL also checks the Trash, template apply asks Replace / Add, "Empty trash", Cook mode keeps the viewed scale).
 > Glossary: `CONTEXT.md` (Recipe, Ingredient line, Structured ingredient, Scale factor, Cook mode, Meal slot, Aisle,
 > Pantry item, Backup…). Copy marked with a key (`webSave`) is real copy from `lib/l10n/app_en.arb` / `app_vi.arb` or
 > from the earlier draft UI. Copy marked **NEW:** does not exist yet; the developer adds it to both `.arb` files. You
@@ -213,9 +215,12 @@ There is **no brand yet** — design it. Direction, not a spec:
 2. In the editor, pasting a block of text makes **one line per item**; a line ending with `:` becomes a **group
    heading**. Lines can be **dragged to reorder** (AC‑03).
 3. Save writes everything at once (AC‑04). Delete → confirm → **"Recipe deleted · Undo" for 5 s** → **Trash** for 30
-   days → gone for good with its photos. Restorable from Trash (AC‑05). **Duplicate** makes "Name (copy)" (AC‑06).
+   days → gone for good with its photos. Restorable from Trash; **Empty trash** (confirm) deletes everything in it for
+   good, with photos (AC‑05). **Duplicate** makes "Name (copy)" (AC‑06).
 4. Photos come from the OS photo picker or the OS camera app; **no permission dialog** (AC‑07, AC‑08). Photos are
    copied into the app, so deleting them from the gallery doesn't affect the recipe.
+4b. **Links** in steps and notes, and the **source URL**, open in CookNote's **in‑app browser** (SCR‑15, with its
+   "Save recipe" button) — never an external browser (AC‑09).
 5. **Categories** nest up to **3 levels** ("Main dishes > Vietnamese > Noodle soups"); a recipe can be in 0..n
    categories; deleting a category never deletes recipes. Six default categories on first launch (Main dishes, Side
    dishes, Soups, Desserts, Drinks, Baking) (AC‑10). **Tags** are free words with type‑ahead (AC‑11).
@@ -231,11 +236,12 @@ There is **no brand yet** — design it. Direction, not a spec:
 9. Web pages with schema.org `Recipe` data fill in everything automatically; pages without it go to **Pick text**
    mode: select text on the page, then "Is the name" / "Is ingredients" / "Is the steps" (AC‑18, AC‑19).
 10. **Always a preview before saving** (AC‑20). Same URL already saved → "You already have this recipe" → Open the
-    old one / Save a new copy. Web photos are downloaded so they work offline (AC‑22).
+    old one / Save a new copy. **The check includes the Trash:** if the old copy is in the Trash, say so and offer
+    **Restore it** / Save a new copy. Web photos are downloaded so they work offline (AC‑22).
 11. Every page load has a **20‑second timeout**; no network / timeout / HTTP error → clear reason + **Try again**;
     nothing already picked is lost (AC‑21).
 12. Shared **text that is not a URL** opens the editor with that text, ready to assign (AC‑17).
-13. **Scan:** 1–10 images (gallery, OS camera) or a PDF; text recognition runs **on the phone**; Vietnamese with
+13. **Scan:** 1–10 images (gallery, or the **OS camera app** — no camera permission, as in AC‑08) or a PDF; text recognition runs **on the phone**; Vietnamese with
     accents and English. The **assign** screen shows each recognised line; the user taps lines and assigns Name /
     Ingredients / Steps / Notes, edits text, optionally keeps the page photos as recipe photos. **Handwriting has no
     accuracy promise** and the screen says so (AC‑23..25). The app pre‑sorts lines (likely title / ingredient / step
@@ -247,12 +253,14 @@ There is **no brand yet** — design it. Direction, not a spec:
 **Cooking (F‑05, F‑06)**
 15. **Cook mode:** screen stays on; bigger adjustable text; the **current step** (= first step not crossed off) is
     highlighted; tap an ingredient or step to cross it off (tap again to undo). Leave and come back within **12 hours**
-    → crossed‑off lines are kept (AC‑26).
+    → crossed‑off lines are kept (AC‑26). Cook mode **keeps the servings / scale factor and unit system** being viewed
+    in the recipe detail, and can change them (SCR‑08) (D‑009).
 16. Durations in steps become **timer buttons**: "nấu 15 phút", "1 tiếng 30 phút", "10‑15 phút" (uses the larger),
     "bake for 25 minutes", "1 hour" (AC‑27).
 17. **Several timers at once**, each named after its step. Time up → sound + notification even when locked or in the
     background (±2 s). The notification permission is asked **the first time a timer starts**, after an explanation.
-    Denied → timers still run and ring while the app is open, with the warning `notifDeniedWarning` (AC‑28).
+    Denied → timers still run and ring while the app is open, with the warning `notifDeniedWarning` (AC‑28). A timer
+    can only be **cancelled** — no pause, no "+1 min" (D‑009).
 18. **Pin up to 5 recipes** being cooked; switch between them from a bar at the top of Cook mode (AC‑29).
 19. **Read step** uses the OS voice in the recipe's language; no voice for that language → explain how to install one
     (AC‑30).
@@ -271,16 +279,16 @@ There is **no brand yet** — design it. Direction, not a spec:
     from (AC‑35).
 24. Items sort themselves into **aisles** (Produce, Meat & fish, Dairy & eggs, Dry goods, Spices & sauces, Frozen,
     Drinks, Other) from a built‑in VI/EN dictionary. Move an item to another aisle → remembered next time. Aisles can
-    be added, renamed and reordered to match the shop's path (AC‑36).
+    be added, renamed and reordered to match the shop's path (AC‑36). **The Pantry uses the same aisle set** (D‑009).
 25. Tap to check off; checked items drop to the bottom. "Clear checked items", with the option **"Move bought items to
     the Pantry"**. Share a list as text via the OS share sheet (AC‑37).
 
 **Menu (F‑08)**
 26. Calendar by **day / week / month**. Each day has **meal slots** (default Breakfast, Lunch, Dinner, Snack — rename,
     add, remove). A slot holds **0..n items**: a recipe (with its own servings) or a free‑text line ("Eating out").
-    **Drag** an item to another day or slot. Week starts on the day set in Settings (AC‑38).
+    **Drag** an item to another day or slot. Week starts on the day set in Settings — **Monday or Sunday** (AC‑38).
 27. **Menu templates** are named sets of items ("Family dinner, 4 dishes", "Birthday party") applied to a day or a
-    week in one action (AC‑39).
+    week in one action. **If a target day or slot already has items, ask "Replace" or "Add"** (AC‑39, D‑009).
 28. **Add to shopping** for a date range sends every recipe's ingredients, at each item's servings, through the
     picker of rule 23 (AC‑40).
 29. **Random suggestions** fill the **empty** slots of a week with recipes matching filters (categories, tags, max
@@ -311,7 +319,7 @@ There is **no brand yet** — design it. Direction, not a spec:
 36. **Back up now and save elsewhere** creates a file and opens the share sheet / save dialog — the fallback when a
     cloud app refuses automatic writes (AC‑52).
 37. The Backup screen shows the last **successful** backup (time, place, result, size). **> 7 days** (adjustable)
-    without one → an in‑app reminder (no OS notification). At **10 recipes** the app suggests turning on automatic
+    without one → an in‑app reminder (no OS notification); the number of days is set on the Backup screen. At **10 recipes** the app suggests turning on automatic
     backup, **once** (AC‑53).
 38. **Restore** from a file or from the list of copies in the automatic folder. The file is checked **before** any
     data is touched. **Replace everything** (confirm; the app first saves a copy of current data) or **Merge** (only
@@ -326,7 +334,8 @@ There is **no brand yet** — design it. Direction, not a spec:
     (AC‑58).
 42. **Onboarding:** ≤ 3 pages, skippable, asks **no permission**, says data lives only on the phone and that backup is
     needed to keep it, with a **"Turn on automatic backup"** button (AC‑59).
-43. **About:** version, privacy policy link, security‑report email, open‑source licences, and a note that recipes
+43. **About:** version, privacy policy link, contact / security‑report email (phamphuongphuongnd@gmail.com),
+    open‑source licences, and a note that recipes
     imported from websites belong to their authors and are for personal use (AC‑63, S‑70).
 44. **Delete all data** (Settings): asks first whether to back up, then **two confirmation steps**; deletes database,
     photos and settings, not backup files in outside folders; the app then starts as freshly installed (AC‑64).
@@ -487,8 +496,9 @@ trash** (confirm → "Moved 3 recipes to trash · Undo").
    **Add to shopping** (→ SCR‑32). Group headings ("For the broth") as sub‑headers. Unstructured lines show the
    "cannot be scaled automatically" marker **only while scaled/converted**.
 7. **Steps**: numbered, group headings; durations in steps shown as subtle timer chips (they become real timers in
-   Cook mode); **URLs in steps and notes are tappable** (AC‑09).
-8. **Notes**, **Nutrition**, **Source** ("bepnhathu.example · Open source link").
+   Cook mode); **URLs in steps and notes are tappable** and open in the **in‑app browser** SCR‑15 (AC‑09).
+8. **Notes**, **Nutrition**, **Source** ("amthuc.example · Open source link" → in‑app browser SCR‑15, where "Save
+   recipe" is still available — e.g. to re‑import an updated version).
 9. **Add to menu** (→ SCR‑37) as a secondary action (overflow or row near the top — your call).
 **States:** full recipe · no photo · no steps ("This recipe has no steps yet." — Cook still opens ingredients) · long
 title (200 chars) · many groups · scaled ×2 with banner (SCR‑08) · converted to Metric · pinned (ribbon) · just
@@ -568,7 +578,11 @@ Sheet "Choose categories": tree with checkboxes (3 levels, indented), search if 
 ### SCR‑13 · Trash · [built] · AC‑05
 List of deleted recipes with "Removed for good in 27 days" (NEW / "Xóa hẳn sau 27 ngày") per row; info line "Recipes
 are removed for good 30 days after deleting." Row actions **Restore** (snackbar "Recipe restored") and **Delete
-forever** (confirm "This recipe and its photos will be removed for good."). Optional **Empty trash** (NEW, confirm).
+forever** (confirm "This recipe and its photos will be removed for good."). App‑bar action **Empty trash** (AC‑05,
+D‑009) → confirm dialog "Empty the trash?" / "All 4 recipes in the trash and their photos will be removed for good." /
+Cancel · **Empty trash** (destructive) → snackbar "Trash emptied" (copy NEW: "Dọn sạch thùng rác" · "Dọn sạch thùng
+rác?" · "Toàn bộ 4 công thức trong thùng rác và ảnh của chúng sẽ bị xóa hẳn." · "Đã dọn sạch thùng rác"). Hidden or
+disabled when the trash is empty.
 **States:** empty ("The trash is empty") · items · last day ("Removed for good tomorrow" in warning style + icon).
 
 ### SCR‑14 · Categories manager · [built] · AC‑10
@@ -578,8 +592,10 @@ Recipes are not deleted."), **Recipe book (PDF)** from this category (→ SCR‑
 "Add category". Name dialog 1–50 chars (`categoryNameInvalid`).
 **States:** default 6 categories · nested 3 levels · empty · rename dialog · delete confirm · dragging.
 
-### SCR‑15 · In‑app browser · [draft] · AC‑16, 21, 18, 65
-**Purpose:** find a recipe page and save it, all inside CookNote.
+### SCR‑15 · In‑app browser · [draft] · AC‑16, 21, 18, 65, 09
+**Purpose:** find a recipe page and save it, all inside CookNote. It is also **where recipe links open**: a link in a
+step or note, or the source URL of a recipe (SCR‑07), opens here (never in an external browser) with the same toolbar and **Save recipe** (AC‑09,
+D‑009). Opened from a recipe, the close/back control returns to that recipe.
 **Components:** top **address bar** (`webAddressHint` "Address or search words"; typing words searches with the
 default search engine), progress bar while loading; web content; bottom toolbar: **Back**, **Forward**, **Reload**, and
 the always‑visible primary **Save recipe** (`webSave`, large, thumb zone).
@@ -587,6 +603,8 @@ the always‑visible primary **Save recipe** (`webSave`, large, thumb zone).
 - **Start page** (no URL): hint `webStartHint` ("Type an address or search words (for example "pho bo"), open a page
   with a recipe, then tap Save recipe.") + recent sites (proposal, local only).
 - **Loading** (progress), **loaded**.
+- **Opened from a recipe link** (title shows the page; a small "From: Phở bò Hà Nội" chip / back target — NEW copy
+  "From: {recipe}" / "Từ: {recipe}"); Save recipe here runs the normal import (duplicate check applies).
 - **Errors**, each with **Try again** (`webRetry`): no network (`webErrorNetwork`), timeout 20 s (`webErrorTimeout`),
   HTTP error (`webErrorHttp` "The page reported error {code}."), other (`webErrorOther`). Offline on open: same error.
 - **Reading the page** after Save (short progress ≤ 5 s target) → SCR‑17 preview, or → SCR‑16 if no recipe data,
@@ -612,10 +630,14 @@ error on network while picking (picks kept).
 (NEW), photo candidates (checkable, first = cover). Primary **Save**.
 **States:** full schema data (all fields filled) · partial (only name + ingredients) · from pick‑text · **duplicate URL
 dialog** ("You already have this recipe" / "This address is already in your book. Open the old one or save a new
-copy?" / **Open the old one** · **Save a new copy**) · **downloading photos** "Downloading photos 2/5" with **Skip
+copy?" / **Open the old one** · **Save a new copy**) · **duplicate URL, old copy in the Trash** (D‑009) — NEW copy:
+title "This recipe is in the trash" / "Công thức này đang ở Thùng rác", body "You saved this address before and then
+deleted it. Restore the old one or save a new copy?" / "Bạn đã lưu địa chỉ này rồi xóa đi. Khôi phục bản cũ hay lưu bản
+mới?", buttons **Restore it** / "Khôi phục" (→ recipe restored, opens its detail, snackbar "Recipe restored") · **Save a
+new copy** / "Lưu bản mới"; show "Removed for good in 27 days" on the dialog · **downloading photos** "Downloading photos 2/5" with **Skip
 photos** · some photos failed ("1 photo could not be downloaded", saved anyway) · network lost during save (recipe
 saved without missing photos; message) · VI.
-**A11y:** dialog focus on the safest option (Open the old one).
+**A11y:** dialog focus on the safest option (Open the old one / Restore it).
 
 ### SCR‑18 · Incoming share (from another app) · [draft] · AC‑17
 No own screen needed — show the **transition**: shared URL → SCR‑15 opens that URL and immediately tries to read it →
@@ -627,8 +649,8 @@ Also design the case **"app was closed"** (cold start straight into the import) 
 ### SCR‑19 · Scan: choose and review pages · [new] · AC‑23, 65
 **Purpose:** turn 1–10 photos or a PDF into recipe text, all on the phone.
 **Components:** intro card ("Text is recognised on this phone. Nothing is uploaded." NEW / "Chữ được nhận ngay trên
-máy. Không gửi ảnh đi đâu." ) · three sources: **From gallery** (multi‑select, max 10) · **Take a photo** (OS camera,
-repeatable) · **Choose a PDF** (NEW) · page thumbnails with order numbers, reorder by drag (+ Move left/right
+máy. Không gửi ảnh đi đâu." ) · three sources: **From gallery** (multi‑select, max 10) · **Take a photo** (the OS camera
+app, repeatable — **no camera permission dialog**, D‑009) · **Choose a PDF** (NEW) · page thumbnails with order numbers, reorder by drag (+ Move left/right
 actions), remove "×", rotate · counter "2/10" · **Recognise text** (NEW) primary.
 **States:** empty · 2 pages · 10 pages (add disabled + "At most 10 pages" NEW) · PDF with many pages (first 10 taken +
 note) · unreadable file · camera cancelled (nothing changes) · VI.
@@ -672,7 +694,8 @@ skips · unknown format (`importUnknown`) · bad file (`importBadFile`) · `.coo
 1. **Pinned bar** (top): up to 5 pinned recipes as large chips (thumbnail + short name), current one highlighted; "Pin"
    action for the current recipe (`cookPin` / `cookUnpin`); limit message `cookPinLimit` ("You can pin at most 5
    recipes. Unpin one first.").
-2. **Header row:** recipe name (1–2 lines), **Servings & units** chip ("×2 · Metric" → SCR‑08), **Text size**
+2. **Header row:** recipe name (1–2 lines), **Servings & units** chip — **carried over from the recipe detail** (D‑009), e.g. "×2 · Metric", tap → SCR‑08 to
+   change it here too, **Text size**
    (`cookFontSize`: A− / A+ or a 4–5 step control), **Read step** (`speakStep` / `stopSpeaking`), close (✕).
    A small "Screen stays on" indicator (NEW / "Màn hình luôn sáng").
 3. **Two sections** — Ingredients and Steps — as **tabs or a segmented switch** at the top (one‑hand, no small
@@ -815,9 +838,15 @@ Remove (with Undo).
   Delete.
 - **Save as template** from a day or a week (name dialog: "Family dinner, 4 dishes").
 - **Template editor:** like a Day/Week view without dates ("Day 1 … Day 7").
-- **Apply:** choose the start date (a day, or the week) → items are **added** to the slots (existing items stay) →
-  snackbar "Applied "Birthday party" to Sat, Nov 7 · Undo" (NEW).
-**States:** no templates (explain + "Save this week as a template") · list · apply sheet · applied.
+- **Apply:** choose the start date (a day, or the week). If **every** target slot is empty → applied at once. If any
+  target day/slot **already has items** → dialog (AC‑39, D‑009), NEW copy: title "This day already has meals" / "Ngày
+  này đã có món" (week: "This week already has meals" / "Tuần này đã có món"), body "Sat, Nov 7 already has 2 items in
+  Dinner. Replace them with "Birthday party", or add the template's items next to them?" / "Thứ Bảy, 7/11 đã có 2 món ở
+  bữa Tối. Thay bằng "Tiệc sinh nhật" hay thêm các món của mẫu bên cạnh?", buttons **Replace** / "Thay thế" ·
+  **Add** / "Thêm vào" · Cancel / "Hủy". Replace only clears the slots the template fills. Then snackbar "Applied
+  "Birthday party" to Sat, Nov 7 · Undo" (NEW / "Đã áp "Tiệc sinh nhật" vào Thứ Bảy, 7/11 · Hoàn tác").
+**States:** no templates (explain + "Save this week as a template") · list · apply sheet · **Replace / Add dialog**
+(day variant and week variant, VI) · applied after Replace · applied after Add (slot now shows old + new items).
 
 ### SCR‑40 · Random suggestions · [new] · AC‑41
 1. Filter sheet: categories, tags, max time (reuse SCR‑04 components); which slots to fill (e.g. only Lunch + Dinner —
@@ -956,12 +985,14 @@ States: default · VI · 200 %.
 trong thư mục của bạn không bị xóa.
 
 ### SCR‑55 · About · [new] · AC‑63, 65
-App icon, "CookNote", version "1.0.0 (1)"; rows: **Privacy policy** (opens browser) · **Report a security issue**
-(opens email to the security address) · **Open‑source licences** (→ SCR‑56); privacy summary "No account. No ads. No
+App icon, "CookNote", version "1.0.0 (1)"; rows: **Privacy policy** (opens the policy web page) · **Contact & report a
+security issue** — shows **phamphuongphuongnd@gmail.com**, tap opens the email app (NEW copy "Contact & security
+reports" / "Liên hệ & báo lỗi bảo mật") · **Open‑source licences** (→ SCR‑56); privacy summary "No account. No ads. No
 tracking. Nothing leaves your phone except the web pages you open." (NEW); copyright note (NEW): "Recipes imported from
 websites belong to their authors. CookNote keeps the source link. Use them for your own cooking only." / "Công thức
 nhập từ trang web thuộc bản quyền của tác giả. CookNote giữ liên kết nguồn. Chỉ dùng cho việc nấu ăn cá nhân."
-(Privacy URL and email are placeholders in the mockup — do not invent a domain.)
+(The privacy policy URL is not published yet — show the row only, no URL text, and do not invent a domain. The email
+above is final.)
 
 ### SCR‑56 · Open‑source licences · [new] · S‑70
 Flutter's standard licence page (`showLicensePage`), themed with CookNote tokens: package list → licence text. Also
@@ -985,7 +1016,8 @@ run, Android may show an **ongoing notification** "2 timers running · 4:51" (de
 the next phase — draw it as optional). iOS: standard banner + lock screen.
 
 **EXT‑02 · CookNote in the OS share sheet** 🤖🍏 · AC‑17 — CookNote icon + name among share targets (Chrome/Safari,
-YouTube, Facebook). Just icon legibility at small sizes.
+YouTube, Facebook). Icon legibility at small sizes, plus the **iOS Share Extension card** "Saved to CookNote — open?"
+(§7, slug `ext-share-target~ios-card`).
 
 **EXT‑03 · OS sheets and pickers (placeholders only)** — photo picker, OS camera, file picker, **folder picker**
 (Android SAF / iOS Files), share sheet, print dialog, notification prompt, text‑to‑speech settings. Draw as greyed
@@ -1010,7 +1042,11 @@ CSS in the CookNote style; no scripts, no external fonts. Low priority, but it i
 **F1 · Share a link → saved (the fastest flow, AC‑17, 18, 20, 22)**
 Chrome/Safari on a recipe page → Share → CookNote (EXT‑02) → SCR‑15 loads the URL → reading → SCR‑17 preview (all
 fields filled, 3 photo candidates) → **Save** → downloading photos 3/3 → recipe detail SCR‑07 with snackbar "Saved".
-Variant **F1b:** same URL already saved → duplicate dialog → Open the old one.
+Variant **F1b:** same URL already saved → duplicate dialog → Open the old one. **F1b‑trash:** the old copy is in the
+Trash → "This recipe is in the trash" → Restore it → its detail opens, snackbar "Recipe restored".
+Variant **F1e (iOS):** Safari → Share → CookNote (Share Extension) → small card "Saved to CookNote — open?" → Open →
+SCR‑17 preview in the app.
+Variant **F1f:** recipe detail → "Open source link" → SCR‑15 inside CookNote → back returns to the recipe.
 Variant **F1c:** page has no recipe data (blog) → SCR‑16 pick text → Is the name / Is ingredients / Is the steps →
 Continue → SCR‑17 → Save.
 Variant **F1d:** offline → SCR‑15 `webErrorNetwork` → turn on Wi‑Fi → Try again → continues.
@@ -1061,7 +1097,7 @@ Detail → Delete → confirm → list with "Recipe deleted · Undo" → (ignore
 | Topic | Android 🤖 | iOS 🍏 |
 |---|---|---|
 | **Back** | System Back button/gesture (predictive back on 14+). In the browser: web history first, then leave. In editor/assign: discard dialog. | App‑bar back button + edge swipe. Edge swipe in the browser goes web‑back when possible (propose clear affordance). Editor/assign: swipe‑back blocked when there are changes → discard dialog. |
-| **Receiving a share** | Share intent: CookNote appears in the share sheet for URLs and text; opens the app. | Share extension: CookNote in the share sheet for Safari URLs/text; opens the app (or a small "Saved to CookNote — open?" card — propose). |
+| **Receiving a share** | Share intent: CookNote appears in the share sheet for URLs and text; opens the app. | **Share Extension** (built, D‑009): CookNote in the share sheet for Safari URLs/text; shows a small card "Saved to CookNote — open?" (NEW / "Đã gửi sang CookNote — mở app?") with **Open** / "Mở", then the app continues the import. Draw this card. |
 | **Sharing out** | Android share sheet. | iOS share sheet (anchored, "Save to Files" available). |
 | **Backup folder** | Storage Access Framework folder picker (phone storage, Google Drive, OneDrive — Drive may refuse automatic writes). | Files folder picker (On My iPhone, iCloud Drive, other providers). Copy says "a folder in Files" (NEW variant of `backupFolderHint`). |
 | **OS backup layer** | Android Auto Backup (database, no photos) — `backupSystemLayer`. | iCloud Backup of the device — iOS copy variant (SCR‑47). |
@@ -1199,8 +1235,9 @@ import from Instagram/TikTok video, nutrition calculation, volume ↔ weight per
 suggestions, chat, dish recognition), voice control / assistants, widgets, watch, rich text in steps, tablet /
 landscape / desktop / web, premium / ads / in‑app purchase, app lock.
 **Proposals welcome** (separate page, clearly marked, not wired into flows): recent sites on the browser start page,
-"Shuffle" per suggested meal, split/merge lines in scan assign, fast‑scroll letters, a "Saved to CookNote" card in the
-iOS share extension. The product owner decides before any of them enters the SPEC.
+"Shuffle" per suggested meal, split/merge lines in scan assign, fast‑scroll letters. The product owner decides before
+any of them enters the SPEC. (The iOS "Saved to CookNote" card is no longer a proposal — it is in v1, §7.)
+**Decided, do not draw:** timer pause / "+1 min" (timers can only be cancelled, D‑009).
 
 ---
 
@@ -1244,13 +1281,13 @@ long-text`. Overlays: `<slug>~<overlay>` (e.g. `07_recipe~share`, `23_cook~time-
 | 10 | `recipe-photos` | 30 | `shopping~item` | 50 | `restore` |
 | 11 | `recipe-edit` | 31 | `aisles` | 51 | `recipes~backup-notice` |
 | 12 | `recipe-edit~categories` | 32 | `add-to-shopping` | 52 | `exchange`, `cookbook` |
-| 13 | `trash` | 33 | `shopping~clear`, `shopping~share` | 53 | `settings` |
+| 13 | `trash`, `trash~empty` | 33 | `shopping~clear`, `shopping~share` | 53 | `settings` |
 | 14 | `categories` | 34 | `menu-week` | 54 | `delete-all-1/2/3` |
 | 15 | `web` | 35 | `menu-day` | 55 | `about` |
 | 16 | `web__pick-text` | 36 | `menu-month` | 56 | `licenses` |
-| 17 | `web-preview` | 37 | `menu~add` | 57 | `components` |
-| 18 | `share-in` | 38 | `menu~item` | EXT‑01..06 | `ext-timer-notif`, `ext-share-target`, `ext-os-pickers`, `ext-icon`, `ext-pdf-book`, `ext-backup-html` |
-| 19 | `scan` | 39 | `menu-templates` | | |
+| 17 | `web-preview`, `web-preview~duplicate`, `web-preview~duplicate-trash` | 37 | `menu~add` | 57 | `components` |
+| 18 | `share-in`, `web~from-recipe` | 38 | `menu~item` | EXT‑01..06 | `ext-timer-notif`, `ext-share-target`, `ext-os-pickers`, `ext-icon`, `ext-pdf-book`, `ext-backup-html` |
+| 19 | `scan` | 39 | `menu-templates`, `menu-templates~replace-or-add` | | |
 
 ### 11.4 Design system page
 - **Tokens** as JSON + CSS variables, light and dark, with names that map 1:1 to Flutter: `ColorScheme` (primary,

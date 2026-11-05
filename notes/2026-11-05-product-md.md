@@ -148,3 +148,26 @@ Rủi ro: `product.md` dài (~1.270 dòng). Nếu Claude Design làm một lư�
    viết mà không checkout — ghi vào fact `nhap-app-tu-ngoai.md` cho app nhập từ ngoài.
 4. Nên thêm vào STANDARDS/PLAYBOOK một dòng "app có chế độ dùng khi tay bận (bếp, gym, lái xe…) phải có mục ràng buộc
    riêng trong product.md" (vùng chạm ≥ 64 dp, đọc từ xa, không cử chỉ chính xác).
+
+## Cập nhật 2026-11-05 (lượt 2): áp câu trả lời Q1–Q14 (D-009, SPEC commit 5d1d9b7)
+`product.md` lên **Brief v1.1**. Cách đã sửa theo từng câu:
+
+| # | Quyết định của Phương | Đã sửa ở đâu |
+|---|---|---|
+| Q1 | Email liên hệ/báo lỗi bảo mật = phamphuongphuongnd@gmail.com; link chính sách vẫn chờ | §3 luật 43; SCR-55 (dòng "Contact & security reports" hiện email thật, link chính sách chỉ vẽ dòng, không URL); CONTEXT "About" |
+| Q2 | Đồng ý: chế độ nấu giữ khẩu phần/đơn vị đang xem | §3 luật 15; SCR-23 (chip mang từ màn xem); CONTEXT "Cook mode" |
+| Q3 | **Khác đề xuất:** đã có món thì hỏi "Thay thế" / "Thêm vào" | §3 luật 27; SCR-39 có hộp hỏi (bản ngày + bản tuần, chữ EN/VI), trạng thái sau Thay thế và sau Thêm vào; slug `menu-templates~replace-or-add`; CONTEXT "Menu template" |
+| Q4, Q5, Q6 | Đồng ý (bữa nhiều món; tủ bếp chung khu vực; Thứ Hai/Chủ nhật) | §3 luật 24, 26; CONTEXT "Aisle", "Meal plan" (đã ghi từ lượt 1, nay bỏ dạng giả định) |
+| Q7 | **Khác đề xuất:** URL trong bước, ghi chú, URL nguồn mở bằng trình duyệt trong app | §3 luật 4b; SCR-07 mục 7–8; SCR-15 (mục đích + trạng thái "mở từ công thức", chữ "From: {recipe}"); luồng F1f; slug `web~from-recipe`; CONTEXT "Step", "In-app browser" |
+| Q8 | Trùng URL tính cả Thùng rác; cho Khôi phục / Lưu bản mới | §3 luật 10; SCR-17 thêm hộp "This recipe is in the trash" (chữ EN/VI), luồng F1b-trash, slug `web-preview~duplicate-trash`; CONTEXT "Duplicate URL" (bỏ "chưa chốt") |
+| Q9 | Đồng ý: hẹn giờ chỉ có Huỷ | §3 luật 17; §10 "Decided, do not draw"; CONTEXT "Step timer" |
+| Q10 | Camera hệ điều hành, không xin quyền CAMERA | §3 luật 13; SCR-19; CONTEXT "Scan" |
+| Q11 | iOS Share Extension đã có (9b646df); giữ thẻ "Đã lưu vào CookNote" | §7 bảng (vẽ thẻ, chữ EN/VI); EXT-02 (slug `ext-share-target~ios-card`); luồng F1e; bỏ khỏi danh sách đề xuất §10; CONTEXT "Shared link" |
+| Q12 | Đồng ý: số ngày nhắc chỉnh ở màn Sao lưu | §3 luật 37; CONTEXT "Backup reminder" |
+| Q13 | Có "Dọn sạch thùng rác" có xác nhận | §3 luật 3; SCR-13 (nút ở app bar, hộp xác nhận, snackbar, chữ EN/VI, ẩn khi trống); slug `trash~empty`; CONTEXT "Trash" |
+| Q14 | SPEC đã sửa sang Android + iOS | product.md vốn theo D-008, không cần sửa |
+
+Không còn câu hỏi mở nào từ lượt 1. Chỗ tôi tự quyết khi áp (Phương xem lại nếu muốn khác):
+- Q3 "Thay thế" chỉ xoá món ở **các bữa mà thực đơn mẫu điền vào**, không xoá cả ngày/tuần; áp xong có Hoàn tác.
+- Q7 chỉ áp cho link trong công thức; dòng "Chính sách quyền riêng tư" ở màn Giới thiệu ghi trung tính "mở trang web"
+  (D-009 không nói tới link này).
