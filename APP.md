@@ -16,6 +16,18 @@
   `docs/ARCHITECTURE.md`, `docs/BACKUP-FORMAT.md`, `docs/TESTING.md`, `docs/SECURITY.md`, `docs/COMPLIANCE.md`, `docs/RISKS.md`,
   `docs/RELEASE.md`, `docs/audits/OCR-RESEARCH-2026-11.md`; thuật ngữ `CONTEXT.md` và mô tả gửi Claude Design `product.md` (do phiên con A tạo).
 
+## Tiêu chuẩn áp dụng (`playbook/STANDARDS.md`, chốt 2026-11-05)
+- **Khác đối thủ ở đâu (S-30):** mọi tính năng miễn phí (Paprika thu phí từng nền tảng, Recipe Keeper khoá bớt); không tài khoản;
+  dữ liệu giữ cả đời nhờ sao lưu tự động bằng định dạng mở, đọc được bằng trình duyệt không cần app; tiếng Việt chuẩn
+  (tìm không dấu, đơn vị chén/bát/muỗng, OCR tiếng Việt).
+- **Mục A:** bắt buộc toàn bộ. Lưu ý S-11 (trang 16 KB) cho thư viện native Tesseract.
+- **Mục B được bật:** **S-84** (đối tượng mọi lứa tuổi từ 13: khai đối tượng 13+ trên Play, không vào Families; bảng hỏi tuổi
+  Apple tính cả trình duyệt web trong app). Không bật S-80..S-83, S-85..S-89 (không tài khoản, không thu tiền, không quảng
+  cáo/analytics, không gửi dữ liệu lên server, không AI, không tự mã hoá).
+- **Sao lưu hệ điều hành:** giữ BẬT cả Android Auto Backup (DB, không ảnh — AC-56) và iCloud backup trên iOS; công thức không
+  phải dữ liệu nhạy cảm. Khác fact xưởng `ios-ma-hoa-va-sao-luu` (fact đó cho app dữ liệu tài chính). Chính sách ghi rõ.
+- **Thị trường:** Việt Nam + toàn cầu, trừ Trung Quốc đại lục; không có hoạt động thương mại ở EU (S-87 không bật).
+
 ## MVP: giữ đủ SPEC (D-008)
 SPEC có 14 tính năng, vượt mức "≤ 5" của Playbook. Phương chọn giữ đủ. Cách giữ ngân sách 3 phiên: dồn mọi dependency vào 1 phiên con,
 làm DB v3 ngay ở #1, rồi ở #2 chỉ còn UI chạy song song theo nhóm màn.
