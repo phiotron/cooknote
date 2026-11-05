@@ -1,6 +1,6 @@
 {
   "@@locale": "en",
-  "appTitle": "CookNote",
+  "appTitle": "Bepbook",
   "tabRecipes": "Recipes",
   "tabMenu": "Menu",
   "tabShopping": "Shopping",
@@ -325,7 +325,7 @@
   "notifChannelName": "Cooking timers",
   "notifChannelDescription": "Alerts when a cooking timer ends",
   "notifRationaleTitle": "Alert when time is up",
-  "notifRationaleBody": "CookNote needs notification permission to alert you when a timer ends, even when the screen is locked or the app is in the background. It is used only for cooking timers.",
+  "notifRationaleBody": "Bepbook needs notification permission to alert you when a timer ends, even when the screen is locked or the app is in the background. It is used only for cooking timers.",
   "notifContinue": "Continue",
   "notifLater": "Not now",
   "notifDeniedWarning": "Notifications are off: timers still run but will not alert while the app is in the background.",
@@ -369,7 +369,7 @@
   "backupChooseFolder": "Choose automatic backup folder",
   "backupChangeFolder": "Change folder",
   "backupDisable": "Turn off automatic backup",
-  "backupFolderHint": "Pick a folder once, on this phone or in Google Drive or OneDrive. CookNote writes backups there when you open or leave the app and keeps the latest few. If the cloud app does not allow automatic writes, use \"Back up now and save elsewhere\" below.",
+  "backupFolderHint": "Pick a folder once, on this phone or in Google Drive or OneDrive. Bepbook writes backups there when you open or leave the app and keeps the latest few. If the cloud app does not allow automatic writes, use \"Back up now and save elsewhere\" below.",
   "backupInterval": "Schedule",
   "intervalDaily": "Daily",
   "intervalWeekly": "Weekly",
@@ -392,7 +392,7 @@
   "backupListError": "Could not read the backup folder",
   "restoreReplace": "Replace everything",
   "restoreMerge": "Merge (only add missing recipes)",
-  "restoreReplaceWarning": "All current data will be replaced. CookNote saves a copy of the current data first.",
+  "restoreReplaceWarning": "All current data will be replaced. Bepbook saves a copy of the current data first.",
   "restoreMergeInfo": "Recipes you already have (same name, same creation time) are kept as they are.",
   "restoreChooseMode": "How do you want to restore?",
   "restoreInfo": "{recipes} recipes, {photos} photos, created {when}",
@@ -420,8 +420,8 @@
       }
     }
   },
-  "errBackupNotABackup": "This is not a CookNote backup file",
-  "errBackupNewer": "This file was made by a newer CookNote. Update the app and try again",
+  "errBackupNotABackup": "This is not a Bepbook backup file",
+  "errBackupNewer": "This file was made by a newer Bepbook. Update the app and try again",
   "errBackupChecksum": "The file is damaged (checksum mismatch). Your data was not changed",
   "errBackupMissing": "The file is missing part of its data. Your data was not changed",
   "errBackupBad": "The file content is malformed. Your data was not changed",
@@ -458,7 +458,7 @@
   "importUnverified": "The Paprika and Recipe Keeper formats are read from third-party documentation and are not yet verified against every real file. If a file cannot be read, your data stays unchanged.",
   "importChoose": "Choose file",
   "importWorking": "Importing recipes…",
-  "importUnknown": "This file format is not recognised. CookNote reads .paprikarecipes, Recipe Keeper zip, schema.org JSON and .cooknote.",
+  "importUnknown": "This file format is not recognised. Bepbook reads .paprikarecipes, Recipe Keeper zip, schema.org JSON and .cooknote.",
   "importBadFile": "This file could not be read. Your data was not changed.",
   "importCancelled": "Import cancelled. Recipes imported so far are kept.",
   "importResult": "Imported {imported} recipes. Already present: {duplicates}. Skipped: {skipped}.",
@@ -503,7 +503,7 @@
   "shareRecipe": "Share",
   "shareAsText": "Share as text",
   "shareAsPdf": "Share as PDF file",
-  "shareAsCooknote": "Send a .cooknote file (importable in CookNote)",
+  "shareAsCooknote": "Send a .cooknote file (importable in Bepbook)",
   "printRecipe": "Print",
   "cookbookTitleLabel": "Book title",
   "cookbookDefaultTitle": "My recipe book",
@@ -520,5 +520,196 @@
   "pdfCook": "Cook",
   "pdfTotal": "Total",
   "pdfMinutes": "min",
-  "pdfPage": "Page"
+  "pdfPage": "Page",
+  "backupStatusSafe": "Safe",
+  "@backupStatusSafe": {
+    "description": "F0/Hi-Fi v1"
+  },
+  "backupStatusOverdue": "Overdue",
+  "@backupStatusOverdue": {
+    "description": "F0/Hi-Fi v1"
+  },
+  "backupStatusFailing": "Failing",
+  "@backupStatusFailing": {
+    "description": "F0/Hi-Fi v1"
+  },
+  "backupStatusNotSetUp": "Not set up",
+  "@backupStatusNotSetUp": {
+    "description": "F0/Hi-Fi v1"
+  },
+  "dataUnchanged": "Your data is unchanged.",
+  "@dataUnchanged": {
+    "description": "F0/Hi-Fi v1"
+  },
+  "timerPillOne": "{name} · {time}",
+  "@timerPillOne": {
+    "description": "F0/Hi-Fi v1",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "timerPillMany": "{count} timers · {time}",
+  "@timerPillMany": {
+    "description": "F0/Hi-Fi v1",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "timerPillSemantics": "Timer {name}, {time} left. Opens Cook mode.",
+  "@timerPillSemantics": {
+    "description": "F0/Hi-Fi v1",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "timerPillManySemantics": "{count} timers running, next ends in {time}. Opens Cook mode.",
+  "@timerPillManySemantics": {
+    "description": "F0/Hi-Fi v1",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "errorRetry": "Try again",
+  "@errorRetry": {
+    "description": "F0/Hi-Fi v1"
+  },
+  "sortMissingLast": "Recipes without this info go last",
+  "@sortMissingLast": {
+    "description": "F0/Hi-Fi v1"
+  },
+  "showNRecipes": "Show {n} recipes",
+  "@showNRecipes": {
+    "description": "F0/Hi-Fi v1",
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "emptyTrash": "Empty trash",
+  "@emptyTrash": {
+    "description": "F0/Hi-Fi v1"
+  },
+  "previewTitle": "Check before saving",
+  "@previewTitle": {
+    "description": "F0/Hi-Fi v1"
+  },
+  "scanAssignTitle": "Sort the lines",
+  "@scanAssignTitle": {
+    "description": "F0/Hi-Fi v1"
+  },
+  "scanReading": "Reading the recipe…",
+  "@scanReading": {
+    "description": "F0/Hi-Fi v1"
+  },
+  "pickText": "Pick text",
+  "@pickText": {
+    "description": "F0/Hi-Fi v1"
+  },
+  "chooseAnotherFile": "Choose another file",
+  "@chooseAnotherFile": {
+    "description": "F0/Hi-Fi v1"
+  },
+  "webStartNote": "Pages you open are the only thing Bepbook loads from the internet.",
+  "@webStartNote": {
+    "description": "F0/Hi-Fi v1"
+  },
+  "extShareSaved": "Saved to Bepbook — open?",
+  "@extShareSaved": {
+    "description": "F0/Hi-Fi v1"
+  },
+  "cookStepsDoneShow": "{n, plural, =1{1 step done · Show} other{{n} steps done · Show}}",
+  "@cookStepsDoneShow": {
+    "description": "F0/Hi-Fi v1",
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "cookStartOver": "Start over",
+  "@cookStartOver": {
+    "description": "F0/Hi-Fi v1"
+  },
+  "timerAlreadyStarted": "Your timer has already started",
+  "@timerAlreadyStarted": {
+    "description": "F0/Hi-Fi v1"
+  },
+  "cookReadStopShort": "Stop",
+  "@cookReadStopShort": {
+    "description": "F0/Hi-Fi v1"
+  },
+  "shoppingMakeFirstList": "Make your first list",
+  "@shoppingMakeFirstList": {
+    "description": "F0/Hi-Fi v1"
+  },
+  "shoppingNothingToBuy": "Nothing to buy",
+  "@shoppingNothingToBuy": {
+    "description": "F0/Hi-Fi v1"
+  },
+  "shoppingAllDone": "All done!",
+  "@shoppingAllDone": {
+    "description": "F0/Hi-Fi v1"
+  },
+  "shoppingDeleteListConfirm": "Delete the list \"{name}\" and its {n, plural, =1{1 item} other{{n} items}}?",
+  "@shoppingDeleteListConfirm": {
+    "description": "F0/Hi-Fi v1",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "menuDropHere": "Drop here",
+  "@menuDropHere": {
+    "description": "F0/Hi-Fi v1"
+  },
+  "menuDayHasMeals": "This day already has meals",
+  "@menuDayHasMeals": {
+    "description": "F0/Hi-Fi v1"
+  },
+  "dangerZone": "Danger zone",
+  "@dangerZone": {
+    "description": "F0/Hi-Fi v1"
+  },
+  "deleting": "Deleting…",
+  "@deleting": {
+    "description": "F0/Hi-Fi v1"
+  },
+  "ratingSemantics": "{n} of 5 stars",
+  "@ratingSemantics": {
+    "description": "F0/Hi-Fi v1",
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "ratingUnset": "No rating",
+  "@ratingUnset": {
+    "description": "F0/Hi-Fi v1"
+  }
 }

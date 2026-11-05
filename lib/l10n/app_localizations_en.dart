@@ -10,7 +10,7 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get appTitle => 'CookNote';
+  String get appTitle => 'Bepbook';
 
   @override
   String get tabRecipes => 'Recipes';
@@ -656,7 +656,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get notifRationaleBody =>
-      'CookNote needs notification permission to alert you when a timer ends, even when the screen is locked or the app is in the background. It is used only for cooking timers.';
+      'Bepbook needs notification permission to alert you when a timer ends, even when the screen is locked or the app is in the background. It is used only for cooking timers.';
 
   @override
   String get notifContinue => 'Continue';
@@ -725,7 +725,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get backupFolderHint =>
-      'Pick a folder once, on this phone or in Google Drive or OneDrive. CookNote writes backups there when you open or leave the app and keeps the latest few. If the cloud app does not allow automatic writes, use \"Back up now and save elsewhere\" below.';
+      'Pick a folder once, on this phone or in Google Drive or OneDrive. Bepbook writes backups there when you open or leave the app and keeps the latest few. If the cloud app does not allow automatic writes, use \"Back up now and save elsewhere\" below.';
 
   @override
   String get backupInterval => 'Schedule';
@@ -777,7 +777,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get restoreReplaceWarning =>
-      'All current data will be replaced. CookNote saves a copy of the current data first.';
+      'All current data will be replaced. Bepbook saves a copy of the current data first.';
 
   @override
   String get restoreMergeInfo =>
@@ -797,11 +797,11 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get errBackupNotABackup => 'This is not a CookNote backup file';
+  String get errBackupNotABackup => 'This is not a Bepbook backup file';
 
   @override
   String get errBackupNewer =>
-      'This file was made by a newer CookNote. Update the app and try again';
+      'This file was made by a newer Bepbook. Update the app and try again';
 
   @override
   String get errBackupChecksum =>
@@ -885,7 +885,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get importUnknown =>
-      'This file format is not recognised. CookNote reads .paprikarecipes, Recipe Keeper zip, schema.org JSON and .cooknote.';
+      'This file format is not recognised. Bepbook reads .paprikarecipes, Recipe Keeper zip, schema.org JSON and .cooknote.';
 
   @override
   String get importBadFile =>
@@ -947,8 +947,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get shareAsPdf => 'Share as PDF file';
 
   @override
-  String get shareAsCooknote =>
-      'Send a .cooknote file (importable in CookNote)';
+  String get shareAsCooknote => 'Send a .cooknote file (importable in Bepbook)';
 
   @override
   String get printRecipe => 'Print';
@@ -1000,4 +999,135 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get pdfPage => 'Page';
+
+  @override
+  String get backupStatusSafe => 'Safe';
+
+  @override
+  String get backupStatusOverdue => 'Overdue';
+
+  @override
+  String get backupStatusFailing => 'Failing';
+
+  @override
+  String get backupStatusNotSetUp => 'Not set up';
+
+  @override
+  String get dataUnchanged => 'Your data is unchanged.';
+
+  @override
+  String timerPillOne(String name, String time) {
+    return '$name · $time';
+  }
+
+  @override
+  String timerPillMany(int count, String time) {
+    return '$count timers · $time';
+  }
+
+  @override
+  String timerPillSemantics(String name, String time) {
+    return 'Timer $name, $time left. Opens Cook mode.';
+  }
+
+  @override
+  String timerPillManySemantics(int count, String time) {
+    return '$count timers running, next ends in $time. Opens Cook mode.';
+  }
+
+  @override
+  String get errorRetry => 'Try again';
+
+  @override
+  String get sortMissingLast => 'Recipes without this info go last';
+
+  @override
+  String showNRecipes(int n) {
+    return 'Show $n recipes';
+  }
+
+  @override
+  String get emptyTrash => 'Empty trash';
+
+  @override
+  String get previewTitle => 'Check before saving';
+
+  @override
+  String get scanAssignTitle => 'Sort the lines';
+
+  @override
+  String get scanReading => 'Reading the recipe…';
+
+  @override
+  String get pickText => 'Pick text';
+
+  @override
+  String get chooseAnotherFile => 'Choose another file';
+
+  @override
+  String get webStartNote =>
+      'Pages you open are the only thing Bepbook loads from the internet.';
+
+  @override
+  String get extShareSaved => 'Saved to Bepbook — open?';
+
+  @override
+  String cookStepsDoneShow(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n steps done · Show',
+      one: '1 step done · Show',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get cookStartOver => 'Start over';
+
+  @override
+  String get timerAlreadyStarted => 'Your timer has already started';
+
+  @override
+  String get cookReadStopShort => 'Stop';
+
+  @override
+  String get shoppingMakeFirstList => 'Make your first list';
+
+  @override
+  String get shoppingNothingToBuy => 'Nothing to buy';
+
+  @override
+  String get shoppingAllDone => 'All done!';
+
+  @override
+  String shoppingDeleteListConfirm(String name, int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n items',
+      one: '1 item',
+    );
+    return 'Delete the list \"$name\" and its $_temp0?';
+  }
+
+  @override
+  String get menuDropHere => 'Drop here';
+
+  @override
+  String get menuDayHasMeals => 'This day already has meals';
+
+  @override
+  String get dangerZone => 'Danger zone';
+
+  @override
+  String get deleting => 'Deleting…';
+
+  @override
+  String ratingSemantics(int n) {
+    return '$n of 5 stars';
+  }
+
+  @override
+  String get ratingUnset => 'No rating';
 }

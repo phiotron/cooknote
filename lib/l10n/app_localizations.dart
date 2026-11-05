@@ -101,7 +101,7 @@ abstract class AppLocalizations {
   /// No description provided for @appTitle.
   ///
   /// In en, this message translates to:
-  /// **'CookNote'**
+  /// **'Bepbook'**
   String get appTitle;
 
   /// No description provided for @tabRecipes.
@@ -1241,7 +1241,7 @@ abstract class AppLocalizations {
   /// No description provided for @notifRationaleBody.
   ///
   /// In en, this message translates to:
-  /// **'CookNote needs notification permission to alert you when a timer ends, even when the screen is locked or the app is in the background. It is used only for cooking timers.'**
+  /// **'Bepbook needs notification permission to alert you when a timer ends, even when the screen is locked or the app is in the background. It is used only for cooking timers.'**
   String get notifRationaleBody;
 
   /// No description provided for @notifContinue.
@@ -1361,7 +1361,7 @@ abstract class AppLocalizations {
   /// No description provided for @backupFolderHint.
   ///
   /// In en, this message translates to:
-  /// **'Pick a folder once, on this phone or in Google Drive or OneDrive. CookNote writes backups there when you open or leave the app and keeps the latest few. If the cloud app does not allow automatic writes, use \"Back up now and save elsewhere\" below.'**
+  /// **'Pick a folder once, on this phone or in Google Drive or OneDrive. Bepbook writes backups there when you open or leave the app and keeps the latest few. If the cloud app does not allow automatic writes, use \"Back up now and save elsewhere\" below.'**
   String get backupFolderHint;
 
   /// No description provided for @backupInterval.
@@ -1457,7 +1457,7 @@ abstract class AppLocalizations {
   /// No description provided for @restoreReplaceWarning.
   ///
   /// In en, this message translates to:
-  /// **'All current data will be replaced. CookNote saves a copy of the current data first.'**
+  /// **'All current data will be replaced. Bepbook saves a copy of the current data first.'**
   String get restoreReplaceWarning;
 
   /// No description provided for @restoreMergeInfo.
@@ -1487,13 +1487,13 @@ abstract class AppLocalizations {
   /// No description provided for @errBackupNotABackup.
   ///
   /// In en, this message translates to:
-  /// **'This is not a CookNote backup file'**
+  /// **'This is not a Bepbook backup file'**
   String get errBackupNotABackup;
 
   /// No description provided for @errBackupNewer.
   ///
   /// In en, this message translates to:
-  /// **'This file was made by a newer CookNote. Update the app and try again'**
+  /// **'This file was made by a newer Bepbook. Update the app and try again'**
   String get errBackupNewer;
 
   /// No description provided for @errBackupChecksum.
@@ -1631,7 +1631,7 @@ abstract class AppLocalizations {
   /// No description provided for @importUnknown.
   ///
   /// In en, this message translates to:
-  /// **'This file format is not recognised. CookNote reads .paprikarecipes, Recipe Keeper zip, schema.org JSON and .cooknote.'**
+  /// **'This file format is not recognised. Bepbook reads .paprikarecipes, Recipe Keeper zip, schema.org JSON and .cooknote.'**
   String get importUnknown;
 
   /// No description provided for @importBadFile.
@@ -1739,7 +1739,7 @@ abstract class AppLocalizations {
   /// No description provided for @shareAsCooknote.
   ///
   /// In en, this message translates to:
-  /// **'Send a .cooknote file (importable in CookNote)'**
+  /// **'Send a .cooknote file (importable in Bepbook)'**
   String get shareAsCooknote;
 
   /// No description provided for @printRecipe.
@@ -1843,6 +1843,210 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Page'**
   String get pdfPage;
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'Safe'**
+  String get backupStatusSafe;
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'Overdue'**
+  String get backupStatusOverdue;
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'Failing'**
+  String get backupStatusFailing;
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'Not set up'**
+  String get backupStatusNotSetUp;
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'Your data is unchanged.'**
+  String get dataUnchanged;
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'{name} · {time}'**
+  String timerPillOne(String name, String time);
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'{count} timers · {time}'**
+  String timerPillMany(int count, String time);
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'Timer {name}, {time} left. Opens Cook mode.'**
+  String timerPillSemantics(String name, String time);
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'{count} timers running, next ends in {time}. Opens Cook mode.'**
+  String timerPillManySemantics(int count, String time);
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'Try again'**
+  String get errorRetry;
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'Recipes without this info go last'**
+  String get sortMissingLast;
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'Show {n} recipes'**
+  String showNRecipes(int n);
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'Empty trash'**
+  String get emptyTrash;
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'Check before saving'**
+  String get previewTitle;
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'Sort the lines'**
+  String get scanAssignTitle;
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'Reading the recipe…'**
+  String get scanReading;
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'Pick text'**
+  String get pickText;
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'Choose another file'**
+  String get chooseAnotherFile;
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'Pages you open are the only thing Bepbook loads from the internet.'**
+  String get webStartNote;
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'Saved to Bepbook — open?'**
+  String get extShareSaved;
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'{n, plural, =1{1 step done · Show} other{{n} steps done · Show}}'**
+  String cookStepsDoneShow(int n);
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'Start over'**
+  String get cookStartOver;
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'Your timer has already started'**
+  String get timerAlreadyStarted;
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'Stop'**
+  String get cookReadStopShort;
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'Make your first list'**
+  String get shoppingMakeFirstList;
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing to buy'**
+  String get shoppingNothingToBuy;
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'All done!'**
+  String get shoppingAllDone;
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'Delete the list \"{name}\" and its {n, plural, =1{1 item} other{{n} items}}?'**
+  String shoppingDeleteListConfirm(String name, int n);
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'Drop here'**
+  String get menuDropHere;
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'This day already has meals'**
+  String get menuDayHasMeals;
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'Danger zone'**
+  String get dangerZone;
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'Deleting…'**
+  String get deleting;
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'{n} of 5 stars'**
+  String ratingSemantics(int n);
+
+  /// F0/Hi-Fi v1
+  ///
+  /// In en, this message translates to:
+  /// **'No rating'**
+  String get ratingUnset;
 }
 
 class _AppLocalizationsDelegate

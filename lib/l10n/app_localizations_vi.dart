@@ -10,7 +10,7 @@ class AppLocalizationsVi extends AppLocalizations {
   AppLocalizationsVi([String locale = 'vi']) : super(locale);
 
   @override
-  String get appTitle => 'CookNote';
+  String get appTitle => 'Bepbook';
 
   @override
   String get tabRecipes => 'Công thức';
@@ -649,7 +649,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get notifRationaleBody =>
-      'CookNote cần quyền thông báo để báo bạn khi hẹn giờ kết thúc, kể cả khi màn hình khóa hoặc app ở nền. Quyền này chỉ dùng cho hẹn giờ nấu.';
+      'Bepbook cần quyền thông báo để báo bạn khi hẹn giờ kết thúc, kể cả khi màn hình khóa hoặc app ở nền. Quyền này chỉ dùng cho hẹn giờ nấu.';
 
   @override
   String get notifContinue => 'Tiếp tục';
@@ -718,7 +718,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get backupFolderHint =>
-      'Chọn một lần một thư mục trên máy hoặc của Google Drive, OneDrive. CookNote tự ghi bản sao lưu vào đó khi bạn mở hoặc rời app, và giữ vài bản gần nhất. Nếu ứng dụng đám mây không cho ghi tự động, hãy dùng \"Sao lưu ngay và lưu ở nơi khác\" bên dưới.';
+      'Chọn một lần một thư mục trên máy hoặc của Google Drive, OneDrive. Bepbook tự ghi bản sao lưu vào đó khi bạn mở hoặc rời app, và giữ vài bản gần nhất. Nếu ứng dụng đám mây không cho ghi tự động, hãy dùng \"Sao lưu ngay và lưu ở nơi khác\" bên dưới.';
 
   @override
   String get backupInterval => 'Chu kỳ';
@@ -770,7 +770,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get restoreReplaceWarning =>
-      'Dữ liệu hiện tại sẽ bị thay thế toàn bộ. CookNote tự lưu một bản dữ liệu hiện tại trước khi thay.';
+      'Dữ liệu hiện tại sẽ bị thay thế toàn bộ. Bepbook tự lưu một bản dữ liệu hiện tại trước khi thay.';
 
   @override
   String get restoreMergeInfo =>
@@ -790,11 +790,11 @@ class AppLocalizationsVi extends AppLocalizations {
   }
 
   @override
-  String get errBackupNotABackup => 'Đây không phải file sao lưu của CookNote';
+  String get errBackupNotABackup => 'Đây không phải file sao lưu của Bepbook';
 
   @override
   String get errBackupNewer =>
-      'File này do bản CookNote mới hơn tạo. Hãy cập nhật ứng dụng rồi thử lại';
+      'File này do bản Bepbook mới hơn tạo. Hãy cập nhật ứng dụng rồi thử lại';
 
   @override
   String get errBackupChecksum =>
@@ -878,7 +878,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get importUnknown =>
-      'Không nhận ra định dạng file này. CookNote đọc được .paprikarecipes, file zip của Recipe Keeper, JSON schema.org và .cooknote.';
+      'Không nhận ra định dạng file này. Bepbook đọc được .paprikarecipes, file zip của Recipe Keeper, JSON schema.org và .cooknote.';
 
   @override
   String get importBadFile =>
@@ -941,7 +941,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get shareAsCooknote =>
-      'Gửi file .cooknote (người nhận có CookNote nhập được)';
+      'Gửi file .cooknote (người nhận có Bepbook nhập được)';
 
   @override
   String get printRecipe => 'In';
@@ -993,4 +993,123 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get pdfPage => 'Trang';
+
+  @override
+  String get backupStatusSafe => 'An toàn';
+
+  @override
+  String get backupStatusOverdue => 'Quá hạn';
+
+  @override
+  String get backupStatusFailing => 'Đang lỗi';
+
+  @override
+  String get backupStatusNotSetUp => 'Chưa bật';
+
+  @override
+  String get dataUnchanged => 'Dữ liệu của bạn vẫn nguyên.';
+
+  @override
+  String timerPillOne(String name, String time) {
+    return '$name · $time';
+  }
+
+  @override
+  String timerPillMany(int count, String time) {
+    return '$count hẹn giờ · $time';
+  }
+
+  @override
+  String timerPillSemantics(String name, String time) {
+    return 'Hẹn giờ $name, còn $time. Mở Chế độ nấu.';
+  }
+
+  @override
+  String timerPillManySemantics(int count, String time) {
+    return 'Đang chạy $count hẹn giờ, cái gần nhất còn $time. Mở Chế độ nấu.';
+  }
+
+  @override
+  String get errorRetry => 'Thử lại';
+
+  @override
+  String get sortMissingLast => 'Công thức chưa có thông tin này xếp cuối';
+
+  @override
+  String showNRecipes(int n) {
+    return 'Xem $n công thức';
+  }
+
+  @override
+  String get emptyTrash => 'Dọn thùng rác';
+
+  @override
+  String get previewTitle => 'Xem trước khi lưu';
+
+  @override
+  String get scanAssignTitle => 'Gán dòng';
+
+  @override
+  String get scanReading => 'Đang đọc công thức…';
+
+  @override
+  String get pickText => 'Chọn chữ';
+
+  @override
+  String get chooseAnotherFile => 'Chọn file khác';
+
+  @override
+  String get webStartNote =>
+      'Chỉ những trang bạn mở mới được Bepbook tải từ internet.';
+
+  @override
+  String get extShareSaved => 'Đã gửi sang Bepbook — mở app?';
+
+  @override
+  String cookStepsDoneShow(int n) {
+    return 'Đã xong $n bước · Xem';
+  }
+
+  @override
+  String get cookStartOver => 'Làm lại từ đầu';
+
+  @override
+  String get timerAlreadyStarted => 'Hẹn giờ đã bắt đầu chạy';
+
+  @override
+  String get cookReadStopShort => 'Dừng';
+
+  @override
+  String get shoppingMakeFirstList => 'Tạo danh sách đầu tiên';
+
+  @override
+  String get shoppingNothingToBuy => 'Chưa có món cần mua';
+
+  @override
+  String get shoppingAllDone => 'Xong hết rồi!';
+
+  @override
+  String shoppingDeleteListConfirm(String name, int n) {
+    return 'Xóa danh sách \"$name\" và $n món trong đó?';
+  }
+
+  @override
+  String get menuDropHere => 'Thả vào đây';
+
+  @override
+  String get menuDayHasMeals => 'Ngày này đã có món';
+
+  @override
+  String get dangerZone => 'Vùng nguy hiểm';
+
+  @override
+  String get deleting => 'Đang xóa…';
+
+  @override
+  String ratingSemantics(int n) {
+    return '$n trên 5 sao';
+  }
+
+  @override
+  String get ratingUnset => 'Chưa đánh giá';
 }
