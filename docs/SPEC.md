@@ -9,7 +9,7 @@ Người nấu ăn ở nhà có công thức nằm rải rác: trang web, ảnh 
 CookNote là sổ tay công thức trên điện thoại. App nhập công thức từ web hoặc từ ảnh, có chế độ nấu, danh sách đi chợ, lịch thực đơn và tủ bếp. Dữ liệu được giữ bền lâu nhờ sao lưu tự động bằng định dạng mở. Chức năng tương đương Paprika Recipe Manager 3, Recipe Keeper và CookBook – Recipe Manager (tra trang giới thiệu của các app ngày 2026-11-03). App miễn phí, mọi tính năng đều mở, không có máy chủ. Tên, biểu tượng, giao diện, chữ trong app và mô tả store do mình tự làm. Không sao chép chữ, hình hay mô tả store của các app đó.
 
 ## 2. Người dùng và tình huống sử dụng trên điện thoại
-- Người nấu ăn gia đình, sinh viên ở trọ, người thích làm bánh. Ở Việt Nam và nước khác, dùng tiếng Việt hoặc tiếng Anh, trên điện thoại Android (iPhone ở bản sau, D-001).
+- Người nấu ăn gia đình, sinh viên ở trọ, người thích làm bánh, cả thiếu niên từ 13 tuổi. Ở Việt Nam và nước khác, dùng tiếng Việt hoặc tiếng Anh, trên điện thoại Android và iPhone (D-008).
 - Lúc rảnh, thường có mạng: lướt web thấy món ngon thì "Chia sẻ" sang CookNote hoặc mở trình duyệt trong app để lưu. Chụp trang sách hay công thức viết tay của mẹ để số hóa.
 - Trong bếp, tay ướt hoặc dính bột, điện thoại dựng trên kệ, có thể không có mạng: mở chế độ nấu, chữ lớn, màn hình không tắt, chạm một lần để gạch bước đã làm, bật hẹn giờ.
 - Cuối tuần: xếp thực đơn cho tuần, đẩy nguyên liệu sang danh sách đi chợ. Ở chợ hoặc siêu thị (sóng yếu, cầm máy một tay): gạch dần từng món.
@@ -36,11 +36,11 @@ Quy ước kiểm chứng:
   Thiếu tên thì không lưu được. [T]
 - AC-03: Màn soạn có ô nhập nguyên liệu và các bước dạng nhiều dòng: dán một khối chữ thì mỗi dòng thành một mục, dòng kết thúc bằng `:` thành tiêu đề nhóm. Kéo để sắp xếp dòng. Đang soạn mà bấm Back thì hỏi "Bỏ thay đổi?" (nếu đã có thay đổi). [T cho tách dòng; M cho kéo thả và Back]
 - AC-04: Bấm "Lưu" thì ghi xuống máy trong một giao dịch. Tắt app ngay sau đó, mở lại vẫn còn công thức. [T]
-- AC-05: Sửa được mọi trường. Xóa thì hỏi xác nhận, sau đó có thanh "Đã xóa · Hoàn tác" trong 5 giây. Công thức đã xóa vào "Thùng rác", giữ 30 ngày rồi mới xóa hẳn cùng ảnh của nó. Khôi phục được từ thùng rác. [T]
+- AC-05: Sửa được mọi trường. Xóa thì hỏi xác nhận, sau đó có thanh "Đã xóa · Hoàn tác" trong 5 giây. Công thức đã xóa vào "Thùng rác", giữ 30 ngày rồi mới xóa hẳn cùng ảnh của nó. Khôi phục được từ thùng rác. Màn Thùng rác có "Dọn sạch thùng rác" (hỏi xác nhận) xóa hẳn mọi công thức trong đó cùng ảnh (D-009). [T]
 - AC-06: Nhân bản được một công thức (để làm biến thể). [T]
 - AC-07: Ảnh chọn bằng trình chọn ảnh của hệ điều hành (không xin quyền bộ nhớ hay thư viện ảnh) hoặc chụp bằng camera. Ảnh được chép vào bộ nhớ riêng của app và thu nhỏ để cạnh dài nhất không quá 2048 px. Xóa ảnh gốc trong máy không làm mất ảnh trong công thức. Gỡ ảnh hoặc xóa hẳn công thức thì file ảnh bị xóa theo, không để lại file thừa. [T]
 - AC-08: Chụp ảnh bằng ứng dụng camera của hệ điều hành (qua trình chọn ảnh), nên CookNote không khai và không xin quyền camera. Người dùng hủy việc chụp thì không có gì thay đổi, vẫn chọn được ảnh từ thư viện. Người dùng đã duyệt thay đổi này ngày 2026-11-04 (D-005). [M]
-- AC-09: Màn xem công thức hiện ảnh bìa, thông tin chung, nguyên liệu, các bước, ghi chú. URL trong ghi chú và trong bước chạm được để mở. Chạm ảnh thì xem toàn màn hình, vuốt để chuyển, chụm hai ngón để phóng to. [M]
+- AC-09: Màn xem công thức hiện ảnh bìa, thông tin chung, nguyên liệu, các bước, ghi chú. URL trong ghi chú, trong bước và URL nguồn chạm được để mở bằng trình duyệt trong app (F-03, có nút "Lưu công thức") (D-009). Chạm ảnh thì xem toàn màn hình, vuốt để chuyển, chụm hai ngón để phóng to. [M]
 
 ### F-02 · Tổ chức, tìm kiếm, lọc
 - AC-10: Danh mục lồng nhau tối đa 3 cấp (ví dụ "Món chính > Món Việt > Món bún"). Một công thức thuộc 0 hoặc nhiều danh mục. Thêm, đổi tên, xóa, kéo sắp xếp danh mục; xóa danh mục không xóa công thức. Lần mở đầu có sẵn vài danh mục mặc định theo ngôn ngữ máy (Món chính, Món phụ, Canh/Súp, Tráng miệng, Đồ uống, Bánh). [T]
@@ -55,7 +55,7 @@ Quy ước kiểm chứng:
 - AC-17: Từ app khác (trình duyệt, YouTube, Facebook...) chọn "Chia sẻ" rồi chọn CookNote thì app mở màn nhập với URL đó. Chữ được chia sẻ không phải URL thì mở màn soạn với chữ đó để tự gán vào nguyên liệu và các bước. [M]
 - AC-18: Trang có dữ liệu schema.org `Recipe` (JSON-LD, gồm cả dạng `@graph` và mảng, hoặc microdata) thì tự điền: tên, nguyên liệu, các bước (gồm cả `HowToSection`), khẩu phần, thời gian (định dạng ISO 8601 như `PT1H30M`), ảnh, nguồn, URL, dinh dưỡng. Có bộ trang mẫu lưu sẵn trong `test/` (tối thiểu 10 trang của các web nấu ăn phổ biến tiếng Việt và tiếng Anh) để test không cần mạng. [T]
 - AC-19: Trang không có dữ liệu `Recipe` thì vào chế độ "Chọn đoạn": người dùng bôi đen chữ trên trang rồi bấm "Là nguyên liệu", "Là các bước" hoặc "Là tên". [M]
-- AC-20: Trước khi lưu luôn có màn xem trước để sửa. Công thức nhập từ web giữ URL nguồn và tên trang. URL đã có trong sổ thì báo "Đã có công thức này" và hỏi mở bản cũ hay lưu bản mới. [T cho phát hiện trùng; M cho giao diện]
+- AC-20: Trước khi lưu luôn có màn xem trước để sửa. Công thức nhập từ web giữ URL nguồn và tên trang. URL đã có trong sổ thì báo "Đã có công thức này" và hỏi mở bản cũ hay lưu bản mới; nếu bản cũ đang ở Thùng rác thì báo điều đó và hỏi khôi phục hay lưu bản mới (D-009). [T cho phát hiện trùng; M cho giao diện]
 - AC-21: Mỗi lần tải trang có thời gian chờ 20 giây. Mất mạng, hết giờ hoặc trang lỗi thì báo rõ lý do và có nút "Thử lại". Đã nhập tới đâu cũng không mất, và không treo app. [T cho xử lý lỗi; M cho chế độ máy bay]
 - AC-22: Ảnh của công thức nhập từ web được tải về máy (AC-07 áp dụng), nên xem lại khi không có mạng vẫn có ảnh. [T]
 
@@ -90,7 +90,7 @@ Quy ước kiểm chứng:
 
 ### F-08 · Lịch thực đơn và thực đơn mẫu
 - AC-38: Xem lịch theo ngày, tuần, tháng. Mỗi ngày có các bữa (mặc định: Sáng, Trưa, Tối, Phụ; đổi tên, thêm, bớt được). Thêm vào một bữa: công thức có sẵn hoặc một dòng chữ tự do (ví dụ "Ăn ngoài"). Kéo để chuyển món sang ngày hay bữa khác. Ngày đầu tuần theo cài đặt. [T cho dữ liệu; M cho kéo thả]
-- AC-39: "Thực đơn mẫu" là một bộ món đặt tên được (ví dụ "Cơm gia đình 4 món", "Tiệc sinh nhật"). Áp một thực đơn mẫu vào một ngày hoặc một tuần bằng một thao tác. [T]
+- AC-39: "Thực đơn mẫu" là một bộ món đặt tên được (ví dụ "Cơm gia đình 4 món", "Tiệc sinh nhật"). Áp một thực đơn mẫu vào một ngày hoặc một tuần bằng một thao tác. Ngày hoặc bữa đích đã có món thì hỏi "Thay thế" hay "Thêm vào" (D-009). [T]
 - AC-40: Từ một khoảng ngày trong lịch, "Thêm vào đi chợ" đẩy toàn bộ nguyên liệu của các công thức trong khoảng đó, theo khẩu phần đặt cho từng món, qua bước chọn của AC-35. [T]
 - AC-41: "Gợi ý ngẫu nhiên" điền các bữa còn trống của một tuần bằng công thức chọn ngẫu nhiên theo bộ lọc (danh mục, thẻ, thời gian tối đa). Không lặp một món trong cùng tuần nếu còn món khác thỏa bộ lọc. Xem trước rồi mới áp. [T]
 
@@ -150,12 +150,12 @@ Quy ước kiểm chứng:
 - Trợ lý giọng nói (Alexa, Google Assistant), điều khiển rảnh tay bằng giọng nói, widget, đồng hồ thông minh.
 - Định dạng chữ phong phú (đậm, nghiêng) trong các bước. Bản đầu dùng chữ thường, URL chạm được.
 - Nhập file của CookBook – Recipe Manager (chưa có định dạng công khai; xem lại khi có file mẫu).
-- iPhone ở bản đầu (D-001), máy tính bảng, desktop, web.
+- Máy tính bảng, desktop, web. (iPhone đã đưa vào bản đầu theo D-008.)
 - Gói Premium, quảng cáo, mua trong app.
 
 ## 5. Ràng buộc mobile
 - Hệ điều hành:
-  - Android, Flutter, một codebase giữ khả năng thêm iOS sau (D-001).
+  - Android và iOS, Flutter, một codebase (D-001, D-008). iOS build và test trên GitHub Actions macOS runner.
   - minSdk và targetSdk theo phiên bản Flutter chốt ở G1; targetSdk phải đạt yêu cầu hiện hành của Google Play (COMPLIANCE P-06).
 - Offline:
   - Mọi tính năng trừ F-03 chạy không cần mạng.

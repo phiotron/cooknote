@@ -2,6 +2,19 @@
 
 Mỗi quyết định một mục, mới nhất ở trên cùng.
 
+## D-009 · Chốt 14 câu mở của product.md · 2026-11-05
+- Bối cảnh: phiên con A viết `product.md` để lại 14 câu (Q1–Q14, `notes/2026-11-05-product-md.md`). Phương trả lời qua popup.
+- Quyết định:
+  - Áp thực đơn mẫu vào ngày/bữa đã có món → hỏi "Thay thế" hay "Thêm vào" (AC-39).
+  - Link trong bước, ghi chú, URL nguồn → mở bằng **trình duyệt trong app** (có nút "Lưu công thức") (AC-09).
+  - Phát hiện trùng URL tính cả công thức ở Thùng rác, kèm lựa chọn Khôi phục (AC-20).
+  - Thêm "Dọn sạch thùng rác" có xác nhận (AC-05).
+  - Giữ đề xuất của product.md: chế độ nấu giữ khẩu phần/đơn vị đang xem; một bữa có nhiều món; tủ bếp dùng chung khu vực
+    với đi chợ; ngày đầu tuần Thứ Hai/Chủ nhật; hẹn giờ chỉ có Hủy; số ngày nhắc sao lưu chỉnh ở màn Sao lưu.
+  - Camera quét ảnh dùng app camera của hệ điều hành, không xin quyền CAMERA (như AC-08). Nhận chia sẻ trên iOS qua Share Extension.
+  - Email liên hệ: phamphuongphuongnd@gmail.com; link chính sách: chờ Phương đăng lên web.
+- Hệ quả: SPEC AC-05, AC-09, AC-20, AC-39 và mục 2, 4, 5 (iPhone) đã sửa theo.
+
 ## D-008 · Chuyển vào Mobile App Studio; đủ SPEC, Android + iOS, OCR hai nền tảng · 2026-11-04
 - Bối cảnh: App chuyển từ `D:/DemoChung/apps/APP-005-cooknote` sang `D:/Mobile App/apps/A004-cooknote` (mã xưởng `A004-cooknote`), làm theo `WORKFLOW.md` của xưởng: phiên điều phối + phiên con, tối đa 3 phiên điều phối.
 - Quyết định (Phương chốt qua popup):
