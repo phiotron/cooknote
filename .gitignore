@@ -57,3 +57,6 @@ app.*.map.json
 *.pem
 *.key
 key.properties
+
+# Kotlin compiler session files
+**/android/.kotlin/

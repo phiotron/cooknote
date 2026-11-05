@@ -1,4 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Nhập công thức từ web (F-03) và tải ảnh cần mạng; bản release không tự có INTERNET. -->
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:label="CookNote"
         android:allowBackup="true"
@@ -27,6 +29,12 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <!-- Nhận văn bản/liên kết chia sẻ từ app khác (AC-17). -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
             </intent-filter>
         </activity>
         <!-- Don't delete the meta-data below.
