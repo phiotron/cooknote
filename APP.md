@@ -76,7 +76,7 @@ Kế hoạch đầy đủ 3 phiên: `../../memory/sessions/2026-11-04-A004-cookn
   quyền `INTERNET` cho bản release (F-03 sẽ hỏng nếu thiếu) và intent-filter `SEND text/plain` (AC-17) — `notes/2026-11-05-ios-ci.md`.
   Thêm `android/.kotlin/` vào `.gitignore`. CI iOS chưa có lần chạy xanh trọn vẹn sau `d16f83f`.
 - ✅ **Đã chốt D-010 (2026-11-05) và áp vào tài liệu** (`notes/2026-11-05-ap-d010.md`): tên **Bepbook**; tuổi Apple A (16+/17+); cho phép http (ngoại lệ ở COMPLIANCE 2b + chính sách, AC-66); sao lưu iOS bằng thư mục + bookmark (AC-67). **Còn lại cho #2 (code):** đổi tên hiển thị trong `.arb`/`android:label`/`CFBundleDisplayName`, màn Sao lưu iOS, cảnh báo http, xoá dữ liệu WebView (AC-64).
-- Phương: duyệt `product.md` v1.1 (58 màn, đủ Q1–Q14 theo D-009) → gửi Claude Design → mockup vào `design/hifi/`.
+- ✅ Phương **đã duyệt** `product.md` v1.1 (58 màn, đủ Q1–Q14 + D-010, tên Bepbook) ngày 2026-11-05. Bước tiếp của Phương: gửi Claude Design → lưu link + export HTML vào `design/hifi/` → mở phiên #2.
 - Phương: file mẫu Paprika/Recipe Keeper vào `test/fixtures/exchange/` trước #2; Apple Developer + App ID + secrets theo `docs/ci.md`;
   đăng chính sách lên web; upload keystore ngoài repo; closed test 12 × 14 ngày sớm; tự thử APK (không adb) theo
   `notes/2026-11-05-ocr-android.md` và `notes/archive-demochung/BACKLOG.md` mục thử máy thật.
