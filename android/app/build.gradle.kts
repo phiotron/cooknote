@@ -34,6 +34,8 @@ android {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig = signingConfigs.getByName("debug")
+            // Keep rules for Tesseract4Android's JNI classes (the AAR ships none).
+            proguardFiles("proguard-rules.pro")
         }
     }
 }
@@ -46,4 +48,11 @@ kotlin {
 
 flutter {
     source = "../.."
+}
+
+dependencies {
+    // On-device OCR (D-003/D-008). OpenMP variant: one Tesseract instance on a
+    // multi-core phone (Galaxy A13: 8 cores). Native libs: arm64-v8a and
+    // x86_64 are 16 KB aligned, armeabi-v7a 4 KB (fine for 32-bit). Apache-2.0.
+    implementation("cz.adaptech.tesseract4android:tesseract4android-openmp:4.9.0")
 }
