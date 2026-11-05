@@ -2,6 +2,25 @@
 
 Mỗi quyết định một mục, mới nhất ở trên cùng.
 
+## D-010 · Tên Bepbook, tuổi Apple 16+/17+, trình duyệt mở http, sao lưu tự động iOS · 2026-11-05
+- Trạng thái: **đã chốt 2026-11-05** (Phương chọn qua popup trong phiên điều phối).
+- Bối cảnh: Hồ sơ store (phiên con "Store & pháp lý") nêu ra bốn việc phải có quyết định của Phương trước khi làm #2 và #3: tên "CookNote" trùng hai app cùng loại trên Play và App Store, kể cả app tiếng Việt của BECEN (S-71); App Store xếp 16+/17+ cho trình duyệt đầy đủ, lệch đối tượng 13+ (S-84); trình duyệt mở được trang `http` nên chưa rõ có chặn cleartext hay ghi ngoại lệ (S-01/S-60); sao lưu tự động trên iOS chưa có vì F-11 dùng `saf_util`/`saf_stream` (chỉ Android).
+- Quyết định:
+  1. **Tên app: Bepbook.** Store vi "Bepbook: Sổ Công Thức", store en "Bepbook: Recipe Notebook", tên dưới icon `Bepbook`. GIỮ NGUYÊN: mã app `A004-cooknote`, bundle ID `com.phiotron.cooknote`, tên repo, đuôi file `.cooknote`, trường `"app": "CookNote"` trong `manifest.json` và mẫu tên `CookNote-YYYY-MM-DD-HHmmss.cooknote` (đổi sẽ phá tương thích file sao lưu cũ, AC-55).
+  2. **Tuổi Apple: phương án A.** Giữ trình duyệt đầy đủ như AC-16, trả lời Yes cho Unrestricted Web Access, nhận **16+ (iOS 26+, gồm Việt Nam) / 17+ (iOS cũ hơn)**. Play vẫn khai 13+.
+  3. **Trình duyệt cho phép `http`.** Ghi ngoại lệ cleartext vào COMPLIANCE (mục 2b, S-01/S-60) và chính sách quyền riêng tư (vi + en). Thêm AC-66 (nhãn "Không mã hóa" trên thanh địa chỉ). Mở rộng AC-64: "Xóa toàn bộ dữ liệu" xóa cả cookie, cache và dữ liệu WebView.
+  4. **Sao lưu tự động trên iOS** = người dùng chọn thư mục MỘT lần qua `UIDocumentPicker` (gồm iCloud Drive), app giữ security-scoped bookmark và ghi định kỳ như Android. Thêm AC-67 (bookmark hỏng thì cảnh báo + chọn lại; "Sao lưu ngay" vẫn có). Làm ở #2.
+- Lý do / phương án đã loại:
+  1. Tên: đã tra Play, web, WIPO ngày 2026-11-05, "Bepbook" không có kết quả; gõ được ở mọi bàn phím, giữ gốc Việt. Loại "Sổ Bếp" và "Bếp Nhớ" (còn làm dự phòng, `store/app-store.md`). Giữ "CookNote" bị loại vì dễ nhầm với app BECEN trên kết quả tìm kiếm ở Việt Nam và nguy cơ bị yêu cầu đổi tên về sau; đổi trước khi tạo trang store là rẻ nhất.
+  2. Tuổi: loại phương án B (bỏ thanh địa chỉ và ô tìm, chỉ mở trang được chia sẻ, để trả lời No và ra 4+) vì làm mất tính năng AC-16 mà người dùng đã chọn; chấp nhận hệ quả người 13–15 tuổi có thể bị Screen Time chặn tải bản iOS.
+  3. `http`: nhiều blog nấu ăn nhỏ vẫn chỉ có `http`; chặn thì không lưu được công thức từ đó. Loại "chặn hẳn cleartext" và "cho phép không cảnh báo".
+  4. iOS: không có "quyền thư mục lâu dài" như SAF, nên bookmark là cách chuẩn để ghi lại vào cùng thư mục. Loại: chỉ dựa vào sao lưu iCloud của hệ điều hành (không bảo đảm có ảnh, không thay được file sao lưu mở) và chỉ có "Sao lưu ngay" (người dùng hay quên).
+- Hệ quả cần nhớ:
+  - Phiên #2 phải đổi: tên hiển thị trong `.arb` (`appTitle` và các câu nhắc "CookNote"), `android:label`, `CFBundleDisplayName` (và dòng kiểm `CFBundleDisplayName` trong `.github/workflows/ios.yml`, nếu không CI iOS sẽ đỏ), mô tả `pubspec.yaml`; cấu hình `http` cho WebView (iOS `NSAllowsArbitraryLoadsInWebContent`, Android cleartext) cùng nhãn AC-66; xóa dữ liệu WebView trong AC-64; kênh nền tảng Swift cho thư mục + bookmark (AC-67) và màn Sao lưu trên iPhone.
+  - Phiên #3: tra lại tên "Bepbook" trực tiếp trên App Store Connect và Cục SHTT; điền bảng hỏi tuổi thật; sau khi AC-67 chạy trên iPhone thật mới thêm dòng "sao lưu tự động vào thư mục" vào mô tả App Store; ghi `Notes for App Review` về `http`.
+  - Mã tải ảnh công thức của app vẫn chỉ `https` (COMPLIANCE mục 2b); ảnh `http` của trang `http` cần cách xử lý riêng (câu hỏi mở cho #2).
+  - SPEC: thêm AC-66, AC-67, sửa AC-64, AC-65, AC-50, AC-45 (ghi chú tên định dạng), mục 7; tổng 67 AC. `product.md` v1.2 theo.
+
 ## D-009 · Chốt 14 câu mở của product.md · 2026-11-05
 - Bối cảnh: phiên con A viết `product.md` để lại 14 câu (Q1–Q14, `notes/2026-11-05-product-md.md`). Phương trả lời qua popup.
 - Quyết định:
@@ -26,7 +45,7 @@ Mỗi quyết định một mục, mới nhất ở trên cùng.
 - Hệ quả cần nhớ: Mở lại COMPLIANCE P-01..P-05 (iOS). Phần UI dở của các agent cũ nằm ở nhánh `wip/g4-web-import`, `wip/g5-cook`, `wip/g6-tests`, `wip/g9-exchange` (chỉ tham khảo, không merge thẳng).
 
 ## D-007 · Sao lưu: gói zip mở, ghi vào thư mục người dùng chọn qua SAF, đọc lại để xác minh · 2026-11-04
-- Bối cảnh: G3 làm F-11. Người dùng giữ công thức cả đời (D-002) nên sao lưu là tính năng sống còn, và phải đọc được dù CookNote không còn.
+- Bối cảnh: G3 làm F-11. Người dùng giữ công thức cả đời (D-002) nên sao lưu là tính năng sống còn, và phải đọc được dù Bepbook không còn.
 - Quyết định:
   - Định dạng `.cooknote`: zip chứa `manifest.json` (mã băm SHA-256 từng file), `data.json` (JSON thuần, độc lập với bảng cơ sở dữ liệu), `images/`, `html/` (đọc bằng trình duyệt), `README.txt`. Tài liệu ở `docs/BACKUP-FORMAT.md`. Chỉ được mở rộng, có file mẫu mỗi phiên bản trong `test/fixtures/` và test khôi phục tất cả (AC-55).
   - Thư viện: `archive` (zip), `crypto` (SHA-256), `saf_util` + `saf_stream` (thư mục Storage Access Framework), `file_picker` (chọn file để khôi phục), `share_plus` (bảng chia sẻ cho "Sao lưu ngay"), `package_info_plus` (phiên bản app trong manifest). Không thêm quyền nào vào manifest (kiểm trên APK, 2026-11-04).
