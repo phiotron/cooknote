@@ -6,12 +6,16 @@ plugins {
 
 android {
     namespace = "com.phiotron.cooknote"
-    compileSdk = flutter.compileSdkVersion
+    // 37 (not flutter.compileSdkVersion = 36): receive_sharing_intent 1.9.0
+    // requires it. targetSdk stays flutter.targetSdkVersion (36).
+    compileSdk = 37
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+        // flutter_local_notifications 22.x requires core library desugaring.
+        isCoreLibraryDesugaringEnabled = true
     }
 
     defaultConfig {
@@ -51,6 +55,7 @@ flutter {
 }
 
 dependencies {
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")
     // On-device OCR (D-003/D-008). OpenMP variant: one Tesseract instance on a
     // multi-core phone (Galaxy A13: 8 cores). Native libs: arm64-v8a and
     // x86_64 are 16 KB aligned, armeabi-v7a 4 KB (fine for 32-bit). Apache-2.0.
