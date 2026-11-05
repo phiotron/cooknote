@@ -6,6 +6,7 @@ import 'image_store.dart';
 import 'recipe_lines.dart';
 import 'recipe_query.dart';
 import 'text_normalize.dart';
+import '../web_import/source_url.dart';
 
 /// Giới hạn của một công thức (AC-02, AC-11).
 const maxRecipeName = 200;
@@ -662,6 +663,22 @@ class RecipeRepository {
   Future<Set<String>> referencedPhotos() async {
     final rows = await _db.select(_db.recipePhotos).get();
     return {for (final r in rows) r.fileName};
+  }
+
+  /// Id công thức (không ở thùng rác) có cùng URL nguồn sau khi chuẩn hóa
+  /// bằng `normalizeSourceUrl` (AC-20); null nếu chưa có.
+  Future<int?> findBySourceUrl(String url) async {
+    final key = normalizeSourceUrl(url);
+    if (key.isEmpty) return null;
+    final rows =
+        await (_db.select(_db.recipes)
+              ..where((r) => r.sourceUrl.isNotNull() & r.deletedAt.isNull())
+              ..orderBy([(r) => OrderingTerm.asc(r.id)]))
+            .get();
+    for (final r in rows) {
+      if (normalizeSourceUrl(r.sourceUrl!) == key) return r.id;
+    }
+    return null;
   }
 
   /// Ghi một lần "Đã nấu" tại thời điểm hiện tại (AC-15). Không đổi ngày sửa.

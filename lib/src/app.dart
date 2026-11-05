@@ -13,6 +13,9 @@ import 'features/recipes/photo_viewer_screen.dart';
 import 'features/recipes/recipe_detail_screen.dart';
 import 'features/recipes/trash_screen.dart';
 import 'features/settings/settings_screen.dart';
+import 'features/web_import/share_listener.dart';
+import 'features/web_import/web_browser_screen.dart';
+import 'data/recipe_repository.dart' show RecipeDraft;
 import 'providers.dart';
 import 'ui/messenger.dart';
 
@@ -25,7 +28,16 @@ GoRouter createRouter() => GoRouter(
       routes: [
         GoRoute(
           path: 'recipe/new',
-          builder: (context, state) => const RecipeEditorScreen(),
+          builder: (context, state) => RecipeEditorScreen(
+            initialDraft: state.extra is RecipeDraft
+                ? state.extra as RecipeDraft
+                : null,
+          ),
+        ),
+        GoRoute(
+          path: 'web',
+          builder: (context, state) =>
+              WebBrowserScreen(initialUrl: state.uri.queryParameters['url']),
         ),
         GoRoute(
           path: 'recipe/:id',
@@ -84,11 +96,14 @@ class CookNoteApp extends ConsumerWidget {
     ref.watch(startupProvider);
     final themeMode = ref.watch(themeModeProvider).value ?? ThemeMode.system;
     final localeCode = ref.watch(localeCodeProvider).value;
+    final appRouter = router ?? _router;
     return MaterialApp.router(
       onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
-      builder: (context, child) =>
-          BackupLifecycleObserver(child: child ?? const SizedBox.shrink()),
-      routerConfig: router ?? _router,
+      builder: (context, child) => ShareIntentListener(
+        router: appRouter,
+        child: BackupLifecycleObserver(child: child ?? const SizedBox.shrink()),
+      ),
+      routerConfig: appRouter,
       scaffoldMessengerKey: rootMessengerKey,
       themeMode: themeMode,
       theme: ThemeData(

@@ -16,9 +16,14 @@ import 'category_picker.dart';
 
 /// Soạn công thức mới ([id] null) hoặc sửa công thức [id] (AC-02, AC-03).
 class RecipeEditorScreen extends ConsumerStatefulWidget {
-  const RecipeEditorScreen({super.key, this.id});
+  const RecipeEditorScreen({super.key, this.id, this.initialDraft});
 
   final int? id;
+
+  /// Bản nháp có sẵn cho công thức MỚI (nhập từ web, chữ được chia sẻ). Ảnh
+  /// trong đó coi như vừa thêm: bỏ thay đổi thì file bị xóa. Chưa lưu mà thoát
+  /// thì có hỏi bỏ (F-03, AC-20).
+  final RecipeDraft? initialDraft;
 
   @override
   ConsumerState<RecipeEditorScreen> createState() => _RecipeEditorScreenState();
@@ -89,8 +94,14 @@ class _RecipeEditorScreenState extends ConsumerState<RecipeEditorScreen> {
         return;
       }
       _fill(r.draft);
+      _initial = _draft();
+    } else if (widget.initialDraft != null) {
+      _fill(widget.initialDraft!);
+      _added.addAll(widget.initialDraft!.photos);
+      _initial = const RecipeDraft(name: '');
+    } else {
+      _initial = _draft();
     }
-    _initial = _draft();
     setState(() => _loaded = true);
   }
 
@@ -279,7 +290,10 @@ class _RecipeEditorScreenState extends ConsumerState<RecipeEditorScreen> {
       _added.clear();
       _initial = _draft();
       if (!mounted) return;
-      if (widget.id == null) {
+      if (widget.initialDraft != null) {
+        // Từ màn nhập web: bỏ luôn trình duyệt khỏi ngăn xếp.
+        context.go('/recipe/$id');
+      } else if (widget.id == null) {
         context.pushReplacement('/recipe/$id');
       } else {
         context.pop();

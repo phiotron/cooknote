@@ -73,8 +73,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 context.push('/recipe/new');
               },
             ),
+            ListTile(
+              leading: const Icon(Icons.language),
+              title: Text(l.fromWeb),
+              onTap: () {
+                Navigator.pop(sheet);
+                context.push('/web');
+              },
+            ),
             for (final (icon, label) in [
-              (Icons.language, l.fromWeb),
               (Icons.document_scanner_outlined, l.scanPhoto),
               (Icons.file_open_outlined, l.importFile),
             ])

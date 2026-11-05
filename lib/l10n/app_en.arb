@@ -157,6 +157,67 @@
     }
   },
   "tagTooLong": "A tag has at most 40 characters",
+  "webTitle": "Import from a website",
+  "webAddressHint": "Address or search words",
+  "webBack": "Back",
+  "webForward": "Forward",
+  "webReload": "Reload",
+  "webSave": "Save recipe",
+  "webStartHint": "Type an address or search words (for example \"pho bo\"), open a page with a recipe, then tap Save recipe.",
+  "webErrorNetwork": "No network, or the page could not be reached.",
+  "webErrorTimeout": "The page took more than 20 seconds to load. The connection may be weak.",
+  "webErrorHttp": "The page reported error {code}.",
+  "@webErrorHttp": {
+    "placeholders": {
+      "code": {
+        "type": "int"
+      }
+    }
+  },
+  "webErrorOther": "The page could not be opened.",
+  "webReadFailed": "Could not read the page content.",
+  "webRetry": "Try again",
+  "webNoRecipe": "This page has no recipe data. Select text on the page, then choose below.",
+  "webSelectName": "Is the name",
+  "webSelectIngredients": "Is ingredients",
+  "webSelectSteps": "Is the steps",
+  "webSelectionEmpty": "No text is selected on the page.",
+  "webPartsSummary": "Picked: {ingredients} ingredient lines, {steps} step lines",
+  "@webPartsSummary": {
+    "placeholders": {
+      "ingredients": {
+        "type": "int"
+      },
+      "steps": {
+        "type": "int"
+      }
+    }
+  },
+  "webClearParts": "Clear picks",
+  "webDuplicateTitle": "You already have this recipe",
+  "webDuplicateBody": "This address is already in your book. Open the old one or save a new copy?",
+  "webOpenExisting": "Open the old one",
+  "webSaveNew": "Save a new copy",
+  "webDownloadingImages": "Downloading photos {done}/{total}",
+  "@webDownloadingImages": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "webSkipImages": "Skip photos",
+  "webImagesFailed": "{count, plural, =1{1 photo could not be downloaded} other{{count} photos could not be downloaded}}",
+  "@webImagesFailed": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "cooked": "Cooked",
   "markCooked": "Mark as cooked",
   "cookedTimes": "{count, plural, =0{Never cooked} =1{Cooked once} other{Cooked {count} times}}",
