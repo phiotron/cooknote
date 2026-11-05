@@ -18,7 +18,7 @@ Bepbook là sổ tay công thức trên điện thoại. App nhập công thức
 ## 3. Tính năng bản đầu (MVP) và tiêu chí chấp nhận
 Quy ước kiểm chứng:
 - **[T]**: test tự động (`flutter test`; lệnh chốt ở G1).
-- **[M]**: thử tay trên máy Android thật, ghi biên bản vào BACKLOG.
+- **[M]**: thử tay trên máy Android thật, ghi biên bản vào `docs/MANUAL-TESTS.md`.
 
 "Nguyên liệu có cấu trúc" là một dòng nguyên liệu đã tách thành số lượng (có thể là phân số như `1/2`, `1 1/2`, `½`, hoặc khoảng như `2-3`), đơn vị và tên. Dòng không tách được thì giữ nguyên chữ và không được nhân hay đổi đơn vị.
 
@@ -144,7 +144,7 @@ Quy ước kiểm chứng:
   [T: kiểm manifest đã build, rà `pubspec.lock`]
 
 ## 4. Ngoài phạm vi (cố ý KHÔNG làm ở bản đầu)
-- Đồng bộ tự động nhiều máy qua tài khoản (máy chủ riêng, hoặc Google Drive bằng đăng nhập Google). Bản đầu thay bằng sao lưu tự động vào thư mục người dùng chọn (F-11). Ghi ở BACKLOG mục "Ý tưởng".
+- Đồng bộ tự động nhiều máy qua tài khoản (máy chủ riêng, hoặc Google Drive bằng đăng nhập Google). Bản đầu thay bằng sao lưu tự động vào thư mục người dùng chọn (F-11). Ghi ở `docs/MANUAL-TESTS.md` mục "Ý tưởng".
 - Tài khoản, máy chủ, chia sẻ công thức giữa người dùng trong app, mạng xã hội.
 - Nhập từ Instagram, TikTok hay video: cần API hay cào dữ liệu trái điều khoản của các nền tảng đó. Bản đầu chỉ nhận URL hoặc chữ được chia sẻ (AC-17).
 - Tự tính dinh dưỡng từ cơ sở dữ liệu thực phẩm, đổi thể tích sang khối lượng theo từng nguyên liệu.
@@ -237,7 +237,7 @@ Các mục tuân thủ cần xây thành tính năng:
 - Định dạng file của Paprika và Recipe Keeper không có tài liệu chính thức. Phải làm theo file mẫu thật: người dùng cung cấp file xuất từ các app đó, hoặc Claude tạo bằng bản dùng thử. Không có file mẫu thì AC-44 không kiểm chứng được và sẽ được tách ra.
 - Hẹn giờ nấu chính xác khi máy khóa: chính sách Google Play với quyền báo giờ chính xác và dịch vụ chạy nền thay đổi theo năm. Một số hãng (Samsung, Xiaomi, Oppo) tiết kiệm pin mạnh. Phải tra chính sách hiện hành ở G5.
 - Tách nguyên liệu tiếng Việt: cách viết rất đa dạng ("2 muỗng canh nước mắm", "nước mắm 2 thìa", "1 ít hành", "hành lá: 1 nắm"). Ngưỡng 95% ở AC-31 có thể phải chỉnh sau khi có bộ mẫu thật.
-- Phạm vi rất lớn: 14 tính năng, 67 AC, chia thành 10 giai đoạn (BACKLOG). Người dùng có thể cắt bớt cho bản phát hành đầu (ví dụ dời F-04, F-09, AC-30, AC-47 sang bản sau).
+- Phạm vi rất lớn: 14 tính năng, 67 AC, làm theo phiên điều phối (`APP.md`). Người dùng có thể cắt bớt cho bản phát hành đầu (ví dụ dời F-04, F-09, AC-30, AC-47 sang bản sau).
 - Chờ người dùng quyết:
   - Phát hành dưới tên cá nhân hay công ty.
   - Có tích hợp Play Age Signals không (COMPLIANCE D-12).

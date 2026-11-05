@@ -35,7 +35,7 @@ Mỗi quyết định một mục, mới nhất ở trên cùng.
 - Hệ quả: SPEC AC-05, AC-09, AC-20, AC-39 và mục 2, 4, 5 (iPhone) đã sửa theo.
 
 ## D-008 · Chuyển vào Mobile App Studio; đủ SPEC, Android + iOS, OCR hai nền tảng · 2026-11-04
-- Bối cảnh: App chuyển từ `D:/DemoChung/apps/APP-005-cooknote` sang `D:/Mobile App/apps/A004-cooknote` (mã xưởng `A004-cooknote`), làm theo `WORKFLOW.md` của xưởng: phiên điều phối + phiên con, tối đa 3 phiên điều phối.
+- Bối cảnh: App đã code trước khi vào xưởng, nay là `A004-cooknote` (`D:/Mobile App/apps/A004-cooknote`), làm theo `WORKFLOW.md` của xưởng: phiên điều phối + phiên con, tối đa 3 phiên điều phối.
 - Quyết định (Phương chốt qua popup):
   - Giữ đủ SPEC (F-01..F-14). Nếu cuối phiên điều phối #2 chưa xong thì dời sang v1.1 theo thứ tự: (1) nhập Paprika/Recipe Keeper → (2) quét ảnh OCR → (3) Tủ bếp + "Nấu được gì?" → (4) Lịch thực đơn.
   - **Thay D-001:** v1 phát hành cả Android và iOS. iOS build và test trên GitHub Actions macOS runner (máy Windows, không Mac, không iPhone → thử trên simulator).
@@ -112,7 +112,7 @@ Mỗi quyết định một mục, mới nhất ở trên cùng.
 - Hệ quả cần nhớ: Chưa kiểm chứng việc Google Drive trên Android cho ghi định kỳ vào thư mục (SPEC mục 7), phải thử ở G3. Khác APP-004, ở đây `allowBackup` BẬT vì công thức không phải dữ liệu nhạy cảm và đây là một lớp sao lưu. Thêm bất kỳ lời gọi mạng nào ngoài F-03 phải mở lại COMPLIANCE mục D-xx.
 
 ## D-001 · Stack Flutter, Android trước · 2026-11-03 (phần "Android trước" bị thay bởi D-008)
-- Bối cảnh: Người dùng chọn Flutter khi tạo app (2026-11-03). Đã có ba app Flutter trong D:/DemoChung (APP-001 tới APP-003), Flutter 3.47.8 có sẵn ở `C:/src/flutter`, có máy thử Galaxy A13.
+- Bối cảnh: Người dùng chọn Flutter khi tạo app (2026-11-03). Đã có các app Flutter khác của người dùng, Flutter 3.47.8 có sẵn ở `C:/src/flutter`, có máy thử Galaxy A13.
 - Quyết định: Flutter (Dart), một codebase. v1 chỉ build và phát hành Android. Phiên bản Flutter, quản lý trạng thái, điều hướng, cơ sở dữ liệu, đa ngôn ngữ chốt ở G1 (ghi D-xxx), ưu tiên dùng lại cách đã chạy được ở APP-001 (Riverpod 3, go_router, drift, gen-l10n).
 - Lý do / phương án đã loại: Expo/React Native (loại: người dùng chọn Flutter; nhận chữ và WebView cần development build; mất phần kinh nghiệm build Flutter đã có trên máy này). Kotlin và Swift thuần (loại: hai codebase). iOS ở v1 (loại: Flutter cần máy Mac và Xcode để build iOS, cần tài khoản Apple Developer).
 - Hệ quả cần nhớ: Không dùng thứ chỉ có trên Android khi có lựa chọn đa nền tảng, để thêm iOS sau không phải viết lại. Khi thêm iOS phải mở lại các dòng P-01 tới P-05 của COMPLIANCE. Galaxy A13 chạy 32-bit, nên build APK đủ kiến trúc (L-011).

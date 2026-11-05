@@ -112,7 +112,7 @@ Thứ tự (AC-54): đọc lại và kiểm mã băm toàn bộ file TRƯỚC; c
 - **Gộp**: chỉ thêm công thức chưa có. "Đã có" nghĩa là cùng tên (không phân biệt hoa thường và dấu) và cùng thời điểm tạo (tính tới giây). Danh mục trùng đường dẫn tên (ví dụ `Món chính › Món Việt`) dùng lại, chưa có thì tạo. Đi chợ, tủ bếp, lịch, mẫu, khu vực, bữa trên máy giữ nguyên; phần đó trong file bị bỏ qua.
 
 ## Mã hóa
-File KHÔNG được mã hóa. Ai có file đều đọc được công thức và ảnh. Mã hóa bằng mật khẩu nằm trong Ý tưởng của BACKLOG.
+File KHÔNG được mã hóa. Ai có file đều đọc được công thức và ảnh. Mã hóa bằng mật khẩu nằm trong mục Ý tưởng của `MANUAL-TESTS.md`.
 
 ## Tạo bằng tay (ví dụ không dùng Bepbook)
 Giải nén, mở `html/index.html` để đọc và in. Hoặc đọc `data.json` bằng bất kỳ công cụ JSON nào; ảnh nằm trong `images/`.

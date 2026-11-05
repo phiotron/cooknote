@@ -1,8 +1,7 @@
 # A004-cooknote · Bepbook (tên cũ CookNote) — APP.md
 
 > Brief và trạng thái của app. **Chỉ phiên điều phối sửa file này**; phiên con ghi báo cáo vào `notes/`.
-> App **nhập từ DemoChung** (APP-005, đã qua G1–G3 ở đó, 2026-11-03..04). Quy trình cũ (BACKLOG đầy đủ kèm biên bản
-> cần thử, CLAUDE.md app, RUNBOOK, session log): `notes/archive-demochung/`, chỉ đọc.
+> App **đã code trước khi vào xưởng** (đã qua G1–G3). Biên bản và việc thử máy thật: `docs/MANUAL-TESTS.md`.
 
 ## Brief
 - **Mã app / thư mục:** `A004-cooknote` → `apps/A004-cooknote/`, đã ghi trong `apps/REGISTRY.md`
@@ -79,9 +78,9 @@ Kế hoạch đầy đủ 3 phiên: `../../memory/sessions/2026-11-04-A004-cookn
 - ✅ Phương **đã duyệt** `product.md` v1.1 (58 màn, đủ Q1–Q14 + D-010, tên Bepbook) ngày 2026-11-05. Bước tiếp của Phương: gửi Claude Design → lưu link + export HTML vào `design/hifi/` → mở phiên #2.
 - Phương: file mẫu Paprika/Recipe Keeper vào `test/fixtures/exchange/` trước #2; Apple Developer + App ID + secrets theo `docs/ci.md`;
   đăng chính sách lên web; upload keystore ngoài repo; closed test 12 × 14 ngày sớm; tự thử APK (không adb) theo
-  `notes/2026-11-05-ocr-android.md` và `notes/archive-demochung/BACKLOG.md` mục thử máy thật.
+  `notes/2026-11-05-ocr-android.md` và `docs/MANUAL-TESTS.md`.
 
-## Lệnh (đã chạy thật 2026-11-04 ở DemoChung; phải dùng đúng, không đoán)
+## Lệnh (đã chạy thật 2026-11-04; phải dùng đúng, không đoán)
 Flutter 3.47.8 ở `C:/src/flutter`, **chưa có trong PATH**. Git Bash: `export PATH="/c/src/flutter/bin:$PATH"` trước mọi lệnh.
 - Cài: `flutter pub get` (tự sinh file dịch từ `lib/l10n/*.arb`)
 - Sinh mã sau khi sửa bảng `lib/src/data/database.dart`: `dart run build_runner build` (commit cả `*.g.dart`)
