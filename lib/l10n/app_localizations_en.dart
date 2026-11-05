@@ -865,4 +865,139 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get noticeOpen => 'Open Backup';
+
+  @override
+  String get importTitle => 'Import from file';
+
+  @override
+  String get importIntro =>
+      'Choose a file exported from Paprika (.paprikarecipes), Recipe Keeper (.zip), schema.org JSON, or a .cooknote backup.';
+
+  @override
+  String get importUnverified =>
+      'The Paprika and Recipe Keeper formats are read from third-party documentation and are not yet verified against every real file. If a file cannot be read, your data stays unchanged.';
+
+  @override
+  String get importChoose => 'Choose file';
+
+  @override
+  String get importWorking => 'Importing recipes…';
+
+  @override
+  String get importUnknown =>
+      'This file format is not recognised. CookNote reads .paprikarecipes, Recipe Keeper zip, schema.org JSON and .cooknote.';
+
+  @override
+  String get importBadFile =>
+      'This file could not be read. Your data was not changed.';
+
+  @override
+  String get importCancelled =>
+      'Import cancelled. Recipes imported so far are kept.';
+
+  @override
+  String importResult(int imported, int duplicates, int skipped) {
+    return 'Imported $imported recipes. Already present: $duplicates. Skipped: $skipped.';
+  }
+
+  @override
+  String get importDetails => 'Details';
+
+  @override
+  String selectedCount(int count) {
+    return '$count selected';
+  }
+
+  @override
+  String get selectAll => 'Select all';
+
+  @override
+  String get exitSelection => 'Exit selection';
+
+  @override
+  String get exportJson => 'Export JSON';
+
+  @override
+  String get cookbookMake => 'Recipe book (PDF)';
+
+  @override
+  String get trashSelected => 'Move to trash';
+
+  @override
+  String trashedCount(int count) {
+    return 'Moved $count recipes to trash';
+  }
+
+  @override
+  String get exportWorking => 'Creating file…';
+
+  @override
+  String get exportCancelled => 'Cancelled';
+
+  @override
+  String get exportFailed => 'Could not create the file.';
+
+  @override
+  String get shareRecipe => 'Share';
+
+  @override
+  String get shareAsText => 'Share as text';
+
+  @override
+  String get shareAsPdf => 'Share as PDF file';
+
+  @override
+  String get shareAsCooknote =>
+      'Send a .cooknote file (importable in CookNote)';
+
+  @override
+  String get printRecipe => 'Print';
+
+  @override
+  String get cookbookTitleLabel => 'Book title';
+
+  @override
+  String get cookbookDefaultTitle => 'My recipe book';
+
+  @override
+  String get cookbookCreate => 'Create book';
+
+  @override
+  String get cookbookReady => 'The book is ready';
+
+  @override
+  String get cookbookShare => 'Share or save';
+
+  @override
+  String get cookbookNone => 'No recipes to export';
+
+  @override
+  String get exchangeSection => 'Import and export';
+
+  @override
+  String get exportAllJson => 'Export all recipes (JSON)';
+
+  @override
+  String get cookbookAll => 'Recipe book from all recipes';
+
+  @override
+  String get pdfContents => 'Contents';
+
+  @override
+  String get pdfServings => 'Servings';
+
+  @override
+  String get pdfPrep => 'Prep';
+
+  @override
+  String get pdfCook => 'Cook';
+
+  @override
+  String get pdfTotal => 'Total';
+
+  @override
+  String get pdfMinutes => 'min';
+
+  @override
+  String get pdfPage => 'Page';
 }

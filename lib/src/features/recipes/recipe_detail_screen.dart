@@ -13,6 +13,7 @@ import '../../providers.dart';
 import '../../ui/linkified_text.dart';
 import '../../ui/messenger.dart';
 import '../../ui/recipe_photo.dart';
+import '../exchange/exchange_actions.dart';
 
 String difficultyLabel(AppLocalizations l, Difficulty? d) => switch (d) {
   Difficulty.easy => l.difficultyEasy,
@@ -176,6 +177,12 @@ class _Detail extends ConsumerWidget {
             onPressed: () => ref
                 .read(recipeRepositoryProvider)
                 .setFavorite(recipe.id, !d.favorite),
+          ),
+          IconButton(
+            tooltip: l.shareRecipe,
+            icon: const Icon(Icons.ios_share),
+            onPressed: () =>
+                shareRecipeSheet(context, ref, recipe.id, d.name),
           ),
           IconButton(
             tooltip: l.edit,

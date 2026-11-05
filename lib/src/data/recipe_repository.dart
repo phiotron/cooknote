@@ -510,7 +510,7 @@ class RecipeRepository {
 
   /// Lưu công thức mới ([id] null) hoặc thay toàn bộ nội dung công thức [id].
   /// Ảnh bị gỡ khỏi công thức thì file ảnh bị xóa sau khi lưu xong (AC-07).
-  Future<int> save(RecipeDraft draft, {int? id}) async {
+  Future<int> save(RecipeDraft draft, {int? id, DateTime? createdAt}) async {
     final problem = draft.problem;
     if (problem != null) throw RecipeValidationException(problem);
     final now = _clock();
@@ -524,7 +524,10 @@ class RecipeRepository {
             .into(_db.recipes)
             .insert(
               _companion(draft)
-                  .copyWith(createdAt: Value(now), updatedAt: Value(now)),
+                  .copyWith(
+                    createdAt: Value(createdAt ?? now),
+                    updatedAt: Value(now),
+                  ),
             );
       } else {
         final updated =
@@ -584,6 +587,23 @@ class RecipeRepository {
       await _images.delete(f);
     }
     return recipeId;
+  }
+
+  /// Lưu công thức nhập từ file, giữ thời điểm tạo của bản gốc nếu có (F-10).
+  Future<int> saveImported(RecipeDraft draft, {DateTime? createdAt}) =>
+      save(draft, createdAt: createdAt);
+
+  /// Khóa nhận diện công thức đã có, dùng để nhập lại không tạo bản trùng
+  /// (cùng quy tắc chế độ gộp sao lưu): `tên không dấu|giây tạo` và
+  /// `tên không dấu|nguồn:nguồn không dấu`. Tính cả công thức trong thùng rác.
+  Future<Set<String>> importKeys() async {
+    final keys = <String>{};
+    for (final r in await _db.select(_db.recipes).get()) {
+      final name = normalizeText(r.name);
+      keys.add('$name|${r.createdAt.millisecondsSinceEpoch ~/ 1000}');
+      keys.add('$name|src:${normalizeText(r.source ?? '')}');
+    }
+    return keys;
   }
 
   /// Xóa dòng, ảnh, danh mục, thẻ của công thức (giữ lịch sử nấu).

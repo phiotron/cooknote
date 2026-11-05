@@ -97,6 +97,28 @@ void main() {
     expect(data['settings'], containsPair('ignoreBasics', '1'));
   });
 
+  test(
+    'xuất vài công thức (F-10): không kèm đi chợ, tủ bếp, thực đơn',
+    () async {
+      await fillV2(env);
+      final other = await env.recipe('Bánh flan', ['3 quả trứng']);
+      final data = await exportData(env.db, recipeIds: {other});
+      final recipes = data['recipes'] as List;
+      expect(recipes.map((r) => (r as Map)['name']), ['Bánh flan']);
+      for (final k in [
+        'aisles',
+        'shoppingLists',
+        'knownItems',
+        'pantry',
+        'mealSlots',
+        'mealPlan',
+        'menuTemplates',
+      ]) {
+        expect(data.containsKey(k), isFalse, reason: k);
+      }
+    },
+  );
+
   test('thay thế toàn bộ: dữ liệu khôi phục giống hệt bản xuất', () async {
     await fillV2(env);
     final data = await exportData(env.db);
