@@ -66,7 +66,7 @@ Luồng nhanh nhất: Chia sẻ link từ trình duyệt → CookNote → xem tr
 Kế hoạch đầy đủ 3 phiên: `../../memory/sessions/2026-11-04-A004-cooknote.md`.
 
 **Việc dở / bước tiếp (cập nhật 2026-11-05, sau phiên F):**
-- ✅ **XONG:** gộp wip + manifest (INTERNET, SEND) + `.gitignore` + build APK release + CI xanh — chi tiết ở `notes/2026-11-05-gop-wip.md`. Mục 2 mục dưới (gộp wip, Android chưa build) giữ để tham chiếu lịch sử. Còn lại của #1: quyết iOS sao lưu tự động + cleartext http; áp fact `nhap-app-tu-ngoai` mục 3/6; Phương chọn tên + tuổi Apple + duyệt product.md.
+- ✅ **XONG:** gộp wip + manifest (INTERNET, SEND) + `.gitignore` + build APK release + CI xanh — chi tiết ở `notes/2026-11-05-gop-wip.md`. Mục 2 mục dưới (gộp wip, Android chưa build) giữ để tham chiếu lịch sử. Còn lại của #1: quyết iOS sao lưu tự động + cleartext http; (đã dọn dấu vết nguồn cũ 2026-11-05: hook, tài liệu quy trình cũ → `docs/MANUAL-TESTS.md`); Phương chọn tên + tuổi Apple + duyệt product.md.
 - ~~Gộp 3 nhánh wip vào `main`~~ (đã làm): `wip/g5-cook` (logic nấu, 263 test đạt, 1 import thừa;
   phần Android trùng desugaring đã có) → `wip/g4-web-import` (13 test UI hỏng vì `ShareIntentListener` gọi plugin thật trong test → cho
   test dùng bản giả) → `wip/g9-exchange` (10 lint nhỏ; `backup_data.dart`/`recipe_repository.dart` đã bị C đổi → gỡ xung đột cẩn thận).
