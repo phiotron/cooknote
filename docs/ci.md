@@ -1,4 +1,4 @@
-# CI và phát hành — CookNote (A004-cooknote)
+# CI và phát hành — Bepbook (A004-cooknote)
 
 > Viết 2026-11-05 (phiên con "Nền iOS + CI + dependency"). Máy làm việc là Windows, không Mac, không iPhone:
 > mọi bản iOS build trên GitHub Actions macOS runner (D-008). Repo `phiotron/cooknote` (private, nhánh `main`).
@@ -78,7 +78,7 @@ Play App Signing: Google giữ khoá ký app thật; mình chỉ giữ **khoá u
 3. **Điều kiện trước khi chạy `release-android.yml`:** `android/app/build.gradle.kts` phải đọc `android/key.properties` để ký bản release
    (hiện vẫn ký bằng khoá debug). Việc này do phiên điều phối giao (ghi trong `notes/2026-11-05-ios-ci.md`). Nếu chưa sửa, workflow tự
    dừng ở bước "Kiểm chữ ký AAB không phải khoá debug".
-4. Chạy tay **Release Android** › tải artefact `android-release-<số>` › giải nén lấy `app-release.aab` › Play Console › CookNote ›
+4. Chạy tay **Release Android** › tải artefact `android-release-<số>` › giải nén lấy `app-release.aab` › Play Console › Bepbook ›
    Testing › Closed testing › Create new release › tải lên. Số build (`versionCode`) = số lần chạy workflow, tự tăng.
 5. Bản phát hành đầu tiên trên Play Console luôn phải tải lên bằng tay (Play chưa cho API tải lên trước lần đầu). Tự động tải lên
    (service account) để sau, khi cần.
@@ -92,14 +92,14 @@ cả app lẫn Share Extension. Không cần Mac, không cần tạo CSR hay fil
    hai lớp. Chờ Apple duyệt (thường 1–2 ngày).
 2. **Team ID:** developer.apple.com/account › Membership details › Team ID (10 ký tự) → secret `IOS_TEAM_ID`.
 3. **App Group:** developer.apple.com/account › Certificates, Identifiers & Profiles › Identifiers › nút **+** › **App Groups** ›
-   Identifier `group.com.phiotron.cooknote`, Description `CookNote`.
+   Identifier `group.com.phiotron.cooknote`, Description `Bepbook`.
 4. **Hai App ID** (Identifiers › **+** › App IDs › App):
-   - `com.phiotron.cooknote` (Description `CookNote`) — tick capability **App Groups**.
-   - `com.phiotron.cooknote.ShareExtension` (Description `CookNote Share`) — tick **App Groups**.
+   - `com.phiotron.cooknote` (Description `Bepbook`) — tick capability **App Groups**.
+   - `com.phiotron.cooknote.ShareExtension` (Description `Bepbook Share`) — tick **App Groups**.
    Sau khi lưu, mở từng App ID › App Groups › **Configure** › chọn `group.com.phiotron.cooknote` › Save.
    *(Đây là bước Share Extension cần; thiếu thì archive báo lỗi provisioning hoặc chia sẻ vào app không chạy.)*
-5. **Tạo app trên App Store Connect:** appstoreconnect.apple.com › Apps › **+** › New App › iOS, tên `CookNote`, ngôn ngữ chính
-   Vietnamese (hoặc English), Bundle ID `com.phiotron.cooknote`, SKU `cooknote`. (Nếu tên đã có người dùng thì báo phiên điều phối.)
+5. **Tạo app trên App Store Connect:** appstoreconnect.apple.com › Apps › **+** › New App › iOS, tên `Bepbook: Recipe Notebook` (bản English) / `Bepbook: Sổ Công Thức` (bản Vietnamese; tên đã chốt D-010, xem `store/app-store.md`), ngôn ngữ chính
+   Vietnamese (hoặc English), Bundle ID `com.phiotron.cooknote` (giữ nguyên), SKU `cooknote`. (Nếu App Store Connect báo tên đã có người dùng thì báo phiên điều phối.)
 6. **API key:** App Store Connect › Users and Access › **Integrations** › App Store Connect API › Team Keys › **+**:
    tên `github-actions-cooknote`, quyền **Admin** (cần để Xcode tạo chứng chỉ phân phối được quản lý trên đám mây).
    - **Issuer ID** (dòng trên cùng của trang) → secret `ASC_ISSUER_ID`.

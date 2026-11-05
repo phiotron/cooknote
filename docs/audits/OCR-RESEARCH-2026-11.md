@@ -1,4 +1,4 @@
-# Khảo sát OCR offline cho CookNote (F-04) — 2026-11
+# Khảo sát OCR offline cho Bepbook (F-04) — 2026-11
 
 Ngày tra cứu: 2026-11-04 (mọi nguồn dưới đây đều tra ngày này). Phạm vi: nhận chữ NGAY TRÊN MÁY, tiếng Việt có dấu và tiếng Anh, Android gồm armeabi-v7a (Galaxy A13 chạy 32-bit), không quyền INTERNET, không gửi dữ liệu ra ngoài (D-003 loại ML Kit).
 

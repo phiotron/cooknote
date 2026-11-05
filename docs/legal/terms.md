@@ -1,4 +1,4 @@
-# Điều khoản sử dụng — CookNote (bản nháp ngắn để đăng)
+# Điều khoản sử dụng — Bepbook (bản nháp ngắn để đăng)
 
 > **Ghi chú nội bộ, KHÔNG đăng phần này.**
 > - Viết 2026-11-05. Không store nào bắt buộc điều khoản riêng cho app miễn phí không tài khoản: App Store dùng điều khoản chuẩn
@@ -6,16 +6,16 @@
 >   tranh chấp với app công thức: **bản quyền công thức nhập từ web**, **dữ liệu dinh dưỡng/dị ứng không phải lời khuyên**, và
 >   **người dùng tự giữ bản sao lưu**. Đăng cùng trang với chính sách quyền riêng tư (mục riêng) hoặc trang `…/cooknote/terms`.
 > - App Store: **không** nhập bản này vào ô License Agreement (giữ EULA chuẩn của Apple); chỉ liên kết từ màn Giới thiệu nếu muốn.
-> - Thay `[Tên nhà phát triển]`, ngày hiệu lực; đổi tên app thì thay "CookNote". Không phải tư vấn pháp lý.
+> - Thay `[Tên nhà phát triển]`, ngày hiệu lực; tên app là "Bepbook" (D-010). Không phải tư vấn pháp lý.
 
 ---
 
 ## Tiếng Việt
 
-**Điều khoản sử dụng CookNote**
+**Điều khoản sử dụng Bepbook**
 Ngày hiệu lực: [điền ngày đăng]
 
-1. **App miễn phí, cung cấp "nguyên trạng".** CookNote miễn phí, không quảng cáo, không mua trong app. App được cung cấp như hiện có, không kèm bảo đảm nào ngoài những gì luật bắt buộc. Nhà phát triển cố gắng giữ app ổn định và sửa lỗi, nhưng không cam kết app luôn chạy không lỗi hay phù hợp mọi mục đích.
+1. **App miễn phí, cung cấp "nguyên trạng".** Bepbook miễn phí, không quảng cáo, không mua trong app. App được cung cấp như hiện có, không kèm bảo đảm nào ngoài những gì luật bắt buộc. Nhà phát triển cố gắng giữ app ổn định và sửa lỗi, nhưng không cam kết app luôn chạy không lỗi hay phù hợp mọi mục đích.
 2. **Nội dung là của bạn và của tác giả.** Công thức, ảnh và ghi chú bạn tạo là của bạn. Công thức bạn nhập từ trang web hay quét từ sách thuộc bản quyền của tác giả hoặc nhà xuất bản: chỉ lưu để dùng riêng, giữ nguồn, và không đăng lại hay bán nếu chưa được phép. Bạn chịu trách nhiệm với nội dung mình lưu và chia sẻ.
 3. **Không phải lời khuyên dinh dưỡng hay y tế.** Thông tin dinh dưỡng, khẩu phần, thời gian và kết quả nhân khẩu phần, đổi đơn vị chỉ để tham khảo và có thể sai (ví dụ dòng nguyên liệu không tách được, đơn vị "chén", "bát" không chuẩn). Hãy tự kiểm tra nguyên liệu nếu bạn hoặc người ăn bị dị ứng hay có chế độ ăn đặc biệt.
 4. **Hẹn giờ.** Hẹn giờ dựa vào thông báo của hệ điều hành; chế độ tiết kiệm pin hay cài đặt máy có thể làm trễ hoặc chặn thông báo. Đừng chỉ dựa vào app khi để bếp không người trông.
@@ -30,10 +30,10 @@ Ngày hiệu lực: [điền ngày đăng]
 
 ## English
 
-**CookNote Terms of Use**
+**Bepbook Terms of Use**
 Effective date: [fill in on publishing]
 
-1. **Free app, provided "as is".** CookNote is free, with no ads and no in-app purchases. It is provided as is, without warranties beyond those required by law. The developer works to keep the app stable and fix bugs, but does not promise that it will always run without errors or suit every purpose.
+1. **Free app, provided "as is".** Bepbook is free, with no ads and no in-app purchases. It is provided as is, without warranties beyond those required by law. The developer works to keep the app stable and fix bugs, but does not promise that it will always run without errors or suit every purpose.
 2. **Content belongs to you and to its authors.** Recipes, photos and notes you create are yours. Recipes you import from websites or scan from books belong to their authors or publishers: save them for personal use, keep the source, and do not republish or sell them without permission. You are responsible for the content you store and share.
 3. **Not nutrition or medical advice.** Nutrition information, servings, times, and the results of scaling and unit conversion are for reference only and may be wrong (for example, ingredient lines that cannot be parsed, or non-standard units such as "chén" and "bát"). Check ingredients yourself if you or the people you cook for have allergies or special diets.
 4. **Timers.** Timers rely on the operating system's notifications; battery saving or device settings can delay or block them. Do not rely on the app alone when leaving cooking unattended.

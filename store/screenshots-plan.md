@@ -1,4 +1,4 @@
-# Kế hoạch ảnh store — CookNote (Google Play + App Store)
+# Kế hoạch ảnh store — Bepbook (Google Play + App Store)
 
 Viết 2026-11-05. **Chụp thật ở phiên điều phối #3 với UI mới** của #2 (ảnh phải là UI thật — S-31, App Review 2.3.3). Số liệu dưới
 đây đọc trên trang chính thức ngày **2026-11-05**; kiểm lại ngày chụp (đổi theo năm) và ghi ngày kiểm vào cuối file.

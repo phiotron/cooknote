@@ -1,4 +1,4 @@
-# Closed test trên Google Play — CookNote (tài khoản cá nhân)
+# Closed test trên Google Play — Bepbook (tài khoản cá nhân)
 
 Viết 2026-11-05. Mục đích: đủ điều kiện xin quyền **production** cho tài khoản Play **cá nhân** (S-12, COMPLIANCE P-09). Luật kiểm
 trên trang chính thức ngày 2026-11-05 ([App testing requirements for new personal developer accounts](https://support.google.com/googleplay/android-developer/answer/14151465)):
@@ -18,7 +18,7 @@ tự động vào thư mục Google Drive/OneDrive). Không dùng adb trên máy
 ## Checklist trước khi gửi duyệt bản closed test (đường găng)
 | # | Việc | Ai | Ghi chú |
 |---|---|---|---|
-| 1 | **Chốt tên app** (trùng "CookNote", `store/app-store.md`) | Phương | Tên trên trang closed test hiện cho tester; đổi sau vẫn được nhưng tốn công đổi icon/ảnh/chính sách |
+| 1 | ~~Chốt tên app~~ **Đã chốt: Bepbook (D-010, 2026-11-05)** — tra lại tên trên App Store Connect khi tạo app | Phương | Tên trên trang closed test hiện cho tester; đổi sau vẫn được nhưng tốn công đổi icon/ảnh/chính sách |
 | 2 | Tài khoản Play Console cá nhân đã có (fact `tai-khoan-store`); kiểm thông tin xác minh nhà phát triển đầy đủ (S-15) | Phương | |
 | 3 | Đăng chính sách quyền riêng tư lên web, lấy URL | Phương | Play bắt Privacy policy + Data safety trước khi duyệt mọi track. Nội dung `docs/legal/privacy-policy.md` |
 | 4 | Tạo upload keystore **ngoài repo**, `android/key.properties` (không commit); bật Play App Signing | Phương (tự tạo, S-61) | Claude không tạo khoá. Hướng dẫn trong `docs/RELEASE.md` mục "Ký ứng dụng" khi phiên code viết |
@@ -42,7 +42,7 @@ tự động vào thư mục Google Drive/OneDrive). Không dùng adb trên máy
 
 ## Mời tester
 **Cách khuyên dùng: Google Group.**
-1. groups.google.com → Create group, ví dụ `cooknote-testers` (đổi theo tên đã chốt). Ai xem thành viên: chỉ quản lý (giữ riêng email tester).
+1. groups.google.com → Create group, ví dụ `cooknote-testers` (tên nhóm nội bộ, có thể đặt `bepbook-testers`). Ai xem thành viên: chỉ quản lý (giữ riêng email tester).
 2. Mời tester vào nhóm, hoặc gửi link nhóm để họ bấm Join.
 3. Play Console → Closed testing → track → Testers → **Google Groups** → nhập email nhóm → Save.
 4. Copy link opt-in ("Join on the web") gửi cho tester.
@@ -55,43 +55,43 @@ Google Drive/OneDrive.
 
 ## Mẫu tin nhắn (Phương tự gửi; Claude không gửi)
 **Lời mời (vi):**
-> Chào bạn, mình đang làm app sổ tay công thức nấu ăn "CookNote" (miễn phí, không quảng cáo, không cần tài khoản, công thức nằm trên
+> Chào bạn, mình đang làm app sổ tay công thức nấu ăn "Bepbook" (miễn phí, không quảng cáo, không cần tài khoản, công thức nằm trên
 > máy bạn). Google bắt app mới phải có ít nhất 12 người thử trong 14 ngày liền mới được phát hành. Bạn giúp mình nhé:
 > 1) Vào [link nhóm] bấm tham gia; 2) mở [link opt-in] bằng đúng Gmail trên điện thoại Android, bấm "Become a tester";
 > 3) cài app từ Google Play. Bạn chỉ cần **giữ tham gia và giữ app trên máy ít nhất 16 ngày (tới [ngày])**, mỗi tuần mở app lưu
-> hoặc nấu thử vài món (ví dụ chia sẻ một trang công thức từ Chrome sang CookNote). App không gửi dữ liệu của bạn đi đâu.
+> hoặc nấu thử vài món (ví dụ chia sẻ một trang công thức từ Chrome sang Bepbook). App không gửi dữ liệu của bạn đi đâu.
 > Góp ý gửi mình qua [email/Zalo] hoặc nút "Gửi phản hồi" trên trang Play. Cảm ơn bạn nhiều!
 
 **Invite (en):**
-> Hi! I'm building "CookNote", a free recipe notebook app with no ads and no account; your recipes stay on your phone. Google requires
+> Hi! I'm building "Bepbook", a free recipe notebook app with no ads and no account; your recipes stay on your phone. Google requires
 > new apps to be tested by at least 12 people for 14 days in a row before release. Could you help? 1) Join [group link];
 > 2) open [opt-in link] with the Google account on your Android phone and tap "Become a tester"; 3) install from Google Play.
 > Please **stay in the test and keep the app installed for at least 16 days (until [date])**, and save or cook a few recipes each week
-> (for example, share a recipe page from Chrome to CookNote). The app does not send your data anywhere.
+> (for example, share a recipe page from Chrome to Bepbook). The app does not send your data anywhere.
 > Feedback: [email] or "Send feedback" on the Play page. Thank you!
 
 **Nhắc ngày 3 / 7 / 11 (vi):**
-> Nhắc nhẹ: CookNote đang ở ngày [n]/14 của đợt thử. Bạn đừng bấm "Rời khỏi chương trình" và đừng gỡ app tới [ngày] nhé. Mở app
+> Nhắc nhẹ: Bepbook đang ở ngày [n]/14 của đợt thử. Bạn đừng bấm "Rời khỏi chương trình" và đừng gỡ app tới [ngày] nhé. Mở app
 > lưu thêm 1 công thức hoặc thử chế độ nấu giúp mình. Có lỗi gì cứ nhắn mình. Cảm ơn!
 
 **Reminder day 3 / 7 / 11 (en):**
-> Quick reminder: CookNote is on day [n] of 14. Please don't leave the program or uninstall the app before [date]. Save one more
+> Quick reminder: Bepbook is on day [n] of 14. Please don't leave the program or uninstall the app before [date]. Save one more
 > recipe or try cook mode if you can. Tell me about anything that breaks. Thanks!
 
 **Khi có build mới (vi):**
-> CookNote vừa có bản mới [mô tả ngắn]. Vào Google Play → CookNote → Cập nhật, thử giúp mình [màn/tính năng] rồi góp ý nhé.
+> Bepbook vừa có bản mới [mô tả ngắn]. Vào Google Play → Bepbook → Cập nhật, thử giúp mình [màn/tính năng] rồi góp ý nhé.
 
 ## Nhờ tester thử (AC [M] cần máy thật)
 Gửi kèm tin mời hoặc tin nhắc ngày 3. Mỗi tester chọn 1–2 mục, báo "được / không được + đời máy + Android mấy":
 - **Sao lưu tự động vào Google Drive/OneDrive (rủi ro số 1, AC-50, AC-51):** Thêm → Sao lưu → bật sao lưu tự động, chọn một thư mục
   trong Google Drive (hoặc OneDrive). Hôm sau mở app: file `CookNote-YYYY-MM-DD-HHmmss.cooknote` có trong thư mục trên Drive không? Có báo lỗi không?
-- **Chia sẻ từ trình duyệt (AC-17, AC-18):** trong Chrome mở một trang công thức → Chia sẻ → CookNote → màn xem trước có đủ tên,
+- **Chia sẻ từ trình duyệt (AC-17, AC-18):** trong Chrome mở một trang công thức → Chia sẻ → Bepbook → màn xem trước có đủ tên,
   nguyên liệu, các bước, ảnh không? Thử 1 trang tiếng Việt, 1 trang tiếng Anh.
 - **Trang không có dữ liệu công thức (AC-19):** bôi đen chữ, gán "Là nguyên liệu" / "Là các bước".
 - **Hẹn giờ khi khóa máy (AC-28):** chế độ nấu → bấm một thời gian trong bước → khóa máy → có chuông và thông báo đúng giờ không?
 - **Quét ảnh (AC-23, AC-24):** chụp một trang sách nấu ăn hoặc công thức viết tay → chữ nhận ra có dùng được không?
 - **Đọc bước (AC-30):** máy có giọng đọc tiếng Việt không?
-- **Khôi phục trên máy khác (SPEC mục 8):** "Sao lưu ngay" → mở file trên một máy khác đã cài CookNote → Khôi phục → đủ ảnh không?
+- **Khôi phục trên máy khác (SPEC mục 8):** "Sao lưu ngay" → mở file trên một máy khác đã cài Bepbook → Khôi phục → đủ ảnh không?
 - **Cỡ chữ lớn, TalkBack (AC-61, AC-62):** bật chữ cỡ lớn nhất của máy → các màn chính có bị cắt chữ không?
 Ghi kết quả vào `notes/<ngày>-closed-test-feedback.md` (không ghi tên/email tester) để phiên điều phối cập nhật `docs/TESTING.md`.
 
@@ -118,7 +118,7 @@ Form tiếng Anh; câu hỏi có thể đổi. **Thay mọi `[...]` bằng số 
 - **Who is the intended audience of your app?**
   `Home cooks aged 13 and over in Vietnam and worldwide, in Vietnamese or English, who want to keep their recipes for many years without an account.`
 - **Describe how your app provides value to users.**
-  `CookNote collects recipes from websites and photos into one offline notebook, with cook mode and timers, scaling, shopping lists, a meal planner and a pantry. Every feature is free, and automatic backups use an open format readable in any browser, so users never lose their recipes.`
+  `Bepbook collects recipes from websites and photos into one offline notebook, with cook mode and timers, scaling, shopping lists, a meal planner and a pantry. Every feature is free, and automatic backups use an open format readable in any browser, so users never lose their recipes.`
 - **How many installs do you expect in your first year?** → mức thấp, thực tế.
 - **What changes did you make based on what you learned during closed testing?** `[liệt kê thay đổi thật, kèm build]`
 - **How did you decide that your app is ready for production?**

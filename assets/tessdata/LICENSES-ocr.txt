@@ -1,5 +1,5 @@
 === Tesseract4Android|Tesseract OCR|tessdata_fast
-On-device OCR used by CookNote's "Scan recipe" (Android):
+On-device OCR used by Bepbook's "Scan recipe" (Android):
 - Tesseract4Android 4.9.0 - https://github.com/adaptech-cz/Tesseract4Android
 - Tesseract OCR 5.5.1 - https://github.com/tesseract-ocr/tesseract
 - tessdata_fast (vie, eng traineddata) - https://github.com/tesseract-ocr/tessdata_fast

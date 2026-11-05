@@ -1,4 +1,4 @@
-# SECURITY & PRIVACY — CookNote (A004-cooknote)
+# SECURITY & PRIVACY — Bepbook (A004-cooknote)
 
 Điền trước khi phát hành. Là đầu vào cho chính sách quyền riêng tư và biểu mẫu khai báo của store.
 

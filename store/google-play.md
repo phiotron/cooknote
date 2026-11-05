@@ -1,15 +1,13 @@
-# Hồ sơ Google Play — CookNote (bản nháp, chưa nộp)
+# Hồ sơ Google Play — Bepbook (bản nháp, chưa nộp)
 
 Viết 2026-11-05 (phiên con "[A004-cooknote] Store & pháp lý 2 nền tảng", phiên điều phối #1). Dán vào Play Console ở phiên #3;
 Phương duyệt tên và nội dung trước khi nộp. Bản App Store tương ứng: `store/app-store.md` — sửa một bên thì sửa bên kia.
 Số liệu Play kiểm trên trang chính thức **2026-11-05** (nguồn cuối file). Không sao chép chữ của Paprika, Recipe Keeper, CookBook
 (SPEC mục 1, mục 7); mô tả tự viết từ SPEC F-01..F-14.
 
-> **CẢNH BÁO TÊN (S-71): "CookNote" đã có người dùng trên Google Play, cùng thể loại** — 2 app sổ công thức tên đúng
-> "CookNote"/"Cooknote", một app nhắm đúng thị trường Việt Nam và có cả trên App Store. Chi tiết, link và 3 tên đề xuất:
-> mục "Tra trùng tên" của `store/app-store.md`. **Phương quyết tên trước khi tạo app trong Play Console** (tên hiển thị đổi
-> được về sau, nhưng ảnh chụp, icon, chính sách, `android:label` đều phải đổi theo). Mọi chữ "CookNote" trong file này là
-> tên tạm; đổi tên thì thay toàn bộ.
+> **TÊN ĐÃ CHỐT (D-010, 2026-11-05): Bepbook.** Tên cũ "CookNote" trùng 2 app cùng thể loại trên Play nên đã bỏ; "Bepbook" tra Play,
+> web, WIPO không có kết quả. Chi tiết và link: mục "Tên app" của `store/app-store.md`. `android:label` và các chuỗi trong app đổi
+> theo ở phiên #2.
 
 Cách đếm: mỗi trường nằm trong một khối `text` có nhãn `<!-- field: … limit=… -->`; chạy `python store/check_limits.py` để đếm ký tự
 (và byte cho keyword Apple). Kết quả lần chạy gần nhất ghi ở cuối file.
@@ -17,13 +15,13 @@ Cách đếm: mỗi trường nằm trong một khối `text` có nhãn `<!-- fi
 ## Tên ứng dụng (≤ 30 ký tự, Play đếm ký tự kể cả chữ có dấu)
 <!-- field: play.name.vi limit=30 -->
 ```text
-CookNote: Sổ Công Thức Nấu Ăn
+Bepbook: Sổ Công Thức
 ```
 <!-- field: play.name.en limit=30 -->
 ```text
-CookNote: Recipe Notebook
+Bepbook: Recipe Notebook
 ```
-- Tên dưới icon trên máy: `CookNote` (`android:label` hiện tại).
+- Tên dưới icon trên máy: `Bepbook` (`android:label` hiện vẫn là `CookNote` — đổi ở #2, D-010).
 - Không dùng "Recipe Keeper", "Recipe Manager", "Paprika", "CookBook" trong tên: đó là tên app đối thủ (Play Metadata policy, rủi ro nhãn hiệu).
 
 ## Mô tả ngắn (≤ 80 ký tự)
@@ -37,7 +35,7 @@ Offline recipe book: web import, cook mode, groceries. Every feature is free.
 ```
 
 ## Mô tả đầy đủ (≤ 4.000 ký tự)
-Thể hiện khác biệt S-30 ngay ở khối đầu ("Vì sao chọn CookNote"): miễn phí toàn bộ, không tài khoản, giữ cả đời bằng định dạng mở
+Thể hiện khác biệt S-30 ngay ở khối đầu ("Vì sao chọn Bepbook"): miễn phí toàn bộ, không tài khoản, giữ cả đời bằng định dạng mở
 đọc được không cần app, tiếng Việt chuẩn — đúng `APP.md` "Tiêu chuẩn áp dụng". Không nêu tên đối thủ.
 
 **Phải đối chiếu lại ở #3 (S-31: mô tả đúng app thật):** nếu cuối #2 cắt tính năng theo D-008 thì xoá đúng dòng tương ứng:
@@ -49,19 +47,19 @@ có thể khôi phục công thức (không gồm ảnh)" chỉ giữ nếu AC-5
 ### Tiếng Việt
 <!-- field: play.full.vi limit=4000 -->
 ```text
-CookNote là sổ tay công thức nấu ăn trên điện thoại. Lưu công thức từ trang web hoặc từ ảnh, nấu theo khi tay đang bận, xếp thực đơn cả tuần và đi chợ với một danh sách. Mọi thứ nằm trên điện thoại của bạn, và mọi tính năng đều miễn phí.
+Bepbook là sổ tay công thức nấu ăn trên điện thoại. Lưu công thức từ trang web hoặc từ ảnh, nấu theo khi tay đang bận, xếp thực đơn cả tuần và đi chợ với một danh sách. Mọi thứ nằm trên điện thoại của bạn, và mọi tính năng đều miễn phí.
 
-VÌ SAO CHỌN COOKNOTE
+VÌ SAO CHỌN BEPBOOK
 • Miễn phí toàn bộ. Không thuê bao, không bản trả phí, không quảng cáo, không mua trong app.
 • Không cần tài khoản. Mở app là ghi được ngay. Nhà phát triển không nhận công thức của bạn.
-• Giữ được cả đời. Sao lưu tự động dùng định dạng mở, có tài liệu: một file zip chứa JSON thuần, ảnh và các trang HTML. Bạn mở được bản sao lưu bằng trình duyệt bất kỳ để đọc hoặc in công thức, kể cả khi không còn CookNote.
+• Giữ được cả đời. Sao lưu tự động dùng định dạng mở, có tài liệu: một file zip chứa JSON thuần, ảnh và các trang HTML. Bạn mở được bản sao lưu bằng trình duyệt bất kỳ để đọc hoặc in công thức, kể cả khi không còn Bepbook.
 • Tiếng Việt chuẩn. Gõ "pho bo" vẫn ra "Phở bò". Hiểu các đơn vị chén, bát, muỗng canh, thìa cà phê. Quét ảnh đọc được chữ tiếng Việt có dấu.
 
 LƯU CÔNG THỨC
 • Tự soạn: nguyên liệu và các bước chia nhóm, khẩu phần, thời gian, nguồn, ghi chú, đánh giá, yêu thích, tối đa 20 ảnh.
-• Từ web: chia sẻ đường dẫn từ trình duyệt sang CookNote, hoặc mở trình duyệt có sẵn trong app. Trang có dữ liệu công thức được tự điền; trang khác thì bôi đen chữ rồi gán là nguyên liệu hay các bước. Luôn có màn xem trước để sửa, và giữ đường dẫn nguồn.
+• Từ web: chia sẻ đường dẫn từ trình duyệt sang Bepbook, hoặc mở trình duyệt có sẵn trong app. Trang có dữ liệu công thức được tự điền; trang khác thì bôi đen chữ rồi gán là nguyên liệu hay các bước. Luôn có màn xem trước để sửa, và giữ đường dẫn nguồn.
 • Từ ảnh: quét trang sách hay công thức viết tay. Việc nhận chữ chạy ngay trên điện thoại, ảnh không bị tải lên đâu cả.
-• Nhập file CookNote, JSON theo chuẩn schema.org Recipe, và file sao lưu xuất từ một số app công thức phổ biến.
+• Nhập file Bepbook (.cooknote), JSON theo chuẩn schema.org Recipe, và file sao lưu xuất từ một số app công thức phổ biến.
 
 NẤU
 • Chế độ nấu giữ màn hình sáng, chữ lớn, chạm để gạch nguyên liệu và bước đã làm.
@@ -76,7 +74,7 @@ XẾP THỰC ĐƠN VÀ ĐI CHỢ
 
 SẮP XẾP VÀ CHIA SẺ
 • Danh mục lồng nhau, thẻ, bộ lọc, sắp xếp. Xem dạng lưới hoặc dạng dòng.
-• Chia sẻ công thức dạng chữ, PDF hoặc file CookNote. Xuất sách công thức PDF có bìa và mục lục.
+• Chia sẻ công thức dạng chữ, PDF hoặc file Bepbook (.cooknote). Xuất sách công thức PDF có bìa và mục lục.
 • Thùng rác giữ công thức đã xóa 30 ngày.
 
 DỮ LIỆU CỦA BẠN
@@ -88,25 +86,25 @@ DỮ LIỆU CỦA BẠN
 DỄ DÙNG
 • Tiếng Việt và tiếng Anh. Giao diện sáng và tối. Hỗ trợ cỡ chữ lớn và TalkBack.
 
-CookNote là công cụ cá nhân. Công thức nhập từ trang web thuộc về tác giả của chúng; CookNote giữ đường dẫn nguồn và chỉ dành cho bạn dùng riêng.
+Bepbook là công cụ cá nhân. Công thức nhập từ trang web thuộc về tác giả của chúng; Bepbook giữ đường dẫn nguồn và chỉ dành cho bạn dùng riêng.
 ```
 
 ### English
 <!-- field: play.full.en limit=4000 -->
 ```text
-CookNote is a recipe notebook for your phone. Save recipes from websites or photos, cook from them when your hands are busy, plan the week and shop from one list. Everything stays on your phone, and every feature is free.
+Bepbook is a recipe notebook for your phone. Save recipes from websites or photos, cook from them when your hands are busy, plan the week and shop from one list. Everything stays on your phone, and every feature is free.
 
-WHY COOKNOTE
+WHY BEPBOOK
 • Free, all of it. No subscription, no premium tier, no ads, no in-app purchases.
 • No account. Open the app and start writing. The developer never receives your recipes.
-• Built to last a lifetime. Automatic backups use an open, documented format: a zip file with plain JSON, your photos and HTML pages. Open a backup in any web browser to read or print your recipes, even without CookNote.
+• Built to last a lifetime. Automatic backups use an open, documented format: a zip file with plain JSON, your photos and HTML pages. Open a backup in any web browser to read or print your recipes, even without Bepbook.
 • Vietnamese done right. Search "pho bo" and find "Phở bò". Units such as chén, bát, muỗng canh and thìa cà phê are understood. Scanning reads Vietnamese text with diacritics.
 
 SAVE RECIPES
 • Write your own: ingredients and steps in groups, servings, times, source, notes, rating, favorites, up to 20 photos.
-• From the web: share a link from your browser to CookNote, or use the built-in browser. Pages with recipe data fill in automatically; on other pages, select text and mark it as ingredients or steps. You always get a preview before saving, and the source link is kept.
+• From the web: share a link from your browser to Bepbook, or use the built-in browser. Pages with recipe data fill in automatically; on other pages, select text and mark it as ingredients or steps. You always get a preview before saving, and the source link is kept.
 • From photos: scan a cookbook page or a handwritten recipe. Text recognition runs on your phone; photos are not uploaded anywhere.
-• Import CookNote files, schema.org Recipe JSON, and backup files exported from some popular recipe apps.
+• Import Bepbook (.cooknote) files, schema.org Recipe JSON, and backup files exported from some popular recipe apps.
 
 COOK
 • Cook mode keeps the screen on, uses large text and lets you tap to cross off ingredients and steps.
@@ -121,7 +119,7 @@ PLAN AND SHOP
 
 ORGANIZE AND SHARE
 • Nested categories, tags, filters and sorting. Grid or list view.
-• Share a recipe as text, PDF or a CookNote file. Make a PDF cookbook with a cover and table of contents.
+• Share a recipe as text, PDF or a Bepbook (.cooknote) file. Make a PDF cookbook with a cover and table of contents.
 • Trash keeps deleted recipes for 30 days.
 
 YOUR DATA
@@ -133,7 +131,7 @@ YOUR DATA
 EASY TO USE
 • Vietnamese and English. Light and dark themes. Large text and TalkBack supported.
 
-CookNote is a personal tool. Recipes you import from websites belong to their authors; CookNote keeps the source link and is meant for your personal use.
+Bepbook is a personal tool. Recipes you import from websites belong to their authors; Bepbook keeps the source link and is meant for your personal use.
 ```
 
 ## Ghi chú phát hành (≤ 500 ký tự mỗi ngôn ngữ)
@@ -165,7 +163,7 @@ Cắt tính năng ở #2 → bỏ đúng cụm trong câu này.
 | Ads | **No, my app does not contain ads** | |
 | App access | **All functionality is available without special access** | Không đăng nhập. Trình duyệt trong app cần mạng — ghi chú cho reviewer nếu Play hỏi thêm |
 | Content rating (IARC) | Xem mục "Xếp hạng nội dung" dưới | |
-| Target audience and content | **13–15, 16–17, 18 trở lên** (không chọn nhóm dưới 13). "Appeals to children?" → **No** | S-84: không vào Families (COMPLIANCE P-12). Lưu ý App Store có thể ra 16+ vì trình duyệt (xem `store/app-store.md`) |
+| Target audience and content | **13–15, 16–17, 18 trở lên** (không chọn nhóm dưới 13). "Appeals to children?" → **No** | S-84: không vào Families (COMPLIANCE P-12). App Store xếp 16+/17+ vì trình duyệt đầy đủ — đã chốt phương án A, D-010 (xem `store/app-store.md`) |
 | News app | No | |
 | Government app | No | |
 | Financial features | "My app doesn't provide any financial features" (chọn đúng câu chữ hiện hành) | |
@@ -180,7 +178,7 @@ Cắt tính năng ở #2 → bỏ đúng cụm trong câu này.
 - Bạo lực, tình dục, ngôn từ, ma tuý, cờ bạc, kinh dị: **No** (app không có nội dung sẵn; công thức do người dùng tự ghi).
 - Người dùng tương tác / trao đổi nội dung với nhau trong app: **No** (chia sẻ chỉ qua bảng chia sẻ của hệ điều hành tới app khác).
 - Chia sẻ vị trí: **No** · Mua hàng số: **No**.
-- **Truy cập Internet không giới hạn / trình duyệt web: Yes** — CookNote có trình duyệt trong app với thanh địa chỉ và tìm kiếm (AC-16).
+- **Truy cập Internet không giới hạn / trình duyệt web: Yes** — Bepbook có trình duyệt trong app với thanh địa chỉ và tìm kiếm (AC-16), mở được cả trang `http` có nhãn "Không mã hóa" (AC-66, D-010). Đối tượng Play vẫn khai **13+** (D-010: App Store 16+/17+ do trình duyệt đầy đủ; Play không bị ràng buộc theo cách đó).
   Trả lời đúng thực tế. Dự kiến IARC ghi chú "Unrestricted Internet" ở mục yếu tố tương tác; mức tuổi dự kiến vẫn thấp
   (Everyone / PEGI 3 / 3+) — *(chưa kiểm: đọc kết quả thật khi điền)*.
 - Kết quả ghi vào COMPLIANCE (S-14) kèm ngày.
