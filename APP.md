@@ -60,7 +60,7 @@ Luồng nhanh nhất: Chia sẻ link từ trình duyệt → CookNote → xem tr
 | Phiên điều phối | Ngày | Phiên con đã mở | Kết quả |
 |---|---|---|---|
 | #1 Chuyển + product.md + nền | 2026-11-04..05 | A product.md · B iOS + CI + dependency · C DB v3 + backup v2 · D OCR Android · E store & pháp lý | A, C, E xong; B, D bị dừng giữa chừng (phần chính đã commit). Phiên F `a004-merge-wip` (2026-11-05): đã gộp g5+g4+g9 vào `main`, 390 test đạt, APK release có INTERNET + tessdata, **CI Android + iOS xanh** (`d3687d2`, `e28349c`); báo cáo `notes/2026-11-05-gop-wip.md` |
-| #2 Áp UI Hi-Fi + đủ tính năng | | F0 design system → G1..G6 theo nhóm màn → H build + danh sách thử | |
+| #2 Áp UI Hi-Fi + đủ tính năng | 2026-11-05.. | F0 design system + khung 5 tab/route stub (một mình) → G1 công thức · G2 đưa vào · G3 nấu · G4 đi chợ · G5 thực đơn+tủ bếp · G6 thêm/sao lưu/cài đặt → H so mockup + build + ảnh store | 🔨 Đang làm — mockup Hi-Fi v1 `90c0c71`; kế hoạch `docs/PLAN-phien-2.md` |
 | #3 Phát hành | | ảnh store · Android · iOS | |
 
 Kế hoạch đầy đủ 3 phiên: `../../memory/sessions/2026-11-04-A004-cooknote.md`.
@@ -75,6 +75,8 @@ Kế hoạch đầy đủ 3 phiên: `../../memory/sessions/2026-11-04-A004-cookn
   quyền `INTERNET` cho bản release (F-03 sẽ hỏng nếu thiếu) và intent-filter `SEND text/plain` (AC-17) — `notes/2026-11-05-ios-ci.md`.
   Thêm `android/.kotlin/` vào `.gitignore`. CI iOS chưa có lần chạy xanh trọn vẹn sau `d16f83f`.
 - ✅ **Đã chốt D-010 (2026-11-05) và áp vào tài liệu** (`notes/2026-11-05-ap-d010.md`): tên **Bepbook**; tuổi Apple A (16+/17+); cho phép http (ngoại lệ ở COMPLIANCE 2b + chính sách, AC-66); sao lưu iOS bằng thư mục + bookmark (AC-67). **Còn lại cho #2 (code):** đổi tên hiển thị trong `.arb`/`android:label`/`CFBundleDisplayName`, màn Sao lưu iOS, cảnh báo http, xoá dữ liệu WebView (AC-64).
+- ✅ **Mockup Hi-Fi v1 đã có (2026-11-05):** `design/hifi/` (945 khung HTML, token, asset; PNG + zip chỉ ở máy), link `design/LINKS.md`,
+  ghi chú quyết định + chuỗi mới ở `design/hifi/README.md`. Phiên điều phối #2 đã mở — xem `docs/PLAN-phien-2.md`.
 - ✅ Phương **đã duyệt** `product.md` v1.1 (58 màn, đủ Q1–Q14 + D-010, tên Bepbook) ngày 2026-11-05. Bước tiếp của Phương: gửi Claude Design → lưu link + export HTML vào `design/hifi/` → mở phiên #2.
 - Phương: file mẫu Paprika/Recipe Keeper vào `test/fixtures/exchange/` trước #2; Apple Developer + App ID + secrets theo `docs/ci.md`;
   đăng chính sách lên web; upload keystore ngoài repo; closed test 12 × 14 ngày sớm; tự thử APK (không adb) theo
