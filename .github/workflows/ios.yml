@@ -3,19 +3,11 @@
 # Máy làm việc là Windows, không Mac/iPhone → đây là nơi DUY NHẤT build + thử iOS (D-008). Hướng dẫn: docs/ci.md.
 name: iOS
 
+# Tiết kiệm phút Actions (luật xưởng WORKFLOW §7, 2026-11-05): không chạy trên `dev`; push `main` chỉ kiểm;
+# build chỉ khi tag `v*` hoặc chạy tay.
 on:
   push:
-    branches: [main]
-    paths-ignore:
-      - '**/*.md'
-      - 'docs/**'
-      - 'notes/**'
-      - 'design/**'
-      - 'store/**'
-      - 'android/**'
-      - 'test/**'
-      - '.github/workflows/ci.yml'
-      - '.github/workflows/release-android.yml'
+    tags: ['v*']
   workflow_dispatch:
     inputs:
       release_build:

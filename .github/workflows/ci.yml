@@ -3,15 +3,13 @@
 # Ghim Flutter 3.47.8 cho khớp máy phát triển (D-004). Hướng dẫn: docs/ci.md.
 name: CI
 
+# Tiết kiệm phút Actions (luật xưởng WORKFLOW §7, 2026-11-05): không chạy trên `dev`; push `main` chỉ kiểm;
+# build chỉ khi tag `v*` hoặc chạy tay.
 on:
   push:
-    paths-ignore:
-      - '**/*.md'
-      - 'docs/**'
-      - 'notes/**'
-      - 'design/**'
-      - 'store/**'
-  pull_request:
+    branches: [main]
+    tags: ['v*']
+    paths-ignore: ['**/*.md', 'docs/**', 'notes/**', 'design/**', 'store/**']
   workflow_dispatch:
 
 concurrency:
@@ -49,12 +47,14 @@ jobs:
 
       # Không thêm --target-platform: máy thử Galaxy A13 chạy 32-bit (L-011, APP.md "Lệnh").
       - name: Build APK release (đủ kiến trúc)
+        if: ${{ startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch' }}
         run: |
           set -o pipefail
           mkdir -p ci-logs
           flutter build apk --release 2>&1 | tee ci-logs/build-apk.log
 
       - name: Kiểm APK — kiến trúc, trang 16 KB (S-11), quyền (AC-65)
+        if: ${{ startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch' }}
         run: |
           APK=build/app/outputs/flutter-apk/app-release.apk
           BT=$(ls -d "$ANDROID_HOME"/build-tools/* | sort -V | tail -1)
@@ -93,7 +93,7 @@ jobs:
           grep -q "android.permission.INTERNET'" ci-logs/permissions.txt || echo "::warning::APK release KHÔNG có quyền INTERNET — nhập từ web (F-03) sẽ không chạy"
 
       - name: Tải log kiểm APK
-        if: always()
+        if: ${{ always() && (startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch') }}
         uses: actions/upload-artifact@v4
         with:
           name: android-apk-checks
