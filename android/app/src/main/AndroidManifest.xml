@@ -1,6 +1,15 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
     <!-- Nhập công thức từ web (F-03) và tải ảnh cần mạng; bản release không tự có INTERNET. -->
     <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- Chỉ xin thông báo (AC-28). Gói thông báo tự thêm VIBRATE: bỏ đi (D-009).
+         Không báo giờ chính xác, không dịch vụ nền: chờ người dùng quyết. -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.VIBRATE" tools:node="remove"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" tools:node="remove"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" tools:node="remove"/>
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" tools:node="remove"/>
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" tools:node="remove"/>
     <application
         android:label="CookNote"
         android:allowBackup="true"
@@ -39,6 +48,9 @@
         </activity>
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
+        <receiver
+            android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver"
+            android:exported="false" />
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
@@ -61,6 +73,10 @@
         <intent>
             <action android:name="android.intent.action.PROCESS_TEXT"/>
             <data android:mimeType="text/plain"/>
+        </intent>
+        <!-- Tìm giọng đọc của hệ điều hành (AC-30). -->
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE"/>
         </intent>
     </queries>
 </manifest>

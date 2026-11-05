@@ -860,6 +860,288 @@ abstract class AppLocalizations {
   /// **'Cooking recorded'**
   String get cookedRecorded;
 
+  /// No description provided for @cookButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Cook'**
+  String get cookButton;
+
+  /// No description provided for @cookModeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Cooking mode'**
+  String get cookModeTitle;
+
+  /// No description provided for @scaleFactorLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Multiplier'**
+  String get scaleFactorLabel;
+
+  /// No description provided for @scaleServingsButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Servings…'**
+  String get scaleServingsButton;
+
+  /// No description provided for @scaleCustomButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom…'**
+  String get scaleCustomButton;
+
+  /// No description provided for @scaleServingsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'New servings'**
+  String get scaleServingsTitle;
+
+  /// No description provided for @scaleCustomTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a multiplier (for example 1.5 or 1/2)'**
+  String get scaleCustomTitle;
+
+  /// No description provided for @scaleInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Not a valid number'**
+  String get scaleInvalid;
+
+  /// No description provided for @unitOriginal.
+  ///
+  /// In en, this message translates to:
+  /// **'Original'**
+  String get unitOriginal;
+
+  /// No description provided for @unitMetric.
+  ///
+  /// In en, this message translates to:
+  /// **'Metric'**
+  String get unitMetric;
+
+  /// No description provided for @unitUs.
+  ///
+  /// In en, this message translates to:
+  /// **'US'**
+  String get unitUs;
+
+  /// No description provided for @viewingScaled.
+  ///
+  /// In en, this message translates to:
+  /// **'Viewing ×{factor}. The original recipe is unchanged.'**
+  String viewingScaled(String factor);
+
+  /// No description provided for @viewingUnitsOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'Viewing converted units. The original recipe is unchanged.'**
+  String get viewingUnitsOnly;
+
+  /// No description provided for @resetView.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset'**
+  String get resetView;
+
+  /// No description provided for @saveScaled.
+  ///
+  /// In en, this message translates to:
+  /// **'Save at this scale'**
+  String get saveScaled;
+
+  /// No description provided for @saveScaledTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Overwrite the recipe?'**
+  String get saveScaledTitle;
+
+  /// No description provided for @saveScaledBody.
+  ///
+  /// In en, this message translates to:
+  /// **'The ingredients and servings you are viewing will replace the original.'**
+  String get saveScaledBody;
+
+  /// No description provided for @scaledSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved at the new scale'**
+  String get scaledSaved;
+
+  /// No description provided for @cannotScale.
+  ///
+  /// In en, this message translates to:
+  /// **'cannot be scaled automatically'**
+  String get cannotScale;
+
+  /// No description provided for @cookFontSize.
+  ///
+  /// In en, this message translates to:
+  /// **'Text size'**
+  String get cookFontSize;
+
+  /// No description provided for @cookPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Pin for quick access'**
+  String get cookPin;
+
+  /// No description provided for @cookUnpin.
+  ///
+  /// In en, this message translates to:
+  /// **'Unpin'**
+  String get cookUnpin;
+
+  /// No description provided for @cookPinLimit.
+  ///
+  /// In en, this message translates to:
+  /// **'You can pin at most {max} recipes. Unpin one first.'**
+  String cookPinLimit(int max);
+
+  /// No description provided for @cookNoSteps.
+  ///
+  /// In en, this message translates to:
+  /// **'This recipe has no steps yet.'**
+  String get cookNoSteps;
+
+  /// No description provided for @cookTapHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap a line to cross it off.'**
+  String get cookTapHint;
+
+  /// No description provided for @cookStepN.
+  ///
+  /// In en, this message translates to:
+  /// **'Step {n}'**
+  String cookStepN(int n);
+
+  /// No description provided for @timerButtonTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Set timer for {label}'**
+  String timerButtonTooltip(String label);
+
+  /// No description provided for @timerName.
+  ///
+  /// In en, this message translates to:
+  /// **'{step} · {label}'**
+  String timerName(String step, String label);
+
+  /// No description provided for @timersRunning.
+  ///
+  /// In en, this message translates to:
+  /// **'Running timers'**
+  String get timersRunning;
+
+  /// No description provided for @timerCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel timer'**
+  String get timerCancel;
+
+  /// No description provided for @timerDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Time is up: {name}'**
+  String timerDone(String name);
+
+  /// No description provided for @timerDismiss.
+  ///
+  /// In en, this message translates to:
+  /// **'Dismiss'**
+  String get timerDismiss;
+
+  /// No description provided for @timerNotifBody.
+  ///
+  /// In en, this message translates to:
+  /// **'{recipe}: time is up'**
+  String timerNotifBody(String recipe);
+
+  /// No description provided for @notifChannelName.
+  ///
+  /// In en, this message translates to:
+  /// **'Cooking timers'**
+  String get notifChannelName;
+
+  /// No description provided for @notifChannelDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Alerts when a cooking timer ends'**
+  String get notifChannelDescription;
+
+  /// No description provided for @notifRationaleTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Alert when time is up'**
+  String get notifRationaleTitle;
+
+  /// No description provided for @notifRationaleBody.
+  ///
+  /// In en, this message translates to:
+  /// **'CookNote needs notification permission to alert you when a timer ends, even when the screen is locked or the app is in the background. It is used only for cooking timers.'**
+  String get notifRationaleBody;
+
+  /// No description provided for @notifContinue.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get notifContinue;
+
+  /// No description provided for @notifLater.
+  ///
+  /// In en, this message translates to:
+  /// **'Not now'**
+  String get notifLater;
+
+  /// No description provided for @notifDeniedWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications are off: timers still run but will not alert while the app is in the background.'**
+  String get notifDeniedWarning;
+
+  /// No description provided for @speakStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Read step'**
+  String get speakStep;
+
+  /// No description provided for @stopSpeaking.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop reading'**
+  String get stopSpeaking;
+
+  /// No description provided for @noVoiceTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No {language} voice on this device'**
+  String noVoiceTitle(String language);
+
+  /// No description provided for @noVoiceBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Open the device Settings, find \"Text-to-speech\" (the name may differ by manufacturer), pick the language and download a voice.'**
+  String get noVoiceBody;
+
+  /// No description provided for @languageVietnamese.
+  ///
+  /// In en, this message translates to:
+  /// **'Vietnamese'**
+  String get languageVietnamese;
+
+  /// No description provided for @languageEnglish.
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get languageEnglish;
+
+  /// No description provided for @speakError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not read this step aloud'**
+  String get speakError;
+
   /// No description provided for @backup.
   ///
   /// In en, this message translates to:

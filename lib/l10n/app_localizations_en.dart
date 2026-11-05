@@ -432,6 +432,168 @@ class AppLocalizationsEn extends AppLocalizations {
   String get cookedRecorded => 'Cooking recorded';
 
   @override
+  String get cookButton => 'Cook';
+
+  @override
+  String get cookModeTitle => 'Cooking mode';
+
+  @override
+  String get scaleFactorLabel => 'Multiplier';
+
+  @override
+  String get scaleServingsButton => 'Servings…';
+
+  @override
+  String get scaleCustomButton => 'Custom…';
+
+  @override
+  String get scaleServingsTitle => 'New servings';
+
+  @override
+  String get scaleCustomTitle => 'Enter a multiplier (for example 1.5 or 1/2)';
+
+  @override
+  String get scaleInvalid => 'Not a valid number';
+
+  @override
+  String get unitOriginal => 'Original';
+
+  @override
+  String get unitMetric => 'Metric';
+
+  @override
+  String get unitUs => 'US';
+
+  @override
+  String viewingScaled(String factor) {
+    return 'Viewing ×$factor. The original recipe is unchanged.';
+  }
+
+  @override
+  String get viewingUnitsOnly =>
+      'Viewing converted units. The original recipe is unchanged.';
+
+  @override
+  String get resetView => 'Reset';
+
+  @override
+  String get saveScaled => 'Save at this scale';
+
+  @override
+  String get saveScaledTitle => 'Overwrite the recipe?';
+
+  @override
+  String get saveScaledBody =>
+      'The ingredients and servings you are viewing will replace the original.';
+
+  @override
+  String get scaledSaved => 'Saved at the new scale';
+
+  @override
+  String get cannotScale => 'cannot be scaled automatically';
+
+  @override
+  String get cookFontSize => 'Text size';
+
+  @override
+  String get cookPin => 'Pin for quick access';
+
+  @override
+  String get cookUnpin => 'Unpin';
+
+  @override
+  String cookPinLimit(int max) {
+    return 'You can pin at most $max recipes. Unpin one first.';
+  }
+
+  @override
+  String get cookNoSteps => 'This recipe has no steps yet.';
+
+  @override
+  String get cookTapHint => 'Tap a line to cross it off.';
+
+  @override
+  String cookStepN(int n) {
+    return 'Step $n';
+  }
+
+  @override
+  String timerButtonTooltip(String label) {
+    return 'Set timer for $label';
+  }
+
+  @override
+  String timerName(String step, String label) {
+    return '$step · $label';
+  }
+
+  @override
+  String get timersRunning => 'Running timers';
+
+  @override
+  String get timerCancel => 'Cancel timer';
+
+  @override
+  String timerDone(String name) {
+    return 'Time is up: $name';
+  }
+
+  @override
+  String get timerDismiss => 'Dismiss';
+
+  @override
+  String timerNotifBody(String recipe) {
+    return '$recipe: time is up';
+  }
+
+  @override
+  String get notifChannelName => 'Cooking timers';
+
+  @override
+  String get notifChannelDescription => 'Alerts when a cooking timer ends';
+
+  @override
+  String get notifRationaleTitle => 'Alert when time is up';
+
+  @override
+  String get notifRationaleBody =>
+      'CookNote needs notification permission to alert you when a timer ends, even when the screen is locked or the app is in the background. It is used only for cooking timers.';
+
+  @override
+  String get notifContinue => 'Continue';
+
+  @override
+  String get notifLater => 'Not now';
+
+  @override
+  String get notifDeniedWarning =>
+      'Notifications are off: timers still run but will not alert while the app is in the background.';
+
+  @override
+  String get speakStep => 'Read step';
+
+  @override
+  String get stopSpeaking => 'Stop reading';
+
+  @override
+  String noVoiceTitle(String language) {
+    return 'No $language voice on this device';
+  }
+
+  @override
+  String get noVoiceBody =>
+      'Open the device Settings, find \"Text-to-speech\" (the name may differ by manufacturer), pick the language and download a voice.';
+
+  @override
+  String get languageVietnamese => 'Vietnamese';
+
+  @override
+  String get languageEnglish => 'English';
+
+  @override
+  String get speakError => 'Could not read this step aloud';
+
+  @override
   String get backup => 'Backup';
 
   @override

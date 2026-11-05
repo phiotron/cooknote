@@ -176,6 +176,112 @@
     }
   },
   "cookedRecorded": "Cooking recorded",
+  "cookButton": "Cook",
+  "cookModeTitle": "Cooking mode",
+  "scaleFactorLabel": "Multiplier",
+  "scaleServingsButton": "Servings…",
+  "scaleCustomButton": "Custom…",
+  "scaleServingsTitle": "New servings",
+  "scaleCustomTitle": "Enter a multiplier (for example 1.5 or 1/2)",
+  "scaleInvalid": "Not a valid number",
+  "unitOriginal": "Original",
+  "unitMetric": "Metric",
+  "unitUs": "US",
+  "viewingScaled": "Viewing ×{factor}. The original recipe is unchanged.",
+  "@viewingScaled": {
+    "placeholders": {
+      "factor": {
+        "type": "String"
+      }
+    }
+  },
+  "viewingUnitsOnly": "Viewing converted units. The original recipe is unchanged.",
+  "resetView": "Reset",
+  "saveScaled": "Save at this scale",
+  "saveScaledTitle": "Overwrite the recipe?",
+  "saveScaledBody": "The ingredients and servings you are viewing will replace the original.",
+  "scaledSaved": "Saved at the new scale",
+  "cannotScale": "cannot be scaled automatically",
+  "cookFontSize": "Text size",
+  "cookPin": "Pin for quick access",
+  "cookUnpin": "Unpin",
+  "cookPinLimit": "You can pin at most {max} recipes. Unpin one first.",
+  "@cookPinLimit": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "cookNoSteps": "This recipe has no steps yet.",
+  "cookTapHint": "Tap a line to cross it off.",
+  "cookStepN": "Step {n}",
+  "@cookStepN": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "timerButtonTooltip": "Set timer for {label}",
+  "@timerButtonTooltip": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "timerName": "{step} · {label}",
+  "@timerName": {
+    "placeholders": {
+      "step": {
+        "type": "String"
+      },
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "timersRunning": "Running timers",
+  "timerCancel": "Cancel timer",
+  "timerDone": "Time is up: {name}",
+  "@timerDone": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "timerDismiss": "Dismiss",
+  "timerNotifBody": "{recipe}: time is up",
+  "@timerNotifBody": {
+    "placeholders": {
+      "recipe": {
+        "type": "String"
+      }
+    }
+  },
+  "notifChannelName": "Cooking timers",
+  "notifChannelDescription": "Alerts when a cooking timer ends",
+  "notifRationaleTitle": "Alert when time is up",
+  "notifRationaleBody": "CookNote needs notification permission to alert you when a timer ends, even when the screen is locked or the app is in the background. It is used only for cooking timers.",
+  "notifContinue": "Continue",
+  "notifLater": "Not now",
+  "notifDeniedWarning": "Notifications are off: timers still run but will not alert while the app is in the background.",
+  "speakStep": "Read step",
+  "stopSpeaking": "Stop reading",
+  "noVoiceTitle": "No {language} voice on this device",
+  "@noVoiceTitle": {
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
+  },
+  "noVoiceBody": "Open the device Settings, find \"Text-to-speech\" (the name may differ by manufacturer), pick the language and download a voice.",
+  "languageVietnamese": "Vietnamese",
+  "languageEnglish": "English",
+  "speakError": "Could not read this step aloud",
   "backup": "Backup",
   "backupAutoTitle": "Automatic backup",
   "backupLast": "Last successful backup",

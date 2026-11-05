@@ -426,6 +426,168 @@ class AppLocalizationsVi extends AppLocalizations {
   String get cookedRecorded => 'Đã ghi lần nấu';
 
   @override
+  String get cookButton => 'Nấu';
+
+  @override
+  String get cookModeTitle => 'Chế độ nấu';
+
+  @override
+  String get scaleFactorLabel => 'Hệ số';
+
+  @override
+  String get scaleServingsButton => 'Khẩu phần…';
+
+  @override
+  String get scaleCustomButton => 'Tự nhập…';
+
+  @override
+  String get scaleServingsTitle => 'Khẩu phần mới';
+
+  @override
+  String get scaleCustomTitle => 'Nhập hệ số (ví dụ 1,5 hoặc 1/2)';
+
+  @override
+  String get scaleInvalid => 'Số không hợp lệ';
+
+  @override
+  String get unitOriginal => 'Gốc';
+
+  @override
+  String get unitMetric => 'Hệ mét';
+
+  @override
+  String get unitUs => 'Hệ Mỹ';
+
+  @override
+  String viewingScaled(String factor) {
+    return 'Đang xem ×$factor. Công thức gốc không đổi.';
+  }
+
+  @override
+  String get viewingUnitsOnly =>
+      'Đang xem đổi đơn vị. Công thức gốc không đổi.';
+
+  @override
+  String get resetView => 'Về gốc';
+
+  @override
+  String get saveScaled => 'Lưu theo khẩu phần này';
+
+  @override
+  String get saveScaledTitle => 'Ghi đè công thức?';
+
+  @override
+  String get saveScaledBody =>
+      'Nguyên liệu và khẩu phần đang xem sẽ thay cho bản gốc.';
+
+  @override
+  String get scaledSaved => 'Đã lưu theo khẩu phần mới';
+
+  @override
+  String get cannotScale => 'không tự nhân được';
+
+  @override
+  String get cookFontSize => 'Cỡ chữ';
+
+  @override
+  String get cookPin => 'Ghim để nấu nhanh';
+
+  @override
+  String get cookUnpin => 'Bỏ ghim';
+
+  @override
+  String cookPinLimit(int max) {
+    return 'Chỉ ghim được tối đa $max công thức. Bỏ ghim một công thức trước.';
+  }
+
+  @override
+  String get cookNoSteps => 'Công thức chưa có bước nào.';
+
+  @override
+  String get cookTapHint => 'Chạm một dòng để gạch đi.';
+
+  @override
+  String cookStepN(int n) {
+    return 'Bước $n';
+  }
+
+  @override
+  String timerButtonTooltip(String label) {
+    return 'Hẹn giờ $label';
+  }
+
+  @override
+  String timerName(String step, String label) {
+    return '$step · $label';
+  }
+
+  @override
+  String get timersRunning => 'Hẹn giờ đang chạy';
+
+  @override
+  String get timerCancel => 'Hủy hẹn giờ';
+
+  @override
+  String timerDone(String name) {
+    return 'Hết giờ: $name';
+  }
+
+  @override
+  String get timerDismiss => 'Tắt';
+
+  @override
+  String timerNotifBody(String recipe) {
+    return '$recipe: hết giờ';
+  }
+
+  @override
+  String get notifChannelName => 'Hẹn giờ nấu';
+
+  @override
+  String get notifChannelDescription => 'Báo khi hẹn giờ nấu kết thúc';
+
+  @override
+  String get notifRationaleTitle => 'Báo khi hết giờ';
+
+  @override
+  String get notifRationaleBody =>
+      'CookNote cần quyền thông báo để báo bạn khi hẹn giờ kết thúc, kể cả khi màn hình khóa hoặc app ở nền. Quyền này chỉ dùng cho hẹn giờ nấu.';
+
+  @override
+  String get notifContinue => 'Tiếp tục';
+
+  @override
+  String get notifLater => 'Để sau';
+
+  @override
+  String get notifDeniedWarning =>
+      'Chưa có quyền thông báo: hẹn giờ vẫn chạy nhưng sẽ không báo khi app ở nền.';
+
+  @override
+  String get speakStep => 'Đọc bước';
+
+  @override
+  String get stopSpeaking => 'Dừng đọc';
+
+  @override
+  String noVoiceTitle(String language) {
+    return 'Máy chưa có giọng đọc $language';
+  }
+
+  @override
+  String get noVoiceBody =>
+      'Vào Cài đặt của máy, tìm \"Chuyển văn bản thành giọng nói\" (tên có thể khác tùy hãng), chọn ngôn ngữ rồi tải giọng đọc.';
+
+  @override
+  String get languageVietnamese => 'tiếng Việt';
+
+  @override
+  String get languageEnglish => 'tiếng Anh';
+
+  @override
+  String get speakError => 'Không đọc được bước này';
+
+  @override
   String get backup => 'Sao lưu';
 
   @override
