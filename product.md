@@ -1,19 +1,22 @@
-# CookNote — Product brief for Hi‑Fi UI design (v1)
+# Bepbook — Product brief for Hi‑Fi UI design (v1)
 
 > **What this file is for:** the brief to send to **Claude Design** to produce Hi‑Fi mockups (UX/UI optimised) for the
-> whole mobile app **CookNote** on **Android + iOS**. It says *what* each screen must do and *why*; *how it looks* is
+> whole mobile app **Bepbook** on **Android + iOS**. It says *what* each screen must do and *why*; *how it looks* is
 > Claude Design's proposal, within the limits in §2 and §11.
 >
 > **Starting point = a full redesign (D‑008).** The app already has working logic and a plain Material UI for part of
 > it, but that UI is only a reference for flows. **Do not reuse its look.** Design every screen from scratch, in a new
 > visual identity (§2.2).
 >
-> **Scope = exactly `docs/SPEC.md` F‑01..F‑14 (AC‑01..AC‑65).** Every screen lists the AC it serves. Ideas outside the
+> **Scope = exactly `docs/SPEC.md` F‑01..F‑14 (AC‑01..AC‑67).** Every screen lists the AC it serves. Ideas outside the
 > SPEC go to §10 only, marked **Proposal**, in separate frames.
 >
-> Internal code `A004-cooknote` · Bundle ID `com.phiotron.cooknote` · Version 1.0 · Brief v1.1 · 2026‑11‑05
+> Internal code `A004-cooknote` · Bundle ID `com.phiotron.cooknote` · Version 1.0 · Brief v1.2 · 2026‑11‑05
 > (v1.1 applies the product owner's answers, `docs/DECISIONS.md` D‑009: links open in the in‑app browser, duplicate
-> URL also checks the Trash, template apply asks Replace / Add, "Empty trash", Cook mode keeps the viewed scale).
+> URL also checks the Trash, template apply asks Replace / Add, "Empty trash", Cook mode keeps the viewed scale.
+> v1.2 applies D‑010: the app is named **Bepbook** (the `.cooknote` file extension and the codes above stay); the in‑app
+> browser also opens plain `http` pages with a "not encrypted" warning (AC‑66); iPhone gets automatic backup to a
+> folder chosen once in Files (AC‑67).)
 > Glossary: `CONTEXT.md` (Recipe, Ingredient line, Structured ingredient, Scale factor, Cook mode, Meal slot, Aisle,
 > Pantry item, Backup…). Copy marked with a key (`webSave`) is real copy from `lib/l10n/app_en.arb` / `app_vi.arb` or
 > from the earlier draft UI. Copy marked **NEW:** does not exist yet; the developer adds it to both `.arb` files. You
@@ -45,7 +48,7 @@
 ## 1. Product overview
 
 ### 1.1 One line
-**CookNote** — a recipe notebook on your phone: save recipes from any website or from a photo of a cookbook page,
+**Bepbook** — a recipe notebook on your phone: save recipes from any website or from a photo of a cookbook page,
 cook with big text and timers, scale servings, plan the week's meals, shop with one list, and keep it all **for life**
 with automatic backups in an open format. Offline, no account, free with every feature.
 
@@ -67,7 +70,7 @@ children — losing the data means losing something that cannot be recovered.
 | **Cô Lan, 64, retired teacher, Huế, Android, system text 200 %** | Keeps the family recipe collection to hand down; worried about losing it when she changes phones | Readable at 200 % text; backup set up once and then visible as "safe"; print a PDF recipe book for her grandchildren |
 
 ### 1.4 Core jobs (priority order — the design must make these effortless)
-1. **Save a recipe I found online** — Share → CookNote → preview → Save (AC‑17, AC‑20). The fastest flow in the app.
+1. **Save a recipe I found online** — Share → Bepbook → preview → Save (AC‑17, AC‑20). The fastest flow in the app.
 2. **Cook from a recipe** — Cook mode: screen on, big text, tap to cross off, timers, read aloud (AC‑26..30).
 3. **Find a recipe** — search without Vietnamese accents ("pho bo" finds "Phở bò"), filter, sort (AC‑12, AC‑13).
 4. **Plan the week → shop** — menu calendar → "Add to shopping" → one merged list by aisle (AC‑38..40, AC‑34..37).
@@ -81,7 +84,7 @@ children — losing the data means losing something that cannot be recovered.
 2. **Offline, private, no account.** No sign‑in anywhere, no avatars, no "sync", no network spinners except the web
    importer. Reassure quietly: "Your recipes live only on this phone."
 3. **Your notebook for life.** Backup health is always visible and honest (never green when it isn't safe). The
-   open format is a feature to show, not hide: "Backups open in any web browser, even without CookNote."
+   open format is a feature to show, not hide: "Backups open in any web browser, even without Bepbook."
 4. **Never lose work.** Undo after delete (5 s), Trash for 30 days, "Discard changes?" in the editor, imports keep
    what was already done, restore checks the file before touching anything.
 5. **Everything is free.** No locks, no "Pro", no crowns, no upsell, no ads, ever. No screen may look like a paywall.
@@ -92,8 +95,8 @@ children — losing the data means losing something that cannot be recovered.
    an explanation. No camera, photos, storage, location, contacts or microphone permission — the OS pickers do that.
 9. **Same app on both platforms**, except OS‑owned behaviour (§7).
 
-### 1.6 How CookNote differs (S‑30 — make it visible in identity and flows)
-| Others in the category | CookNote |
+### 1.6 How Bepbook differs (S‑30 — make it visible in identity and flows)
+| Others in the category | Bepbook |
 |---|---|
 | Paid per platform, or a free tier with locked features | **Every feature free**, no account, no ads, no in‑app purchase |
 | Your library lives in their cloud account | **Data on your phone + automatic backups to a folder you choose**, in an open zip with readable HTML pages |
@@ -101,7 +104,7 @@ children — losing the data means losing something that cannot be recovered.
 | Import from their format only | Imports other apps' export files, schema.org JSON and its own `.cooknote` (AC‑44, AC‑45) |
 
 **Do not imitate** any competitor's layout, iconography, colour scheme, logo or wording. Do not look at their
-screenshots while designing. CookNote must be recognisable as its own product (Apple 4.3 / Play spam policy, S‑30).
+screenshots while designing. Bepbook must be recognisable as its own product (Apple 4.3 / Play spam policy, S‑30).
 
 ---
 
@@ -135,8 +138,8 @@ There is **no brand yet** — design it. Direction, not a spec:
   S‑70). Needed glyphs include timer, cook (pan/flame), scale, shopping basket, pantry jar, calendar, backup cloud‑off
   or shield, trash, drag handle, scan, globe, share, print, speaker.
 - **Logo & icon:** propose an app icon (notebook + spoon/ribbon or similar). Avoid chef hats, chili peppers and
-  generic fork‑and‑knife marks (too close to others in the category). The name "CookNote" is **not yet cleared as a
-  trademark** and may change, so the icon must work **without the wordmark**.
+  generic fork‑and‑knife marks (too close to others in the category). The name **Bepbook** is final (D‑010) but not yet
+  cleared at the Vietnamese IP office or in the App Store, so the icon must still work **without the wordmark**.
 - **Photos are the hero** on recipe tiles and detail; the UI around them stays quiet. Recipes without a photo need a
   beautiful placeholder (e.g. an index card with the recipe's initial and a category tint) — many scanned or typed
   recipes will have none.
@@ -164,20 +167,20 @@ There is **no brand yet** — design it. Direction, not a spec:
 - **Shopping:** one hand, walking, weak signal (all offline anyway); check‑off by tapping anywhere on the row.
 
 ### 2.5 Languages and copy length
-- **English and Vietnamese**, follows the device, switchable in Settings (AC‑58). "CookNote" stays the same.
+- **English and Vietnamese**, follows the device, switchable in Settings (AC‑58). "Bepbook" stays the same.
 - **Design in English, then check Vietnamese** on tight screens (VI frames listed in §11.2). Longest / riskiest
   strings (EN | VI):
 
 | Key | EN | VI (longest) | Where it bites |
 |---|---|---|---|
-| `backupFolderHint` | Pick a folder once, on this phone or in Google Drive or OneDrive. CookNote writes backups there when you open or leave the app and keeps the latest few. If the cloud app does not allow automatic writes, use "Back up now and save elsewhere" below. | Chọn một lần một thư mục trên máy hoặc của Google Drive, OneDrive. CookNote tự ghi bản sao lưu vào đó khi bạn mở hoặc rời app, và giữ vài bản gần nhất. Nếu ứng dụng đám mây không cho ghi tự động, hãy dùng "Sao lưu ngay và lưu ở nơi khác" bên dưới. | Backup screen, 5–7 lines |
+| `backupFolderHint` | Pick a folder once, on this phone or in Google Drive or OneDrive. Bepbook writes backups there when you open or leave the app and keeps the latest few. If the cloud app does not allow automatic writes, use "Back up now and save elsewhere" below. | Chọn một lần một thư mục trên máy hoặc của Google Drive, OneDrive. Bepbook tự ghi bản sao lưu vào đó khi bạn mở hoặc rời app, và giữ vài bản gần nhất. Nếu ứng dụng đám mây không cho ghi tự động, hãy dùng "Sao lưu ngay và lưu ở nơi khác" bên dưới. | Backup screen, 5–7 lines |
 | `backupFailedVerify` | The written file failed the read-back check, so it does not count as a successful backup. Try again or pick another folder. | File ghi ra bị lỗi khi đọc lại nên chưa tính là sao lưu thành công. Thử lại hoặc chọn thư mục khác. | Error card |
-| `notifRationaleBody` | CookNote needs notification permission to alert you when a timer ends, even when the screen is locked or the app is in the background. It is used only for cooking timers. | CookNote cần quyền thông báo để báo bạn khi hẹn giờ kết thúc, kể cả khi màn hình khóa hoặc app ở nền. Quyền này chỉ dùng cho hẹn giờ nấu. | Rationale dialog |
+| `notifRationaleBody` | Bepbook needs notification permission to alert you when a timer ends, even when the screen is locked or the app is in the background. It is used only for cooking timers. | Bepbook cần quyền thông báo để báo bạn khi hẹn giờ kết thúc, kể cả khi màn hình khóa hoặc app ở nền. Quyền này chỉ dùng cho hẹn giờ nấu. | Rationale dialog |
 | `notifDeniedWarning` | Notifications are off: timers still run but will not alert while the app is in the background. | Chưa có quyền thông báo: hẹn giờ vẫn chạy nhưng sẽ không báo khi app ở nền. | Cook mode banner |
 | `noVoiceBody` | Open the device Settings, find "Text-to-speech" (the name may differ by manufacturer), pick the language and download a voice. | Vào Cài đặt của máy, tìm "Chuyển văn bản thành giọng nói" (tên có thể khác tùy hãng), chọn ngôn ngữ rồi tải giọng đọc. | Dialog |
 | `importUnverified` | The Paprika and Recipe Keeper formats are read from third-party documentation and are not yet verified against every real file. If a file cannot be read, your data stays unchanged. | Định dạng của Paprika và Recipe Keeper được đọc theo tài liệu của bên thứ ba và chưa thử với mọi file thật. Nếu file không đọc được, dữ liệu của bạn vẫn giữ nguyên. | Import screen note |
-| `restoreReplaceWarning` | All current data will be replaced. CookNote saves a copy of the current data first. | Dữ liệu hiện tại sẽ bị thay thế toàn bộ. CookNote tự lưu một bản dữ liệu hiện tại trước khi thay. | Confirm dialog |
-| `shareAsCooknote` | Send a .cooknote file (importable in CookNote) | Gửi file .cooknote (người nhận có CookNote nhập được) | Share sheet row (2 lines) |
+| `restoreReplaceWarning` | All current data will be replaced. Bepbook saves a copy of the current data first. | Dữ liệu hiện tại sẽ bị thay thế toàn bộ. Bepbook tự lưu một bản dữ liệu hiện tại trước khi thay. | Confirm dialog |
+| `shareAsCooknote` | Send a .cooknote file (importable in Bepbook) | Gửi file .cooknote (người nhận có Bepbook nhập được) | Share sheet row (2 lines) |
 | `restoreMerge` | Merge (only add missing recipes) | Gộp (chỉ thêm công thức chưa có) | Radio / button |
 | `filterFavorite` | Favorites only | Chỉ công thức yêu thích | Filter switch |
 | `sortLastCooked` | Last cooked | Lần nấu gần nhất | Sort menu |
@@ -219,7 +222,7 @@ There is **no brand yet** — design it. Direction, not a spec:
    good, with photos (AC‑05). **Duplicate** makes "Name (copy)" (AC‑06).
 4. Photos come from the OS photo picker or the OS camera app; **no permission dialog** (AC‑07, AC‑08). Photos are
    copied into the app, so deleting them from the gallery doesn't affect the recipe.
-4b. **Links** in steps and notes, and the **source URL**, open in CookNote's **in‑app browser** (SCR‑15, with its
+4b. **Links** in steps and notes, and the **source URL**, open in Bepbook's **in‑app browser** (SCR‑15, with its
    "Save recipe" button) — never an external browser (AC‑09).
 5. **Categories** nest up to **3 levels** ("Main dishes > Vietnamese > Noodle soups"); a recipe can be in 0..n
    categories; deleting a category never deletes recipes. Six default categories on first launch (Main dishes, Side
@@ -309,13 +312,15 @@ There is **no brand yet** — design it. Direction, not a spec:
 
 **Backup (F‑11) — the heart of "for life"**
 33. A **backup** is one `.cooknote` file (an open zip): data, photos, and **HTML pages readable in any browser without
-    CookNote** (AC‑49).
+    Bepbook** (AC‑49).
 34. **Automatic backup:** choose a target folder **once** with the OS folder picker (phone, Google Drive, OneDrive…
     if that app allows it). Daily (default) or weekly. Runs when the app opens or goes to the background, **only if the
     period has passed and data changed**, without slowing the user. Keeps the latest **5** copies (1–30); deletes only
-    its own older files (AC‑50).
+    its own older files (AC‑50). **On iPhone** the same: the folder is chosen once in the Files picker (On My iPhone,
+    iCloud Drive…) and the app keeps access to it between launches (AC‑67).
 35. Every backup is **read back and verified**; a failed check is an error, not a success. Lost access to the folder →
-    a warning on the Recipes tab with "choose the folder again" (AC‑51).
+    a warning on the Recipes tab with "choose the folder again" (AC‑51; on iPhone also when the saved folder access is
+    broken or expired, AC‑67).
 36. **Back up now and save elsewhere** creates a file and opens the share sheet / save dialog — the fallback when a
     cloud app refuses automatic writes (AC‑52).
 37. The Backup screen shows the last **successful** backup (time, place, result, size). **> 7 days** (adjustable)
@@ -338,8 +343,10 @@ There is **no brand yet** — design it. Direction, not a spec:
     open‑source licences, and a note that recipes
     imported from websites belong to their authors and are for personal use (AC‑63, S‑70).
 44. **Delete all data** (Settings): asks first whether to back up, then **two confirmation steps**; deletes database,
-    photos and settings, not backup files in outside folders; the app then starts as freshly installed (AC‑64).
-45. **No data leaves the phone** except loading the web pages the user opens (AC‑65). No analytics, no crash SDK.
+    photos, settings **and the in‑app browser's cookies, cache and site data**, not backup files in outside folders; the
+    app then starts as freshly installed (AC‑64).
+45. **No data leaves the phone** except loading the web pages the user opens (AC‑65). Pages may be plain `http`; the
+    browser then says so in the address bar (AC‑66). No analytics, no crash SDK.
 
 ---
 
@@ -398,7 +405,7 @@ App icon centred on the paper background (light) / warm charcoal (dark); no text
 Android 12+ splash API (icon on solid colour).
 
 ### SCR‑01 · Onboarding (3 pages) · [new] · AC‑59
-**Purpose:** say what CookNote is, that data stays on the phone, and get backup turned on — without asking any
+**Purpose:** say what Bepbook is, that data stays on the phone, and get backup turned on — without asking any
 permission.
 **Components:** page indicator (3 dots + "1 of 3" for screen readers); **Skip** on every page (top‑right); illustration
 per page; title + 1–2 lines; primary button.
@@ -409,7 +416,7 @@ per page; title + 1–2 lines; primary button.
 3. **"Keep them for life"** — notebook in a safe/folder with a ribbon. Body: "Your recipes live only on this phone.
    No account, nothing sent anywhere. Turn on automatic backup to a folder you choose so you never lose them."
    Primary **Turn on automatic backup** (→ OS folder picker, SCR‑48) · secondary **Later**.
-**States:** each page · page 3 after the folder was chosen ("Backup is on · Folder: CookNote Backups" + **Start
+**States:** each page · page 3 after the folder was chosen ("Backup is on · Folder: Bepbook Backups" + **Start
 cooking**) · page 3 when the picker was cancelled (stays, nothing changed) · VI · 200 %.
 **Interactions:** swipe or Next; Skip → Recipes (empty state). Finishing never shows again (AC‑59).
 **Copy (all NEW):** "Your recipes, one notebook" / "Mọi công thức, một cuốn sổ" · "Made for the kitchen" / "Sinh ra
@@ -453,7 +460,7 @@ Bottom sheet from the FAB, 4 large rows (icon + title + one‑line hint), all in
   internet" / "Cần mạng").
 - **Scan a photo** (`scanPhoto`) — "Cookbook page or handwritten card" (NEW) → SCR‑19.
 - **Import a file** (`importFile`) — "From another app or a backup" (NEW) → SCR‑22.
-Plus a tip line: "Tip: in your browser, tap Share → CookNote" (NEW / "Mẹo: trong trình duyệt, bấm Chia sẻ → CookNote").
+Plus a tip line: "Tip: in your browser, tap Share → Bepbook" (NEW / "Mẹo: trong trình duyệt, bấm Chia sẻ → Bepbook").
 **States:** default · offline (From a website still enabled; shows "You're offline" note — the browser screen handles it).
 **VI:** Tự viết · Từ trang web · Quét từ ảnh · Nhập từ file.
 
@@ -529,11 +536,11 @@ line unchanged under conversion · recipe without servings (factor only) · inva
 **A11y:** stepper "Servings, 4 people, decrease / increase"; banner announced when it appears.
 
 ### SCR‑09 · Share a recipe · [draft] · AC‑46, 47, 48
-Sheet: **Share as text** · **Share as PDF file** · **Send a .cooknote file (importable in CookNote)** · **Print**
+Sheet: **Share as text** · **Share as PDF file** · **Send a .cooknote file (importable in Bepbook)** · **Print**
 (OS print dialog, EXT‑03). Then the OS share sheet. Progress "Creating file…" with Cancel; error "Could not create the
 file." No permission prompts.
 **Copy:** Share/Chia sẻ · Share as text/Chia sẻ dạng chữ · Share as PDF file/Chia sẻ file PDF · Send a .cooknote file
-(importable in CookNote)/Gửi file .cooknote (người nhận có CookNote nhập được) · Print/In.
+(importable in Bepbook)/Gửi file .cooknote (người nhận có Bepbook nhập được) · Print/In.
 
 ### SCR‑10 · Photo viewer (full screen) · [built] · AC‑09
 Black background (both themes), swipe between photos, pinch and double‑tap zoom, "2 / 4" counter, close button, cover
@@ -592,8 +599,8 @@ Recipes are not deleted."), **Recipe book (PDF)** from this category (→ SCR‑
 "Add category". Name dialog 1–50 chars (`categoryNameInvalid`).
 **States:** default 6 categories · nested 3 levels · empty · rename dialog · delete confirm · dragging.
 
-### SCR‑15 · In‑app browser · [draft] · AC‑16, 21, 18, 65, 09
-**Purpose:** find a recipe page and save it, all inside CookNote. It is also **where recipe links open**: a link in a
+### SCR‑15 · In‑app browser · [draft] · AC‑16, 21, 18, 65, 66, 09
+**Purpose:** find a recipe page and save it, all inside Bepbook. It is also **where recipe links open**: a link in a
 step or note, or the source URL of a recipe (SCR‑07), opens here (never in an external browser) with the same toolbar and **Save recipe** (AC‑09,
 D‑009). Opened from a recipe, the close/back control returns to that recipe.
 **Components:** top **address bar** (`webAddressHint` "Address or search words"; typing words searches with the
@@ -603,6 +610,13 @@ the always‑visible primary **Save recipe** (`webSave`, large, thumb zone).
 - **Start page** (no URL): hint `webStartHint` ("Type an address or search words (for example "pho bo"), open a page
   with a recipe, then tap Save recipe.") + recent sites (proposal, local only).
 - **Loading** (progress), **loaded**.
+- **Plain `http` page** (AC‑66, D‑010): the browser allows it but marks it. In the address bar, left of the address, an
+  open‑padlock chip **Not encrypted** (`webInsecure`, NEW / "Không mã hóa"; warning colour + icon, never colour only);
+  tap → small dialog/sheet `webInsecureInfo` (NEW: "This page is not encrypted. Other people on the same network could
+  read what you see and type on it. Do not enter passwords or card numbers. Bepbook sends nothing of yours to it
+  except the request for the page." / "Trang này không được mã hóa. Người khác trên cùng mạng có thể đọc những gì bạn xem
+  và gõ trên đó. Đừng nhập mật khẩu hay số thẻ. Bepbook không gửi gì của bạn tới trang này ngoài yêu cầu tải trang.").
+  Also shown while an `https` page redirects to `http`. Draw: https (no chip) vs http (chip) side by side.
 - **Opened from a recipe link** (title shows the page; a small "From: Phở bò Hà Nội" chip / back target — NEW copy
   "From: {recipe}" / "Từ: {recipe}"); Save recipe here runs the normal import (duplicate check applies).
 - **Errors**, each with **Try again** (`webRetry`): no network (`webErrorNetwork`), timeout 20 s (`webErrorTimeout`),
@@ -610,7 +624,7 @@ the always‑visible primary **Save recipe** (`webSave`, large, thumb zone).
 - **Reading the page** after Save (short progress ≤ 5 s target) → SCR‑17 preview, or → SCR‑16 if no recipe data,
   or `webReadFailed`.
 **Interactions:** Android Back = web back first, then leave (§7). Pages may set cookies — nothing extra is added by
-CookNote.
+Bepbook.
 **Copy:** Import from a website/Nhập từ trang web · Back/Trang trước · Forward/Trang sau · Reload/Tải lại · Save
 recipe/Lưu công thức · Try again/Thử lại.
 **A11y:** toolbar buttons labelled; error text announced; Save recipe always reachable by screen reader at the end.
@@ -772,8 +786,8 @@ list — add anyway?" or quantity merge note, NEW) · no frequent items yet.
 **Copy NEW:** Add item/Thêm món · Frequent items/Món hay mua · Added/Đã thêm.
 
 ### SCR‑30 · Item sheet (edit / move aisle) · [new] · AC‑36, 35
-Name, quantity, **Aisle** picker (list of aisles; changing it shows "CookNote will remember this aisle for "{item}"" NEW
-/ "CookNote sẽ nhớ khu vực này cho "{item}""), source recipes (read‑only list, tap → recipe), Delete.
+Name, quantity, **Aisle** picker (list of aisles; changing it shows "Bepbook will remember this aisle for "{item}"" NEW
+/ "Bepbook sẽ nhớ khu vực này cho "{item}""), source recipes (read‑only list, tap → recipe), Delete.
 
 ### SCR‑31 · Aisles manager · [new] · AC‑36
 List of aisles with drag handles ("Order them like your shop's path" NEW / "Sắp theo đường đi trong cửa hàng"), Rename,
@@ -892,35 +906,41 @@ Grouped list:
   failing" — success/warning/danger style with icon). This is the "for life" promise; make it feel solid.
 - **Import & export** (SCR‑52) · **Categories** (SCR‑14) · **Trash** (SCR‑13, count).
 - **Settings** (SCR‑53) · **About** (SCR‑55).
-- Footer card: "🔒 Your recipes live only on this phone. CookNote collects nothing." (NEW / "Công thức của bạn chỉ nằm
-  trên điện thoại này. CookNote không thu thập gì.").
+- Footer card: "🔒 Your recipes live only on this phone. Bepbook collects nothing." (NEW / "Công thức của bạn chỉ nằm
+  trên điện thoại này. Bepbook không thu thập gì.").
 
-### SCR‑47 · Backup screen · [built] · AC‑49..53, 56, 57
+### SCR‑47 · Backup screen · [built] · AC‑49..53, 56, 57, 67
 **Components (top → bottom):**
 1. **Status card**: "Last successful backup" (`backupLast`) "Today, 21:10 · 48.6 MB" (`backupLastDetail`), where
-   ("Folder: CookNote Backups"), result; or "No successful backup yet" (`backupNever`). Error variant with the reason
+   ("Folder: Bepbook Backups"), result; or "No successful backup yet" (`backupNever`). Error variant with the reason
    and **Choose the folder again**.
 2. **Automatic backup** (`backupAutoTitle`) section: explanation `backupFolderHint`; when off → **Choose automatic
    backup folder** (`backupChooseFolder`); when on → "Folder: {name}", **Change folder**, **Schedule** Daily / Weekly
    (`backupInterval`), **Copies to keep** 1–30 ("5 copies", stepper), **Back up to the folder now** (`backupRunNow`),
-   **Turn off automatic backup** (`backupDisable`).
+   **Turn off automatic backup** (`backupDisable`). **On iPhone** (AC‑67) this section is the same, with the iOS copy
+   variant of `backupFolderHint` (NEW: "Pick a folder once in Files — on this iPhone or in iCloud Drive. Bepbook writes
+   backups there when you open or leave the app and keeps the latest few." / "Chọn một lần một thư mục trong Tệp — trên
+   iPhone hoặc trong iCloud Drive. Bepbook tự ghi bản sao lưu vào đó khi bạn mở hoặc rời app, và giữ vài bản gần nhất.")
+   and an extra state **folder access expired** (the saved access no longer works): same card and **Choose the folder
+   again** as "folder lost".
 3. **Back up now and save elsewhere** (`backupSaveElsewhere`) + hint (`backupSaveElsewhereHint`).
 4. **Reminder**: "Remind me after {n} days without a backup" (NEW / "Nhắc khi quá {n} ngày chưa sao lưu"), default 7.
 5. **Restore** (`backupRestoreTitle`): **Restore from a file...** (`backupRestoreFile`) and **Backups in the automatic
    folder** (`backupRestoreFromFolder`) list (date, size) → SCR‑50.
 6. **Honesty notes** (muted, info icon): `backupUnencrypted`, `backupSystemLayer` (Android) / iOS variant (NEW: "If
-   iCloud Backup is on, your iPhone backup also includes CookNote's data. It does not replace the backups above." /
-   "Nếu bật Sao lưu iCloud, bản sao lưu iPhone cũng chứa dữ liệu CookNote. Lớp này không thay được sao lưu ở trên."),
+   iCloud Backup is on, your iPhone backup also includes Bepbook's data. It does not replace the backups above." /
+   "Nếu bật Sao lưu iCloud, bản sao lưu iPhone cũng chứa dữ liệu Bepbook. Lớp này không thay được sao lưu ở trên."),
    and the open‑format promise (NEW: "Backups are open zip files with web pages you can read in any browser, even
-   without CookNote." / "File sao lưu là file zip mở, có trang web đọc được bằng mọi trình duyệt, không cần CookNote.").
+   without Bepbook." / "File sao lưu là file zip mở, có trang web đọc được bằng mọi trình duyệt, không cần Bepbook.").
 **States:** never set up · on + OK · on + **running** (progress, SCR‑49) · on + **folder lost** (`backupFailedTarget`)
 · on + **verify failed** (`backupFailedVerify`) · other failure (`backupFailedOther`) · "Nothing changed since the last
 backup" (`backupUnchanged`) after a manual run · overdue > 7 days · folder list loading / empty (`backupNoFiles`) /
 error (`backupListError`) · VI (long hint) · 200 %.
 
-### SCR‑48 · Automatic backup set‑up · [built] 🤖🍏 · AC‑50, 51, 59
-Flow: **Choose automatic backup folder** → OS folder picker (EXT‑03; phone, Google Drive, OneDrive) → back with
-"Folder: CookNote Backups" → **first backup runs immediately** with progress → success "Backed up (48.6 MB)"
+### SCR‑48 · Automatic backup set‑up · [built] 🤖🍏 · AC‑50, 51, 59, 67
+Flow: **Choose automatic backup folder** → OS folder picker (EXT‑03; Android: phone, Google Drive, OneDrive; **iPhone: the
+Files picker — On My iPhone, iCloud Drive, other providers**) → back with
+"Folder: Bepbook Backups" → **first backup runs immediately** with progress → success "Backed up (48.6 MB)"
 (`backupDone`) **or** the cloud app refused → explain clearly and point to **Back up now and save elsewhere** (this is
 a known risk on Android Google Drive — make the fallback feel normal, not like a failure). Picker cancelled → nothing
 changes. Also reachable from Onboarding page 3 and the 10‑recipe suggestion.
@@ -940,13 +960,13 @@ automatic backups (no modal for those — at most a small status in More/Backup)
 **Errors (data unchanged, said explicitly):** not a backup (`errBackupNotABackup`), made by a newer app
 (`errBackupNewer`), damaged (`errBackupChecksum`), missing parts (`errBackupMissing`), malformed (`errBackupBad`).
 
-### SCR‑51 · Backup notices on the Recipes tab · [built] · AC‑51, 53
+### SCR‑51 · Backup notices on the Recipes tab · [built] · AC‑51, 53, 67
 A compact card above the list (not a modal, not an OS notification), with icon + text + action **Open Backup**
 (`noticeOpen`):
 - **Suggest** (once, at 10 recipes): "You have 10 recipes. Turn on automatic backup so you do not lose them."
   (`noticeSuggest`) + dismiss ✕.
 - **Overdue** (> 7 days): `noticeOverdue` (warning).
-- **Failing** (lost folder access / verify failed): `noticeError` (danger) — not dismissible until fixed; action
+- **Failing** (lost folder access, expired iPhone folder access / verify failed): `noticeError` (danger) — not dismissible until fixed; action
   "Choose the folder again".
 Show all three variants, light/dark, VI.
 
@@ -973,11 +993,12 @@ Groups:
 - **Danger zone:** **Delete all data** → SCR‑54.
 States: default · VI · 200 %.
 
-### SCR‑54 · Delete all data · [new] · AC‑64
+### SCR‑54 · Delete all data · [new] · AC‑64, 66
 1. Dialog **"Back up first?"** (NEW / "Sao lưu trước đã?"): "Deleted data cannot be recovered. Save a backup first?"
    (NEW / "Dữ liệu đã xóa không lấy lại được. Lưu một bản sao lưu trước nhé?") → **Back up now** (→ save elsewhere
    flow, then continue) · **Skip** · Cancel.
-2. Confirm 1: **"Delete all data?"** — lists what goes (all recipes, photos, lists, menu, pantry, settings) and what
+2. Confirm 1: **"Delete all data?"** — lists what goes (all recipes, photos, lists, menu, pantry, settings, **browser
+   cookies and site data**) and what
    stays ("Backup files in your folders are not deleted.") → Continue.
 3. Confirm 2 (final, destructive style): "This cannot be undone." → **Delete everything** (NEW / "Xóa tất cả").
 4. Progress → the app restarts at Onboarding (SCR‑01).
@@ -985,17 +1006,17 @@ States: default · VI · 200 %.
 trong thư mục của bạn không bị xóa.
 
 ### SCR‑55 · About · [new] · AC‑63, 65
-App icon, "CookNote", version "1.0.0 (1)"; rows: **Privacy policy** (opens the policy web page) · **Contact & report a
+App icon, "Bepbook", version "1.0.0 (1)"; rows: **Privacy policy** (opens the policy web page) · **Contact & report a
 security issue** — shows **phamphuongphuongnd@gmail.com**, tap opens the email app (NEW copy "Contact & security
 reports" / "Liên hệ & báo lỗi bảo mật") · **Open‑source licences** (→ SCR‑56); privacy summary "No account. No ads. No
 tracking. Nothing leaves your phone except the web pages you open." (NEW); copyright note (NEW): "Recipes imported from
-websites belong to their authors. CookNote keeps the source link. Use them for your own cooking only." / "Công thức
-nhập từ trang web thuộc bản quyền của tác giả. CookNote giữ liên kết nguồn. Chỉ dùng cho việc nấu ăn cá nhân."
+websites belong to their authors. Bepbook keeps the source link. Use them for your own cooking only." / "Công thức
+nhập từ trang web thuộc bản quyền của tác giả. Bepbook giữ liên kết nguồn. Chỉ dùng cho việc nấu ăn cá nhân."
 (The privacy policy URL is not published yet — show the row only, no URL text, and do not invent a domain. The email
 above is final.)
 
 ### SCR‑56 · Open‑source licences · [new] · S‑70
-Flutter's standard licence page (`showLicensePage`), themed with CookNote tokens: package list → licence text. Also
+Flutter's standard licence page (`showLicensePage`), themed with Bepbook tokens: package list → licence text. Also
 lists fonts (OFL) and the icon set. Only theme it; don't redesign the structure.
 
 ### SCR‑57 · Shared components · AC‑05, 60..62
@@ -1015,8 +1036,8 @@ lists fonts (OFL) and the icon set. Only theme it; don't redesign the structure.
 run, Android may show an **ongoing notification** "2 timers running · 4:51" (depends on the timer method decided in
 the next phase — draw it as optional). iOS: standard banner + lock screen.
 
-**EXT‑02 · CookNote in the OS share sheet** 🤖🍏 · AC‑17 — CookNote icon + name among share targets (Chrome/Safari,
-YouTube, Facebook). Icon legibility at small sizes, plus the **iOS Share Extension card** "Saved to CookNote — open?"
+**EXT‑02 · Bepbook in the OS share sheet** 🤖🍏 · AC‑17 — Bepbook icon + name among share targets (Chrome/Safari,
+YouTube, Facebook). Icon legibility at small sizes, plus the **iOS Share Extension card** "Saved to Bepbook — open?"
 (§7, slug `ext-share-target~ios-card`).
 
 **EXT‑03 · OS sheets and pickers (placeholders only)** — photo picker, OS camera, file picker, **folder picker**
@@ -1027,26 +1048,26 @@ placeholders in flows; don't design them.
 icons), iOS icon (light/dark/tinted if you like). Must read at 48 px.
 
 **EXT‑05 · Recipe book PDF** · AC‑47 — A4 portrait (and US Letter check): **cover** (book title, cover photo, "Made
-with CookNote" small), **contents** with page numbers, **recipe page** (title, cover photo, meta row, ingredients with
+with Bepbook" small), **contents** with page numbers, **recipe page** (title, cover photo, meta row, ingredients with
 groups, numbered steps, notes, source URL), page footer "Page 12". Print‑friendly (white background, ink saving),
 Vietnamese diacritics correct. Also the **single‑recipe PDF** (AC‑46) = one recipe page.
 
 **EXT‑06 · Backup HTML pages** · AC‑49 — `html/index.html` (list of recipes, grouped by category, search not needed)
-and one page per recipe, readable in any desktop/mobile browser **without CookNote** and printable. Plain HTML + inline
-CSS in the CookNote style; no scripts, no external fonts. Low priority, but it is our "for life" proof.
+and one page per recipe, readable in any desktop/mobile browser **without Bepbook** and printable. Plain HTML + inline
+CSS in the Bepbook style; no scripts, no external fonts. Low priority, but it is our "for life" proof.
 
 ---
 
 ## 6. Key flows (prototype these)
 
 **F1 · Share a link → saved (the fastest flow, AC‑17, 18, 20, 22)**
-Chrome/Safari on a recipe page → Share → CookNote (EXT‑02) → SCR‑15 loads the URL → reading → SCR‑17 preview (all
+Chrome/Safari on a recipe page → Share → Bepbook (EXT‑02) → SCR‑15 loads the URL → reading → SCR‑17 preview (all
 fields filled, 3 photo candidates) → **Save** → downloading photos 3/3 → recipe detail SCR‑07 with snackbar "Saved".
 Variant **F1b:** same URL already saved → duplicate dialog → Open the old one. **F1b‑trash:** the old copy is in the
 Trash → "This recipe is in the trash" → Restore it → its detail opens, snackbar "Recipe restored".
-Variant **F1e (iOS):** Safari → Share → CookNote (Share Extension) → small card "Saved to CookNote — open?" → Open →
+Variant **F1e (iOS):** Safari → Share → Bepbook (Share Extension) → small card "Saved to Bepbook — open?" → Open →
 SCR‑17 preview in the app.
-Variant **F1f:** recipe detail → "Open source link" → SCR‑15 inside CookNote → back returns to the recipe.
+Variant **F1f:** recipe detail → "Open source link" → SCR‑15 inside Bepbook → back returns to the recipe.
 Variant **F1c:** page has no recipe data (blog) → SCR‑16 pick text → Is the name / Is ingredients / Is the steps →
 Continue → SCR‑17 → Save.
 Variant **F1d:** offline → SCR‑15 `webErrorNetwork` → turn on Wi‑Fi → Try again → continues.
@@ -1066,7 +1087,7 @@ unchecked, 2 merged) → Add 23 items to "Supermarket" → Shopping tab grouped 
 Clear checked items + Move bought items to the Pantry → Pantry shows them.
 
 **F4 · First backup (AC‑50..53, 59)**
-Path A: Onboarding page 3 → Turn on automatic backup → OS folder picker → choose "CookNote Backups" on Google Drive →
+Path A: Onboarding page 3 → Turn on automatic backup → OS folder picker → choose "Bepbook Backups" on Google Drive →
 first backup runs → "Backed up (2.1 MB)" → Recipes. Path B: 10th recipe saved → notice `noticeSuggest` → Open Backup
 → Choose folder → … → status card "Today, 21:10". Path C (cloud app refuses): folder chosen but write fails →
 explanation → **Back up now and save elsewhere** → share sheet → Google Drive → Backup screen shows the result.
@@ -1097,9 +1118,9 @@ Detail → Delete → confirm → list with "Recipe deleted · Undo" → (ignore
 | Topic | Android 🤖 | iOS 🍏 |
 |---|---|---|
 | **Back** | System Back button/gesture (predictive back on 14+). In the browser: web history first, then leave. In editor/assign: discard dialog. | App‑bar back button + edge swipe. Edge swipe in the browser goes web‑back when possible (propose clear affordance). Editor/assign: swipe‑back blocked when there are changes → discard dialog. |
-| **Receiving a share** | Share intent: CookNote appears in the share sheet for URLs and text; opens the app. | **Share Extension** (built, D‑009): CookNote in the share sheet for Safari URLs/text; shows a small card "Saved to CookNote — open?" (NEW / "Đã gửi sang CookNote — mở app?") with **Open** / "Mở", then the app continues the import. Draw this card. |
+| **Receiving a share** | Share intent: Bepbook appears in the share sheet for URLs and text; opens the app. | **Share Extension** (built, D‑009): Bepbook in the share sheet for Safari URLs/text; shows a small card "Saved to Bepbook — open?" (NEW / "Đã gửi sang Bepbook — mở app?") with **Open** / "Mở", then the app continues the import. Draw this card. |
 | **Sharing out** | Android share sheet. | iOS share sheet (anchored, "Save to Files" available). |
-| **Backup folder** | Storage Access Framework folder picker (phone storage, Google Drive, OneDrive — Drive may refuse automatic writes). | Files folder picker (On My iPhone, iCloud Drive, other providers). Copy says "a folder in Files" (NEW variant of `backupFolderHint`). |
+| **Backup folder** | Storage Access Framework folder picker (phone storage, Google Drive, OneDrive — Drive may refuse automatic writes). | Files folder picker (`UIDocumentPicker`: On My iPhone, iCloud Drive, other providers); the app keeps a security‑scoped bookmark so it can write again at the next launch (AC‑67, D‑010). If the bookmark stops working → "folder lost" state + **Choose the folder again**. Copy says "a folder in Files" (NEW variant of `backupFolderHint`). |
 | **OS backup layer** | Android Auto Backup (database, no photos) — `backupSystemLayer`. | iCloud Backup of the device — iOS copy variant (SCR‑47). |
 | **Notifications** | Android 13+ runtime permission; "Cooking timers" channel; possible ongoing notification while timers run. | System permission prompt (asked once; afterwards only via Settings); banners and lock screen. |
 | **Text‑to‑speech help** | "Settings → Text‑to‑speech" (name varies by maker). | "Settings → Accessibility → Spoken Content → Voices" (NEW iOS variant of `noVoiceBody`). |
@@ -1204,7 +1225,7 @@ R1 Phở bò, scale ×1, 3 of 9 ingredients crossed, steps 1–2 crossed, **step
 2:47:12 left, and from pinned R6 "Step 5 · 60 min" 0:41:05. Pinned: Phở bò, Classic Banana Bread.
 
 ### 8.7 Backup
-Folder "CookNote Backups" (Google Drive) · Daily · Keep 5 · Last successful: today 21:10 · 48.6 MB · copies in folder:
+Folder "Bepbook Backups" (Google Drive) · Daily · Keep 5 · Last successful: today 21:10 · 48.6 MB · copies in folder:
 Nov 5 21:10 (48.6 MB), Nov 4 20:02, Nov 3 19:45, Nov 2 22:30, Nov 1 08:15. Error sample: "Could not write to the
 backup folder. Check permissions or choose the folder again." Restore summary: "128 recipes, 240 photos, created Nov
 4, 2026 20:02".
@@ -1236,7 +1257,7 @@ suggestions, chat, dish recognition), voice control / assistants, widgets, watch
 landscape / desktop / web, premium / ads / in‑app purchase, app lock.
 **Proposals welcome** (separate page, clearly marked, not wired into flows): recent sites on the browser start page,
 "Shuffle" per suggested meal, split/merge lines in scan assign, fast‑scroll letters. The product owner decides before
-any of them enters the SPEC. (The iOS "Saved to CookNote" card is no longer a proposal — it is in v1, §7.)
+any of them enters the SPEC. (The iOS "Saved to Bepbook" card is no longer a proposal — it is in v1, §7.)
 **Decided, do not draw:** timer pause / "+1 min" (timers can only be cancelled, D‑009).
 
 ---

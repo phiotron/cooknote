@@ -1,4 +1,4 @@
-# SPEC — CookNote (A004-cooknote)
+# SPEC — Bepbook (A004-cooknote)
 
 Đã duyệt: 2026-11-03
 <!-- Khi người dùng duyệt, đổi thành: "Đã duyệt: YYYY-MM-DD". Chưa có dòng này thì Claude không viết code. -->
@@ -6,11 +6,11 @@
 ## 1. Vấn đề cần giải quyết
 Người nấu ăn ở nhà có công thức nằm rải rác: trang web, ảnh chụp sách hay giấy viết tay, tin nhắn, ghi chú điện thoại. Lúc nấu khó tìm, màn hình tắt giữa chừng, phải tự nhân đôi lượng nguyên liệu, tự chép ra danh sách đi chợ. Nhiều người giữ một bộ công thức cả đời rồi truyền cho con cháu, nên mất dữ liệu là mất thứ không lấy lại được.
 
-CookNote là sổ tay công thức trên điện thoại. App nhập công thức từ web hoặc từ ảnh, có chế độ nấu, danh sách đi chợ, lịch thực đơn và tủ bếp. Dữ liệu được giữ bền lâu nhờ sao lưu tự động bằng định dạng mở. Chức năng tương đương Paprika Recipe Manager 3, Recipe Keeper và CookBook – Recipe Manager (tra trang giới thiệu của các app ngày 2026-11-03). App miễn phí, mọi tính năng đều mở, không có máy chủ. Tên, biểu tượng, giao diện, chữ trong app và mô tả store do mình tự làm. Không sao chép chữ, hình hay mô tả store của các app đó.
+Bepbook là sổ tay công thức trên điện thoại. App nhập công thức từ web hoặc từ ảnh, có chế độ nấu, danh sách đi chợ, lịch thực đơn và tủ bếp. Dữ liệu được giữ bền lâu nhờ sao lưu tự động bằng định dạng mở. Chức năng tương đương Paprika Recipe Manager 3, Recipe Keeper và CookBook – Recipe Manager (tra trang giới thiệu của các app ngày 2026-11-03). App miễn phí, mọi tính năng đều mở, không có máy chủ. Tên, biểu tượng, giao diện, chữ trong app và mô tả store do mình tự làm. Không sao chép chữ, hình hay mô tả store của các app đó.
 
 ## 2. Người dùng và tình huống sử dụng trên điện thoại
 - Người nấu ăn gia đình, sinh viên ở trọ, người thích làm bánh, cả thiếu niên từ 13 tuổi. Ở Việt Nam và nước khác, dùng tiếng Việt hoặc tiếng Anh, trên điện thoại Android và iPhone (D-008).
-- Lúc rảnh, thường có mạng: lướt web thấy món ngon thì "Chia sẻ" sang CookNote hoặc mở trình duyệt trong app để lưu. Chụp trang sách hay công thức viết tay của mẹ để số hóa.
+- Lúc rảnh, thường có mạng: lướt web thấy món ngon thì "Chia sẻ" sang Bepbook hoặc mở trình duyệt trong app để lưu. Chụp trang sách hay công thức viết tay của mẹ để số hóa.
 - Trong bếp, tay ướt hoặc dính bột, điện thoại dựng trên kệ, có thể không có mạng: mở chế độ nấu, chữ lớn, màn hình không tắt, chạm một lần để gạch bước đã làm, bật hẹn giờ.
 - Cuối tuần: xếp thực đơn cho tuần, đẩy nguyên liệu sang danh sách đi chợ. Ở chợ hoặc siêu thị (sóng yếu, cầm máy một tay): gạch dần từng món.
 - Dùng nhiều năm, có thể tới hàng nghìn công thức. Đổi điện thoại vài lần mà không được mất công thức.
@@ -39,7 +39,7 @@ Quy ước kiểm chứng:
 - AC-05: Sửa được mọi trường. Xóa thì hỏi xác nhận, sau đó có thanh "Đã xóa · Hoàn tác" trong 5 giây. Công thức đã xóa vào "Thùng rác", giữ 30 ngày rồi mới xóa hẳn cùng ảnh của nó. Khôi phục được từ thùng rác. Màn Thùng rác có "Dọn sạch thùng rác" (hỏi xác nhận) xóa hẳn mọi công thức trong đó cùng ảnh (D-009). [T]
 - AC-06: Nhân bản được một công thức (để làm biến thể). [T]
 - AC-07: Ảnh chọn bằng trình chọn ảnh của hệ điều hành (không xin quyền bộ nhớ hay thư viện ảnh) hoặc chụp bằng camera. Ảnh được chép vào bộ nhớ riêng của app và thu nhỏ để cạnh dài nhất không quá 2048 px. Xóa ảnh gốc trong máy không làm mất ảnh trong công thức. Gỡ ảnh hoặc xóa hẳn công thức thì file ảnh bị xóa theo, không để lại file thừa. [T]
-- AC-08: Chụp ảnh bằng ứng dụng camera của hệ điều hành (qua trình chọn ảnh), nên CookNote không khai và không xin quyền camera. Người dùng hủy việc chụp thì không có gì thay đổi, vẫn chọn được ảnh từ thư viện. Người dùng đã duyệt thay đổi này ngày 2026-11-04 (D-005). [M]
+- AC-08: Chụp ảnh bằng ứng dụng camera của hệ điều hành (qua trình chọn ảnh), nên Bepbook không khai và không xin quyền camera. Người dùng hủy việc chụp thì không có gì thay đổi, vẫn chọn được ảnh từ thư viện. Người dùng đã duyệt thay đổi này ngày 2026-11-04 (D-005). [M]
 - AC-09: Màn xem công thức hiện ảnh bìa, thông tin chung, nguyên liệu, các bước, ghi chú. URL trong ghi chú, trong bước và URL nguồn chạm được để mở bằng trình duyệt trong app (F-03, có nút "Lưu công thức") (D-009). Chạm ảnh thì xem toàn màn hình, vuốt để chuyển, chụm hai ngón để phóng to. [M]
 
 ### F-02 · Tổ chức, tìm kiếm, lọc
@@ -52,11 +52,12 @@ Quy ước kiểm chứng:
 
 ### F-03 · Nhập công thức từ web
 - AC-16: Có trình duyệt trong app: thanh địa chỉ, tìm bằng công cụ tìm kiếm mặc định, Back và Forward, nút "Lưu công thức" luôn hiện. [M]
-- AC-17: Từ app khác (trình duyệt, YouTube, Facebook...) chọn "Chia sẻ" rồi chọn CookNote thì app mở màn nhập với URL đó. Chữ được chia sẻ không phải URL thì mở màn soạn với chữ đó để tự gán vào nguyên liệu và các bước. [M]
+- AC-17: Từ app khác (trình duyệt, YouTube, Facebook...) chọn "Chia sẻ" rồi chọn Bepbook thì app mở màn nhập với URL đó. Chữ được chia sẻ không phải URL thì mở màn soạn với chữ đó để tự gán vào nguyên liệu và các bước. [M]
 - AC-18: Trang có dữ liệu schema.org `Recipe` (JSON-LD, gồm cả dạng `@graph` và mảng, hoặc microdata) thì tự điền: tên, nguyên liệu, các bước (gồm cả `HowToSection`), khẩu phần, thời gian (định dạng ISO 8601 như `PT1H30M`), ảnh, nguồn, URL, dinh dưỡng. Có bộ trang mẫu lưu sẵn trong `test/` (tối thiểu 10 trang của các web nấu ăn phổ biến tiếng Việt và tiếng Anh) để test không cần mạng. [T]
 - AC-19: Trang không có dữ liệu `Recipe` thì vào chế độ "Chọn đoạn": người dùng bôi đen chữ trên trang rồi bấm "Là nguyên liệu", "Là các bước" hoặc "Là tên". [M]
 - AC-20: Trước khi lưu luôn có màn xem trước để sửa. Công thức nhập từ web giữ URL nguồn và tên trang. URL đã có trong sổ thì báo "Đã có công thức này" và hỏi mở bản cũ hay lưu bản mới; nếu bản cũ đang ở Thùng rác thì báo điều đó và hỏi khôi phục hay lưu bản mới (D-009). [T cho phát hiện trùng; M cho giao diện]
 - AC-21: Mỗi lần tải trang có thời gian chờ 20 giây. Mất mạng, hết giờ hoặc trang lỗi thì báo rõ lý do và có nút "Thử lại". Đã nhập tới đâu cũng không mất, và không treo app. [T cho xử lý lỗi; M cho chế độ máy bay]
+- AC-66: Trình duyệt trong app mở được cả trang `http` (không mã hóa) — quyết định D-010, ngoại lệ ghi ở `docs/COMPLIANCE.md` S-01/S-60. Khi trang đang mở dùng `http` (kể cả khi trang `https` chuyển hướng sang `http`), thanh địa chỉ hiện nhãn "Không mã hóa" kèm biểu tượng ổ khóa mở (không chỉ phân biệt bằng màu; TalkBack/VoiceOver đọc được); chạm vào nhãn thì hiện giải thích ngắn: người khác trên cùng mạng có thể đọc nội dung trang, đừng nhập mật khẩu hay số thẻ. Trang `https` không có nhãn. Ngoại lệ chỉ áp cho trình duyệt nhập công thức (WebView); app không gửi dữ liệu nào của người dùng tới trang đó ngoài yêu cầu tải trang (AC-65). [T cho hàm nhận biết `http`/`https`/chuyển hướng; M cho giao diện và đọc màn hình]
 - AC-22: Ảnh của công thức nhập từ web được tải về máy (AC-07 áp dụng), nên xem lại khi không có mạng vẫn có ảnh. [T]
 
 ### F-04 · Quét công thức từ ảnh
@@ -100,8 +101,8 @@ Quy ước kiểm chứng:
 
 ### F-10 · Nhập, xuất, chia sẻ, in
 - AC-44: Nhập file sao lưu của Paprika (`.paprikarecipes`) và của Recipe Keeper (file `.zip` xuất từ app đó): lấy tên, nguyên liệu, các bước, ghi chú, khẩu phần, thời gian, nguồn, đánh giá, danh mục, ảnh. Báo số công thức nhập được, số bị bỏ qua và lý do. Nhập lại cùng file thì không tạo bản trùng. [T với file mẫu thật, cần người dùng cung cấp hoặc tự tạo bằng bản miễn phí của các app đó (mục 7)]
-- AC-45: Nhập và xuất định dạng CookNote (F-11) và JSON schema.org `Recipe` (một hoặc nhiều công thức). [T]
-- AC-46: Chia sẻ một công thức qua bảng chia sẻ của hệ điều hành dưới dạng chữ, file PDF, hoặc file `.cooknote` để người nhận có CookNote nhập vào được. [M]
+- AC-45: Nhập và xuất định dạng CookNote — file `.cooknote`, tên định dạng giữ nguyên dù app đã đổi tên Bepbook (D-010), để file sao lưu cũ vẫn đọc được (F-11) và JSON schema.org `Recipe` (một hoặc nhiều công thức). [T]
+- AC-46: Chia sẻ một công thức qua bảng chia sẻ của hệ điều hành dưới dạng chữ, file PDF, hoặc file `.cooknote` để người nhận có Bepbook nhập vào được. [M]
 - AC-47: Xuất "Sách công thức" PDF từ các công thức đã chọn hoặc từ một danh mục: trang bìa (tên sách, ảnh), mục lục có số trang, mỗi công thức bắt đầu ở trang mới, có ảnh bìa của công thức. Tiếng Việt hiển thị đúng. In qua hộp thoại in của hệ điều hành. [T cho số trang và mục lục; M cho in]
 - AC-48: Khi xuất không xin quyền bộ nhớ. File tạm được xóa sau khi chia sẻ xong hoặc lần mở app kế tiếp. [M]
 
@@ -110,10 +111,10 @@ Quy ước kiểm chứng:
   - `manifest.json`: số phiên bản định dạng, phiên bản app, thời điểm tạo, số lượng từng loại dữ liệu, mã băm SHA-256 của từng file trong gói.
   - `data.json`: toàn bộ công thức, danh mục, thẻ, lịch sử nấu, danh sách đi chợ, thực đơn, tủ bếp, cài đặt.
   - `images/`: ảnh gốc của app.
-  - `html/index.html` và mỗi công thức một trang HTML: mở bằng trình duyệt bất kỳ, không cần CookNote, đọc được và in được.
+  - `html/index.html` và mỗi công thức một trang HTML: mở bằng trình duyệt bất kỳ, không cần Bepbook, đọc được và in được.
 
   [T]
-- AC-50: "Sao lưu tự động" chọn một thư mục đích MỘT lần qua trình chọn thư mục của hệ điều hành; có thể là thư mục trên máy hoặc của Google Drive, OneDrive nếu ứng dụng đó cho phép. Chu kỳ: hằng ngày (mặc định) hoặc hằng tuần. App sao lưu khi mở app hoặc khi chuyển vào nền, nếu đã quá chu kỳ VÀ dữ liệu có thay đổi. Việc này không làm chậm thao tác của người dùng. Trong thư mục đích giữ 5 bản gần nhất (đổi được từ 1 tới 30), bản cũ hơn tự xóa. App chỉ xóa file do chính nó tạo, nhận ra bằng tên và `manifest.json`. [T cho chu kỳ và xoay vòng; M cho từng nơi lưu]
+- AC-50: "Sao lưu tự động" chọn một thư mục đích MỘT lần qua trình chọn thư mục của hệ điều hành; có thể là thư mục trên máy hoặc của Google Drive, OneDrive nếu ứng dụng đó cho phép (iPhone: AC-67). Chu kỳ: hằng ngày (mặc định) hoặc hằng tuần. App sao lưu khi mở app hoặc khi chuyển vào nền, nếu đã quá chu kỳ VÀ dữ liệu có thay đổi. Việc này không làm chậm thao tác của người dùng. Trong thư mục đích giữ 5 bản gần nhất (đổi được từ 1 tới 30), bản cũ hơn tự xóa. App chỉ xóa file do chính nó tạo, nhận ra bằng tên và `manifest.json`. [T cho chu kỳ và xoay vòng; M cho từng nơi lưu]
 - AC-51: Sau mỗi lần sao lưu (tự động hay bằng tay), app đọc lại file vừa ghi và kiểm mã băm từng phần. Sai thì báo lỗi và không tính là lần sao lưu thành công. Mất quyền ghi vào thư mục đích (bị gỡ quyền, ứng dụng đám mây bị gỡ, hết dung lượng) thì hiện cảnh báo trên màn Công thức và nút chọn lại thư mục. [T cho kiểm tra; M cho mất quyền]
 - AC-52: "Sao lưu ngay" tạo file rồi mở bảng chia sẻ hoặc trình lưu file của hệ điều hành, lưu được vào bất kỳ đâu (Tệp, Google Drive, email). Đây là đường dự phòng khi nơi lưu không hỗ trợ sao lưu tự động (mục 7). [M]
 - AC-53: Màn Sao lưu hiện: thời điểm, nơi lưu và kết quả của lần sao lưu thành công gần nhất; dung lượng file. Quá 7 ngày (đổi được) chưa có lần sao lưu thành công nào thì hiện nhắc trong app (không dùng thông báo hệ thống). Lần đầu có 10 công thức thì app gợi ý bật sao lưu tự động một lần. [T cho điều kiện nhắc; M cho giao diện]
@@ -121,6 +122,7 @@ Quy ước kiểm chứng:
 - AC-55: Định dạng chỉ được mở rộng, không phá vỡ: mọi phiên bản app sau này đọc được file của mọi phiên bản định dạng cũ hơn. `test/` giữ file mẫu của từng phiên bản định dạng đã phát hành, và test khôi phục chạy trên tất cả các file đó. [T]
 - AC-56: Lớp phụ là Android Auto Backup: bật cho cơ sở dữ liệu và cài đặt, giới hạn dung lượng theo tài liệu Android (tra lại ở G3). Màn Sao lưu nói rõ lớp này không bảo đảm có ảnh và không thay được sao lưu chính. Đổi máy Android cùng tài khoản Google thì công thức (không ảnh) về lại sau khi cài app. [M]
 - AC-57: Sao lưu và khôi phục 1.000 công thức có 2.000 ảnh thì không làm app treo: có thanh tiến độ, hủy được, và chạy tới cuối không lỗi trên máy đo chuẩn (thời gian đo ghi vào TESTING). [M]
+- AC-67: Trên iPhone, "Sao lưu tự động" (AC-50) hoạt động bằng thư mục do người dùng chọn MỘT lần qua `UIDocumentPicker` (chế độ chọn thư mục của hệ điều hành; gồm "Trên iPhone", iCloud Drive và thư mục của các ứng dụng lưu trữ khác trong Tệp). App lưu quyền truy cập dưới dạng security-scoped bookmark trong cài đặt cục bộ, mở lại bằng bookmark ở mỗi lần cần ghi, và gọi bắt đầu/kết thúc truy cập đúng cặp. Lịch ghi, xoay vòng và đọc lại kiểm mã băm y như Android: ghi khi mở app hoặc khi chuyển vào nền nếu đã quá chu kỳ VÀ dữ liệu có thay đổi (AC-50, AC-51). Bookmark hỏng hoặc hết hạn (thư mục bị xóa, đổi tài khoản iCloud, khôi phục sang máy khác, hệ điều hành không giải được bookmark) thì app KHÔNG ghi vào chỗ khác, hiện cảnh báo trên màn Công thức và nút "Chọn lại thư mục" như AC-51, rồi lần chọn lại tạo bookmark mới. "Sao lưu ngay" (AC-52) vẫn có trên iPhone như đường dự phòng. Nếu thư mục ở iCloud Drive mà file chưa tải về máy thì việc đọc lại để kiểm (AC-51) phải đợi hoặc báo lỗi rõ ràng, không được tính là thành công. [T cho logic chu kỳ, xoay vòng và trạng thái hỏng bookmark (qua giao diện giả); M trên iPhone thật cho từng nơi lưu: Trên iPhone, iCloud Drive]
 
 ### F-12 · Giao diện, ngôn ngữ, màn chào
 - AC-58: Giao diện sáng, tối và theo hệ thống. Tiếng Việt và tiếng Anh, mặc định theo ngôn ngữ máy, đổi được trong Cài đặt; mọi chuỗi giao diện nằm trong file dịch. Chọn được ngày đầu tuần và hệ đơn vị mặc định (mét hoặc Mỹ). [T]
@@ -133,10 +135,10 @@ Quy ước kiểm chứng:
 
 ### F-14 · Quyền riêng tư và thông tin pháp lý trong app
 - AC-63: Màn "Giới thiệu" có: phiên bản, liên kết chính sách quyền riêng tư, email báo lỗi bảo mật, danh sách giấy phép nguồn mở. Có câu nhắc rằng công thức nhập từ web thuộc bản quyền của tác giả, chỉ dùng cá nhân. [M]
-- AC-64: "Xóa toàn bộ dữ liệu" trong Cài đặt xóa cơ sở dữ liệu, ảnh và cài đặt sau xác nhận hai bước, và hỏi trước có muốn sao lưu không. Không xóa các file sao lưu ở thư mục ngoài. Mở lại app thì như mới cài. [T]
+- AC-64: "Xóa toàn bộ dữ liệu" trong Cài đặt xóa cơ sở dữ liệu, ảnh và cài đặt sau xác nhận hai bước, và hỏi trước có muốn sao lưu không. Đồng thời xóa mọi dữ liệu của trình duyệt trong app: cookie, bộ nhớ đệm (cache), bộ nhớ cục bộ của trang (localStorage, IndexedDB) và lịch sử duyệt (D-010). Không xóa các file sao lưu ở thư mục ngoài. Mở lại app thì như mới cài, và trình duyệt không còn đăng nhập hay cookie của trang nào. [T cho dữ liệu của app; M cho dữ liệu WebView: mở một trang đặt cookie, xóa toàn bộ, mở lại thì cookie mất]
 - AC-65: App không gửi dữ liệu của người dùng tới bất kỳ máy chủ nào của nhà phát triển hay bên thứ ba:
   - Không có thư viện analytics, quảng cáo, báo crash; không dùng ML Kit hay SDK gửi số liệu sử dụng (D-002, D-003).
-  - Lưu lượng mạng chỉ có ở F-03: tải trang người dùng mở và ảnh của công thức.
+  - Lưu lượng mạng chỉ có ở F-03: tải trang người dùng mở (kể cả trang `http`, có nhãn cảnh báo AC-66) và ảnh của công thức. Cho phép `http` chỉ để WebView mở được trang người dùng chọn; không nới cho phần khác của app (COMPLIANCE S-01/S-60).
   - Manifest đã build chỉ có các quyền nêu ở mục 5.
 
   [T: kiểm manifest đã build, rà `pubspec.lock`]
@@ -216,9 +218,10 @@ Các mục tuân thủ cần xây thành tính năng:
 ## 7. Rủi ro và điều chưa biết
 - Pháp lý về thương hiệu và bản quyền:
   - Làm chức năng giống ba app tham khảo là được, nhưng tên, giao diện, chữ và mô tả store phải tự làm. Rà lại trước khi phát hành.
-  - Tên "CookNote" chưa được tra trùng nhãn hiệu hay trùng tên trên Google Play. Có khả năng đã có app cùng tên; cần tra trước khi phát hành, có thể phải đổi tên hiển thị.
+  - Tên hiển thị **Bepbook** (D-010, 2026-11-05; tên cũ "CookNote" trùng app cùng loại nên đã bỏ). Tra Play, web, WIPO không có kết quả; còn phải tra trực tiếp App Store và Cục SHTT trước khi phát hành.
   - Công thức nhập từ web thuộc bản quyền của tác giả. App giữ URL nguồn, chỉ phục vụ dùng cá nhân, không có kho công thức chung.
 - Sao lưu tự động vào thư mục đám mây (CHƯA kiểm chứng):
+  - Trên iPhone (D-010, AC-67): thư mục chọn qua `UIDocumentPicker` và giữ bằng security-scoped bookmark. Rủi ro: bookmark hết hiệu lực sau khi thư mục bị xóa/di chuyển, đổi tài khoản iCloud hoặc khôi phục sang máy khác (đã có cảnh báo + chọn lại); thư mục iCloud Drive có thể chỉ có bản giữ chỗ chưa tải về nên đọc lại để kiểm mã băm chậm hoặc lỗi; nhà cung cấp ngoài (Drive, OneDrive) có thể không cho ghi lâu dài. Phải thử trên iPhone thật ở #2 với "Trên iPhone" và iCloud Drive rồi ghi vào biên bản.
   - Trên Android, ứng dụng Google Drive có thể không cho app khác chọn và ghi định kỳ vào một THƯ MỤC trên Drive (quyền thư mục lâu dài). Ghi từng file qua "Sao lưu ngay" thì được.
   - OneDrive và các ứng dụng khác chưa biết.
   - Phải thử thật ở G3 với Google Drive, OneDrive và thư mục trên máy, rồi ghi D-xxx.
@@ -234,7 +237,7 @@ Các mục tuân thủ cần xây thành tính năng:
 - Định dạng file của Paprika và Recipe Keeper không có tài liệu chính thức. Phải làm theo file mẫu thật: người dùng cung cấp file xuất từ các app đó, hoặc Claude tạo bằng bản dùng thử. Không có file mẫu thì AC-44 không kiểm chứng được và sẽ được tách ra.
 - Hẹn giờ nấu chính xác khi máy khóa: chính sách Google Play với quyền báo giờ chính xác và dịch vụ chạy nền thay đổi theo năm. Một số hãng (Samsung, Xiaomi, Oppo) tiết kiệm pin mạnh. Phải tra chính sách hiện hành ở G5.
 - Tách nguyên liệu tiếng Việt: cách viết rất đa dạng ("2 muỗng canh nước mắm", "nước mắm 2 thìa", "1 ít hành", "hành lá: 1 nắm"). Ngưỡng 95% ở AC-31 có thể phải chỉnh sau khi có bộ mẫu thật.
-- Phạm vi rất lớn: 14 tính năng, 65 AC, chia thành 10 giai đoạn (BACKLOG). Người dùng có thể cắt bớt cho bản phát hành đầu (ví dụ dời F-04, F-09, AC-30, AC-47 sang bản sau).
+- Phạm vi rất lớn: 14 tính năng, 67 AC, chia thành 10 giai đoạn (BACKLOG). Người dùng có thể cắt bớt cho bản phát hành đầu (ví dụ dời F-04, F-09, AC-30, AC-47 sang bản sau).
 - Chờ người dùng quyết:
   - Phát hành dưới tên cá nhân hay công ty.
   - Có tích hợp Play Age Signals không (COMPLIANCE D-12).

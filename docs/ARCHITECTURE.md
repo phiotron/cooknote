@@ -1,4 +1,4 @@
-# ARCHITECTURE — CookNote (A004-cooknote)
+# ARCHITECTURE — Bepbook (A004-cooknote)
 
 Mô tả app HIỆN ĐANG như thế nào (DECISIONS.md ghi VÌ SAO chọn). Cập nhật khi cấu trúc đổi. Giữ ngắn.
 
@@ -17,6 +17,10 @@ Kho: `AisleRepository`, `ShoppingRepository` (gộp món AC-35, gạch/xóa/chuy
 
 ## Tích hợp ngoài
 `image_picker` (thư viện ảnh và ứng dụng camera của hệ điều hành), `url_launcher` (mở liên kết), `saf_util` và `saf_stream` (thư mục sao lưu qua Storage Access Framework), `file_picker`, `share_plus`, `archive`, `crypto`. Không khóa, không biến môi trường, không dịch vụ.
+
+**Sao lưu tự động trên iOS (D-010, AC-67, làm ở #2):** `saf_util`/`saf_stream` chỉ có trên Android, nên iOS dùng một kênh nền tảng (Swift) tới `UIDocumentPickerViewController` ở chế độ chọn thư mục. Swift trả về dữ liệu bookmark (security-scoped); Dart lưu nó trong cài đặt cục bộ (không đi theo file sao lưu). Mỗi lần ghi, Swift giải bookmark, gọi `startAccessingSecurityScopedResource`, ghi/liệt kê/xóa file rồi `stopAccessing…`. Bookmark `stale` thì làm mới được thì làm mới, không giải được thì trả lỗi `folderLost` để dùng lại luồng cảnh báo của Android (AC-51). Phần Dart (chu kỳ, xoay vòng theo tên mẫu, đọc lại kiểm mã băm) dùng chung qua một giao diện đích ghi trừu tượng; Android và iOS chỉ khác lớp triển khai đích ghi.
+
+**Trình duyệt và `http` (D-010):** WebView cho phép tải trang `http`; nới này chỉ nằm ở cấu hình WebView (iOS: `NSAllowsArbitraryLoadsInWebContent`, không bật `NSAllowsArbitraryLoads`; Android: xem COMPLIANCE S-01/S-60). Mã mạng khác của app giữ nguyên chỉ `https`. Giao diện nhận biết URL `http` để hiện nhãn "Không mã hóa" (AC-66). "Xóa toàn bộ dữ liệu" gọi thêm xóa cookie, cache và bộ nhớ của WebView (AC-64).
 
 ## Cấu trúc thư mục code
 `lib/src/data/` (database, recipe_repository, recipe_query, category_repository, text_normalize, recipe_lines, image_store, settings_repository), `lib/src/backup/` (backup_format: tạo, kiểm, khôi phục file; backup_data: xuất/nhập JSON; backup_target: nơi lưu; backup_settings: cấu hình và nhắc; backup_service: tự sao lưu, xoay vòng, khôi phục có bản an toàn), `lib/src/features/{home,recipes,editor,categories,backup,settings}/`, `lib/src/ui/` (recipe_photo, linkified_text, messenger), `lib/src/providers.dart`, `lib/src/app.dart`, `lib/l10n/`. Test ở `test/` phản chiếu cấu trúc đó.

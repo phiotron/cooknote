@@ -1,4 +1,4 @@
-# COMPLIANCE — CookNote (A004-cooknote)
+# COMPLIANCE — Bepbook (A004-cooknote)
 
 Hồ sơ tuân thủ theo tài liệu gốc `D:/Mobile App/reference/tieu-chuan-ban-app-toan-cau.md` (cập nhật 28/10/2026; "L<n>" là Lớp n trong
 tài liệu đó) và tiêu chuẩn xưởng `D:/Mobile App/playbook/STANDARDS.md` v1 (mã S-xx; mục 4 đối chiếu hai hệ mã).
@@ -11,7 +11,7 @@ chính sách và hồ sơ store (`docs/legal/`, `store/`).
 - Có tài khoản người dùng: không
 - Dữ liệu cá nhân thu thập (loại, mục đích, nơi lưu, bên nhận, thời gian giữ): nhà phát triển không thu thập. Người dùng tự ghi công thức, ảnh món, ghi chú, thực đơn, danh sách đi chợ, tủ bếp; có thể có thông tin cá nhân do người dùng tự viết hoặc ảnh có người. Mọi thứ lưu trong SQLite và thư mục ảnh trên máy, không có bên nhận. Bản sao do người dùng tự quyết nơi lưu: thư mục sao lưu tự động người dùng chọn (có thể là Google Drive, OneDrive của chính họ), "Sao lưu ngay" qua bảng chia sẻ, và sao lưu của hệ điều hành **đang bật**: Android Auto Backup (DB + cài đặt, không ảnh) và iCloud/sao lưu máy tính trên iOS (APP.md "Tiêu chuẩn áp dụng"). Giữ tới khi người dùng xóa.
 - Dữ liệu rủi ro cao (nhạy cảm, vị trí chính xác, trẻ em, sinh trắc học, hồ sơ hóa bằng AI): không. App không xin vị trí, không dùng sinh trắc học, không AI. Ảnh được thu nhỏ và bỏ toàn bộ EXIF, gồm GPS (D-005).
-- Người dưới 18 tuổi có thể dùng: có — **đối tượng từ 13 tuổi** (S-84); không nhắm trẻ em dưới 13, không vào Families / Made for Kids.
+- Người dưới 18 tuổi có thể dùng: có — **đối tượng từ 13 tuổi** (S-84; Play khai 13+, App Store xếp 16+/17+ vì trình duyệt đầy đủ — D-010); không nhắm trẻ em dưới 13, không vào Families / Made for Kids.
 - Bán hàng số, thuê bao hoặc thanh toán trong app: không (miễn phí hoàn toàn, mọi tính năng đều mở)
 - SDK bên thứ ba (analytics, quảng cáo, đăng nhập xã hội, AI): không có (D-002). Không dùng ML Kit vì gửi số liệu chẩn đoán về Google; nhận chữ trên máy: Android Tesseract4Android, iOS Apple Vision (D-003, D-008). WebView của hệ điều hành dùng cho trình duyệt trong app; trang web người dùng mở tự có chính sách riêng.
 - Gửi dữ liệu cho AI bên thứ ba, hoặc app có chatbot/nội dung do AI tạo: không
@@ -33,9 +33,9 @@ chính sách và hồ sơ store (`docs/legal/`, `store/`).
 | D-09 | Có dữ liệu cá nhân, bán ở VN | Chỉ định bộ phận hoặc nhân sự bảo vệ dữ liệu (Điều 33(2)); đại diện pháp lý ở nơi luật đòi (EU/Anh, Brazil, Trung Quốc, Hàn Quốc, Thổ Nhĩ Kỳ) | L3 nền chung 6 | chưa | Cần luật sư xác nhận khi nhà phát triển không nhận dữ liệu |
 | D-10 | Dùng nhà cung cấp xử lý dữ liệu | Hợp đồng xử lý dữ liệu với cloud, analytics, push, thanh toán, AI; cơ chế chuyển dữ liệu ra nước ngoài hợp pháp (VN: hồ sơ trong 60 ngày từ lần chuyển đầu) | L3 nền chung 7, "Kiến trúc chuyển dữ liệu" | không áp dụng | Không dùng nhà cung cấp xử lý dữ liệu (D-002). Sao lưu Google/iCloud do người dùng bật, giữa người dùng và Google/Apple, nhà phát triển không nhận, 2026-11-05 |
 | D-11 | Mọi app | Quyền hệ thống (vị trí, danh bạ, camera, micro, thông báo) chỉ xin khi cần cho tính năng, không ép bật để dùng app (S-40) | L3 "Điểm riêng", L5 Apple 5.1.1 | chưa | Android: camera qua app hệ thống, không xin quyền (AC-08, D-005); iOS: `NSCameraUsageDescription` có sẵn, iOS hỏi lần đầu chụp (Info.plist, commit `9b646df`, 2026-11-05); thông báo xin khi bấm hẹn giờ (AC-28); không xin bộ nhớ, thư viện ảnh, vị trí, danh bạ, micro (SPEC mục 5); kiểm manifest + Info.plist ở #3 (AC-65) |
-| D-12 | Người dưới 18 có thể dùng | Dùng tín hiệu tuổi của hệ điều hành (Declared Age Range của Apple, Play Age Signals của Google) và đối chiếu luật tuổi theo thị trường ở L3 (S-84) | L3 "Điểm riêng", L5 | chưa | Đối tượng 13+ (APP.md). Không có nội dung theo tuổi, không giao tiếp giữa người dùng → đề xuất **không tích hợp** API tín hiệu tuổi ở v1; Phương chốt (SPEC mục 7). Lưu ý App Store 16+ vì trình duyệt — xem P-05 |
+| D-12 | Người dưới 18 có thể dùng | Dùng tín hiệu tuổi của hệ điều hành (Declared Age Range của Apple, Play Age Signals của Google) và đối chiếu luật tuổi theo thị trường ở L3 (S-84) | L3 "Điểm riêng", L5 | chưa | Đối tượng 13+ (APP.md). Không có nội dung theo tuổi, không giao tiếp giữa người dùng → đề xuất **không tích hợp** API tín hiệu tuổi ở v1; Phương chốt (SPEC mục 7). Lưu ý App Store 16+/17+ vì trình duyệt (đã chốt D-010) — xem P-05 |
 | D-13 | Gửi dữ liệu cho AI bên thứ ba | Nêu rõ nơi dữ liệu được chia sẻ, kể cả AI bên thứ ba, và xin phép rõ ràng trước khi chia sẻ (Apple 5.1.2(i)) | L3, L5 | không áp dụng | Không dùng AI (S-86 không bật), 2026-11-03 |
-| S-01 | Mọi app | Tự kiểm theo 8 nhóm OWASP MASVS v2.1.0: STORAGE, CRYPTO, AUTH, NETWORK, PLATFORM, CODE, RESILIENCE, PRIVACY (ghi kết quả từng nhóm) (S-60) | L2 "Tiêu chí kỹ thuật" | chưa | NETWORK: trình duyệt mở được trang `http` của người dùng — cần quyết chặn cleartext cho phần "Nhập từ web" hay ghi rõ ngoại lệ |
+| S-01 | Mọi app | Tự kiểm theo 8 nhóm OWASP MASVS v2.1.0: STORAGE, CRYPTO, AUTH, NETWORK, PLATFORM, CODE, RESILIENCE, PRIVACY (ghi kết quả từng nhóm) (S-60) | L2 "Tiêu chí kỹ thuật" | chưa | NETWORK: **ngoại lệ cleartext đã chốt (D-010, 2026-11-05)** — trình duyệt trong app được mở trang `http`; lý do và giới hạn ở mục 2b. Các nhóm MASVS còn lại chưa tự kiểm |
 | S-02 | Có API/backend | Kiểm API theo OWASP ASVS 5.0.0; truyền tải mã hóa TLS 1.3 | L2 | không áp dụng | Không có API hay backend của nhà phát triển; chỉ tải trang web người dùng mở (F-03), 2026-11-03 |
 | S-03 | Có đăng nhập | Đăng nhập theo OAuth 2.0/OIDC (RFC 9700) hoặc passkey (WebAuthn/FIDO2); có đăng nhập bên thứ ba trên iOS thì có thêm một lựa chọn tương đương theo Apple 4.8 | L2, L5 | không áp dụng | Không có đăng nhập (S-81 không bật), 2026-11-03 |
 | S-04 | Mọi app | SBOM sinh tự động (SPDX hoặc CycloneDX) và rà giấy phép nguồn mở theo danh sách SPDX (S-70) | L2 "Chuỗi cung ứng", L6 | chưa | |
@@ -50,7 +50,7 @@ chính sách và hồ sơ store (`docs/legal/`, `store/`).
 | P-02 | Phát hành iOS | App privacy details khi nộp; tệp `PrivacyInfo.xcprivacy`; SDK phổ biến kèm privacy manifest và chữ ký (S-21) | L5 Apple | chưa | **Mở lại 2026-11-05.** Nhãn: "Data Not Collected" (`store/app-store.md`, căn cứ trang App Privacy Details). `ios/Runner/PrivacyInfo.xcprivacy` + `ios/ShareExtension/PrivacyInfo.xcprivacy` có từ commit `9b646df`: tracking false, không loại dữ liệu thu thập, API cần lý do FileTimestamp/DiskSpace/UserDefaults (đọc 2026-11-05). Còn: đối chiếu cảnh báo của App Store Connect khi upload build đầu |
 | P-03 | Phát hành iOS | `ITSAppUsesNonExemptEncryption` trong Info.plist (NO nếu không mã hóa hoặc chỉ mã hóa miễn trừ) (S-22) | L5 Apple, L6 | chưa | **Mở lại 2026-11-05.** Info.plist (commit `9b646df`) đặt `false` — đúng: chỉ HTTPS của hệ điều hành, `crypto` chỉ băm SHA-256, file sao lưu không mã hóa (S-89 không bật). Đạt khi CI iOS xanh và build upload không bị hỏi lại |
 | P-04 | Phát hành iOS, có theo dõi | App Tracking Transparency (từ iOS 14.5; màn hình riêng cho EU từ iOS 27.2) (S-83) | L5 Apple | không áp dụng | Không theo dõi, không quảng cáo, không SDK (D-002); không gọi ATT, 2026-11-05 |
-| P-05 | Phát hành iOS | Bảng câu hỏi xếp hạng độ tuổi mới (Việt Nam: 00+, 12+, 16+, 18+ từ 18/06/2026) (S-23) | L5 Apple | chưa | **Mở lại 2026-11-05.** Trả lời đề xuất ở `store/app-store.md`: "Unrestricted Web Access" = Yes (AC-16) → dự kiến **16+** (iOS 26+, cả Việt Nam), 17+ (iOS < 26), theo trang Apple đọc 2026-11-05. **Lệch S-84 (13+) → Phương quyết** giữ trình duyệt đầy đủ hay thu hẹp |
+| P-05 | Phát hành iOS | Bảng câu hỏi xếp hạng độ tuổi mới (Việt Nam: 00+, 12+, 16+, 18+ từ 18/06/2026) (S-23) | L5 Apple | chưa | **Mở lại 2026-11-05.** Trả lời đề xuất ở `store/app-store.md`: "Unrestricted Web Access" = Yes (AC-16) → dự kiến **16+** (iOS 26+, cả Việt Nam), 17+ (iOS < 26), theo trang Apple đọc 2026-11-05. **ĐÃ CHỐT 2026-11-05 (D-010, phương án A): giữ trình duyệt đầy đủ → nhận 16+/17+ trên App Store; Play vẫn khai 13+.** Ngoại lệ so với S-84 (13+) được chấp nhận có chủ đích: người 13–15 tuổi có thể bị Screen Time chặn tải bản iOS. Còn lại: điền bảng hỏi thật ở #3 |
 | P-06 | Phát hành Android | targetSdk = API 36 cho app mới và bản cập nhật (từ 31/08/2026, gia hạn tới 01/11/2026) (S-10) | L5 Google | chưa | Trang Target API level đọc 2026-11-05: khớp. Bản build 2026-11-04 targetSdk 36 (D-004); kiểm lại bản AAB phát hành |
 | P-07 | Phát hành Android | Hỗ trợ trang bộ nhớ 16 KB (bắt buộc với bản cập nhật từ 01/02/2027) (S-11) | L5 Google | chưa | Lưu ý thư viện native Tesseract (APP.md) |
 | P-08 | Phát hành Android | Xác minh nhà phát triển (từ 30/09/2026 tại Brazil, Indonesia, Singapore, Thái Lan; toàn cầu năm 2027) (S-15) | L5 Google | chưa | |
@@ -58,11 +58,27 @@ chính sách và hồ sơ store (`docs/legal/`, `store/`).
 | P-10 | Phát hành Android | Khai báo Data safety khớp với dữ liệu SDK thực sự thu thập; xếp hạng nội dung (S-13, S-14, S-42) | L5 Google | chưa | Đề xuất "No data collected / No data shared", bảng căn cứ từng hành vi (kể cả Auto Backup, WebView) và trả lời IARC (trình duyệt = Yes): `store/google-play.md` (2026-11-05). Đối chiếu `pubspec.lock` + manifest đã gộp ở #3 (AC-65) |
 | P-11 | Bán hàng số trong app | Apple: quy tắc thanh toán trong app của App Store (mục 3.1.1, xem L5); Google: Play Billing trừ khi thuộc §3, 8, 9 | L5 | không áp dụng | Không bán hàng số (S-82 không bật), 2026-11-03 |
 | P-12 | App cho trẻ em trên Play | Chương trình Families: khai báo đối tượng, chỉ SDK quảng cáo được chứng nhận cho Families, tuân thủ COPPA và GDPR (S-84) | L5 Google | không áp dụng | Đối tượng chọn 13–15, 16–17, 18+; không chọn nhóm dưới 13 → không vào Families (`store/google-play.md`), 2026-11-05 |
-| P-13 | Mọi app phát hành | Tên app: tra trùng trên 2 store và tra nhãn hiệu (S-71) | L6 Sở hữu trí tuệ | chưa | Tra 2026-11-05: **"CookNote"/"Cooknote" đã có trên Play (2 app) và App Store (BECEN, thị trường VN)**; WIPO không có nhãn "cooknote". 3 tên đề xuất + link: `store/app-store.md`. **Phương quyết tên** |
-| P-14 | Mọi app phát hành | Khác biệt rõ với đối thủ trong mô tả + ảnh; không crash, không placeholder; mô tả và ảnh đúng app thật (S-30, S-31) | L5 App Review | chưa | Mô tả 2 store mở đầu bằng khối "Vì sao chọn CookNote" (miễn phí toàn bộ, không tài khoản, định dạng mở đọc không cần app, tiếng Việt chuẩn). Đối chiếu tính năng thật + ảnh ở #3 |
+| P-13 | Mọi app phát hành | Tên app: tra trùng trên 2 store và tra nhãn hiệu (S-71) | L6 Sở hữu trí tuệ | **đã chốt tên, còn tra App Store/SHTT** | D-010 (2026-11-05): tên **Bepbook**. Tên cũ "CookNote" bị bỏ vì trùng Play (2 app) và App Store (BECEN, thị trường VN). Tra "Bepbook" ngày 2026-11-05 trên Play, web, WIPO: không có kết quả. Còn lại: tra trực tiếp App Store Connect khi tạo app và Cục SHTT. Bản tra: `store/app-store.md` mục "Tên app" |
+| P-14 | Mọi app phát hành | Khác biệt rõ với đối thủ trong mô tả + ảnh; không crash, không placeholder; mô tả và ảnh đúng app thật (S-30, S-31) | L5 App Review | chưa | Mô tả 2 store mở đầu bằng khối "Vì sao chọn Bepbook" (miễn phí toàn bộ, không tài khoản, định dạng mở đọc không cần app, tiếng Việt chuẩn). Đối chiếu tính năng thật + ảnh ở #3 |
 | T-01 | Bán có thu phí | Thuế giá trị gia tăng theo nơi bán (Apple làm đại lý theo Schedule 2; xem L6) | L6 | không áp dụng | Miễn phí, 2026-11-03 |
 | T-02 | Mọi app phát hành | Bản địa hóa và định dạng theo thị trường | L6 | chưa | Hồ sơ store vi + en đã có (2026-11-05); app vi/en (AC-58) |
 | AI-01 | Có chatbot hoặc nội dung do AI tạo, bán ở EU | Nghĩa vụ minh bạch Điều 50 AI Act (từ 02/08/2026) | L7, Mốc | không áp dụng | Không có AI, 2026-11-03 |
+
+## 2b. Ngoại lệ đã chốt: cleartext (`http`) trong trình duyệt của app (S-01 NETWORK / S-60, D-010, 2026-11-05)
+**Vì sao:** trình duyệt trong app (AC-16) để người dùng lưu công thức từ mọi trang web. Nhiều blog nấu ăn nhỏ, nhất là ở Việt Nam, vẫn chỉ phục vụ `http` hoặc chuyển hướng qua `http`; chặn hẳn thì những trang đó không lưu được. Phương chọn cho phép `http` (D-010) và ghi ngoại lệ này.
+
+**Giới hạn bắt buộc (mọi điều đều phải đúng ở bản phát hành):**
+1. **Chỉ trong WebView nhập công thức** (SCR-15: gõ địa chỉ, chia sẻ URL, link mở từ công thức). Mã mạng khác của app giữ nguyên chỉ `https`; có test từ chối URL `http` ngoài WebView.
+2. **Cảnh báo trên thanh địa chỉ:** trang đang mở là `http` (kể cả `https` chuyển hướng sang `http`) thì hiện nhãn "Không mã hóa" kèm biểu tượng ổ khóa mở và giải thích ngắn khi chạm (AC-66).
+3. **Không gửi dữ liệu của người dùng** tới trang `http`: không điền form, không đưa vào trang token, bộ nhớ hay dữ liệu nào của app; mã chạy trong trang chỉ ĐỌC nội dung trang để nhập công thức; không mở kênh JavaScript hai chiều chứa dữ liệu app (AC-65).
+4. **Cấu hình nền tảng chỉ nới cho WebView:** iOS đặt `NSAllowsArbitraryLoadsInWebContent = true` (chỉ có hiệu lực với web view), KHÔNG đặt `NSAllowsArbitraryLoads`, không có `NSExceptionDomains`. Android: WebView cần cho phép cleartext; cấu hình này nằm ở mức ứng dụng (`android:usesCleartextTraffic` hoặc `networkSecurityConfig`) nên không giới hạn riêng cho WebView được, vì vậy giới hạn (1) phải do mã bảo đảm (mã Dart `dart:io` không theo cấu hình này). Kiểm manifest/Info.plist đã build ở #3.
+5. **Xóa sạch được:** "Xóa toàn bộ dữ liệu" xóa cả cookie, cache và dữ liệu WebView (AC-64).
+6. **Nói thật với người dùng:** chính sách quyền riêng tư (vi + en, mục trình duyệt) nêu rõ trang `http` được tải không mã hóa (`docs/legal/privacy-policy.md`); ghi chú cho App Review nêu trình duyệt mở được `http` và lý do (`store/app-store.md`).
+7. **Nhãn store không đổi:** nhà phát triển không thu thập dữ liệu, nên "Data Not Collected" (Apple) và Data safety (Play) giữ nguyên; trình duyệt mở web tự do không phải khai (Apple).
+
+**Câu hỏi mở cho #2 (ghi vào `notes/`):** sau khi bấm "Lưu công thức" ở trang `http`, ảnh công thức thường cũng là `http`. Mã tải ảnh là Dart (chỉ `https`, giới hạn 1) → chọn: thử đổi URL ảnh sang `https`, không được thì lấy ảnh từ cache của WebView, không được nữa thì lưu công thức không ảnh và báo "Không tải được ảnh". Không nới giới hạn 1 để tải ảnh.
+
+**Kết quả MASVS-NETWORK:** đạt có ngoại lệ ghi nhận (mục này); xác minh cấu hình thật khi build (S-60, #3).
 
 ## 3. Trước mỗi lần phát hành
 - Kiểm lại trang Apple "Upcoming requirements" và bảng hạn chót của Google, vì đổi theo quý (L5 "Cách làm chung"); ghi ngày kiểm vào đây.
@@ -81,14 +97,14 @@ chính sách và hồ sơ store (`docs/legal/`, `store/`).
 | S-20 | P-01 | chưa | |
 | S-21 | P-02 | chưa (nhãn + `PrivacyInfo.xcprivacy` xong; chờ build đầu) | `store/app-store.md` |
 | S-22 | P-03 | chưa (giá trị đúng, chờ commit) | `store/app-store.md` |
-| S-23 | P-05 | chưa (chờ Phương quyết 16+ hay thu hẹp trình duyệt) | `store/app-store.md` |
+| S-23 | P-05 | chưa (đã chốt phương án A 16+/17+ 2026-11-05; còn điền bảng hỏi thật) | `store/app-store.md` mục "Xếp hạng tuổi" |
 | S-24 | P-01 | chưa | |
 | S-30, S-31 | P-14 | chưa | `store/*.md` |
 | S-40 | D-11 | chưa | |
 | S-41 | D-02 | chưa (chờ đăng web) | `docs/legal/privacy-policy.md` |
 | S-42 | P-10, P-02 | chưa (đối chiếu lại ở #3) | |
 | S-50 | A-01 | chưa | |
-| S-60 | S-01 | chưa | |
+| S-60 | S-01 | chưa (NETWORK: ngoại lệ ghi nhận 2026-11-05, kiểm cấu hình thật ở #3) | Mục 2b; D-010 |
 | S-61 | — | chưa | `docs/RELEASE.md` (khoá ký do Phương tạo) |
 | S-70 | S-04 | chưa | |
 | S-71 | P-13 | chưa (**trùng tên**) | `store/app-store.md` |

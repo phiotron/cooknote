@@ -1,4 +1,4 @@
-# A004-cooknote · CookNote — CONTEXT (glossary)
+# A004-cooknote · Bepbook — CONTEXT (glossary)
 
 > Chỉ là bảng thuật ngữ nghiệp vụ. Không ghi chi tiết cài đặt (bảng, cột, thư viện) ở đây — xem `docs/ARCHITECTURE.md`,
 > `docs/BACKUP-FORMAT.md`. Nguồn sự thật về hành vi: `docs/SPEC.md` (mã AC ghi ở cột cuối).
@@ -32,9 +32,9 @@
 
 | Term (code) | VI | Định nghĩa | Tránh dùng | AC |
 |---|---|---|---|---|
-| **In-app browser** | Trình duyệt trong app | Trình duyệt dựng sẵn để tìm và mở trang công thức: thanh địa chỉ (gõ chữ thì tìm bằng công cụ tìm kiếm mặc định), Back/Forward, nút "Lưu công thức" luôn hiện. Cũng là nơi mở URL trong bước, ghi chú và URL nguồn của Recipe (không mở trình duyệt ngoài). Là nơi duy nhất app dùng mạng. | "WebView" (trong giao diện) | AC-09, AC-16, AC-65 |
+| **In-app browser** | Trình duyệt trong app | Trình duyệt dựng sẵn để tìm và mở trang công thức: thanh địa chỉ (gõ chữ thì tìm bằng công cụ tìm kiếm mặc định), Back/Forward, nút "Lưu công thức" luôn hiện. Cũng là nơi mở URL trong bước, ghi chú và URL nguồn của Recipe (không mở trình duyệt ngoài). Là nơi duy nhất app dùng mạng. Mở được cả trang `http`; khi đó thanh địa chỉ hiện nhãn "Không mã hóa" (AC-66). "Xóa toàn bộ dữ liệu" xóa luôn cookie và dữ liệu của trình duyệt này (AC-64). | "WebView" (trong giao diện) | AC-09, AC-16, AC-64, AC-65, AC-66 |
 | **Web import** | Nhập từ web | Việc tạo Recipe từ một trang web: đọc dữ liệu schema.org `Recipe` nếu có, không có thì vào Pick text. Luôn qua Import preview. Mỗi lần tải trang chờ tối đa 20 giây; lỗi thì báo lý do + "Thử lại", không mất phần đã nhập. | "scrape", "crawl" | AC-18, AC-21 |
-| **Shared link / Shared text** | Link / chữ được chia sẻ | Thứ app khác gửi sang CookNote qua bảng chia sẻ của hệ điều hành (Android: intent; iOS: Share Extension). URL → Web import; chữ không phải URL → mở Recipe editor với chữ đó. | | AC-17 |
+| **Shared link / Shared text** | Link / chữ được chia sẻ | Thứ app khác gửi sang Bepbook qua bảng chia sẻ của hệ điều hành (Android: intent; iOS: Share Extension). URL → Web import; chữ không phải URL → mở Recipe editor với chữ đó. | | AC-17 |
 | **Pick text** | Chọn đoạn | Chế độ của In-app browser khi trang không có dữ liệu `Recipe`: người dùng bôi đen chữ trên trang rồi gán "Là tên", "Là nguyên liệu" hoặc "Là các bước". | "manual import" | AC-19 |
 | **Import preview** | Xem trước khi lưu | Màn sửa bắt buộc trước khi Recipe nhập (từ web, ảnh, chữ chia sẻ) được lưu. Recipe nhập từ web giữ URL nguồn và tên trang. | | AC-20 |
 | **Duplicate URL** | Trùng URL | Trường hợp URL nguồn đang nhập đã có ở một Recipe trong sổ, **kể cả Recipe đang ở Thùng rác**. App báo "Đã có công thức này" và hỏi mở bản cũ hay lưu bản mới; nếu bản cũ đang ở Thùng rác thì báo điều đó và hỏi khôi phục hay lưu bản mới. | "duplicate" (để dành cho Duplicate recipe) | AC-20 |
@@ -96,7 +96,7 @@
 
 | Term (code) | VI | Định nghĩa | Tránh dùng | AC |
 |---|---|---|---|---|
-| **Share recipe** | Chia sẻ công thức | Gửi một Recipe qua bảng chia sẻ của hệ điều hành dạng chữ, file PDF, hoặc file `.cooknote` (người nhận có CookNote nhập được). | | AC-46 |
+| **Share recipe** | Chia sẻ công thức | Gửi một Recipe qua bảng chia sẻ của hệ điều hành dạng chữ, file PDF, hoặc file `.cooknote` (người nhận có Bepbook nhập được). | | AC-46 |
 | **Recipe book** | Sách công thức | File PDF tạo từ các Recipe đã chọn hoặc từ một Category: trang bìa (tên sách, ảnh), mục lục có số trang, mỗi Recipe bắt đầu ở trang mới với ảnh bìa. In được qua hộp thoại in của hệ điều hành. | "cookbook" trong giao diện EN vẫn được | AC-47 |
 | **Export** | Xuất | Tạo file từ dữ liệu (JSON schema.org, `.cooknote`, PDF) để mang ra ngoài; không xin quyền bộ nhớ; file tạm xoá sau khi chia sẻ xong hoặc ở lần mở app sau. | "backup" (Export không phải Backup) | AC-45, AC-48 |
 
@@ -104,10 +104,10 @@
 
 | Term (code) | VI | Định nghĩa | Tránh dùng | AC |
 |---|---|---|---|---|
-| **Backup** | Bản sao lưu | Một file `.cooknote` (gói zip định dạng mở, có tài liệu) chứa toàn bộ dữ liệu, ảnh và các trang HTML đọc được bằng trình duyệt không cần CookNote. Không mã hoá. Chỉ tính là thành công sau khi đọc lại và kiểm mã băm đạt. | "sync", "export" | AC-49, AC-51 |
+| **Backup** | Bản sao lưu | Một file `.cooknote` (gói zip định dạng mở, có tài liệu) chứa toàn bộ dữ liệu, ảnh và các trang HTML đọc được bằng trình duyệt không cần Bepbook. Không mã hoá. Chỉ tính là thành công sau khi đọc lại và kiểm mã băm đạt. | "sync", "export" | AC-49, AC-51 |
 | **Backup format version** | Phiên bản định dạng | Số phiên bản ghi trong file. Định dạng chỉ được mở rộng: mọi bản app sau đọc được file của mọi phiên bản cũ hơn. | | AC-55 |
 | **Automatic backup** | Sao lưu tự động | Sao lưu tự ghi vào Auto-backup folder theo chu kỳ hằng ngày (mặc định) hoặc hằng tuần, chạy lúc mở app hoặc lúc app vào nền, chỉ khi đã quá chu kỳ VÀ dữ liệu có thay đổi; không làm chậm thao tác. | "cloud sync" | AC-50 |
-| **Auto-backup folder** | Thư mục sao lưu tự động | Thư mục đích người dùng chọn MỘT lần qua trình chọn thư mục của hệ điều hành (trên máy, hoặc Google Drive/OneDrive/iCloud Drive nếu ứng dụng đó cho phép). Mất quyền ghi thì hiện cảnh báo trên màn Công thức và nút chọn lại. | "cloud", "account" | AC-50, AC-51 |
+| **Auto-backup folder** | Thư mục sao lưu tự động | Thư mục đích người dùng chọn MỘT lần qua trình chọn thư mục của hệ điều hành (trên máy, hoặc Google Drive/OneDrive/iCloud Drive nếu ứng dụng đó cho phép). Trên iPhone chọn bằng `UIDocumentPicker` và app giữ security-scoped bookmark. Mất quyền ghi hoặc bookmark hỏng/hết hạn thì hiện cảnh báo trên màn Công thức và nút chọn lại. | "cloud", "account" | AC-50, AC-51, AC-67 |
 | **Rotation** (copies to keep) | Xoay vòng (số bản giữ lại) | Trong Auto-backup folder chỉ giữ N bản gần nhất (mặc định 5, đổi được 1–30); bản cũ hơn tự xoá. App chỉ xoá file do chính nó tạo. | | AC-50 |
 | **Verification** | Kiểm tra sau sao lưu | Đọc lại file vừa ghi và kiểm mã băm từng phần. Sai thì báo lỗi và không tính là lần sao lưu thành công. | | AC-51 |
 | **Back up now (save elsewhere)** | Sao lưu ngay (lưu ở nơi khác) | Tạo Backup rồi mở bảng chia sẻ/trình lưu file để lưu vào bất kỳ đâu. Đường dự phòng khi nơi lưu không cho sao lưu tự động. | | AC-52 |

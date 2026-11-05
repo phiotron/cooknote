@@ -1,6 +1,8 @@
 # BACKUP-FORMAT — định dạng file sao lưu `.cooknote`
 
-Tài liệu này mô tả định dạng để dữ liệu còn đọc được dù CookNote không còn nữa (SPEC F-11, AC-49). Mã đọc và ghi nằm ở `lib/src/backup/`.
+> Từ 2026-11-05 (D-010) app tên **Bepbook**, nhưng định dạng, đuôi `.cooknote`, trường `"app": "CookNote"` trong `manifest.json` và mẫu tên `CookNote-YYYY-MM-DD-HHmmss.cooknote` GIỮ NGUYÊN để mọi file sao lưu cũ vẫn đọc được (AC-55). Định dạng giống hệt nhau trên Android và iPhone; chỉ cách chọn nơi lưu khác nhau (AC-50, AC-67).
+
+Tài liệu này mô tả định dạng để dữ liệu còn đọc được dù Bepbook không còn nữa (SPEC F-11, AC-49). Mã đọc và ghi nằm ở `lib/src/backup/`.
 
 ## Nguyên tắc (AC-55)
 - Định dạng chỉ được MỞ RỘNG: thêm khóa mới, thêm file mới. Không đổi nghĩa, không xóa khóa đã phát hành.
@@ -22,7 +24,7 @@ File là một gói zip (đổi đuôi `.cooknote` thành `.zip` rồi giải n�
 | `manifest.json` | Phiên bản định dạng, phiên bản app, thời điểm tạo, số lượng, mã băm SHA-256 của từng file khác |
 | `data.json` | Toàn bộ dữ liệu dạng JSON thuần |
 | `images/<tên>.jpg` | Ảnh của công thức. Tên do app đặt, chỉ gồm chữ, số, `_`, `.`, `-` |
-| `html/index.html`, `html/<id>.html` | Bản đọc được bằng trình duyệt bất kỳ, không cần CookNote. Chỉ gồm công thức chưa xóa |
+| `html/index.html`, `html/<id>.html` | Bản đọc được bằng trình duyệt bất kỳ, không cần Bepbook. Chỉ gồm công thức chưa xóa |
 | `README.txt` | Hướng dẫn hai ngôn ngữ |
 
 ### manifest.json
@@ -63,7 +65,7 @@ File là một gói zip (đổi đuôi `.cooknote` thành `.zip` rồi giải n�
 - `difficulty`: `easy`, `medium`, `hard` hoặc `null`. `deletedAt` khác null là công thức trong thùng rác.
 - Thứ tự `ingredients`, `steps`, `photos` là thứ tự hiển thị; ảnh đầu tiên là ảnh bìa.
 - `categories.parentId` null là cấp đầu; tối đa 3 cấp.
-- Chỉ ba khóa `settings` đi theo: `locale`, `themeMode`, `viewMode`. Cài đặt của chính tính năng sao lưu (thư mục, chu kỳ) KHÔNG đi theo: đổi máy thì chọn lại.
+- Chỉ ba khóa `settings` đi theo: `locale`, `themeMode`, `viewMode`. Cài đặt của chính tính năng sao lưu (thư mục, chu kỳ) KHÔNG đi theo: đổi máy thì chọn lại. Trên iPhone điều này gồm cả security-scoped bookmark của thư mục (D-010, AC-67): bookmark chỉ có nghĩa trên chính máy đã tạo ra nó nên không bao giờ được ghi vào file sao lưu.
 - Khi đọc, khóa lạ bị bỏ qua.
 
 ### data.json — phần thêm ở formatVersion 2
@@ -94,7 +96,7 @@ Mọi khóa của định dạng 1 giữ nguyên nghĩa. Thêm 7 khóa cấp đ�
 }
 ```
 - `aisles`: khu vực trong cửa hàng, theo `position` (đường đi trong cửa hàng). `key` là khóa khu vực mặc định (`produce`, `meat`, `dairy`, `dry`, `spice`, `frozen`, `drink`, `other`) hoặc `null` với khu vực người dùng thêm; đổi tên không đổi `key`.
-- Món đi chợ và tủ bếp: số lượng có cấu trúc là `quantity` + `unit` (tên đơn vị chuẩn của CookNote: `g`, `kg`, `mg`, `ml`, `l`, `tbsp`, `tsp`, `spoon`, `cup`, `oz`, `lb`, `flOz`, `pint`, `quart`, `chen`, `bat`, `cu`, `qua`, `trai`, `tep`, `nhanh`, `lat`, `mieng`, `goi`, `lon`, `hop`, `nhum`, `chut`, `nam`, `bo`; `null` là đếm không đơn vị) + `unitText` (chữ đơn vị người dùng viết, để hiện). Không tách được số lượng thì `quantity` null và `amountText` là chữ tự do ("1 bó nhỏ"). Cả hai null là không ghi số lượng. `aisleId` null là không khu vực.
+- Món đi chợ và tủ bếp: số lượng có cấu trúc là `quantity` + `unit` (tên đơn vị chuẩn của Bepbook: `g`, `kg`, `mg`, `ml`, `l`, `tbsp`, `tsp`, `spoon`, `cup`, `oz`, `lb`, `flOz`, `pint`, `quart`, `chen`, `bat`, `cu`, `qua`, `trai`, `tep`, `nhanh`, `lat`, `mieng`, `goi`, `lon`, `hop`, `nhum`, `chut`, `nam`, `bo`; `null` là đếm không đơn vị) + `unitText` (chữ đơn vị người dùng viết, để hiện). Không tách được số lượng thì `quantity` null và `amountText` là chữ tự do ("1 bó nhỏ"). Cả hai null là không ghi số lượng. `aisleId` null là không khu vực.
 - `sources`: công thức mà món đi chợ đến từ; `recipeId` null khi công thức đã bị xóa hẳn (tên vẫn giữ).
 - `knownItems`: mỗi tên món đã từng thêm vào đi chợ (khóa so khớp tính lại từ `name` khi đọc): gợi ý khi gõ, "Món hay mua" (`favorite`), và khu vực người dùng đã chọn cho tên đó (`aisleId`; null là theo từ điển).
 - Ngày lịch (`purchasedOn`, `expiresOn`, `mealPlan.date`) là chữ `YYYY-MM-DD` theo giờ địa phương, không phải thời điểm, để không lệch ngày khi đổi múi giờ. Sai dạng thì file bị coi là hỏng.
@@ -103,7 +105,7 @@ Mọi khóa của định dạng 1 giữ nguyên nghĩa. Thêm 7 khóa cấp đ�
 
 ## Khôi phục
 Thứ tự (AC-54): đọc lại và kiểm mã băm toàn bộ file TRƯỚC; chỉ khi tốt mới chép ảnh vào thư mục của app; nạp dữ liệu trong MỘT giao dịch cơ sở dữ liệu; dọn ảnh không còn công thức nào dùng.
-- **Thay thế toàn bộ**: xóa dữ liệu hiện có rồi nạp, giữ nguyên `id`. CookNote tự lưu một bản dữ liệu hiện tại trước (giữ 2 bản gần nhất).
+- **Thay thế toàn bộ**: xóa dữ liệu hiện có rồi nạp, giữ nguyên `id`. Bepbook tự lưu một bản dữ liệu hiện tại trước (giữ 2 bản gần nhất).
   - Danh sách đi chợ, món đã biết, tủ bếp, lịch thực đơn, thực đơn mẫu trên máy LUÔN bị xóa, kể cả khi file là định dạng 1 (không có các khóa đó).
   - Khu vực và bữa là cấu hình: file có khóa `aisles`/`mealSlots` thì thay bằng của file; file định dạng 1 không có thì giữ khu vực và bữa đang có.
   - Tham chiếu tới khu vực không có thì món thành "không khu vực"; món lịch/mẫu trỏ tới bữa hoặc công thức không có thì bị bỏ (không làm hỏng cả lần khôi phục).
@@ -112,5 +114,5 @@ Thứ tự (AC-54): đọc lại và kiểm mã băm toàn bộ file TRƯỚC; c
 ## Mã hóa
 File KHÔNG được mã hóa. Ai có file đều đọc được công thức và ảnh. Mã hóa bằng mật khẩu nằm trong Ý tưởng của BACKLOG.
 
-## Tạo bằng tay (ví dụ không dùng CookNote)
+## Tạo bằng tay (ví dụ không dùng Bepbook)
 Giải nén, mở `html/index.html` để đọc và in. Hoặc đọc `data.json` bằng bất kỳ công cụ JSON nào; ảnh nằm trong `images/`.
