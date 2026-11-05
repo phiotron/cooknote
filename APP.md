@@ -1,4 +1,4 @@
-# A004-cooknote · CookNote — APP.md
+# A004-cooknote · Bepbook (tên cũ CookNote) — APP.md
 
 > Brief và trạng thái của app. **Chỉ phiên điều phối sửa file này**; phiên con ghi báo cáo vào `notes/`.
 > App **nhập từ DemoChung** (APP-005, đã qua G1–G3 ở đó, 2026-11-03..04). Quy trình cũ (BACKLOG đầy đủ kèm biên bản
@@ -60,25 +60,22 @@ Luồng nhanh nhất: Chia sẻ link từ trình duyệt → CookNote → xem tr
 ## Trạng thái
 | Phiên điều phối | Ngày | Phiên con đã mở | Kết quả |
 |---|---|---|---|
-| #1 Chuyển + product.md + nền | 2026-11-04..05 | A product.md · B iOS + CI + dependency · C DB v3 + backup v2 · D OCR Android · E store & pháp lý | A, C, E xong; B, D bị dừng giữa chừng (phần chính đã commit); CHƯA gộp nhánh wip; CI Android chưa xanh |
+| #1 Chuyển + product.md + nền | 2026-11-04..05 | A product.md · B iOS + CI + dependency · C DB v3 + backup v2 · D OCR Android · E store & pháp lý | A, C, E xong; B, D bị dừng giữa chừng (phần chính đã commit). Phiên F `a004-merge-wip` (2026-11-05): đã gộp g5+g4+g9 vào `main`, 390 test đạt, APK release có INTERNET + tessdata, **CI Android + iOS xanh** (`d3687d2`, `e28349c`); báo cáo `notes/2026-11-05-gop-wip.md` |
 | #2 Áp UI Hi-Fi + đủ tính năng | | F0 design system → G1..G6 theo nhóm màn → H build + danh sách thử | |
 | #3 Phát hành | | ảnh store · Android · iOS | |
 
 Kế hoạch đầy đủ 3 phiên: `../../memory/sessions/2026-11-04-A004-cooknote.md`.
 
-**Việc dở / bước tiếp (cập nhật 2026-11-05):**
-- **Gộp 3 nhánh wip vào `main`** (Phương yêu cầu 2026-11-05; đã đánh giá, chưa làm): `wip/g5-cook` (logic nấu, 263 test đạt, 1 import thừa;
+**Việc dở / bước tiếp (cập nhật 2026-11-05, sau phiên F):**
+- ✅ **XONG:** gộp wip + manifest (INTERNET, SEND) + `.gitignore` + build APK release + CI xanh — chi tiết ở `notes/2026-11-05-gop-wip.md`. Mục 2 mục dưới (gộp wip, Android chưa build) giữ để tham chiếu lịch sử. Còn lại của #1: quyết iOS sao lưu tự động + cleartext http; áp fact `nhap-app-tu-ngoai` mục 3/6; Phương chọn tên + tuổi Apple + duyệt product.md.
+- ~~Gộp 3 nhánh wip vào `main`~~ (đã làm): `wip/g5-cook` (logic nấu, 263 test đạt, 1 import thừa;
   phần Android trùng desugaring đã có) → `wip/g4-web-import` (13 test UI hỏng vì `ShareIntentListener` gọi plugin thật trong test → cho
   test dùng bản giả) → `wip/g9-exchange` (10 lint nhỏ; `backup_data.dart`/`recipe_repository.dart` đã bị C đổi → gỡ xung đột cẩn thận).
   `wip/g6-tests` KHÔNG gộp: C đã dùng lại. Sau gộp: analyze + toàn bộ test + build APK release.
 - **Android chưa build lại trên cây chung:** commit `0aeca87` (desugaring + compileSdk 37) chưa chạy build/CI. Còn thiếu ở manifest:
   quyền `INTERNET` cho bản release (F-03 sẽ hỏng nếu thiếu) và intent-filter `SEND text/plain` (AC-17) — `notes/2026-11-05-ios-ci.md`.
   Thêm `android/.kotlin/` vào `.gitignore`. CI iOS chưa có lần chạy xanh trọn vẹn sau `d16f83f`.
-- **Sao lưu tự động trên iOS chưa có cách** (F-11 dùng SAF chỉ Android) → quyết ở #2 (vd thư mục chọn qua UIDocumentPicker + bookmark, hoặc iCloud Drive).
-- **Tên app (S-71):** "CookNote" trùng/gần trùng trên store (Cooknote - Sổ tay nấu ăn, CookNotes, MyCookNote). E đề xuất Sổ Bếp · Bepbook · …
-  (`store/app-store.md`) → Phương quyết trước khi gửi Claude Design/đăng ký store.
-- Bảng hỏi tuổi Apple: có trình duyệt web không giới hạn → 16+/17+ (`store/app-store.md`, lựa chọn A/B) → Phương quyết.
-- Trình duyệt mở được trang `http` → chặn cleartext hay ghi ngoại lệ (S-60, COMPLIANCE S-01); AC-64 nên xoá cả dữ liệu WebView.
+- ✅ **Đã chốt D-010 (2026-11-05) và áp vào tài liệu** (`notes/2026-11-05-ap-d010.md`): tên **Bepbook**; tuổi Apple A (16+/17+); cho phép http (ngoại lệ ở COMPLIANCE 2b + chính sách, AC-66); sao lưu iOS bằng thư mục + bookmark (AC-67). **Còn lại cho #2 (code):** đổi tên hiển thị trong `.arb`/`android:label`/`CFBundleDisplayName`, màn Sao lưu iOS, cảnh báo http, xoá dữ liệu WebView (AC-64).
 - Phương: duyệt `product.md` v1.1 (58 màn, đủ Q1–Q14 theo D-009) → gửi Claude Design → mockup vào `design/hifi/`.
 - Phương: file mẫu Paprika/Recipe Keeper vào `test/fixtures/exchange/` trước #2; Apple Developer + App ID + secrets theo `docs/ci.md`;
   đăng chính sách lên web; upload keystore ngoài repo; closed test 12 × 14 ngày sớm; tự thử APK (không adb) theo
@@ -121,6 +118,7 @@ Flutter 3.47.8 ở `C:/src/flutter`, **chưa có trong PATH**. Git Bash: `export
 - **D-008 (2026-11-04)** Chuyển vào xưởng; đủ SPEC + thứ tự cắt; Android + iOS; UI thiết kế mới qua Claude Design; không adb.
 - **2026-11-04** Phần UI dở của agent cũ: nhánh `wip/g4-web-import`, `wip/g5-cook`, `wip/g6-tests`, `wip/g9-exchange` (tham khảo, không merge thẳng).
 - **2026-11-04** Tài khoản Google Play và Apple đứng tên cá nhân (theo xưởng).
+- **D-010 (2026-11-05, Phương chốt qua popup):** (1) tên app đổi thành **Bepbook** ("Bepbook: Sổ Công Thức" / "Bepbook: Recipe Notebook"; mã app, bundle `com.phiotron.cooknote` giữ nguyên); (2) tuổi Apple **A** — giữ trình duyệt đầy đủ AC-16, nhận 16+/17+, Play vẫn khai 13+; (3) trình duyệt **cho phép http**, phải ghi ngoại lệ vào COMPLIANCE S-01 + chính sách, AC-64 xoá cả dữ liệu WebView; (4) sao lưu tự động iOS = **chọn thư mục qua UIDocumentPicker + bookmark**, ghi định kỳ (làm ở #2). Cần ghi vào `docs/DECISIONS.md` + cập nhật `store/`, `product.md` (tên mới) ở phiên sau.
 
 ## Retro (điền khi phát hành)
 - Tổng phiên điều phối / phiên con:
