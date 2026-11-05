@@ -77,8 +77,10 @@ jobs:
           print(" ".join(k for k in json.load(sys.stdin) if k.endswith("UsageDescription") and k not in allowed))')
           if [ -n "$extra" ]; then echo "::error::Info.plist xin quyền ngoài SPEC: $extra"; exit 1; fi
           # App và Share Extension cùng app group.
-          g1=$(plutil -extract com.apple.security.application-groups.0 raw ios/Runner/Runner.entitlements)
-          g2=$(plutil -extract com.apple.security.application-groups.0 raw ios/ShareExtension/ShareExtension.entitlements)
+          # (plutil -extract không đọc được khoá có dấu chấm → dùng python.)
+          group() { plutil -convert json -o - "$1" | python3 -c 'import json, sys; print(json.load(sys.stdin)["com.apple.security.application-groups"][0])'; }
+          g1=$(group ios/Runner/Runner.entitlements); g2=$(group ios/ShareExtension/ShareExtension.entitlements)
+          echo "app group: app=$g1 extension=$g2"
           test "$g1" = "group.com.phiotron.cooknote" && test "$g1" = "$g2"
 
       - name: Build iOS simulator (debug, không ký)
