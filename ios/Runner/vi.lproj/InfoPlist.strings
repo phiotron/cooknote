@@ -1,4 +1,4 @@
 /* Vietnamese permission prompts and app name (Info.plist). */
-"CFBundleDisplayName" = "CookNote";
-"NSCameraUsageDescription" = "CookNote chỉ dùng camera khi bạn chụp ảnh món ăn hoặc trang công thức. Ảnh chỉ lưu trên iPhone này.";
-"NSPhotoLibraryUsageDescription" = "CookNote chỉ mở thư viện ảnh khi bạn chọn ảnh cho công thức. Ảnh chỉ lưu trên iPhone này.";
+"CFBundleDisplayName" = "Bepbook";
+"NSCameraUsageDescription" = "Bepbook chỉ dùng camera khi bạn chụp ảnh món ăn hoặc trang công thức. Ảnh chỉ lưu trên iPhone này.";
+"NSPhotoLibraryUsageDescription" = "Bepbook chỉ mở thư viện ảnh khi bạn chọn ảnh cho công thức. Ảnh chỉ lưu trên iPhone này.";

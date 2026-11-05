@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Bepbook: nền adaptive icon = primary (cinnamon); splash = surface (giấy). Nguồn: design/hifi/tokens -->
+    <color name="ic_launcher_background">#9A4518</color>
+    <color name="splash_surface">#FBF6EC</color>
+</resources>
