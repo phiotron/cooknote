@@ -3,7 +3,7 @@
 ## Định danh
 - Bundle ID / package name:
 - Phiên bản hiện tại (versionName / versionCode / buildNumber):
-- Store: Google Play [ ] · App Store [ ] · phân phối nội bộ [ ]
+- Store: Google Play [x] · App Store [x] (D-008) · phân phối nội bộ [ ] — chưa nộp bản nào (2026-11-05)
 
 ## Ký ứng dụng
 - Nơi cất keystore/chứng chỉ (NGOÀI repo, có sao lưu): {{...}}
@@ -11,10 +11,21 @@
 - KHÔNG ghi mật khẩu vào file này.
 
 ## Hồ sơ store
-- Tên, mô tả ngắn, mô tả dài, từ khóa:
-- Ảnh chụp màn hình (kích thước từng loại thiết bị theo yêu cầu store hiện hành):
-- Phân loại độ tuổi, danh mục:
-- Đường dẫn chính sách quyền riêng tư:
+Bản nháp 2026-11-05 (phiên con "Store & pháp lý 2 nền tảng"); số liệu store kiểm trên trang chính thức cùng ngày. Đếm giới hạn ký
+tự/byte: `python store/check_limits.py` (chạy lại sau mỗi lần sửa chữ).
+- **Tên: CHƯA CHỐT** — "CookNote" trùng với app cùng loại trên cả hai store, kể cả app tiếng Việt của BECEN (S-71). 3 tên đề xuất
+  có link tra: `store/app-store.md` mục "Tra trùng tên". Phương quyết trước khi tạo trang Play cho closed test.
+- Tên, mô tả ngắn, mô tả dài, ghi chú phát hành, Data safety, IARC, đối tượng mục tiêu (Play): `store/google-play.md`.
+- Tên, phụ đề, keyword (≤ 100 **byte**), promotional text, mô tả, xếp hạng tuổi, App Privacy, export compliance, ghi chú App Review
+  (App Store): `store/app-store.md`.
+- Ảnh chụp màn hình: kích thước bắt buộc từng store + 8 cảnh: `store/screenshots-plan.md` (chụp thật ở #3 với UI mới).
+- Phân loại: Play **Food & Drink**, đối tượng 13–15/16–17/18+, IARC dự kiến mức thấp nhất kèm "Unrestricted Internet";
+  App Store **Food & Drink** / phụ **Productivity**, dự kiến **16+** vì trình duyệt trong app (Phương quyết, COMPLIANCE P-05).
+- Đường dẫn chính sách quyền riêng tư: CHƯA đăng. Nội dung `docs/legal/privacy-policy.md` (+ `docs/legal/terms.md` tuỳ chọn);
+  gợi ý `https://phiotron.github.io/phiotron-legal/cooknote/privacy` (repo public chung, fact `tai-khoan-store`). Support URL App
+  Store: `…/cooknote/support` (phải có thông tin liên hệ).
+- Closed test Play (tài khoản cá nhân, 12 tester × 14 ngày): `store/closed-test.md`.
+- Liên hệ công khai: `phamphuongphuongnd@gmail.com` · Tên nhà phát triển Play: Phiotron · App Store: họ tên thật (tài khoản cá nhân).
 
 ## Lịch sử phát hành
 | Phiên bản | Ngày | Nội dung | Ghi chú |
