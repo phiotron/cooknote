@@ -47,8 +47,8 @@ Console hay App Store Connect. Không dùng subagent.
 3. **Đăng chính sách** (`docs/legal/privacy-policy.md`, tuỳ chọn `terms.md`) và trang hỗ trợ lên GitHub Pages của repo public chung
    `phiotron-legal` (fact `tai-khoan-store`; repo chưa có link) → gửi URL cho phiên code (màn Giới thiệu, AC-63). Chỉ đăng sau khi
    đối chiếu bản build thật (ghi chú nội bộ đầu file).
-4. **Email**: đã dùng `phamphuongphuongnd@gmail.com` (fact xưởng, chốt 2026-11-05) cho hỗ trợ + báo lỗi bảo mật. A002 lại in
-   `phamphuongphuong@gmail.com` (thiếu "nd") trong chính sách và store — kiểm xem địa chỉ nào đúng. Muốn email bảo mật riêng → thay `[EMAIL_BẢO_MẬT]`.
+4. **Email**: `phamphuongphuongnd@gmail.com` cho hỗ trợ + báo lỗi bảo mật (Phương xác nhận 2026-11-05; A002 đã sửa theo cùng ngày,
+   kể cả `lib/src/app_info.dart`). Muốn email bảo mật riêng → thay `[EMAIL_BẢO_MẬT]`.
 5. Tài khoản: Apple Developer cá nhân (chưa có) + App ID `com.phiotron.cooknote`; Play: upload keystore ngoài repo; khai DSA trader
    status (đề xuất "không phải trader") và trả lời Content Rights trên App Store Connect (cam kết pháp lý — Phương tự trả lời).
 6. Gom 15–20 tester Android ngay (`store/closed-test.md`), gửi thư mời khi bản closed test được duyệt.
@@ -73,4 +73,4 @@ Console hay App Store Connect. Không dùng subagent.
 3. **Tra trùng tên ngay ở bước grill phiên #1** (trước khi đặt `android:label`, icon, bundle name) — lần này phát hiện trùng khi app đã
    có tên trong code. Cách tra nhanh đã chạy được: Play search qua trình duyệt, `site:apps.apple.com "<tên>"`, WIPO GBD (URL kết quả
    dựng được bằng `asStructure`).
-4. Fact `tai-khoan-store` và bản A002 lệch email (có/không "nd") — chốt một nguồn và rà lại A002.
+4. Email liên hệ chỉ nên ghi ở một nơi (fact `tai-khoan-store`); app đọc từ đó thay vì chép tay vào từng app — lần này A002 chép thiếu "nd" ở 10 chỗ.
