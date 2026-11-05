@@ -15,7 +15,8 @@ export 'backup_errors.dart';
 
 /// Phiên bản định dạng cao nhất app này đọc được. Định dạng chỉ được mở rộng
 /// (thêm khóa), không đổi nghĩa; mọi phiên bản cũ phải đọc được mãi (AC-55).
-const supportedFormatVersion = 1;
+/// 2: thêm đi chợ, tủ bếp, bữa, lịch thực đơn, thực đơn mẫu (docs/BACKUP-FORMAT.md).
+const supportedFormatVersion = 2;
 
 final _imageEntry = RegExp(r'^images/[A-Za-z0-9_.-]+$');
 
@@ -32,8 +33,9 @@ This is a zip file. Rename .cooknote to .zip and extract it.
 
 html/index.html   Mo bang trinh duyet bat ky: doc va in cong thuc, khong can CookNote.
                   Open in any browser: read and print recipes, no CookNote needed.
-data.json         Toan bo du lieu dang JSON (cong thuc, danh muc, the, lich su nau).
-                  All data as JSON.
+data.json         Toan bo du lieu dang JSON (cong thuc, danh muc, the, lich su nau,
+                  danh sach di cho, tu bep, lich thuc don, thuc don mau).
+                  All data as JSON (recipes, shopping lists, pantry, meal plan).
 images/           Anh cua cong thuc / recipe photos.
 manifest.json     Phien ban dinh dang va ma bam SHA-256 cua tung file.
                   Format version and SHA-256 of every file.
@@ -209,6 +211,14 @@ Future<BackupInfo> createBackupFile({
         'recipes': recipes.length,
         'photos': photoNames.length,
         'categories': categories.length,
+        // Định dạng 2: chỉ để người đọc file biết, app không dựa vào.
+        'shoppingItems': [
+          for (final l in (data['shoppingLists'] as List? ?? const []))
+            ...((l as Map)['items'] as List),
+        ].length,
+        'pantry': (data['pantry'] as List? ?? const []).length,
+        'mealPlan': (data['mealPlan'] as List? ?? const []).length,
+        'menuTemplates': (data['menuTemplates'] as List? ?? const []).length,
       },
       'files': hashes,
     };

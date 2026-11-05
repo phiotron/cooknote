@@ -47,4 +47,61 @@ class SettingsRepository {
 
   Future<void> setViewMode(String mode) =>
       _write(viewModeKey, mode == 'grid' ? 'grid' : 'list');
+
+  // --- Phiên bản 3: lịch, đơn vị, tủ bếp, đi chợ (AC-37, AC-38, AC-43, AC-58).
+
+  static const weekStartKey = 'weekStart';
+  static const unitSystemKey = 'unitSystem';
+  static const ignoreBasicsKey = 'ignoreBasics';
+  static const shoppingToPantryKey = 'shoppingToPantry';
+
+  static const _weekStarts = {
+    'monday': DateTime.monday,
+    'saturday': DateTime.saturday,
+    'sunday': DateTime.sunday,
+  };
+
+  /// Ngày đầu tuần: `DateTime.monday` (mặc định), `DateTime.saturday` hoặc
+  /// `DateTime.sunday` (AC-38, AC-58).
+  Stream<int> watchWeekStart() =>
+      _watch(weekStartKey).map((v) => _weekStarts[v] ?? DateTime.monday);
+
+  Future<void> setWeekStart(int weekday) {
+    final name = _weekStarts.entries
+        .where((e) => e.value == weekday)
+        .firstOrNull
+        ?.key;
+    if (name == null) {
+      throw ArgumentError.value(weekday, 'weekday', 'chỉ thứ Hai, Bảy, CN');
+    }
+    return _write(weekStartKey, name);
+  }
+
+  /// Hệ đơn vị mặc định: `metric` (mặc định) hoặc `us` (AC-58). Trả về chữ để
+  /// lớp dữ liệu không phụ thuộc `cooking/`; dùng `UnitSystem.values.byName`.
+  Stream<String> watchUnitSystem() =>
+      _watch(unitSystemKey).map((v) => v == 'us' ? 'us' : 'metric');
+
+  Future<void> setUnitSystem(String system) =>
+      _write(unitSystemKey, system == 'us' ? 'us' : 'metric');
+
+  Stream<bool> _watchFlag(String key, {required bool fallback}) =>
+      _watch(key).map((v) => v == null ? fallback : v == '1');
+
+  Future<void> _writeFlag(String key, bool on) => _write(key, on ? '1' : '0');
+
+  /// "Gia vị cơ bản không tính là thiếu" trong "Nấu được gì?" (AC-43).
+  /// Mặc định tắt (SPEC: "nếu người dùng bật").
+  Stream<bool> watchIgnoreBasics() =>
+      _watchFlag(ignoreBasicsKey, fallback: false);
+
+  Future<void> setIgnoreBasics(bool on) => _writeFlag(ignoreBasicsKey, on);
+
+  /// Lựa chọn lần trước của "chuyển món đã mua vào Tủ bếp" khi xóa món đã
+  /// gạch (AC-37). Mặc định tắt.
+  Stream<bool> watchShoppingToPantry() =>
+      _watchFlag(shoppingToPantryKey, fallback: false);
+
+  Future<void> setShoppingToPantry(bool on) =>
+      _writeFlag(shoppingToPantryKey, on);
 }

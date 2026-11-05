@@ -117,6 +117,183 @@ class Settings extends Table {
   Set<Column> get primaryKey => {key};
 }
 
+// ---------------------------------------------------------------------------
+// Phiên bản 3: Đi chợ (F-07), Lịch thực đơn (F-08), Tủ bếp (F-09).
+// Ngày lịch (ngày mua, hạn dùng, ngày của bữa) lưu dạng chữ `YYYY-MM-DD` theo
+// giờ địa phương: không lệch ngày khi đổi múi giờ. Đơn vị lưu bằng tên của
+// `IngredientUnit` (ví dụ `g`, `cup`, `cu`), không theo số thứ tự enum.
+// ---------------------------------------------------------------------------
+
+/// Khu vực trong cửa hàng (AC-36). [key] là khóa của khu vực mặc định
+/// (`produce`, `meat`...) để từ điển tìm ra; khu vực người dùng thêm có
+/// [key] null. Đổi tên không đổi [key].
+@DataClassName('AisleRow')
+class Aisles extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  TextColumn get key => text().nullable()();
+  TextColumn get name => text().withLength(min: 1, max: 50)();
+  IntColumn get position => integer().withDefault(const Constant(0))();
+}
+
+/// Một danh sách đi chợ, ví dụ "Siêu thị", "Chợ" (AC-34).
+@DataClassName('ShoppingListRow')
+class ShoppingLists extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  TextColumn get name => text().withLength(min: 1, max: 50)();
+  IntColumn get position => integer().withDefault(const Constant(0))();
+  DateTimeColumn get createdAt => dateTime()();
+}
+
+/// Một món trong danh sách đi chợ (AC-34..AC-37). Số lượng có cấu trúc
+/// ([quantity], [unit], [unitText]) khi tách được, không thì chữ tự do
+/// [amountText] ("1 ít", "vừa ăn").
+@DataClassName('ShoppingItemRow')
+class ShoppingItems extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  IntColumn get listId =>
+      integer().references(ShoppingLists, #id, onDelete: KeyAction.cascade)();
+  TextColumn get name => text().withLength(min: 1, max: 200)();
+
+  /// Khóa so khớp tên (bỏ dấu, số ít), để gộp món trùng (AC-35).
+  TextColumn get nameKey => text()();
+  RealColumn get quantity => real().nullable()();
+  TextColumn get unit => text().nullable()();
+  TextColumn get unitText => text().withDefault(const Constant(''))();
+  TextColumn get amountText => text().nullable()();
+  TextColumn get note => text().nullable()();
+  IntColumn get aisleId => integer().nullable().references(
+    Aisles,
+    #id,
+    onDelete: KeyAction.setNull,
+  )();
+  BoolColumn get checked => boolean().withDefault(const Constant(false))();
+  DateTimeColumn get checkedAt => dateTime().nullable()();
+  IntColumn get position => integer().withDefault(const Constant(0))();
+}
+
+/// Công thức mà một món đi chợ đến từ (AC-35). Một món gộp có thể đến từ
+/// nhiều công thức. Giữ cả tên để còn hiện khi công thức đã bị xóa hẳn.
+@DataClassName('ShoppingItemSourceRow')
+class ShoppingItemSources extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  IntColumn get itemId =>
+      integer().references(ShoppingItems, #id, onDelete: KeyAction.cascade)();
+  IntColumn get recipeId => integer().nullable().references(
+    Recipes,
+    #id,
+    onDelete: KeyAction.setNull,
+  )();
+  TextColumn get recipeName => text()();
+}
+
+/// Mỗi tên món từng thêm vào đi chợ (theo khóa so khớp): để gợi ý khi gõ,
+/// "Món hay mua" (AC-34) và nhớ khu vực người dùng đã chọn (AC-36).
+@DataClassName('KnownItemRow')
+class KnownItems extends Table {
+  TextColumn get nameKey => text()();
+  TextColumn get name => text()();
+
+  /// Khu vực người dùng đã chuyển món này vào; null là theo từ điển.
+  IntColumn get aisleId => integer().nullable().references(
+    Aisles,
+    #id,
+    onDelete: KeyAction.setNull,
+  )();
+  IntColumn get useCount => integer().withDefault(const Constant(0))();
+  DateTimeColumn get lastUsedAt => dateTime().nullable()();
+
+  /// Người dùng ghim vào "Món hay mua".
+  BoolColumn get favorite => boolean().withDefault(const Constant(false))();
+  IntColumn get favoritePosition => integer().withDefault(const Constant(0))();
+
+  @override
+  Set<Column> get primaryKey => {nameKey};
+}
+
+/// Nguyên liệu đang có trong Tủ bếp (AC-42).
+@DataClassName('PantryItemRow')
+class PantryItems extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  TextColumn get name => text().withLength(min: 1, max: 200)();
+  TextColumn get nameKey => text()();
+  RealColumn get quantity => real().nullable()();
+  TextColumn get unit => text().nullable()();
+  TextColumn get unitText => text().withDefault(const Constant(''))();
+  TextColumn get amountText => text().nullable()();
+  IntColumn get aisleId => integer().nullable().references(
+    Aisles,
+    #id,
+    onDelete: KeyAction.setNull,
+  )();
+
+  /// Ngày mua `YYYY-MM-DD`.
+  TextColumn get purchasedOn => text()();
+
+  /// Hạn dùng `YYYY-MM-DD`; null là không ghi.
+  TextColumn get expiresOn => text().nullable()();
+  DateTimeColumn get createdAt => dateTime()();
+}
+
+/// Bữa trong ngày (AC-38): mặc định Sáng, Trưa, Tối, Phụ; đổi tên, thêm,
+/// bớt được. [key] là khóa của bữa mặc định (`breakfast`...), null với bữa
+/// người dùng thêm.
+@DataClassName('MealSlotRow')
+class MealSlots extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  TextColumn get key => text().nullable()();
+  TextColumn get name => text().withLength(min: 1, max: 30)();
+  IntColumn get position => integer().withDefault(const Constant(0))();
+}
+
+/// Một món trong lịch thực đơn (AC-38): công thức HOẶC chữ tự do ("Ăn
+/// ngoài"), khẩu phần riêng tùy chọn.
+@DataClassName('MealPlanEntryRow')
+@TableIndex(name: 'meal_plan_entries_date', columns: {#date})
+class MealPlanEntries extends Table {
+  IntColumn get id => integer().autoIncrement()();
+
+  /// Ngày `YYYY-MM-DD`.
+  TextColumn get date => text().withLength(min: 10, max: 10)();
+  IntColumn get slotId =>
+      integer().references(MealSlots, #id, onDelete: KeyAction.cascade)();
+  IntColumn get recipeId => integer().nullable().references(
+    Recipes,
+    #id,
+    onDelete: KeyAction.cascade,
+  )();
+  TextColumn get freeText => text().nullable()();
+  RealColumn get servings => real().nullable()();
+  IntColumn get position => integer().withDefault(const Constant(0))();
+}
+
+/// Thực đơn mẫu đặt tên được, ví dụ "Cơm gia đình 4 món" (AC-39).
+@DataClassName('MenuTemplateRow')
+class MenuTemplates extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  TextColumn get name => text().withLength(min: 1, max: 100)();
+  IntColumn get position => integer().withDefault(const Constant(0))();
+  DateTimeColumn get createdAt => dateTime()();
+}
+
+/// Một món của thực đơn mẫu; [dayOffset] 0 là ngày áp, 1 là ngày sau (AC-39).
+@DataClassName('MenuTemplateEntryRow')
+class MenuTemplateEntries extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  IntColumn get templateId =>
+      integer().references(MenuTemplates, #id, onDelete: KeyAction.cascade)();
+  IntColumn get dayOffset => integer().withDefault(const Constant(0))();
+  IntColumn get slotId =>
+      integer().references(MealSlots, #id, onDelete: KeyAction.cascade)();
+  IntColumn get recipeId => integer().nullable().references(
+    Recipes,
+    #id,
+    onDelete: KeyAction.cascade,
+  )();
+  TextColumn get freeText => text().nullable()();
+  RealColumn get servings => real().nullable()();
+  IntColumn get position => integer().withDefault(const Constant(0))();
+}
+
 @DriftDatabase(
   tables: [
     Recipes,
@@ -127,6 +304,16 @@ class Settings extends Table {
     RecipeTags,
     CookLog,
     Settings,
+    Aisles,
+    ShoppingLists,
+    ShoppingItems,
+    ShoppingItemSources,
+    KnownItems,
+    PantryItems,
+    MealSlots,
+    MealPlanEntries,
+    MenuTemplates,
+    MenuTemplateEntries,
   ],
 )
 class AppDatabase extends _$AppDatabase {
@@ -134,7 +321,7 @@ class AppDatabase extends _$AppDatabase {
     : super(executor ?? driftDatabase(name: 'cooknote'));
 
   @override
-  int get schemaVersion => 2;
+  int get schemaVersion => 3;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -148,6 +335,21 @@ class AppDatabase extends _$AppDatabase {
         await m.createTable(recipeTags);
         await m.createTable(cookLog);
         await _backfillSearchKeys();
+      }
+      if (from < 3) {
+        // F-07, F-08, F-09. Dữ liệu mặc định theo ngôn ngữ (khu vực, bữa,
+        // danh sách đầu tiên) do `seedV3Defaults` tạo lúc mở app.
+        await m.createTable(aisles);
+        await m.createTable(shoppingLists);
+        await m.createTable(shoppingItems);
+        await m.createTable(shoppingItemSources);
+        await m.createTable(knownItems);
+        await m.createTable(pantryItems);
+        await m.createTable(mealSlots);
+        await m.createTable(mealPlanEntries);
+        await m.createIndex(mealPlanEntriesDate);
+        await m.createTable(menuTemplates);
+        await m.createTable(menuTemplateEntries);
       }
     },
     beforeOpen: (details) async {

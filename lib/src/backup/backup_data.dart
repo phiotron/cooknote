@@ -2,11 +2,17 @@ import 'package:drift/drift.dart';
 
 import '../data/database.dart';
 import '../data/text_normalize.dart';
+import 'backup_data_v2.dart';
 import 'backup_errors.dart';
 
 /// Các khóa cài đặt đi theo bản sao lưu. Cài đặt của chính tính năng sao lưu
 /// (thư mục, lịch) không đi theo: đổi máy thì chọn lại.
-const _portableSettings = ['locale', 'themeMode', 'viewMode'];
+const _portableSettings = [
+  'locale',
+  'themeMode',
+  'viewMode',
+  ...portableSettingsV2,
+];
 
 String _iso(DateTime t) => t.toUtc().toIso8601String();
 DateTime _parse(Object? v) => DateTime.parse(v as String).toLocal();
@@ -108,6 +114,7 @@ Future<Map<String, Object?>> exportData(AppDatabase db) async {
       for (final s in settings)
         if (_portableSettings.contains(s.key)) s.key: s.value,
     },
+    ...await exportDataV2(db),
   };
 }
 
@@ -145,6 +152,9 @@ Future<ImportSummary> importData(
 
   return db.transaction(() async {
     if (replace) {
+      for (final t in userTablesV2(db)) {
+        await db.delete(t).go();
+      }
       for (final t in <TableInfo<Table, dynamic>>[
         db.cookLog,
         db.recipeTags,
@@ -349,6 +359,9 @@ Future<ImportSummary> importData(
       }
       added++;
     }
+
+    // Gộp chỉ thêm công thức; đi chợ, tủ bếp, lịch ở máy này giữ nguyên.
+    if (replace) await importDataV2(db, data);
 
     if (replace && settings is Map) {
       for (final e in settings.entries) {

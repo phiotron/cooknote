@@ -10,11 +10,12 @@ import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../fixtures.dart';
+import 'fixture_v2.dart';
 
 /// Mỗi phiên bản định dạng đã phát hành có một file mẫu trong
 /// `test/fixtures/` và test này khôi phục TẤT CẢ các file đó (AC-55).
 /// Thêm file mới khi định dạng được mở rộng; KHÔNG sửa hay xóa file cũ.
-const _fixtures = {'backup_v1.cooknote': 1};
+const _fixtures = {'backup_v1.cooknote': 1, 'backup_v2.cooknote': 2};
 
 void main() {
   for (final entry in _fixtures.entries) {
@@ -83,16 +84,23 @@ void main() {
           all.firstWhere((r) => r.name == 'Bánh flan').deletedAt,
           isNotNull,
         );
+        if (entry.value >= 2) await checkV2Fixture(db, pho.id);
       },
     );
   }
 
-  // Chạy một lần để tạo file mẫu: WRITE_FIXTURE=1 flutter test test/backup/format_compat_test.dart
-  // Chỉ dùng khi phát hành MỘT phiên bản định dạng mới, đặt tên file mới.
+  // Chạy một lần để tạo file mẫu của định dạng HIỆN TẠI:
+  // WRITE_FIXTURE=1 flutter test test/backup/format_compat_test.dart
+  // Chỉ dùng khi mở rộng định dạng (tăng supportedFormatVersion). Không ghi
+  // đè file đã có: file mẫu cũ là bằng chứng của bản đã phát hành.
   test(
-    'tạo file mẫu backup_v1.cooknote',
+    'tạo file mẫu backup_v$supportedFormatVersion.cooknote',
     skip: Platform.environment['WRITE_FIXTURE'] == null,
     () async {
+      final out = File(
+        'test/fixtures/backup_v$supportedFormatVersion.cooknote',
+      );
+      if (out.existsSync()) fail('${out.path} đã có, không ghi đè');
       final temp = Directory.systemTemp.createTempSync('cooknote_fixture_');
       final db = AppDatabase(NativeDatabase.memory());
       final images = ImageStore(Directory('${temp.path}/photos'));
@@ -126,14 +134,14 @@ void main() {
       await recipes.markCooked(pho);
       final flan = await recipes.save(const RecipeDraft(name: 'Bánh flan'));
       await recipes.moveToTrash(flan);
-      final out = File('test/fixtures/backup_v1.cooknote');
+      await fillV2Fixture(db, pho, clock);
       out.parent.createSync(recursive: true);
       await createBackupFile(
         db: db,
         images: images,
         out: out,
         appVersion: '1.0.0',
-        now: DateTime.utc(2026, 11, 4, 3),
+        now: DateTime.utc(2026, 11, 5, 3),
       );
       await db.close();
     },

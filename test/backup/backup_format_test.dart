@@ -138,9 +138,17 @@ void main() {
         utf8.decode(archive.findFile('manifest.json')!.readBytes()!),
       ) as Map<String, Object?>;
       expect(manifest['app'], 'CookNote');
-      expect(manifest['formatVersion'], 1);
+      expect(manifest['formatVersion'], 2);
       expect(manifest['appVersion'], '1.2.3');
-      expect(manifest['counts'], {'recipes': 2, 'photos': 2, 'categories': 2});
+      expect(manifest['counts'], {
+        'recipes': 2,
+        'photos': 2,
+        'categories': 2,
+        'shoppingItems': 0,
+        'pantry': 0,
+        'mealPlan': 0,
+        'menuTemplates': 0,
+      });
       final files = manifest['files'] as Map<String, Object?>;
       expect(
         files.keys.toSet(),
@@ -160,7 +168,7 @@ void main() {
       final info = await verifyBackupFile(await backup());
       expect(info.recipes, 2);
       expect(info.photos, 2);
-      expect(info.formatVersion, 1);
+      expect(info.formatVersion, 2);
       expect(info.appVersion, '1.2.3');
       expect(info.createdAt, DateTime(2026, 11, 4, 10, 30));
     });
