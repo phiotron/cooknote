@@ -18,6 +18,18 @@ const maxFreeText = 200;
 
 enum MealPlanProblem { emptyName, nameTooLong, emptyEntry, notFound }
 
+/// Cách áp thực đơn mẫu vào bữa đã có món (D-009, AC-39).
+enum TemplateApplyMode {
+  /// "Thêm vào": món mẫu thêm vào cuối bữa.
+  add,
+
+  /// "Thay thế": xóa món cũ của bữa đích rồi áp mẫu.
+  replace,
+
+  /// Bỏ qua bữa đã có món.
+  skipOccupied,
+}
+
 class MealPlanException implements Exception {
   const MealPlanException(this.problem);
 
@@ -588,28 +600,74 @@ class MealPlanRepository {
   Future<void> deleteTemplate(int id) =>
       (_db.delete(_db.menuTemplates)..where((t) => t.id.equals(id))).go();
 
+  Future<List<PlacedEntry>> _placed(
+    int templateId,
+    List<DateTime> startDays,
+  ) async {
+    final entries = await templateEntries(templateId);
+    return [for (final d in startDays) ...planner.applyTemplate(entries, d)];
+  }
+
+  /// Các ô (ngày, bữa) mà mẫu sẽ rơi vào và ĐÃ có món (D-009, AC-39), theo
+  /// ngày rồi thứ tự bữa. Rỗng thì áp thẳng; không rỗng thì UI hỏi "Thay
+  /// thế" hay "Thêm vào".
+  Future<List<({String date, int slotId})>> occupiedTargets(
+    int templateId,
+    List<DateTime> startDays,
+  ) async => _occupied(await _placed(templateId, startDays));
+
+  Future<List<({String date, int slotId})>> _occupied(
+    List<PlacedEntry> placed,
+  ) async {
+    if (placed.isEmpty) return const [];
+    final targets = {for (final p in placed) slotKey(p.date, p.slotId)};
+    final rows = await (_db.select(
+      _db.mealPlanEntries,
+    )..where((e) => e.date.isIn(placed.map((p) => p.date).toSet()))).get();
+    final order = {for (final s in await getSlots()) s.id: s.position};
+    final out = <({String date, int slotId})>{
+      for (final r in rows)
+        if (targets.contains(slotKey(r.date, r.slotId)))
+          (date: r.date, slotId: r.slotId),
+    }.toList();
+    out.sort((a, b) {
+      final d = a.date.compareTo(b.date);
+      return d != 0
+          ? d
+          : (order[a.slotId] ?? 0).compareTo(order[b.slotId] ?? 0);
+    });
+    return out;
+  }
+
   /// Áp thực đơn mẫu bằng một thao tác (AC-39): mỗi ngày trong [startDays]
   /// là ngày 0 của một lần áp. Thực đơn một ngày áp cho cả tuần thì truyền 7
-  /// ngày; thực đơn cả tuần thì truyền ngày đầu tuần. Món được thêm vào cuối
-  /// bữa; [skipOccupied] thì bỏ món rơi vào bữa đã có món. Trả về số món đã
-  /// thêm.
+  /// ngày; thực đơn cả tuần thì truyền ngày đầu tuần.
+  ///
+  /// Bữa đích đã có món (xem [occupiedTargets]) xử lý theo [mode] (D-009):
+  /// [TemplateApplyMode.add] thêm vào cuối bữa; [TemplateApplyMode.replace]
+  /// xóa món cũ của các bữa đích rồi áp, trong MỘT giao dịch (bữa mẫu không
+  /// đụng tới thì giữ nguyên); [TemplateApplyMode.skipOccupied] bỏ món rơi
+  /// vào bữa đã có món. Trả về số món đã thêm.
   Future<int> applyTemplate(
     int templateId,
     List<DateTime> startDays, {
-    bool skipOccupied = false,
+    TemplateApplyMode mode = TemplateApplyMode.add,
   }) => _db.transaction(() async {
-    final entries = await templateEntries(templateId);
-    var placed = <PlacedEntry>[
-      for (final d in startDays) ...planner.applyTemplate(entries, d),
-    ];
-    if (skipOccupied && placed.isNotEmpty) {
-      final dates = placed.map((p) => p.date).toSet();
-      final rows = await (_db.select(
-        _db.mealPlanEntries,
-      )..where((e) => e.date.isIn(dates))).get();
-      placed = withoutOccupied(placed, {
-        for (final r in rows) slotKey(r.date, r.slotId),
-      });
+    var placed = await _placed(templateId, startDays);
+    if (mode != TemplateApplyMode.add && placed.isNotEmpty) {
+      final occupied = await _occupied(placed);
+      if (mode == TemplateApplyMode.skipOccupied) {
+        placed = withoutOccupied(placed, {
+          for (final o in occupied) slotKey(o.date, o.slotId),
+        });
+      } else {
+        for (final o in occupied) {
+          await (_db.delete(_db.mealPlanEntries)..where(
+                (e) => e.date.equals(o.date) & e.slotId.equals(o.slotId),
+              ))
+              .go();
+        }
+      }
     }
     for (final p in placed) {
       await _add(

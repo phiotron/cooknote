@@ -8,6 +8,7 @@ import 'backup/backup_service.dart';
 import 'backup/backup_settings.dart';
 import 'backup/backup_target.dart';
 import 'data/category_repository.dart';
+import 'data/data_providers_v3.dart';
 import 'data/database.dart';
 import 'data/image_store.dart';
 import 'data/recipe_query.dart';
@@ -110,6 +111,7 @@ final startupProvider = FutureProvider<void>((ref) async {
   final saved = await settings.readLocaleCode();
   final String language = saved ?? ref.read(deviceLanguageProvider);
   await ref.read(categoryRepositoryProvider).seedDefaults(language);
+  await ref.read(v3StartupProvider.future);
   await repo.purgeTrash();
   await ref.read(imageStoreProvider).sweep(await repo.referencedPhotos());
   // Tự sao lưu nếu đã bật và tới chu kỳ (AC-50); không chặn việc mở app.

@@ -173,7 +173,12 @@ void main() {
         [('2026-11-09', 'Ăn ngoài'), ('2026-11-10', 'Bún')],
       );
       // Áp lần nữa với bỏ bữa đã có: không thêm gì.
-      expect(await env.plan.applyTemplate(id, [mon], skipOccupied: true), 0);
+      expect(
+        await env.plan.applyTemplate(id, [
+          mon,
+        ], mode: TemplateApplyMode.skipOccupied),
+        0,
+      );
 
       await env.plan.renameTemplate(id, 'Mẫu A');
       await env.plan.setTemplateEntries(id, [
@@ -184,6 +189,84 @@ void main() {
       await env.plan.deleteTemplate(id);
       expect(await env.plan.getTemplates(), isEmpty);
     });
+  });
+
+  group('AC-39/D-009 bữa đích đã có món: Thay thế hay Thêm vào', () {
+    late int tpl;
+    setUp(() async {
+      final ca = await env.recipe('Cá kho', ['cá']);
+      tpl = await env.plan.createTemplate('Cơm tối', [
+        TemplateEntry(dayOffset: 0, slotId: slot('dinner'), recipeId: ca),
+        TemplateEntry(dayOffset: 0, slotId: slot('dinner'), freeText: 'Canh'),
+        TemplateEntry(dayOffset: 1, slotId: slot('lunch'), freeText: 'Bún'),
+      ]);
+    });
+
+    Future<List<(String, String, String)>> titles() async => [
+      for (final e in await env.plan.getRange(thu, day(7)))
+        (e.date, slots.firstWhere((s) => s.id == e.slotId).key!, e.title),
+    ];
+
+    test('báo các bữa đích đã có món; trống thì rỗng', () async {
+      expect(await env.plan.occupiedTargets(tpl, [thu]), isEmpty);
+      await env.plan.addText(day(6), slot('lunch'), 'Phở');
+      await env.plan.addText(thu, slot('dinner'), 'Ăn ngoài');
+      await env.plan.addText(thu, slot('dinner'), 'Chè');
+      await env.plan.addText(thu, slot('lunch'), 'Cơm văn phòng');
+      expect(await env.plan.occupiedTargets(tpl, [thu]), [
+        (date: '2026-11-05', slotId: slot('dinner')),
+        (date: '2026-11-06', slotId: slot('lunch')),
+      ]);
+      expect(await env.plan.occupiedTargets(tpl, [day(7)]), isEmpty);
+    });
+
+    test('Thay thế: xóa món cũ của bữa đích rồi áp, bữa khác giữ', () async {
+      await env.plan.addText(thu, slot('dinner'), 'Ăn ngoài');
+      await env.plan.addText(thu, slot('lunch'), 'Cơm văn phòng');
+      await env.plan.addText(day(6), slot('lunch'), 'Phở');
+      expect(
+        await env.plan.applyTemplate(tpl, [
+          thu,
+        ], mode: TemplateApplyMode.replace),
+        3,
+      );
+      expect(await titles(), [
+        ('2026-11-05', 'lunch', 'Cơm văn phòng'),
+        ('2026-11-05', 'dinner', 'Cá kho'),
+        ('2026-11-05', 'dinner', 'Canh'),
+        ('2026-11-06', 'lunch', 'Bún'),
+      ]);
+    });
+
+    test('Thêm vào: giữ món cũ, món mẫu ở cuối bữa', () async {
+      await env.plan.addText(thu, slot('dinner'), 'Ăn ngoài');
+      expect(await env.plan.applyTemplate(tpl, [thu]), 3);
+      expect(await titles(), [
+        ('2026-11-05', 'dinner', 'Ăn ngoài'),
+        ('2026-11-05', 'dinner', 'Cá kho'),
+        ('2026-11-05', 'dinner', 'Canh'),
+        ('2026-11-06', 'lunch', 'Bún'),
+      ]);
+    });
+
+    test(
+      'Thay thế là một giao dịch: lỗi giữa chừng thì không mất món cũ',
+      () async {
+        await env.plan.addText(thu, slot('dinner'), 'Ăn ngoài');
+        // Bữa của mẫu bị xóa ngầm bằng SQL thô để chèn món mẫu thất bại.
+        await env.db.customStatement('PRAGMA foreign_keys = OFF');
+        await env.db.customStatement(
+          'UPDATE menu_template_entries SET slot_id = 999 '
+          "WHERE free_text = 'Bún'",
+        );
+        await env.db.customStatement('PRAGMA foreign_keys = ON');
+        await expectLater(
+          env.plan.applyTemplate(tpl, [thu], mode: TemplateApplyMode.replace),
+          throwsA(anything),
+        );
+        expect(await titles(), [('2026-11-05', 'dinner', 'Ăn ngoài')]);
+      },
+    );
   });
 
   group('AC-40 thêm nguyên liệu của khoảng ngày vào đi chợ', () {
