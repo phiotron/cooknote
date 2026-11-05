@@ -60,7 +60,7 @@ Luồng nhanh nhất: Chia sẻ link từ trình duyệt → CookNote → xem tr
 | Phiên điều phối | Ngày | Phiên con đã mở | Kết quả |
 |---|---|---|---|
 | #1 Chuyển + product.md + nền | 2026-11-04..05 | A product.md · B iOS + CI + dependency · C DB v3 + backup v2 · D OCR Android · E store & pháp lý | A, C, E xong; B, D bị dừng giữa chừng (phần chính đã commit). Phiên F `a004-merge-wip` (2026-11-05): đã gộp g5+g4+g9 vào `main`, 390 test đạt, APK release có INTERNET + tessdata, **CI Android + iOS xanh** (`d3687d2`, `e28349c`); báo cáo `notes/2026-11-05-gop-wip.md` |
-| #2 Áp UI Hi-Fi + đủ tính năng | 2026-11-05.. | F0 design system + khung 5 tab/route stub (một mình) → G1 công thức · G2 đưa vào · G3 nấu · G4 đi chợ · G5 thực đơn+tủ bếp · G6 thêm/sao lưu/cài đặt → H so mockup + build + ảnh store | 🔨 Đang làm — mockup Hi-Fi v1 `90c0c71`; kế hoạch `docs/PLAN-phien-2.md` |
+| #2 Áp UI Hi-Fi + đủ tính năng | 2026-11-05.. | F0 design system + khung 5 tab/route stub (một mình) → G1 công thức · G2 đưa vào · G3 nấu · G4 đi chợ · G5 thực đơn+tủ bếp · G6 thêm/sao lưu/cài đặt → H so mockup + build + ảnh store | 🔨 Đang làm — mockup Hi-Fi v1 `90c0c71`; kế hoạch `docs/PLAN-phien-2.md`. **F0 xong** (`dd91624` trên `dev`; analyze sạch, 460 test, APK release OK; iOS CHƯA biên dịch lần nào sau F0 → chạy `ios.yml` tay trước khi merge main) — bảng route + chữ ký stub: `notes/2026-11-05-f0-design-system.md`. Chờ mở G1–G6 (hạn mức) |
 | #3 Phát hành | | ảnh store · Android · iOS | |
 
 Kế hoạch đầy đủ 3 phiên: `../../memory/sessions/2026-11-04-A004-cooknote.md`.
