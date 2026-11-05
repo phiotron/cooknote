@@ -401,6 +401,104 @@ class AppLocalizationsVi extends AppLocalizations {
   String get tagTooLong => 'Thẻ tối đa 40 ký tự';
 
   @override
+  String get webTitle => 'Nhập từ trang web';
+
+  @override
+  String get webAddressHint => 'Địa chỉ hoặc từ khóa tìm kiếm';
+
+  @override
+  String get webBack => 'Trang trước';
+
+  @override
+  String get webForward => 'Trang sau';
+
+  @override
+  String get webReload => 'Tải lại';
+
+  @override
+  String get webSave => 'Lưu công thức';
+
+  @override
+  String get webStartHint =>
+      'Gõ địa chỉ hoặc từ khóa (ví dụ \"phở bò\"), mở trang có công thức rồi bấm Lưu công thức.';
+
+  @override
+  String get webErrorNetwork =>
+      'Không có mạng hoặc không kết nối được tới trang.';
+
+  @override
+  String get webErrorTimeout => 'Trang tải quá 20 giây. Mạng có thể đang yếu.';
+
+  @override
+  String webErrorHttp(int code) {
+    return 'Trang báo lỗi $code.';
+  }
+
+  @override
+  String get webErrorOther => 'Không mở được trang.';
+
+  @override
+  String get webReadFailed => 'Không đọc được nội dung trang.';
+
+  @override
+  String get webRetry => 'Thử lại';
+
+  @override
+  String get webNoRecipe =>
+      'Trang này không có dữ liệu công thức. Bôi đen chữ trên trang rồi chọn bên dưới.';
+
+  @override
+  String get webSelectName => 'Là tên';
+
+  @override
+  String get webSelectIngredients => 'Là nguyên liệu';
+
+  @override
+  String get webSelectSteps => 'Là các bước';
+
+  @override
+  String get webSelectionEmpty => 'Chưa bôi đen chữ nào trên trang.';
+
+  @override
+  String webPartsSummary(int ingredients, int steps) {
+    return 'Đã chọn: $ingredients dòng nguyên liệu, $steps dòng bước';
+  }
+
+  @override
+  String get webClearParts => 'Xóa đã chọn';
+
+  @override
+  String get webDuplicateTitle => 'Đã có công thức này';
+
+  @override
+  String get webDuplicateBody =>
+      'Địa chỉ này đã có trong sổ. Mở bản cũ hay lưu thêm một bản mới?';
+
+  @override
+  String get webOpenExisting => 'Mở bản cũ';
+
+  @override
+  String get webSaveNew => 'Lưu bản mới';
+
+  @override
+  String webDownloadingImages(int done, int total) {
+    return 'Đang tải ảnh $done/$total';
+  }
+
+  @override
+  String get webSkipImages => 'Bỏ qua ảnh';
+
+  @override
+  String webImagesFailed(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ảnh không tải được',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get cooked => 'Đã nấu';
 
   @override

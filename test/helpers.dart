@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:cooknote/src/app.dart';
@@ -6,6 +7,7 @@ import 'package:cooknote/src/data/image_store.dart';
 import 'package:cooknote/src/data/settings_repository.dart';
 import 'package:cooknote/src/features/editor/photo_picker.dart';
 import 'package:cooknote/src/providers.dart';
+import 'package:cooknote/src/web_import/web_providers.dart';
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
@@ -79,6 +81,20 @@ class RecordingImageStore extends ImageStore {
   }
 }
 
+/// Nguồn chia sẻ giả: không gọi plugin thật; test đẩy chữ vào [controller].
+class FakeShareSource implements ShareSource {
+  FakeShareSource({this.initial});
+
+  final String? initial;
+  final controller = StreamController<String>.broadcast();
+
+  @override
+  Future<String?> initialText() async => initial;
+
+  @override
+  Stream<String> texts() => controller.stream;
+}
+
 /// Môi trường app cho widget test.
 class TestApp {
   TestApp(this.db, this.images, this.picker);
@@ -127,6 +143,7 @@ Future<TestApp> pumpApp(
           ),
         ),
         clockProvider.overrideWithValue(clock ?? () => testNow),
+        shareSourceProvider.overrideWithValue(FakeShareSource()),
         ...overrides.cast(),
       ],
       child: CookNoteApp(router: createRouter()),

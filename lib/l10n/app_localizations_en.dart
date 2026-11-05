@@ -406,6 +406,105 @@ class AppLocalizationsEn extends AppLocalizations {
   String get tagTooLong => 'A tag has at most 40 characters';
 
   @override
+  String get webTitle => 'Import from a website';
+
+  @override
+  String get webAddressHint => 'Address or search words';
+
+  @override
+  String get webBack => 'Back';
+
+  @override
+  String get webForward => 'Forward';
+
+  @override
+  String get webReload => 'Reload';
+
+  @override
+  String get webSave => 'Save recipe';
+
+  @override
+  String get webStartHint =>
+      'Type an address or search words (for example \"pho bo\"), open a page with a recipe, then tap Save recipe.';
+
+  @override
+  String get webErrorNetwork => 'No network, or the page could not be reached.';
+
+  @override
+  String get webErrorTimeout =>
+      'The page took more than 20 seconds to load. The connection may be weak.';
+
+  @override
+  String webErrorHttp(int code) {
+    return 'The page reported error $code.';
+  }
+
+  @override
+  String get webErrorOther => 'The page could not be opened.';
+
+  @override
+  String get webReadFailed => 'Could not read the page content.';
+
+  @override
+  String get webRetry => 'Try again';
+
+  @override
+  String get webNoRecipe =>
+      'This page has no recipe data. Select text on the page, then choose below.';
+
+  @override
+  String get webSelectName => 'Is the name';
+
+  @override
+  String get webSelectIngredients => 'Is ingredients';
+
+  @override
+  String get webSelectSteps => 'Is the steps';
+
+  @override
+  String get webSelectionEmpty => 'No text is selected on the page.';
+
+  @override
+  String webPartsSummary(int ingredients, int steps) {
+    return 'Picked: $ingredients ingredient lines, $steps step lines';
+  }
+
+  @override
+  String get webClearParts => 'Clear picks';
+
+  @override
+  String get webDuplicateTitle => 'You already have this recipe';
+
+  @override
+  String get webDuplicateBody =>
+      'This address is already in your book. Open the old one or save a new copy?';
+
+  @override
+  String get webOpenExisting => 'Open the old one';
+
+  @override
+  String get webSaveNew => 'Save a new copy';
+
+  @override
+  String webDownloadingImages(int done, int total) {
+    return 'Downloading photos $done/$total';
+  }
+
+  @override
+  String get webSkipImages => 'Skip photos';
+
+  @override
+  String webImagesFailed(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count photos could not be downloaded',
+      one: '1 photo could not be downloaded',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get cooked => 'Cooked';
 
   @override

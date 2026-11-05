@@ -830,6 +830,168 @@ abstract class AppLocalizations {
   /// **'A tag has at most 40 characters'**
   String get tagTooLong;
 
+  /// No description provided for @webTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Import from a website'**
+  String get webTitle;
+
+  /// No description provided for @webAddressHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Address or search words'**
+  String get webAddressHint;
+
+  /// No description provided for @webBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get webBack;
+
+  /// No description provided for @webForward.
+  ///
+  /// In en, this message translates to:
+  /// **'Forward'**
+  String get webForward;
+
+  /// No description provided for @webReload.
+  ///
+  /// In en, this message translates to:
+  /// **'Reload'**
+  String get webReload;
+
+  /// No description provided for @webSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save recipe'**
+  String get webSave;
+
+  /// No description provided for @webStartHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Type an address or search words (for example \"pho bo\"), open a page with a recipe, then tap Save recipe.'**
+  String get webStartHint;
+
+  /// No description provided for @webErrorNetwork.
+  ///
+  /// In en, this message translates to:
+  /// **'No network, or the page could not be reached.'**
+  String get webErrorNetwork;
+
+  /// No description provided for @webErrorTimeout.
+  ///
+  /// In en, this message translates to:
+  /// **'The page took more than 20 seconds to load. The connection may be weak.'**
+  String get webErrorTimeout;
+
+  /// No description provided for @webErrorHttp.
+  ///
+  /// In en, this message translates to:
+  /// **'The page reported error {code}.'**
+  String webErrorHttp(int code);
+
+  /// No description provided for @webErrorOther.
+  ///
+  /// In en, this message translates to:
+  /// **'The page could not be opened.'**
+  String get webErrorOther;
+
+  /// No description provided for @webReadFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not read the page content.'**
+  String get webReadFailed;
+
+  /// No description provided for @webRetry.
+  ///
+  /// In en, this message translates to:
+  /// **'Try again'**
+  String get webRetry;
+
+  /// No description provided for @webNoRecipe.
+  ///
+  /// In en, this message translates to:
+  /// **'This page has no recipe data. Select text on the page, then choose below.'**
+  String get webNoRecipe;
+
+  /// No description provided for @webSelectName.
+  ///
+  /// In en, this message translates to:
+  /// **'Is the name'**
+  String get webSelectName;
+
+  /// No description provided for @webSelectIngredients.
+  ///
+  /// In en, this message translates to:
+  /// **'Is ingredients'**
+  String get webSelectIngredients;
+
+  /// No description provided for @webSelectSteps.
+  ///
+  /// In en, this message translates to:
+  /// **'Is the steps'**
+  String get webSelectSteps;
+
+  /// No description provided for @webSelectionEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No text is selected on the page.'**
+  String get webSelectionEmpty;
+
+  /// No description provided for @webPartsSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'Picked: {ingredients} ingredient lines, {steps} step lines'**
+  String webPartsSummary(int ingredients, int steps);
+
+  /// No description provided for @webClearParts.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear picks'**
+  String get webClearParts;
+
+  /// No description provided for @webDuplicateTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'You already have this recipe'**
+  String get webDuplicateTitle;
+
+  /// No description provided for @webDuplicateBody.
+  ///
+  /// In en, this message translates to:
+  /// **'This address is already in your book. Open the old one or save a new copy?'**
+  String get webDuplicateBody;
+
+  /// No description provided for @webOpenExisting.
+  ///
+  /// In en, this message translates to:
+  /// **'Open the old one'**
+  String get webOpenExisting;
+
+  /// No description provided for @webSaveNew.
+  ///
+  /// In en, this message translates to:
+  /// **'Save a new copy'**
+  String get webSaveNew;
+
+  /// No description provided for @webDownloadingImages.
+  ///
+  /// In en, this message translates to:
+  /// **'Downloading photos {done}/{total}'**
+  String webDownloadingImages(int done, int total);
+
+  /// No description provided for @webSkipImages.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip photos'**
+  String get webSkipImages;
+
+  /// No description provided for @webImagesFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 photo could not be downloaded} other{{count} photos could not be downloaded}}'**
+  String webImagesFailed(int count);
+
   /// No description provided for @cooked.
   ///
   /// In en, this message translates to:
