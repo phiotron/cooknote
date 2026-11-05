@@ -48,3 +48,12 @@ app.*.map.json
 # Tệp tạm của hệ thống tệp
 .fuse_hidden*
 
+
+# Khoá ký iOS/Android tạo ngoài repo (docs/ci.md) — chặn lỡ tay chép vào
+*.p8
+*.cer
+*.certSigningRequest
+*.csr
+*.pem
+*.key
+key.properties

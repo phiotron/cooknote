@@ -1,27 +1,102 @@
-# CI mẫu cho app Flutter. CHƯA được chạy thử trong bộ khung này: kiểm tra lại phiên bản action và Flutter khi chốt stack.
-# Chưa có pubspec.yaml thì job bỏ qua và báo thành công.
-# Ghim Flutter 3.47.8 cho khớp máy phát triển (D-004).
+# CI Android/Dart trên Ubuntu (rẻ): phân tích, test, build APK release đủ kiến trúc, kiểm APK.
+# Chạy mọi push/PR (bỏ qua khi chỉ đổi tài liệu) và chạy tay. iOS ở ios.yml (macOS, chỉ nhánh main).
+# Ghim Flutter 3.47.8 cho khớp máy phát triển (D-004). Hướng dẫn: docs/ci.md.
 name: CI
+
 on:
   push:
+    paths-ignore:
+      - '**/*.md'
+      - 'docs/**'
+      - 'notes/**'
+      - 'design/**'
+      - 'store/**'
   pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  check:
+  android:
+    name: Android — analyze, test, build APK
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
-      - name: Kiểm tra có pubspec.yaml
-        id: has
-        run: |
-          if [ -f pubspec.yaml ]; then echo "ok=true" >> "$GITHUB_OUTPUT"; else echo "Chưa có pubspec.yaml, bỏ qua."; echo "ok=false" >> "$GITHUB_OUTPUT"; fi
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: gradle
+
       - uses: subosito/flutter-action@v2
-        if: steps.has.outputs.ok == 'true'
         with:
           flutter-version: 3.47.8
+          channel: stable
           cache: true
-      - name: Cài đặt, phân tích, test
-        if: steps.has.outputs.ok == 'true'
+
+      - name: Cài gói
+        run: flutter pub get
+
+      - name: Phân tích
+        run: flutter analyze
+
+      - name: Test
+        run: flutter test
+
+      # Không thêm --target-platform: máy thử Galaxy A13 chạy 32-bit (L-011, APP.md "Lệnh").
+      - name: Build APK release (đủ kiến trúc)
         run: |
-          flutter pub get
-          flutter analyze
-          if [ -d test ]; then flutter test; else echo "Chưa có thư mục test/."; fi
+          set -o pipefail
+          mkdir -p ci-logs
+          flutter build apk --release 2>&1 | tee ci-logs/build-apk.log
+
+      - name: Kiểm APK — kiến trúc, trang 16 KB (S-11), quyền (AC-65)
+        run: |
+          APK=build/app/outputs/flutter-apk/app-release.apk
+          BT=$(ls -d "$ANDROID_HOME"/build-tools/* | sort -V | tail -1)
+          echo "build-tools: $BT"
+          ls -la "$APK" | tee ci-logs/apk-size.txt
+
+          # 1. Đủ 3 kiến trúc.
+          unzip -l "$APK" | grep " lib/" | tee ci-logs/native-libs.txt
+          for abi in arm64-v8a armeabi-v7a x86_64; do
+            grep -q "lib/$abi/libflutter.so" ci-logs/native-libs.txt || { echo "::error::APK thiếu kiến trúc $abi"; exit 1; }
+          done
+
+          # 2. Trang 16 KB: .so 64-bit phải có LOAD align >= 0x4000, và nằm đúng biên 16 KB trong zip.
+          rm -rf apk-libs && mkdir apk-libs
+          unzip -q -o "$APK" 'lib/arm64-v8a/*' 'lib/x86_64/*' -d apk-libs
+          bad=0
+          for so in apk-libs/lib/*/*.so; do
+            aligns=$(readelf -lW "$so" | awk '$1=="LOAD"{print $NF}' | sort -u | tr '\n' ' ')
+            echo "$so LOAD align: $aligns" | tee -a ci-logs/elf-align.txt
+            for a in $aligns; do
+              if [ $((a)) -lt 16384 ]; then echo "::error::$so có LOAD align $a < 16 KB (S-11)"; bad=1; fi
+            done
+          done
+          if ! "$BT/zipalign" -c -P 16 -v 4 "$APK" > ci-logs/zipalign-16k.txt 2>&1; then
+            grep -v "(OK" ci-logs/zipalign-16k.txt | tail -20
+            echo "::error::APK chưa căn .so theo trang 16 KB trong zip (S-11)"; bad=1
+          fi
+          [ $bad -eq 0 ] || exit 1
+
+          # 3. Quyền: SPEC mục 5 chỉ cho INTERNET (F-03) và POST_NOTIFICATIONS (AC-28).
+          #    Hiện là cảnh báo (cấu hình android/ do phiên khác sửa); xem notes/2026-11-05-ios-ci.md.
+          "$BT/aapt2" dump permissions "$APK" | tee ci-logs/permissions.txt
+          ALLOWED="android.permission.INTERNET|android.permission.POST_NOTIFICATIONS|com.phiotron.cooknote.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+          grep -E "^uses-permission" ci-logs/permissions.txt | grep -vE "name='($ALLOWED)'" > ci-logs/permissions-unexpected.txt || true
+          while read -r line; do echo "::warning::Quyền ngoài SPEC mục 5 (AC-65): $line"; done < ci-logs/permissions-unexpected.txt
+          grep -q "android.permission.INTERNET'" ci-logs/permissions.txt || echo "::warning::APK release KHÔNG có quyền INTERNET — nhập từ web (F-03) sẽ không chạy"
+
+      - name: Tải log kiểm APK
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-apk-checks
+          path: ci-logs/
+          retention-days: 14
+          if-no-files-found: ignore

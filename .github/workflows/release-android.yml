@@ -1,0 +1,106 @@
+# Phát hành Android: build AAB đã ký bằng khoá upload → artefact để tải lên Play Console bằng tay.
+# CHỈ chạy tay. CHƯA KIỂM CHỨNG (2026-11-05): chưa có khoá upload, và android/app/build.gradle.kts
+# chưa đọc android/key.properties (xem notes/2026-11-05-ios-ci.md, mục "Cấu hình Android cần điều phối làm").
+# Secrets do Phương tự tạo theo docs/ci.md (repo › Settings › Secrets and variables › Actions):
+#   ANDROID_KEYSTORE_BASE64   file .jks khoá upload, mã hoá base64
+#   ANDROID_KEYSTORE_PASSWORD mật khẩu keystore
+#   ANDROID_KEY_ALIAS         alias của khoá (vd "upload")
+#   ANDROID_KEY_PASSWORD      mật khẩu khoá (thường trùng mật khẩu keystore)
+name: Release Android
+
+on:
+  workflow_dispatch:
+    inputs:
+      build_name:
+        description: 'Phiên bản hiển thị (để trống = lấy từ pubspec.yaml)'
+        required: false
+        default: ''
+
+concurrency:
+  group: release-android
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Build AAB đã ký
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Kiểm đủ secrets
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          missing=0
+          for v in ANDROID_KEYSTORE_BASE64 ANDROID_KEYSTORE_PASSWORD ANDROID_KEY_ALIAS ANDROID_KEY_PASSWORD; do
+            if [ -z "${!v}" ]; then echo "::error::Thiếu secret $v (docs/ci.md)"; missing=1; fi
+          done
+          exit $missing
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: gradle
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.47.8
+          channel: stable
+          cache: true
+
+      # Keystore chỉ nằm trong thư mục tạm của runner, xoá ở bước cuối; key.properties đã bị .gitignore chặn.
+      - name: Ghi keystore + key.properties tạm
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          KS="$RUNNER_TEMP/upload.jks"
+          echo "$ANDROID_KEYSTORE_BASE64" | base64 --decode > "$KS"
+          {
+            echo "storeFile=$KS"
+            echo "storePassword=$ANDROID_KEYSTORE_PASSWORD"
+            echo "keyAlias=$ANDROID_KEY_ALIAS"
+            echo "keyPassword=$ANDROID_KEY_PASSWORD"
+          } > android/key.properties
+
+      - name: Build AAB (số build = số lần chạy)
+        env:
+          BUILD_NAME: ${{ inputs.build_name }}
+        run: |
+          set -o pipefail
+          mkdir -p ci-logs
+          flutter pub get
+          ARGS="--release --build-number=${{ github.run_number }}"
+          if [ -n "$BUILD_NAME" ]; then ARGS="$ARGS --build-name=$BUILD_NAME"; fi
+          flutter build appbundle $ARGS 2>&1 | tee ci-logs/build-aab.log
+
+      # Play từ chối AAB ký bằng khoá debug; gradle chưa đọc key.properties thì dừng ở đây.
+      - name: Kiểm chữ ký AAB không phải khoá debug
+        run: |
+          AAB=build/app/outputs/bundle/release/app-release.aab
+          keytool -printcert -jarfile "$AAB" | tee ci-logs/aab-signer.txt
+          if grep -q "CN=Android Debug" ci-logs/aab-signer.txt; then
+            echo "::error::AAB đang ký bằng khoá DEBUG — android/app/build.gradle.kts chưa dùng key.properties"; exit 1
+          fi
+
+      - name: Lưu AAB + log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-release-${{ github.run_number }}
+          path: |
+            build/app/outputs/bundle/release/app-release.aab
+            ci-logs/
+          retention-days: 7
+          if-no-files-found: ignore
+
+      - name: Xoá keystore
+        if: always()
+        run: rm -f "$RUNNER_TEMP/upload.jks" android/key.properties

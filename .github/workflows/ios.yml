@@ -1,0 +1,163 @@
+# CI iOS: kiểm Info.plist/PrivacyInfo, build bản simulator (không ký), mở app trên iOS Simulator, chụp màn hình.
+# Repo private → phút macOS tính ×10 quota: chỉ chạy khi push nhánh main có đổi code iOS/Dart, hoặc chạy tay.
+# Máy làm việc là Windows, không Mac/iPhone → đây là nơi DUY NHẤT build + thử iOS (D-008). Hướng dẫn: docs/ci.md.
+name: iOS
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - '**/*.md'
+      - 'docs/**'
+      - 'notes/**'
+      - 'design/**'
+      - 'store/**'
+      - 'android/**'
+      - 'test/**'
+      - '.github/workflows/ci.yml'
+      - '.github/workflows/release-android.yml'
+  workflow_dispatch:
+    inputs:
+      release_build:
+        description: 'Build thêm bản Release cho máy thật (không ký) — thêm ~4 phút macOS'
+        type: boolean
+        default: true
+
+concurrency:
+  group: ios-${{ github.ref }}-${{ github.event_name }}
+  cancel-in-progress: true
+
+env:
+  BUNDLE_ID: com.phiotron.cooknote
+
+jobs:
+  ios-simulator:
+    name: Build + mở app trên iOS Simulator
+    runs-on: macos-26
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      # App Store nhận bản build từ Xcode 26 trở lên (S-20, COMPLIANCE P-01) — runner đổi ảnh thì báo sớm.
+      - name: Kiểm phiên bản Xcode ≥ 26 (S-20)
+        run: |
+          xcodebuild -version
+          major=$(xcodebuild -version | head -1 | awk '{print $2}' | cut -d. -f1)
+          if [ "$major" -lt 26 ]; then echo "::error::Cần Xcode 26 trở lên, đang có $major"; exit 1; fi
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.47.8
+          channel: stable
+          cache: true
+
+      - name: Phiên bản công cụ
+        run: |
+          mkdir -p ci-logs
+          { xcodebuild -version; flutter --version; pod --version; xcrun simctl list runtimes; } 2>&1 | tee ci-logs/versions.txt
+
+      - name: Cài gói
+        run: flutter pub get
+
+      - name: Kiểm Info.plist, PrivacyInfo, entitlements (S-21, S-22, SPEC mục 5)
+        run: |
+          set -e
+          plutil -lint ios/Runner/Info.plist ios/Runner/PrivacyInfo.xcprivacy ios/Runner/Runner.entitlements \
+            ios/Runner/vi.lproj/InfoPlist.strings \
+            ios/ShareExtension/Info.plist ios/ShareExtension/PrivacyInfo.xcprivacy ios/ShareExtension/ShareExtension.entitlements
+          test "$(plutil -extract CFBundleDisplayName raw ios/Runner/Info.plist)" = "CookNote"
+          test "$(plutil -extract ITSAppUsesNonExemptEncryption raw ios/Runner/Info.plist)" = "false"
+          test "$(plutil -extract FlutterDeepLinkingEnabled raw ios/Runner/Info.plist)" = "false"
+          test "$(plutil -extract NSPrivacyTracking raw ios/Runner/PrivacyInfo.xcprivacy)" = "false"
+          test "$(plutil -extract NSPrivacyTracking raw ios/ShareExtension/PrivacyInfo.xcprivacy)" = "false"
+          # Chỉ xin camera + thư viện ảnh (image_picker); khoá NS...UsageDescription khác → lỗi (AC-65, S-40).
+          extra=$(plutil -convert json -o - ios/Runner/Info.plist | python3 -c '
+          import json, sys
+          allowed = {"NSCameraUsageDescription", "NSPhotoLibraryUsageDescription"}
+          print(" ".join(k for k in json.load(sys.stdin) if k.endswith("UsageDescription") and k not in allowed))')
+          if [ -n "$extra" ]; then echo "::error::Info.plist xin quyền ngoài SPEC: $extra"; exit 1; fi
+          # App và Share Extension cùng app group.
+          g1=$(plutil -extract com.apple.security.application-groups.0 raw ios/Runner/Runner.entitlements)
+          g2=$(plutil -extract com.apple.security.application-groups.0 raw ios/ShareExtension/ShareExtension.entitlements)
+          test "$g1" = "group.com.phiotron.cooknote" && test "$g1" = "$g2"
+
+      - name: Build iOS simulator (debug, không ký)
+        run: |
+          set -o pipefail
+          flutter build ios --simulator --debug 2>&1 | tee ci-logs/build-ios-simulator.log
+          APP=build/ios/iphonesimulator/Runner.app
+          EXT=$APP/PlugIns/ShareExtension.appex
+          test -f "$APP/PrivacyInfo.xcprivacy"
+          test -f "$APP/vi.lproj/InfoPlist.strings"
+          test -f "$EXT/PrivacyInfo.xcprivacy"
+          plutil -p "$APP/Info.plist" | tee ci-logs/built-info-plist.txt
+          plutil -p "$EXT/Info.plist" | tee ci-logs/built-share-extension-info-plist.txt
+          # App Store từ chối nếu phiên bản extension khác app.
+          for k in CFBundleVersion CFBundleShortVersionString; do
+            a=$(plutil -extract $k raw "$APP/Info.plist"); e=$(plutil -extract $k raw "$EXT/Info.plist")
+            echo "$k app=$a extension=$e"
+            if [ "$a" != "$e" ]; then echo "::error::$k của Share Extension ($e) khác app ($a)"; exit 1; fi
+          done
+          # Extension không được kéo Flutter/plugin vào (giới hạn bộ nhớ của extension).
+          if [ -d "$EXT/Frameworks" ]; then echo "::error::Share Extension có Frameworks riêng"; ls "$EXT/Frameworks"; exit 1; fi
+          ls "$APP/Frameworks" | tee ci-logs/frameworks.txt
+          codesign -d --entitlements - "$APP" 2>&1 | tee ci-logs/entitlements-app.txt || true
+
+      # Bản release cho máy thật (arm64, AOT): bắt lỗi chỉ lộ ra khi build release. Không ký → không cần secrets.
+      - name: Build iOS release (không ký)
+        if: github.event_name == 'workflow_dispatch' && inputs.release_build
+        run: |
+          set -o pipefail
+          flutter build ios --release --no-codesign 2>&1 | tee ci-logs/build-ios-release.log
+          test -f build/ios/iphoneos/Runner.app/PrivacyInfo.xcprivacy
+          test -f build/ios/iphoneos/Runner.app/PlugIns/ShareExtension.appex/PrivacyInfo.xcprivacy
+
+      - name: Khởi động iOS Simulator (iPhone)
+        id: sim
+        run: |
+          UDID=$(xcrun simctl list devices available --json | python3 -c '
+          import json, sys
+          d = json.load(sys.stdin)["devices"]
+          rts = sorted((r for r in d if "iOS" in r), key=lambda r: [int(x) for x in r.split("iOS-")[-1].split("-")], reverse=True)
+          for r in rts:
+              for dev in d[r]:
+                  if dev["name"].startswith("iPhone") and dev.get("isAvailable", True):
+                      print(dev["udid"]); sys.exit(0)
+          sys.exit(1)')
+          echo "udid=$UDID" >> "$GITHUB_OUTPUT"
+          xcrun simctl list devices | grep "$UDID" | tee ci-logs/simulator.txt
+          xcrun simctl boot "$UDID" || true
+          xcrun simctl bootstatus "$UDID" -b
+
+      - name: Cài + mở app, chụp màn hình, thử URL của Share Extension
+        run: |
+          UDID=${{ steps.sim.outputs.udid }}
+          xcrun simctl install "$UDID" build/ios/iphonesimulator/Runner.app
+          xcrun simctl launch "$UDID" "$BUNDLE_ID" | tee ci-logs/launch.txt
+          sleep 20
+          xcrun simctl io "$UDID" screenshot ci-logs/launch.png
+          # App phải còn sống sau 20 giây (không văng khi mở DB, thông báo, plugin).
+          xcrun simctl spawn "$UDID" launchctl list | grep "$BUNDLE_ID"
+          # Share Extension mở app bằng URL này (receive_sharing_intent). App không được văng.
+          xcrun simctl openurl "$UDID" "ShareMedia-$BUNDLE_ID:share" || echo "::warning::openurl lỗi"
+          sleep 5
+          xcrun simctl io "$UDID" screenshot ci-logs/after-share-url.png
+          xcrun simctl spawn "$UDID" launchctl list | grep "$BUNDLE_ID"
+          # Share Extension đã được hệ thống đăng ký.
+          xcrun simctl spawn "$UDID" pluginkit -m -v -i "$BUNDLE_ID.ShareExtension" 2>&1 | tee ci-logs/pluginkit.txt || true
+          xcrun simctl terminate "$UDID" "$BUNDLE_ID" || true
+
+      - name: Log hệ thống simulator (khi lỗi)
+        if: failure() && steps.sim.outputs.udid != ''
+        run: |
+          xcrun simctl spawn ${{ steps.sim.outputs.udid }} log show --last 10m --style compact \
+            --predicate 'process == "Runner"' > ci-logs/simulator-runner.log 2>&1 || true
+
+      - name: Tải log + ảnh chụp
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-simulator-logs
+          path: ci-logs/
+          retention-days: 14
+          if-no-files-found: ignore

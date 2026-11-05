@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  CookNote: no tracking, no data collection (D-002, AC-65). Network is used only
+  to load the pages and images the user opens in the in-app browser (F-03).
+  Required-reason APIs used by code that ships no privacy manifest of its own:
+  - FileTimestamp C617.1, DiskSpace E174.1: SQLite (sqlite3 native assets) and
+    dart:io reading file attributes inside the app container.
+  - UserDefaults CA92.1 + 1C8F.1: receive_sharing_intent reads what the Share
+    Extension wrote into the app group "group.com.phiotron.cooknote".
+  Plugins with their own manifest (flutter_local_notifications, wakelock_plus,
+  webview_flutter_wkwebview, file_picker, image_picker, share_plus,
+  url_launcher, path_provider, package_info_plus) declare their own APIs.
+-->
+<plist version="1.0">
+<dict>
+	<key>NSPrivacyTracking</key>
+	<false/>
+	<key>NSPrivacyTrackingDomains</key>
+	<array/>
+	<key>NSPrivacyCollectedDataTypes</key>
+	<array/>
+	<key>NSPrivacyAccessedAPITypes</key>
+	<array>
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategoryFileTimestamp</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>C617.1</string>
+			</array>
+		</dict>
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategoryDiskSpace</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>E174.1</string>
+			</array>
+		</dict>
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategoryUserDefaults</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>CA92.1</string>
+				<string>1C8F.1</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>
