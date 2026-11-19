@@ -383,5 +383,78 @@
   "dangerZone": "Vùng nguy hiểm",
   "deleting": "Đang xóa…",
   "ratingSemantics": "{n} trên 5 sao",
-  "ratingUnset": "Chưa đánh giá"
+  "ratingUnset": "Chưa đánh giá",
+  "moreActions": "Tùy chọn khác",
+  "select": "Chọn",
+  "selectRecipes": "Chọn công thức",
+  "privacyNote": "Công thức chỉ nằm trên máy này.",
+  "addSheetManualSub": "Gõ hoặc dán công thức",
+  "addSheetWebSub": "Mở trang hoặc dán liên kết",
+  "addSheetScanSub": "Trang sách nấu ăn hoặc công thức viết tay",
+  "addSheetImportSub": "Từ app khác hoặc bản sao lưu",
+  "needsInternet": "Cần mạng",
+  "addSheetTip": "Mẹo: trong trình duyệt, bấm Chia sẻ → Bepbook",
+  "filterIncludesSubs": "Gồm cả danh mục con",
+  "filterTagsAll": "Thẻ · phải có tất cả",
+  "filterStars": "Số sao tối thiểu",
+  "filterAny": "Bất kỳ",
+  "servingsUnitsTitle": "Khẩu phần & đơn vị",
+  "unitsLabel": "Đơn vị",
+  "unitsCaption": "Thể tích đổi sang thể tích, khối lượng sang khối lượng. Chén, bát không đổi.",
+  "previewLabel": "Xem trước",
+  "peopleUnit": "người",
+  "decreaseServings": "Bớt khẩu phần",
+  "increaseServings": "Thêm khẩu phần",
+  "noServings": "Chưa đặt khẩu phần",
+  "factServings": "Khẩu phần",
+  "factPrep": "Sơ chế",
+  "factCook": "Nấu",
+  "factTotal": "Tổng",
+  "factDifficulty": "Độ khó",
+  "addToMenu": "Thêm vào thực đơn",
+  "addToShopping": "Thêm vào đi chợ",
+  "openSourceLink": "Mở liên kết nguồn",
+  "textMode": "Dạng chữ",
+  "linesMode": "Từng dòng",
+  "addLine": "Thêm dòng",
+  "moveUp": "Chuyển lên",
+  "moveDown": "Chuyển xuống",
+  "makeHeading": "Thành tiêu đề nhóm",
+  "removeHeading": "Bỏ tiêu đề nhóm",
+  "details": "Chi tiết",
+  "trashRemovedInDays": "Bị xóa hẳn sau {count} ngày",
+  "@trashRemovedInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "trashRemovedTomorrow": "Bị xóa hẳn vào ngày mai",
+  "emptyTrashTitle": "Dọn thùng rác?",
+  "emptyTrashBody": "Mọi công thức trong thùng rác sẽ bị xóa hẳn, không hoàn tác được.",
+  "emptyTrashDone": "Đã dọn thùng rác",
+  "trashEmptyBody": "Công thức bị xóa sẽ nằm ở đây 30 ngày.",
+  "deleteForeverTitle": "Xóa hẳn?",
+  "deleteCategoryTitle": "Xóa danh mục?",
+  "durationHours": "{count} giờ",
+  "@durationHours": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "durationHM": "{hours} giờ {minutes} phút",
+  "@durationHM": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "categoryEmptyBody": "Danh mục giúp bạn lọc công thức nhanh hơn."
 }

@@ -27,6 +27,7 @@ class BackupConfig {
     this.lastError,
     this.lastHash,
     this.lastBytes,
+    this.suggestionDismissed = false,
   });
 
   /// Thư mục đã chọn; null là chưa bật sao lưu tự động.
@@ -47,6 +48,9 @@ class BackupConfig {
   /// Mã băm dữ liệu của lần sao lưu thành công gần nhất.
   final String? lastHash;
   final int? lastBytes;
+
+  /// Người dùng đã đóng gợi ý bật sao lưu (SCR-51).
+  final bool suggestionDismissed;
 
   bool get enabled => treeUri != null;
 }
@@ -77,6 +81,7 @@ class BackupSettingsRepository {
       lastError: m['lastError'],
       lastHash: m['lastHash'],
       lastBytes: int.tryParse(m['lastBytes'] ?? ''),
+      suggestionDismissed: m['suggestionDismissed'] == '1',
     );
   }
 
@@ -118,6 +123,9 @@ class BackupSettingsRepository {
     await _write('treeName', null);
     await _write('lastError', null);
   }
+
+  /// Đóng gợi ý bật sao lưu; chỉ áp dụng cho gợi ý, không ẩn cảnh báo lỗi/quá hạn.
+  Future<void> dismissSuggestion() => _write('suggestionDismissed', '1');
 
   Future<void> setInterval(BackupInterval i) => _write('interval', i.name);
 

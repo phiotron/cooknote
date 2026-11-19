@@ -46,7 +46,7 @@ void main() {
     final app = await pumpApp(tester);
     await tester.tap(find.byTooltip('Thêm công thức'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Tự viết'));
+    await tester.tap(find.text('Tự viết').last);
     await tester.pumpAndSettle();
 
     await tester.enterText(
@@ -54,11 +54,17 @@ void main() {
       'Bánh flan',
     );
     await tester.enterText(
-      find.widgetWithText(TextFormField, 'Nguyên liệu'),
+      find.widgetWithText(
+        TextField,
+        'Mỗi dòng một nguyên liệu. Dòng kết thúc bằng : là tiêu đề nhóm.',
+      ),
       'Phần caramel:\n100 g đường\n3 quả trứng',
     );
     await tester.enterText(
-      find.widgetWithText(TextFormField, 'Các bước'),
+      find.widgetWithText(
+        TextField,
+        'Mỗi dòng một bước. Dòng kết thúc bằng : là tiêu đề nhóm.',
+      ),
       '1. Nấu đường\n2. Hấp 20 phút',
     );
     await tester.tap(find.text('Lưu'));
@@ -77,7 +83,7 @@ void main() {
     final app = await pumpApp(tester);
     await tester.tap(find.byTooltip('Thêm công thức'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Tự viết'));
+    await tester.tap(find.text('Tự viết').last);
     await tester.pumpAndSettle();
     await tester.tap(find.text('Lưu'));
     await tester.pumpAndSettle();
@@ -92,7 +98,7 @@ void main() {
     final app = await pumpApp(tester);
     await tester.tap(find.byTooltip('Thêm công thức'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Tự viết'));
+    await tester.tap(find.text('Tự viết').last);
     await tester.pumpAndSettle();
 
     // Chưa sửa gì thì thoát thẳng.
@@ -102,7 +108,7 @@ void main() {
 
     await tester.tap(find.byTooltip('Thêm công thức'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Tự viết'));
+    await tester.tap(find.text('Tự viết').last);
     await tester.pumpAndSettle();
     await tester.enterText(find.widgetWithText(TextFormField, 'Tên'), 'Nháp');
     await systemBack(tester);
@@ -162,7 +168,7 @@ void main() {
     final app = await pumpApp(tester);
     await tester.tap(find.byTooltip('Thêm công thức'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Tự viết'));
+    await tester.tap(find.text('Tự viết').last);
     await tester.pumpAndSettle();
     await tester.enterText(find.widgetWithText(TextFormField, 'Tên'), 'Có ảnh');
 

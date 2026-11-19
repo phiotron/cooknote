@@ -4,10 +4,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../data/category_repository.dart';
 import '../../providers.dart';
-import '../../ui/messenger.dart';
+import '../../ui/ui.dart';
 
 /// Quản lý danh mục: thêm, đổi tên, xóa, kéo sắp xếp, lồng tối đa 3 cấp
-/// (AC-10).
+/// (AC-10, SCR-14).
 class CategoriesScreen extends ConsumerWidget {
   const CategoriesScreen({super.key});
 
@@ -17,15 +17,27 @@ class CategoriesScreen extends ConsumerWidget {
     final all = ref.watch(categoriesProvider).value ?? const [];
     return Scaffold(
       appBar: AppBar(title: Text(l.categories)),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         tooltip: l.addCategory,
-        onPressed: () => _add(context, ref, null),
-        child: const Icon(Icons.add),
+        onPressed: () => addCategory(context, ref, null),
+        icon: const Icon(Icons.add),
+        label: Text(l.addCategory),
       ),
       body: all.isEmpty
-          ? Center(child: Text(l.categoriesEmpty))
+          ? EmptyState(
+              illustration: BepIllo.collect,
+              title: l.categoriesEmpty,
+              body: l.categoryEmptyBody,
+              actions: [
+                BepButton(
+                  label: l.addCategory,
+                  icon: Icons.add,
+                  onPressed: () => addCategory(context, ref, null),
+                ),
+              ],
+            )
           : ListView(
-              padding: const EdgeInsets.only(bottom: 88),
+              padding: const EdgeInsets.only(top: 4, bottom: 96),
               children: [_Group(all: all, parentId: null)],
             ),
     );
@@ -78,7 +90,12 @@ Future<void> _run(BuildContext context, Future<void> Function() action) async {
   }
 }
 
-Future<void> _add(BuildContext context, WidgetRef ref, Category? parent) async {
+/// Thêm danh mục cấp đầu ([parent] null) hoặc danh mục con của [parent].
+Future<void> addCategory(
+  BuildContext context,
+  WidgetRef ref,
+  Category? parent,
+) async {
   final l = AppLocalizations.of(context);
   final repo = ref.read(categoryRepositoryProvider);
   final name = await _askName(
@@ -99,7 +116,10 @@ class _Group extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l = AppLocalizations.of(context);
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
     final repo = ref.read(categoryRepositoryProvider);
+    final counts = ref.watch(categoryCountsProvider).value ?? const {};
     final items = [
       for (final c in all)
         if (c.parentId == parentId) c,
@@ -116,12 +136,13 @@ class _Group extends ConsumerWidget {
       },
       itemBuilder: (context, i) {
         final c = items[i];
+        final top = c.depth == 1;
         return Column(
           key: ValueKey(c.id),
           children: [
             ListTile(
               contentPadding: EdgeInsets.only(
-                left: 16.0 + (c.depth - 1) * 24,
+                left: 8.0 + (c.depth - 1) * 40,
                 right: 4,
               ),
               minTileHeight: 56,
@@ -129,53 +150,100 @@ class _Group extends ConsumerWidget {
                 index: i,
                 child: const Padding(
                   padding: EdgeInsets.all(12),
-                  child: Icon(Icons.drag_handle),
+                  child: Icon(Icons.drag_indicator),
                 ),
               ),
-              title: Text(c.name),
-              trailing: PopupMenuButton<String>(
-                onSelected: (v) async {
-                  switch (v) {
-                    case 'sub':
-                      await _add(context, ref, c);
-                    case 'rename':
-                      final name = await _askName(
-                        context,
-                        l.renameCategory,
-                        initial: c.name,
-                      );
-                      if (name != null && context.mounted) {
-                        await _run(context, () => repo.rename(c.id, name));
-                      }
-                    case 'delete':
-                      final ok = await showDialog<bool>(
-                        context: context,
-                        builder: (dialog) => AlertDialog(
-                          title: Text(l.deleteCategory),
-                          content: Text(l.deleteCategoryBody),
-                          actions: [
-                            TextButton(
-                              onPressed: () => Navigator.pop(dialog, false),
-                              child: Text(l.cancel),
-                            ),
-                            FilledButton(
-                              onPressed: () => Navigator.pop(dialog, true),
-                              child: Text(l.delete),
-                            ),
-                          ],
+              title: Row(
+                children: [
+                  if (!top)
+                    Padding(
+                      padding: const EdgeInsets.only(right: 4),
+                      child: Text(
+                        '↳',
+                        style: theme.textTheme.bodyMedium!.copyWith(
+                          color: cs.onSurfaceVariant,
                         ),
-                      );
-                      if (ok == true) await repo.delete(c.id);
-                  }
-                },
-                itemBuilder: (_) => [
-                  if (c.depth < maxCategoryDepth)
-                    PopupMenuItem(value: 'sub', child: Text(l.addSubCategory)),
-                  PopupMenuItem(value: 'rename', child: Text(l.renameCategory)),
-                  PopupMenuItem(value: 'delete', child: Text(l.delete)),
+                      ),
+                    ),
+                  Expanded(
+                    child: Text(
+                      c.name,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: top
+                          ? theme.textTheme.titleMedium!.copyWith(
+                              fontWeight: FontWeight.w700,
+                            )
+                          : theme.textTheme.bodyLarge,
+                    ),
+                  ),
+                ],
+              ),
+              trailing: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    '${counts[c.id] ?? 0}',
+                    style: theme.textTheme.bodyMedium!
+                        .copyWith(color: cs.onSurfaceVariant)
+                        .tabular,
+                  ),
+                  PopupMenuButton<String>(
+                    tooltip: l.moreActions,
+                    onSelected: (v) async {
+                      switch (v) {
+                        case 'sub':
+                          await addCategory(context, ref, c);
+                        case 'rename':
+                          final name = await _askName(
+                            context,
+                            l.renameCategory,
+                            initial: c.name,
+                          );
+                          if (name != null && context.mounted) {
+                            await _run(context, () => repo.rename(c.id, name));
+                          }
+                        case 'delete':
+                          final ok = await showDialog<bool>(
+                            context: context,
+                            builder: (dialog) => AlertDialog(
+                              title: Text(l.deleteCategoryTitle),
+                              content: Text(l.deleteCategoryBody),
+                              actions: [
+                                TextButton(
+                                  onPressed: () => Navigator.pop(dialog, false),
+                                  child: Text(l.cancel),
+                                ),
+                                FilledButton(
+                                  onPressed: () => Navigator.pop(dialog, true),
+                                  child: Text(l.delete),
+                                ),
+                              ],
+                            ),
+                          );
+                          if (ok == true) await repo.delete(c.id);
+                      }
+                    },
+                    itemBuilder: (_) => [
+                      if (c.depth < maxCategoryDepth)
+                        PopupMenuItem(
+                          value: 'sub',
+                          child: Text(l.addSubCategory),
+                        ),
+                      PopupMenuItem(
+                        value: 'rename',
+                        child: Text(l.renameCategory),
+                      ),
+                      PopupMenuItem(
+                        value: 'delete',
+                        child: Text(l.deleteCategory),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
+            Divider(height: 1, color: cs.outlineVariant),
             _Group(all: all, parentId: c.id),
           ],
         );

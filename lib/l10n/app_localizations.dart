@@ -2047,6 +2047,300 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No rating'**
   String get ratingUnset;
+
+  /// No description provided for @moreActions.
+  ///
+  /// In en, this message translates to:
+  /// **'More options'**
+  String get moreActions;
+
+  /// No description provided for @select.
+  ///
+  /// In en, this message translates to:
+  /// **'Select'**
+  String get select;
+
+  /// No description provided for @selectRecipes.
+  ///
+  /// In en, this message translates to:
+  /// **'Select recipes'**
+  String get selectRecipes;
+
+  /// No description provided for @privacyNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Your recipes live only on this phone.'**
+  String get privacyNote;
+
+  /// No description provided for @addSheetManualSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Type or paste a recipe'**
+  String get addSheetManualSub;
+
+  /// No description provided for @addSheetWebSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Open a page or paste a link'**
+  String get addSheetWebSub;
+
+  /// No description provided for @addSheetScanSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Cookbook page or handwritten recipe'**
+  String get addSheetScanSub;
+
+  /// No description provided for @addSheetImportSub.
+  ///
+  /// In en, this message translates to:
+  /// **'From another app or a backup'**
+  String get addSheetImportSub;
+
+  /// No description provided for @needsInternet.
+  ///
+  /// In en, this message translates to:
+  /// **'Needs internet'**
+  String get needsInternet;
+
+  /// No description provided for @addSheetTip.
+  ///
+  /// In en, this message translates to:
+  /// **'Tip: in your browser, tap Share → Bepbook'**
+  String get addSheetTip;
+
+  /// No description provided for @filterIncludesSubs.
+  ///
+  /// In en, this message translates to:
+  /// **'Includes sub-categories'**
+  String get filterIncludesSubs;
+
+  /// No description provided for @filterTagsAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Tags · must have all'**
+  String get filterTagsAll;
+
+  /// No description provided for @filterStars.
+  ///
+  /// In en, this message translates to:
+  /// **'Minimum stars'**
+  String get filterStars;
+
+  /// No description provided for @filterAny.
+  ///
+  /// In en, this message translates to:
+  /// **'Any'**
+  String get filterAny;
+
+  /// No description provided for @servingsUnitsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Servings & units'**
+  String get servingsUnitsTitle;
+
+  /// No description provided for @unitsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Units'**
+  String get unitsLabel;
+
+  /// No description provided for @unitsCaption.
+  ///
+  /// In en, this message translates to:
+  /// **'Volume stays volume, weight stays weight. Cups and bowls never convert.'**
+  String get unitsCaption;
+
+  /// No description provided for @previewLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Preview'**
+  String get previewLabel;
+
+  /// No description provided for @peopleUnit.
+  ///
+  /// In en, this message translates to:
+  /// **'people'**
+  String get peopleUnit;
+
+  /// No description provided for @decreaseServings.
+  ///
+  /// In en, this message translates to:
+  /// **'Fewer servings'**
+  String get decreaseServings;
+
+  /// No description provided for @increaseServings.
+  ///
+  /// In en, this message translates to:
+  /// **'More servings'**
+  String get increaseServings;
+
+  /// No description provided for @noServings.
+  ///
+  /// In en, this message translates to:
+  /// **'No servings set'**
+  String get noServings;
+
+  /// No description provided for @factServings.
+  ///
+  /// In en, this message translates to:
+  /// **'Servings'**
+  String get factServings;
+
+  /// No description provided for @factPrep.
+  ///
+  /// In en, this message translates to:
+  /// **'Prep'**
+  String get factPrep;
+
+  /// No description provided for @factCook.
+  ///
+  /// In en, this message translates to:
+  /// **'Cook'**
+  String get factCook;
+
+  /// No description provided for @factTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'Total'**
+  String get factTotal;
+
+  /// No description provided for @factDifficulty.
+  ///
+  /// In en, this message translates to:
+  /// **'Difficulty'**
+  String get factDifficulty;
+
+  /// No description provided for @addToMenu.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to menu'**
+  String get addToMenu;
+
+  /// No description provided for @addToShopping.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to shopping'**
+  String get addToShopping;
+
+  /// No description provided for @openSourceLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Open source link'**
+  String get openSourceLink;
+
+  /// No description provided for @textMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Text'**
+  String get textMode;
+
+  /// No description provided for @linesMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Lines'**
+  String get linesMode;
+
+  /// No description provided for @addLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Add line'**
+  String get addLine;
+
+  /// No description provided for @moveUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Move up'**
+  String get moveUp;
+
+  /// No description provided for @moveDown.
+  ///
+  /// In en, this message translates to:
+  /// **'Move down'**
+  String get moveDown;
+
+  /// No description provided for @makeHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Make heading'**
+  String get makeHeading;
+
+  /// No description provided for @removeHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove heading'**
+  String get removeHeading;
+
+  /// No description provided for @details.
+  ///
+  /// In en, this message translates to:
+  /// **'Details'**
+  String get details;
+
+  /// No description provided for @trashRemovedInDays.
+  ///
+  /// In en, this message translates to:
+  /// **'Removed for good in {count} days'**
+  String trashRemovedInDays(int count);
+
+  /// No description provided for @trashRemovedTomorrow.
+  ///
+  /// In en, this message translates to:
+  /// **'Removed for good tomorrow'**
+  String get trashRemovedTomorrow;
+
+  /// No description provided for @emptyTrashTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Empty the trash?'**
+  String get emptyTrashTitle;
+
+  /// No description provided for @emptyTrashBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Every recipe in the trash will be removed for good. This cannot be undone.'**
+  String get emptyTrashBody;
+
+  /// No description provided for @emptyTrashDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Trash emptied'**
+  String get emptyTrashDone;
+
+  /// No description provided for @trashEmptyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Deleted recipes stay here for 30 days.'**
+  String get trashEmptyBody;
+
+  /// No description provided for @deleteForeverTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete forever?'**
+  String get deleteForeverTitle;
+
+  /// No description provided for @deleteCategoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete category?'**
+  String get deleteCategoryTitle;
+
+  /// No description provided for @durationHours.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 hour} other{{count} hours}}'**
+  String durationHours(int count);
+
+  /// No description provided for @durationHM.
+  ///
+  /// In en, this message translates to:
+  /// **'{hours} h {minutes} min'**
+  String durationHM(int hours, int minutes);
+
+  /// No description provided for @categoryEmptyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Categories help you filter recipes faster.'**
+  String get categoryEmptyBody;
 }
 
 class _AppLocalizationsDelegate

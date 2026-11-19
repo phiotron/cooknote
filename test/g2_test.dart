@@ -91,9 +91,9 @@ void main() {
 
     await tester.tap(find.text('Lọc'));
     await settle(tester);
-    await tester.tap(find.widgetWithText(FilterChip, 'Món chính'));
+    await tester.tap(find.widgetWithText(CheckboxListTile, 'Món chính'));
     await settle(tester);
-    await tester.tap(find.text('Xong'));
+    await tester.tap(find.widgetWithText(FilledButton, 'Xem 1 công thức'));
     await settle(tester);
 
     expect(find.text('Phở bò'), findsOneWidget);
@@ -113,15 +113,13 @@ void main() {
     // Mặc định: mới sửa trước (công thức thêm sau lên trên).
     expect(y('Cá kho') < y('Ếch rang'), isTrue);
 
-    await tester.tap(find.byTooltip('Sắp xếp'));
+    await tester.tap(find.widgetWithText(OutlinedButton, 'Ngày sửa'));
     await tester.pumpAndSettle();
-    await tester.tap(find.widgetWithText(CheckedPopupMenuItem<Object>, 'Tên'));
+    await tester.tap(find.text('Tên'));
     await settle(tester);
     expect(y('Bánh flan') < y('Cá kho'), isTrue);
     expect(y('Cá kho') < y('Ếch rang'), isTrue);
 
-    await tester.tap(find.byTooltip('Sắp xếp'));
-    await tester.pumpAndSettle();
     await tester.tap(find.text('Giảm dần'));
     await settle(tester);
     expect(y('Ếch rang') < y('Cá kho'), isTrue);
@@ -217,7 +215,7 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Xóa'));
+    await tester.tap(find.text('Xóa danh mục'));
     await tester.pumpAndSettle();
     await tester.tap(find.widgetWithText(FilledButton, 'Xóa'));
     await settle(tester);
@@ -235,7 +233,7 @@ void main() {
 
       await tester.tap(find.byTooltip('Thêm công thức'));
       await tester.pumpAndSettle();
-      await tester.tap(find.text('Tự viết'));
+      await tester.tap(find.text('Tự viết').last);
       await tester.pumpAndSettle();
       await tester.enterText(find.widgetWithText(TextFormField, 'Tên'), 'Mới');
 

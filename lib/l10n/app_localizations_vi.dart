@@ -1112,4 +1112,159 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get ratingUnset => 'Chưa đánh giá';
+
+  @override
+  String get moreActions => 'Tùy chọn khác';
+
+  @override
+  String get select => 'Chọn';
+
+  @override
+  String get selectRecipes => 'Chọn công thức';
+
+  @override
+  String get privacyNote => 'Công thức chỉ nằm trên máy này.';
+
+  @override
+  String get addSheetManualSub => 'Gõ hoặc dán công thức';
+
+  @override
+  String get addSheetWebSub => 'Mở trang hoặc dán liên kết';
+
+  @override
+  String get addSheetScanSub => 'Trang sách nấu ăn hoặc công thức viết tay';
+
+  @override
+  String get addSheetImportSub => 'Từ app khác hoặc bản sao lưu';
+
+  @override
+  String get needsInternet => 'Cần mạng';
+
+  @override
+  String get addSheetTip => 'Mẹo: trong trình duyệt, bấm Chia sẻ → Bepbook';
+
+  @override
+  String get filterIncludesSubs => 'Gồm cả danh mục con';
+
+  @override
+  String get filterTagsAll => 'Thẻ · phải có tất cả';
+
+  @override
+  String get filterStars => 'Số sao tối thiểu';
+
+  @override
+  String get filterAny => 'Bất kỳ';
+
+  @override
+  String get servingsUnitsTitle => 'Khẩu phần & đơn vị';
+
+  @override
+  String get unitsLabel => 'Đơn vị';
+
+  @override
+  String get unitsCaption =>
+      'Thể tích đổi sang thể tích, khối lượng sang khối lượng. Chén, bát không đổi.';
+
+  @override
+  String get previewLabel => 'Xem trước';
+
+  @override
+  String get peopleUnit => 'người';
+
+  @override
+  String get decreaseServings => 'Bớt khẩu phần';
+
+  @override
+  String get increaseServings => 'Thêm khẩu phần';
+
+  @override
+  String get noServings => 'Chưa đặt khẩu phần';
+
+  @override
+  String get factServings => 'Khẩu phần';
+
+  @override
+  String get factPrep => 'Sơ chế';
+
+  @override
+  String get factCook => 'Nấu';
+
+  @override
+  String get factTotal => 'Tổng';
+
+  @override
+  String get factDifficulty => 'Độ khó';
+
+  @override
+  String get addToMenu => 'Thêm vào thực đơn';
+
+  @override
+  String get addToShopping => 'Thêm vào đi chợ';
+
+  @override
+  String get openSourceLink => 'Mở liên kết nguồn';
+
+  @override
+  String get textMode => 'Dạng chữ';
+
+  @override
+  String get linesMode => 'Từng dòng';
+
+  @override
+  String get addLine => 'Thêm dòng';
+
+  @override
+  String get moveUp => 'Chuyển lên';
+
+  @override
+  String get moveDown => 'Chuyển xuống';
+
+  @override
+  String get makeHeading => 'Thành tiêu đề nhóm';
+
+  @override
+  String get removeHeading => 'Bỏ tiêu đề nhóm';
+
+  @override
+  String get details => 'Chi tiết';
+
+  @override
+  String trashRemovedInDays(int count) {
+    return 'Bị xóa hẳn sau $count ngày';
+  }
+
+  @override
+  String get trashRemovedTomorrow => 'Bị xóa hẳn vào ngày mai';
+
+  @override
+  String get emptyTrashTitle => 'Dọn thùng rác?';
+
+  @override
+  String get emptyTrashBody =>
+      'Mọi công thức trong thùng rác sẽ bị xóa hẳn, không hoàn tác được.';
+
+  @override
+  String get emptyTrashDone => 'Đã dọn thùng rác';
+
+  @override
+  String get trashEmptyBody => 'Công thức bị xóa sẽ nằm ở đây 30 ngày.';
+
+  @override
+  String get deleteForeverTitle => 'Xóa hẳn?';
+
+  @override
+  String get deleteCategoryTitle => 'Xóa danh mục?';
+
+  @override
+  String durationHours(int count) {
+    return '$count giờ';
+  }
+
+  @override
+  String durationHM(int hours, int minutes) {
+    return '$hours giờ $minutes phút';
+  }
+
+  @override
+  String get categoryEmptyBody => 'Danh mục giúp bạn lọc công thức nhanh hơn.';
 }

@@ -6,16 +6,17 @@ import '../../data/category_repository.dart';
 import '../../providers.dart';
 
 /// Bảng lọc công thức: danh mục, thẻ, số sao, yêu thích, thời gian, nguyên
-/// liệu (AC-13). Kết quả cập nhật ngay khi chọn.
+/// liệu (AC-13). Kết quả cập nhật ngay khi chọn; nút cuối hiện số công thức.
 Future<void> showRecipeFilterSheet(BuildContext context) =>
     showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
+      useSafeArea: true,
       showDragHandle: true,
       builder: (_) => const _FilterSheet(),
     );
 
-const _timeChoices = [15, 30, 60, 120];
+const _timeChoices = [15, 30, 45, 60, 90, 120];
 
 /// Tên danh mục kèm đường dẫn cha, ví dụ "Món chính › Món Việt".
 String categoryPath(List<Category> all, Category c) {
@@ -57,187 +58,202 @@ class _FilterSheetState extends ConsumerState<_FilterSheet> {
   @override
   Widget build(BuildContext context) {
     final l = AppLocalizations.of(context);
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
     final query = ref.watch(recipeQueryProvider);
     final notifier = ref.read(recipeQueryProvider.notifier);
     final categories = ref.watch(categoriesProvider).value ?? const [];
     final tags = ref.watch(tagsProvider).value ?? const [];
-    final heading = Theme.of(context).textTheme.titleSmall;
-    Widget section(String title, Widget child) => Padding(
-      padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+    final count = ref.watch(recipesProvider).value?.length ?? 0;
+    Widget heading(String title, {String? caption}) => Padding(
+      padding: const EdgeInsets.fromLTRB(16, 20, 16, 0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Semantics(header: true, child: Text(title, style: heading)),
+          Semantics(header: true, child: Text(title, style: theme.textTheme.titleMedium)),
+          if (caption != null)
+            Padding(
+              padding: const EdgeInsets.only(top: 2),
+              child: Text(
+                caption,
+                style: theme.textTheme.bodySmall!.copyWith(
+                  color: cs.onSurfaceVariant,
+                ),
+              ),
+            ),
           const SizedBox(height: 8),
-          child,
         ],
       ),
     );
 
-    return SafeArea(
-      child: ConstrainedBox(
-        constraints: BoxConstraints(
-          maxHeight: MediaQuery.sizeOf(context).height * 0.85,
-        ),
-        child: Padding(
-          padding: EdgeInsets.only(
-            bottom: MediaQuery.viewInsetsOf(context).bottom,
-          ),
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Text(
-                        l.filter,
-                        style: Theme.of(context).textTheme.titleLarge,
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: query.filterCount == 0
-                          ? null
-                          : () {
-                              _ingredient.clear();
-                              notifier.set(
-                                query.copyWith(
-                                  categoryIds: const {},
-                                  tags: const {},
-                                  minRating: 0,
-                                  favoriteOnly: false,
-                                  clearMaxTotalMinutes: true,
-                                  ingredient: '',
-                                ),
-                              );
-                            },
-                      child: Text(l.clearFilters),
-                    ),
-                    FilledButton(
-                      onPressed: () => Navigator.pop(context),
-                      child: Text(l.done),
-                    ),
-                  ],
-                ),
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+        maxHeight: MediaQuery.sizeOf(context).height * 0.9,
+      ),
+      child: Padding(
+        padding: EdgeInsets.only(bottom: MediaQuery.viewInsetsOf(context).bottom),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 4),
+              child: Align(
+                alignment: AlignmentDirectional.centerStart,
+                child: Text(l.filter, style: theme.textTheme.headlineSmall),
               ),
-              Expanded(
-                child: ListView(
-                  padding: const EdgeInsets.only(bottom: 24),
-                  children: [
-                    if (categories.isNotEmpty)
-                      section(
-                        l.filterCategories,
-                        Wrap(
-                          spacing: 8,
-                          children: [
-                            for (final c in categories)
-                              FilterChip(
-                                label: Text(categoryPath(categories, c)),
-                                selected: query.categoryIds.contains(c.id),
-                                onSelected: (on) => notifier.set(
-                                  query.copyWith(
-                                    categoryIds: {
-                                      for (final id in query.categoryIds)
-                                        if (id != c.id) id,
-                                      if (on) c.id,
-                                    },
-                                  ),
-                                ),
-                              ),
-                          ],
+            ),
+            Flexible(
+              child: ListView(
+                padding: const EdgeInsets.only(bottom: 12),
+                children: [
+                  if (categories.isNotEmpty) ...[
+                    heading(
+                      l.filterCategories,
+                      caption: l.filterIncludesSubs,
+                    ),
+                    for (final c in categories)
+                      CheckboxListTile(
+                        contentPadding: EdgeInsets.only(
+                          left: 8.0 + (c.depth - 1) * 24,
+                          right: 16,
+                        ),
+                        dense: true,
+                        visualDensity: VisualDensity.compact,
+                        controlAffinity: ListTileControlAffinity.leading,
+                        value: query.categoryIds.contains(c.id),
+                        title: Text(c.name),
+                        onChanged: (on) => notifier.set(
+                          query.copyWith(
+                            categoryIds: {
+                              for (final id in query.categoryIds)
+                                if (id != c.id) id,
+                              if (on == true) c.id,
+                            },
+                          ),
                         ),
                       ),
-                    if (tags.isNotEmpty)
-                      section(
-                        l.filterTags,
-                        Wrap(
-                          spacing: 8,
-                          children: [
-                            for (final t in tags)
-                              FilterChip(
-                                label: Text(t.tag),
-                                selected: query.tags.contains(t.tag),
-                                onSelected: (on) => notifier.set(
-                                  query.copyWith(
-                                    tags: {
-                                      for (final x in query.tags)
-                                        if (x != t.tag) x,
-                                      if (on) t.tag,
-                                    },
-                                  ),
-                                ),
-                              ),
-                          ],
-                        ),
-                      ),
-                    section(
-                      l.filterMinRating,
-                      Row(
+                  ],
+                  if (tags.isNotEmpty) ...[
+                    heading(l.filterTags, caption: l.filterTagsAll),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Wrap(
+                        spacing: 8,
+                        runSpacing: 8,
                         children: [
-                          for (var i = 1; i <= 5; i++)
-                            IconButton(
-                              tooltip: l.ratingStars(i),
-                              icon: Icon(
-                                i <= query.minRating
-                                    ? Icons.star
-                                    : Icons.star_border,
-                                color: Colors.amber.shade700,
-                              ),
-                              onPressed: () => notifier.set(
+                          for (final t in tags)
+                            FilterChip(
+                              label: Text(t.tag),
+                              selected: query.tags.contains(t.tag),
+                              onSelected: (on) => notifier.set(
                                 query.copyWith(
-                                  minRating: query.minRating == i ? 0 : i,
+                                  tags: {
+                                    for (final x in query.tags)
+                                      if (x != t.tag) x,
+                                    if (on) t.tag,
+                                  },
                                 ),
                               ),
                             ),
                         ],
                       ),
                     ),
-                    SwitchListTile(
-                      contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 16,
-                      ),
-                      title: Text(l.filterFavorite),
-                      value: query.favoriteOnly,
-                      onChanged: (v) =>
-                          notifier.set(query.copyWith(favoriteOnly: v)),
-                    ),
-                    section(
-                      l.filterMaxTime,
-                      Wrap(
-                        spacing: 8,
-                        children: [
+                  ],
+                  heading(l.filterStars),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Wrap(
+                      spacing: 8,
+                      runSpacing: 8,
+                      children: [
+                        ChoiceChip(
+                          label: Text(l.filterAny),
+                          selected: query.minRating == 0,
+                          onSelected: (_) =>
+                              notifier.set(query.copyWith(minRating: 0)),
+                        ),
+                        for (var i = 1; i <= 5; i++)
                           ChoiceChip(
-                            label: Text(l.anyTime),
-                            selected: query.maxTotalMinutes == null,
+                            label: Text('$i★'),
+                            selected: query.minRating == i,
                             onSelected: (_) => notifier.set(
-                              query.copyWith(clearMaxTotalMinutes: true),
+                              query.copyWith(minRating: i),
                             ),
                           ),
-                          for (final m in _timeChoices)
-                            ChoiceChip(
-                              label: Text(l.minutesShort(m)),
-                              selected: query.maxTotalMinutes == m,
-                              onSelected: (_) => notifier.set(
-                                query.copyWith(maxTotalMinutes: m),
-                              ),
+                      ],
+                    ),
+                  ),
+                  SwitchListTile(
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+                    title: Text(l.filterFavorite),
+                    value: query.favoriteOnly,
+                    onChanged: (v) =>
+                        notifier.set(query.copyWith(favoriteOnly: v)),
+                  ),
+                  heading(l.filterMaxTime),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Wrap(
+                      spacing: 8,
+                      runSpacing: 8,
+                      children: [
+                        ChoiceChip(
+                          label: Text(l.filterAny),
+                          selected: query.maxTotalMinutes == null,
+                          onSelected: (_) => notifier.set(
+                            query.copyWith(clearMaxTotalMinutes: true),
+                          ),
+                        ),
+                        for (final m in _timeChoices)
+                          ChoiceChip(
+                            label: Text(l.minutesShort(m)),
+                            selected: query.maxTotalMinutes == m,
+                            onSelected: (_) => notifier.set(
+                              query.copyWith(maxTotalMinutes: m),
                             ),
-                        ],
-                      ),
+                          ),
+                      ],
                     ),
-                    section(
-                      l.filterIngredient,
-                      TextField(
-                        controller: _ingredient,
-                        decoration: const InputDecoration(isDense: true),
-                        onChanged: (v) =>
-                            notifier.set(query.copyWith(ingredient: v)),
-                      ),
+                  ),
+                  heading(l.filterIngredient),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: TextField(
+                      controller: _ingredient,
+                      decoration: const InputDecoration(isDense: true),
+                      onChanged: (v) =>
+                          notifier.set(query.copyWith(ingredient: v)),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+            const Divider(height: 1),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(12, 8, 16, 8),
+              child: Wrap(
+                alignment: WrapAlignment.spaceBetween,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                spacing: 8,
+                runSpacing: 4,
+                children: [
+                  TextButton(
+                    onPressed: query.isFiltering
+                        ? () {
+                            _ingredient.clear();
+                            notifier.set(query.cleared());
+                          }
+                        : null,
+                    child: Text(l.clearFilters),
+                  ),
+                  FilledButton(
+                    onPressed: () => Navigator.pop(context),
+                    child: Text(l.showNRecipes(count)),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

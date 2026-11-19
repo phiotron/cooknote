@@ -81,6 +81,11 @@ final categoriesProvider = StreamProvider<List<Category>>(
   (ref) => ref.watch(categoryRepositoryProvider).watchAll(),
 );
 
+/// Số công thức (không tính thùng rác) theo từng danh mục (SCR-14).
+final categoryCountsProvider = StreamProvider<Map<int, int>>(
+  (ref) => ref.watch(recipeRepositoryProvider).watchCategoryCounts(),
+);
+
 /// Cách xem danh sách: `list` hoặc `grid`, được giữ sau khi tắt app (AC-14).
 final viewModeProvider = StreamProvider<String>(
   (ref) => ref.watch(settingsRepositoryProvider).watchViewMode(),
@@ -177,9 +182,13 @@ final backupNoticeProvider = Provider<BackupNotice>((ref) {
   final config = ref.watch(backupConfigProvider).value;
   final count = ref.watch(recipeCountProvider).value;
   if (config == null || count == null) return BackupNotice.none;
-  return backupNotice(
+  final notice = backupNotice(
     config: config,
     recipeCount: count,
     now: ref.watch(clockProvider)(),
   );
+  if (notice == BackupNotice.suggestEnable && config.suggestionDismissed) {
+    return BackupNotice.none;
+  }
+  return notice;
 });

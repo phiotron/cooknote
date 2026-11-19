@@ -1130,4 +1130,165 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get ratingUnset => 'No rating';
+
+  @override
+  String get moreActions => 'More options';
+
+  @override
+  String get select => 'Select';
+
+  @override
+  String get selectRecipes => 'Select recipes';
+
+  @override
+  String get privacyNote => 'Your recipes live only on this phone.';
+
+  @override
+  String get addSheetManualSub => 'Type or paste a recipe';
+
+  @override
+  String get addSheetWebSub => 'Open a page or paste a link';
+
+  @override
+  String get addSheetScanSub => 'Cookbook page or handwritten recipe';
+
+  @override
+  String get addSheetImportSub => 'From another app or a backup';
+
+  @override
+  String get needsInternet => 'Needs internet';
+
+  @override
+  String get addSheetTip => 'Tip: in your browser, tap Share → Bepbook';
+
+  @override
+  String get filterIncludesSubs => 'Includes sub-categories';
+
+  @override
+  String get filterTagsAll => 'Tags · must have all';
+
+  @override
+  String get filterStars => 'Minimum stars';
+
+  @override
+  String get filterAny => 'Any';
+
+  @override
+  String get servingsUnitsTitle => 'Servings & units';
+
+  @override
+  String get unitsLabel => 'Units';
+
+  @override
+  String get unitsCaption =>
+      'Volume stays volume, weight stays weight. Cups and bowls never convert.';
+
+  @override
+  String get previewLabel => 'Preview';
+
+  @override
+  String get peopleUnit => 'people';
+
+  @override
+  String get decreaseServings => 'Fewer servings';
+
+  @override
+  String get increaseServings => 'More servings';
+
+  @override
+  String get noServings => 'No servings set';
+
+  @override
+  String get factServings => 'Servings';
+
+  @override
+  String get factPrep => 'Prep';
+
+  @override
+  String get factCook => 'Cook';
+
+  @override
+  String get factTotal => 'Total';
+
+  @override
+  String get factDifficulty => 'Difficulty';
+
+  @override
+  String get addToMenu => 'Add to menu';
+
+  @override
+  String get addToShopping => 'Add to shopping';
+
+  @override
+  String get openSourceLink => 'Open source link';
+
+  @override
+  String get textMode => 'Text';
+
+  @override
+  String get linesMode => 'Lines';
+
+  @override
+  String get addLine => 'Add line';
+
+  @override
+  String get moveUp => 'Move up';
+
+  @override
+  String get moveDown => 'Move down';
+
+  @override
+  String get makeHeading => 'Make heading';
+
+  @override
+  String get removeHeading => 'Remove heading';
+
+  @override
+  String get details => 'Details';
+
+  @override
+  String trashRemovedInDays(int count) {
+    return 'Removed for good in $count days';
+  }
+
+  @override
+  String get trashRemovedTomorrow => 'Removed for good tomorrow';
+
+  @override
+  String get emptyTrashTitle => 'Empty the trash?';
+
+  @override
+  String get emptyTrashBody =>
+      'Every recipe in the trash will be removed for good. This cannot be undone.';
+
+  @override
+  String get emptyTrashDone => 'Trash emptied';
+
+  @override
+  String get trashEmptyBody => 'Deleted recipes stay here for 30 days.';
+
+  @override
+  String get deleteForeverTitle => 'Delete forever?';
+
+  @override
+  String get deleteCategoryTitle => 'Delete category?';
+
+  @override
+  String durationHours(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count hours',
+      one: '1 hour',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String durationHM(int hours, int minutes) {
+    return '$hours h $minutes min';
+  }
+
+  @override
+  String get categoryEmptyBody => 'Categories help you filter recipes faster.';
 }

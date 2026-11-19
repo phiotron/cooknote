@@ -208,6 +208,7 @@ class RecipeSummary {
     this.deletedAt,
     this.cookCount = 0,
     this.lastCookedAt,
+    this.categoryName,
   });
 
   final int id;
@@ -222,6 +223,9 @@ class RecipeSummary {
   final DateTime? deletedAt;
   final int cookCount;
   final DateTime? lastCookedAt;
+
+  /// Danh mục đầu tiên (theo thứ tự hiển thị) để hiện dưới tên công thức.
+  final String? categoryName;
 }
 
 /// Một thẻ kèm số công thức đang dùng.
@@ -269,6 +273,27 @@ class RecipeRepository {
           ..where(_db.recipes.deletedAt.isNull()))
         .map((r) => r.read(count) ?? 0)
         .watchSingle();
+  }
+
+  /// Số công thức đang dùng theo từng danh mục (đếm trực tiếp, không gồm con).
+  Stream<Map<int, int>> watchCategoryCounts() {
+    final count = _db.recipeCategories.recipeId.count();
+    final query = _db.selectOnly(_db.recipeCategories)
+      ..addColumns([_db.recipeCategories.categoryId, count])
+      ..join([
+        innerJoin(
+          _db.recipes,
+          _db.recipes.id.equalsExp(_db.recipeCategories.recipeId),
+        ),
+      ])
+      ..where(_db.recipes.deletedAt.isNull())
+      ..groupBy([_db.recipeCategories.categoryId]);
+    return query.watch().map(
+      (rows) => {
+        for (final row in rows)
+          row.read(_db.recipeCategories.categoryId)!: row.read(count) ?? 0,
+      },
+    );
   }
 
   /// Công thức trong thùng rác, mới xóa ở trên (AC-05).
@@ -333,6 +358,19 @@ class RecipeRepository {
     )..where((p) => p.position.equals(0))).get();
     final coverOf = {for (final c in covers) c.recipeId: c.fileName};
 
+    final categoryRows = await _db.select(_db.categories).get()
+      ..sort((a, b) {
+        final p = a.position.compareTo(b.position);
+        return p != 0 ? p : a.id.compareTo(b.id);
+      });
+    final categoryName = {for (final c in categoryRows) c.id: c.name};
+    final links = await _db.select(_db.recipeCategories).get();
+    final categoryOf = <int, String>{};
+    for (final link in links) {
+      final name = categoryName[link.categoryId];
+      if (name != null) categoryOf.putIfAbsent(link.recipeId, () => name);
+    }
+
     final cookCount = _db.cookLog.id.count();
     final lastCooked = _db.cookLog.cookedAt.max();
     final stats =
@@ -363,6 +401,7 @@ class RecipeRepository {
           deletedAt: r.deletedAt,
           cookCount: statOf[r.id]?.$1 ?? 0,
           lastCookedAt: statOf[r.id]?.$2,
+          categoryName: categoryOf[r.id],
         ),
     ];
     if (trashed) {
@@ -662,6 +701,18 @@ class RecipeRepository {
       await deleteForever(r.id);
     }
     return expired.length;
+  }
+
+  /// Xóa hẳn mọi công thức đang nằm trong thùng rác; trả về số đã xóa.
+  Future<int> emptyTrash() async {
+    final rows =
+        await (_db.select(
+          _db.recipes,
+        )..where((r) => r.deletedAt.isNotNull())).get();
+    for (final r in rows) {
+      await deleteForever(r.id);
+    }
+    return rows.length;
   }
 
   /// Tạo bản sao tên `<tên> (<copyLabel>)`, ảnh chép thành file riêng (AC-06).
