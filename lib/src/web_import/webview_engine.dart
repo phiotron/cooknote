@@ -5,6 +5,16 @@ import 'package:webview_flutter/webview_flutter.dart';
 
 import 'browser_engine.dart';
 
+/// Xóa cookie, bộ nhớ đệm và bộ nhớ cục bộ của WebView (AC-64, D-010).
+/// Dùng khi người dùng xóa toàn bộ dữ liệu: lần mở sau không còn đăng nhập
+/// hay cookie của trang nào.
+Future<void> clearBrowserData() async {
+  final controller = WebViewController();
+  await controller.clearCache();
+  await controller.clearLocalStorage();
+  await WebViewCookieManager().clearCookies();
+}
+
 /// Trình duyệt thật dựa trên webview_flutter (Android WebView). KHÔNG test
 /// được bằng `flutter test`: CHƯA kiểm chứng trên máy thật.
 class WebViewEngine implements BrowserEngine {

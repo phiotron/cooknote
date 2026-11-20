@@ -784,5 +784,121 @@
       }
     }
   },
-  "categoryEmptyBody": "Categories help you filter recipes faster."
+  "categoryEmptyBody": "Categories help you filter recipes faster.",
+  "close": "Close",
+  "continueLabel": "Continue",
+  "untitledRecipe": "Untitled recipe",
+  "previewSummary": "{ing} ingredients · {steps} steps",
+  "@previewSummary": {
+    "placeholders": {
+      "ing": {
+        "type": "int"
+      },
+      "steps": {
+        "type": "int"
+      }
+    }
+  },
+  "previewPhotos": "{n} photos will be saved to this device",
+  "@previewPhotos": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "previewEdit": "Edit in the editor",
+  "previewSave": "Save recipe",
+  "webDownloadNote": "Photos are saved on this device when you save, so they work offline.",
+  "previewMissingIngredients": "This page had no ingredients — you can add them in the editor.",
+  "previewMissingSteps": "This page had no steps — you can add them in the editor.",
+  "webInsecure": "Not encrypted",
+  "webInsecureInfoTitle": "Unencrypted page",
+  "webInsecureInfo": "This page uses http. Other people on the same network may read the page, passwords you type, or card numbers. Only open pages you trust.",
+  "shareInTitle": "Shared to Bepbook",
+  "shareInIntro": "Content shared from another app:",
+  "shareInEmpty": "Nothing was shared.",
+  "shareInUrl": "Open the link in the browser",
+  "shareInText": "Make a recipe from this text",
+  "pickTextHint": "Paste the selected text, then choose where it belongs.",
+  "pickTextContent": "Selected text",
+  "pickTextTarget": "This text is",
+  "scanNotAvailable": "Text recognition is not available on this device. You can type it in or import from the web.",
+  "scanPrivacy": "Photos and text are processed on this device only and never sent anywhere.",
+  "scanFromGallery": "Choose photos",
+  "scanMaxPages": "Up to 10 pages at a time",
+  "scanTakePhoto": "Take a photo",
+  "scanOnePage": "One page",
+  "scanPickPdf": "Choose a PDF",
+  "scanPdfHint": "A cookbook or a recipe saved as PDF",
+  "scanHandwritingWarning": "Printed text is recognised more accurately than handwriting; check the lines after scanning.",
+  "scanProgress": "Read {done}/{total} pages",
+  "@scanProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "scanFailed": "Could not read this photo",
+  "scanTooManyPages": "Up to 10 pages can be scanned at once",
+  "scanNoLines": "No text was recognised",
+  "scanPdfPagesLimited": "The file has {total} pages; only the first {used} were scanned",
+  "@scanPdfPagesLimited": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      },
+      "used": {
+        "type": "int"
+      }
+    }
+  },
+  "scanAssignHint": "Tap lines to select, then assign Name, Ingredients, Steps or Notes. Long-press to edit the text.",
+  "scanKeepPhotos": "Keep the original photos as recipe photos",
+  "scanSelectFirst": "Select at least one line",
+  "scanSelected": "{n} lines selected",
+  "@scanSelected": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "scanPage": "Page {n}",
+  "@scanPage": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "scanEditLine": "Edit line",
+  "scanLineText": "Text",
+  "scanLineRole": "Part",
+  "scanLineName": "Name",
+  "scanLineIngredients": "Ingredients",
+  "scanLineSteps": "Steps",
+  "scanLineNote": "Note",
+  "scanLineSkip": "Skip",
+  "scanDoubtful": "This line may be misread",
+  "cookNoIngredients": "This recipe has no ingredients yet.",
+  "cookIngredientsDone": "{done}/{total} ingredients done",
+  "@cookIngredientsDone": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "cookStartOverHint": "All ingredient and step ticks will be cleared.",
+  "cookAllStepsDone": "All steps done. Enjoy your meal!",
+  "timerStarted": "Timer started",
+  "recipeMissing": "This recipe could not be found — it may have been deleted."
 }

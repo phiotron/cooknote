@@ -61,7 +61,15 @@ class AndroidTesseractEngine implements OcrEngine {
   Future<void> cancel() => _invoke<void>('cancel');
 
   @override
-  Future<void> dispose() => _invoke<void>('release');
+  Future<void> dispose() async {
+    // Kênh có thể chưa đăng ký (test, iOS): nhả tài nguyên thất bại không phải
+    // lỗi của người dùng, và lúc này màn đang đóng nên không báo được.
+    try {
+      await _invoke<void>('release');
+    } on OcrException {
+      // Bỏ qua.
+    }
+  }
 
   Future<T?> _invoke<T>(String method, [Map<String, Object?>? args]) async {
     try {

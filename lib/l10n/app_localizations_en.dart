@@ -1291,4 +1291,194 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get categoryEmptyBody => 'Categories help you filter recipes faster.';
+
+  @override
+  String get close => 'Close';
+
+  @override
+  String get continueLabel => 'Continue';
+
+  @override
+  String get untitledRecipe => 'Untitled recipe';
+
+  @override
+  String previewSummary(int ing, int steps) {
+    return '$ing ingredients · $steps steps';
+  }
+
+  @override
+  String previewPhotos(int n) {
+    return '$n photos will be saved to this device';
+  }
+
+  @override
+  String get previewEdit => 'Edit in the editor';
+
+  @override
+  String get previewSave => 'Save recipe';
+
+  @override
+  String get webDownloadNote =>
+      'Photos are saved on this device when you save, so they work offline.';
+
+  @override
+  String get previewMissingIngredients =>
+      'This page had no ingredients — you can add them in the editor.';
+
+  @override
+  String get previewMissingSteps =>
+      'This page had no steps — you can add them in the editor.';
+
+  @override
+  String get webInsecure => 'Not encrypted';
+
+  @override
+  String get webInsecureInfoTitle => 'Unencrypted page';
+
+  @override
+  String get webInsecureInfo =>
+      'This page uses http. Other people on the same network may read the page, passwords you type, or card numbers. Only open pages you trust.';
+
+  @override
+  String get shareInTitle => 'Shared to Bepbook';
+
+  @override
+  String get shareInIntro => 'Content shared from another app:';
+
+  @override
+  String get shareInEmpty => 'Nothing was shared.';
+
+  @override
+  String get shareInUrl => 'Open the link in the browser';
+
+  @override
+  String get shareInText => 'Make a recipe from this text';
+
+  @override
+  String get pickTextHint =>
+      'Paste the selected text, then choose where it belongs.';
+
+  @override
+  String get pickTextContent => 'Selected text';
+
+  @override
+  String get pickTextTarget => 'This text is';
+
+  @override
+  String get scanNotAvailable =>
+      'Text recognition is not available on this device. You can type it in or import from the web.';
+
+  @override
+  String get scanPrivacy =>
+      'Photos and text are processed on this device only and never sent anywhere.';
+
+  @override
+  String get scanFromGallery => 'Choose photos';
+
+  @override
+  String get scanMaxPages => 'Up to 10 pages at a time';
+
+  @override
+  String get scanTakePhoto => 'Take a photo';
+
+  @override
+  String get scanOnePage => 'One page';
+
+  @override
+  String get scanPickPdf => 'Choose a PDF';
+
+  @override
+  String get scanPdfHint => 'A cookbook or a recipe saved as PDF';
+
+  @override
+  String get scanHandwritingWarning =>
+      'Printed text is recognised more accurately than handwriting; check the lines after scanning.';
+
+  @override
+  String scanProgress(int done, int total) {
+    return 'Read $done/$total pages';
+  }
+
+  @override
+  String get scanFailed => 'Could not read this photo';
+
+  @override
+  String get scanTooManyPages => 'Up to 10 pages can be scanned at once';
+
+  @override
+  String get scanNoLines => 'No text was recognised';
+
+  @override
+  String scanPdfPagesLimited(int total, int used) {
+    return 'The file has $total pages; only the first $used were scanned';
+  }
+
+  @override
+  String get scanAssignHint =>
+      'Tap lines to select, then assign Name, Ingredients, Steps or Notes. Long-press to edit the text.';
+
+  @override
+  String get scanKeepPhotos => 'Keep the original photos as recipe photos';
+
+  @override
+  String get scanSelectFirst => 'Select at least one line';
+
+  @override
+  String scanSelected(int n) {
+    return '$n lines selected';
+  }
+
+  @override
+  String scanPage(int n) {
+    return 'Page $n';
+  }
+
+  @override
+  String get scanEditLine => 'Edit line';
+
+  @override
+  String get scanLineText => 'Text';
+
+  @override
+  String get scanLineRole => 'Part';
+
+  @override
+  String get scanLineName => 'Name';
+
+  @override
+  String get scanLineIngredients => 'Ingredients';
+
+  @override
+  String get scanLineSteps => 'Steps';
+
+  @override
+  String get scanLineNote => 'Note';
+
+  @override
+  String get scanLineSkip => 'Skip';
+
+  @override
+  String get scanDoubtful => 'This line may be misread';
+
+  @override
+  String get cookNoIngredients => 'This recipe has no ingredients yet.';
+
+  @override
+  String cookIngredientsDone(int done, int total) {
+    return '$done/$total ingredients done';
+  }
+
+  @override
+  String get cookStartOverHint =>
+      'All ingredient and step ticks will be cleared.';
+
+  @override
+  String get cookAllStepsDone => 'All steps done. Enjoy your meal!';
+
+  @override
+  String get timerStarted => 'Timer started';
+
+  @override
+  String get recipeMissing =>
+      'This recipe could not be found — it may have been deleted.';
 }

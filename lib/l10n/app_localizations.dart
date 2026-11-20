@@ -2341,6 +2341,336 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Categories help you filter recipes faster.'**
   String get categoryEmptyBody;
+
+  /// No description provided for @close.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
+  /// No description provided for @continueLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get continueLabel;
+
+  /// No description provided for @untitledRecipe.
+  ///
+  /// In en, this message translates to:
+  /// **'Untitled recipe'**
+  String get untitledRecipe;
+
+  /// No description provided for @previewSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'{ing} ingredients · {steps} steps'**
+  String previewSummary(int ing, int steps);
+
+  /// No description provided for @previewPhotos.
+  ///
+  /// In en, this message translates to:
+  /// **'{n} photos will be saved to this device'**
+  String previewPhotos(int n);
+
+  /// No description provided for @previewEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit in the editor'**
+  String get previewEdit;
+
+  /// No description provided for @previewSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save recipe'**
+  String get previewSave;
+
+  /// No description provided for @webDownloadNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Photos are saved on this device when you save, so they work offline.'**
+  String get webDownloadNote;
+
+  /// No description provided for @previewMissingIngredients.
+  ///
+  /// In en, this message translates to:
+  /// **'This page had no ingredients — you can add them in the editor.'**
+  String get previewMissingIngredients;
+
+  /// No description provided for @previewMissingSteps.
+  ///
+  /// In en, this message translates to:
+  /// **'This page had no steps — you can add them in the editor.'**
+  String get previewMissingSteps;
+
+  /// No description provided for @webInsecure.
+  ///
+  /// In en, this message translates to:
+  /// **'Not encrypted'**
+  String get webInsecure;
+
+  /// No description provided for @webInsecureInfoTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Unencrypted page'**
+  String get webInsecureInfoTitle;
+
+  /// No description provided for @webInsecureInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'This page uses http. Other people on the same network may read the page, passwords you type, or card numbers. Only open pages you trust.'**
+  String get webInsecureInfo;
+
+  /// No description provided for @shareInTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Shared to Bepbook'**
+  String get shareInTitle;
+
+  /// No description provided for @shareInIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Content shared from another app:'**
+  String get shareInIntro;
+
+  /// No description provided for @shareInEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing was shared.'**
+  String get shareInEmpty;
+
+  /// No description provided for @shareInUrl.
+  ///
+  /// In en, this message translates to:
+  /// **'Open the link in the browser'**
+  String get shareInUrl;
+
+  /// No description provided for @shareInText.
+  ///
+  /// In en, this message translates to:
+  /// **'Make a recipe from this text'**
+  String get shareInText;
+
+  /// No description provided for @pickTextHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Paste the selected text, then choose where it belongs.'**
+  String get pickTextHint;
+
+  /// No description provided for @pickTextContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Selected text'**
+  String get pickTextContent;
+
+  /// No description provided for @pickTextTarget.
+  ///
+  /// In en, this message translates to:
+  /// **'This text is'**
+  String get pickTextTarget;
+
+  /// No description provided for @scanNotAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Text recognition is not available on this device. You can type it in or import from the web.'**
+  String get scanNotAvailable;
+
+  /// No description provided for @scanPrivacy.
+  ///
+  /// In en, this message translates to:
+  /// **'Photos and text are processed on this device only and never sent anywhere.'**
+  String get scanPrivacy;
+
+  /// No description provided for @scanFromGallery.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose photos'**
+  String get scanFromGallery;
+
+  /// No description provided for @scanMaxPages.
+  ///
+  /// In en, this message translates to:
+  /// **'Up to 10 pages at a time'**
+  String get scanMaxPages;
+
+  /// No description provided for @scanTakePhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Take a photo'**
+  String get scanTakePhoto;
+
+  /// No description provided for @scanOnePage.
+  ///
+  /// In en, this message translates to:
+  /// **'One page'**
+  String get scanOnePage;
+
+  /// No description provided for @scanPickPdf.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a PDF'**
+  String get scanPickPdf;
+
+  /// No description provided for @scanPdfHint.
+  ///
+  /// In en, this message translates to:
+  /// **'A cookbook or a recipe saved as PDF'**
+  String get scanPdfHint;
+
+  /// No description provided for @scanHandwritingWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Printed text is recognised more accurately than handwriting; check the lines after scanning.'**
+  String get scanHandwritingWarning;
+
+  /// No description provided for @scanProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Read {done}/{total} pages'**
+  String scanProgress(int done, int total);
+
+  /// No description provided for @scanFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not read this photo'**
+  String get scanFailed;
+
+  /// No description provided for @scanTooManyPages.
+  ///
+  /// In en, this message translates to:
+  /// **'Up to 10 pages can be scanned at once'**
+  String get scanTooManyPages;
+
+  /// No description provided for @scanNoLines.
+  ///
+  /// In en, this message translates to:
+  /// **'No text was recognised'**
+  String get scanNoLines;
+
+  /// No description provided for @scanPdfPagesLimited.
+  ///
+  /// In en, this message translates to:
+  /// **'The file has {total} pages; only the first {used} were scanned'**
+  String scanPdfPagesLimited(int total, int used);
+
+  /// No description provided for @scanAssignHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap lines to select, then assign Name, Ingredients, Steps or Notes. Long-press to edit the text.'**
+  String get scanAssignHint;
+
+  /// No description provided for @scanKeepPhotos.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep the original photos as recipe photos'**
+  String get scanKeepPhotos;
+
+  /// No description provided for @scanSelectFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Select at least one line'**
+  String get scanSelectFirst;
+
+  /// No description provided for @scanSelected.
+  ///
+  /// In en, this message translates to:
+  /// **'{n} lines selected'**
+  String scanSelected(int n);
+
+  /// No description provided for @scanPage.
+  ///
+  /// In en, this message translates to:
+  /// **'Page {n}'**
+  String scanPage(int n);
+
+  /// No description provided for @scanEditLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit line'**
+  String get scanEditLine;
+
+  /// No description provided for @scanLineText.
+  ///
+  /// In en, this message translates to:
+  /// **'Text'**
+  String get scanLineText;
+
+  /// No description provided for @scanLineRole.
+  ///
+  /// In en, this message translates to:
+  /// **'Part'**
+  String get scanLineRole;
+
+  /// No description provided for @scanLineName.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get scanLineName;
+
+  /// No description provided for @scanLineIngredients.
+  ///
+  /// In en, this message translates to:
+  /// **'Ingredients'**
+  String get scanLineIngredients;
+
+  /// No description provided for @scanLineSteps.
+  ///
+  /// In en, this message translates to:
+  /// **'Steps'**
+  String get scanLineSteps;
+
+  /// No description provided for @scanLineNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Note'**
+  String get scanLineNote;
+
+  /// No description provided for @scanLineSkip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get scanLineSkip;
+
+  /// No description provided for @scanDoubtful.
+  ///
+  /// In en, this message translates to:
+  /// **'This line may be misread'**
+  String get scanDoubtful;
+
+  /// No description provided for @cookNoIngredients.
+  ///
+  /// In en, this message translates to:
+  /// **'This recipe has no ingredients yet.'**
+  String get cookNoIngredients;
+
+  /// No description provided for @cookIngredientsDone.
+  ///
+  /// In en, this message translates to:
+  /// **'{done}/{total} ingredients done'**
+  String cookIngredientsDone(int done, int total);
+
+  /// No description provided for @cookStartOverHint.
+  ///
+  /// In en, this message translates to:
+  /// **'All ingredient and step ticks will be cleared.'**
+  String get cookStartOverHint;
+
+  /// No description provided for @cookAllStepsDone.
+  ///
+  /// In en, this message translates to:
+  /// **'All steps done. Enjoy your meal!'**
+  String get cookAllStepsDone;
+
+  /// No description provided for @timerStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'Timer started'**
+  String get timerStarted;
+
+  /// No description provided for @recipeMissing.
+  ///
+  /// In en, this message translates to:
+  /// **'This recipe could not be found — it may have been deleted.'**
+  String get recipeMissing;
 }
 
 class _AppLocalizationsDelegate

@@ -8,8 +8,8 @@ import '../../providers.dart';
 import '../../ui/messenger.dart';
 import '../../web_import/browser_engine.dart';
 import '../../web_import/browser_session.dart';
-import '../../web_import/web_images.dart';
 import '../../web_import/web_providers.dart';
+import 'import_preview_screen.dart';
 
 enum _Duplicate { openOld, saveNew }
 
@@ -97,7 +97,8 @@ class _WebBrowserScreenState extends ConsumerState<WebBrowserScreen> {
     }
   }
 
-  /// Phát hiện trùng (AC-20), tải ảnh (AC-22), rồi mở màn xem trước để sửa.
+  /// Phát hiện trùng (AC-20) rồi mở màn xem trước để sửa; ảnh chỉ tải về khi
+  /// người dùng bấm Lưu ở màn xem trước (AC-22).
   Future<void> _continue(RecipeDraft draft, List<String> imageUrls) async {
     final l = AppLocalizations.of(context);
     final router = GoRouter.of(context);
@@ -131,80 +132,10 @@ class _WebBrowserScreenState extends ConsumerState<WebBrowserScreen> {
         }
       }
     }
-    var photos = <String>[];
-    var failed = 0;
-    if (imageUrls.isNotEmpty) {
-      final result = await _downloadImages(imageUrls);
-      if (!mounted) return;
-      photos = result.names;
-      failed = result.failed;
-    }
-    final withPhotos = RecipeDraft(
-      name: draft.name,
-      servings: draft.servings,
-      servingsUnit: draft.servingsUnit,
-      prepMinutes: draft.prepMinutes,
-      cookMinutes: draft.cookMinutes,
-      totalMinutes: draft.totalMinutes,
-      source: draft.source,
-      sourceUrl: draft.sourceUrl,
-      notes: draft.notes,
-      nutrition: draft.nutrition,
-      ingredients: draft.ingredients,
-      steps: draft.steps,
-      photos: photos,
+    router.push(
+      '/web/preview',
+      extra: ImportPreviewData(draft: draft, imageUrls: imageUrls),
     );
-    if (failed > 0) showMessage(l.webImagesFailed(failed));
-    router.push('/recipe/new', extra: withPhotos);
-  }
-
-  Future<WebImagesResult> _downloadImages(List<String> urls) async {
-    final progress = ValueNotifier<(int, int)>((0, urls.length));
-    final cancel = ImageCancel();
-    final l = AppLocalizations.of(context);
-    final nav = Navigator.of(context, rootNavigator: true);
-    showDialog<void>(
-      context: context,
-      barrierDismissible: false,
-      builder: (dialog) => PopScope(
-        canPop: false,
-        child: AlertDialog(
-          content: ValueListenableBuilder<(int, int)>(
-            valueListenable: progress,
-            builder: (context, p, _) => Row(
-              children: [
-                const SizedBox(
-                  width: 24,
-                  height: 24,
-                  child: CircularProgressIndicator(strokeWidth: 3),
-                ),
-                const SizedBox(width: 16),
-                Expanded(child: Text(l.webDownloadingImages(p.$1, p.$2))),
-              ],
-            ),
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => cancel.cancelled = true,
-              child: Text(l.webSkipImages),
-            ),
-          ],
-        ),
-      ),
-    );
-    try {
-      return await importWebImages(
-        urls: urls,
-        downloader: ref.read(imageDownloaderProvider),
-        store: ref.read(imageStoreProvider),
-        tempDir: ref.read(appDirsProvider).temp,
-        cancel: cancel,
-        onProgress: (done, total) => progress.value = (done, total),
-      );
-    } finally {
-      nav.pop();
-      progress.dispose();
-    }
   }
 
   @override
@@ -259,6 +190,7 @@ class _WebBrowserScreenState extends ConsumerState<WebBrowserScreen> {
                 },
               ),
             ),
+            if (s.url?.scheme == 'http') _insecureBar(l),
             if (s.loading)
               const LinearProgressIndicator(minHeight: 2)
             else
@@ -327,6 +259,59 @@ class _WebBrowserScreenState extends ConsumerState<WebBrowserScreen> {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _insecureBar(AppLocalizations l) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(12, 0, 12, 4),
+      child: Material(
+        color: Theme.of(context).colorScheme.errorContainer,
+        borderRadius: BorderRadius.circular(8),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(8),
+          onTap: () => showDialog<void>(
+            context: context,
+            builder: (dialog) => AlertDialog(
+              icon: const Icon(Icons.lock_open_rounded),
+              title: Text(l.webInsecureInfoTitle),
+              content: Text(l.webInsecureInfo),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(dialog),
+                  child: Text(l.close),
+                ),
+              ],
+            ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+            child: Row(
+              children: [
+                Icon(
+                  Icons.lock_open_rounded,
+                  size: 18,
+                  color: Theme.of(context).colorScheme.onErrorContainer,
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    l.webInsecure,
+                    style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                      color: Theme.of(context).colorScheme.onErrorContainer,
+                    ),
+                  ),
+                ),
+                Icon(
+                  Icons.info_outline,
+                  size: 18,
+                  color: Theme.of(context).colorScheme.onErrorContainer,
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );

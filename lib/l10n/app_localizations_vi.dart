@@ -1267,4 +1267,194 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get categoryEmptyBody => 'Danh mục giúp bạn lọc công thức nhanh hơn.';
+
+  @override
+  String get close => 'Đóng';
+
+  @override
+  String get continueLabel => 'Tiếp tục';
+
+  @override
+  String get untitledRecipe => 'Công thức chưa đặt tên';
+
+  @override
+  String previewSummary(int ing, int steps) {
+    return '$ing nguyên liệu · $steps bước';
+  }
+
+  @override
+  String previewPhotos(int n) {
+    return '$n ảnh sẽ tải về máy';
+  }
+
+  @override
+  String get previewEdit => 'Sửa trong trình soạn';
+
+  @override
+  String get previewSave => 'Lưu công thức';
+
+  @override
+  String get webDownloadNote =>
+      'Ảnh được tải về máy khi lưu, nên xem lại được khi không có mạng.';
+
+  @override
+  String get previewMissingIngredients =>
+      'Trang này không có nguyên liệu — bạn có thể thêm trong trình soạn.';
+
+  @override
+  String get previewMissingSteps =>
+      'Trang này không có các bước — bạn có thể thêm trong trình soạn.';
+
+  @override
+  String get webInsecure => 'Không mã hóa';
+
+  @override
+  String get webInsecureInfoTitle => 'Trang không mã hóa';
+
+  @override
+  String get webInsecureInfo =>
+      'Trang này dùng http. Người khác trên cùng mạng có thể đọc nội dung trang, mật khẩu bạn gõ hay số thẻ. Chỉ mở trang bạn tin.';
+
+  @override
+  String get shareInTitle => 'Chia sẻ vào Bepbook';
+
+  @override
+  String get shareInIntro => 'Nội dung được chia sẻ từ app khác:';
+
+  @override
+  String get shareInEmpty => 'Không có nội dung được chia sẻ.';
+
+  @override
+  String get shareInUrl => 'Mở liên kết trong trình duyệt';
+
+  @override
+  String get shareInText => 'Tạo công thức từ chữ này';
+
+  @override
+  String get pickTextHint =>
+      'Dán chữ đã chọn, rồi chọn phần chữ đó thuộc về đâu.';
+
+  @override
+  String get pickTextContent => 'Chữ đã chọn';
+
+  @override
+  String get pickTextTarget => 'Chữ này là';
+
+  @override
+  String get scanNotAvailable =>
+      'Máy này chưa có bộ nhận chữ. Bạn có thể nhập tay hoặc nhập từ web.';
+
+  @override
+  String get scanPrivacy =>
+      'Ảnh và chữ chỉ được xử lý trên máy này, không gửi đi đâu.';
+
+  @override
+  String get scanFromGallery => 'Chọn ảnh từ thư viện';
+
+  @override
+  String get scanMaxPages => 'Tối đa 10 trang mỗi lần';
+
+  @override
+  String get scanTakePhoto => 'Chụp ảnh';
+
+  @override
+  String get scanOnePage => 'Một trang';
+
+  @override
+  String get scanPickPdf => 'Chọn file PDF';
+
+  @override
+  String get scanPdfHint => 'Sách nấu ăn hoặc công thức đã lưu dạng PDF';
+
+  @override
+  String get scanHandwritingWarning =>
+      'Chữ in được nhận chính xác hơn chữ viết tay; hãy kiểm lại các dòng sau khi quét.';
+
+  @override
+  String scanProgress(int done, int total) {
+    return 'Đã đọc $done/$total trang';
+  }
+
+  @override
+  String get scanFailed => 'Không đọc được ảnh này';
+
+  @override
+  String get scanTooManyPages => 'Mỗi lần chỉ quét tối đa 10 trang';
+
+  @override
+  String get scanNoLines => 'Không đọc được dòng chữ nào';
+
+  @override
+  String scanPdfPagesLimited(int total, int used) {
+    return 'File có $total trang; chỉ quét $used trang đầu';
+  }
+
+  @override
+  String get scanAssignHint =>
+      'Chạm dòng để chọn, rồi gán Tên, Nguyên liệu, Các bước hoặc Ghi chú. Giữ lâu để sửa chữ.';
+
+  @override
+  String get scanKeepPhotos => 'Giữ ảnh gốc làm ảnh công thức';
+
+  @override
+  String get scanSelectFirst => 'Hãy chọn ít nhất một dòng';
+
+  @override
+  String scanSelected(int n) {
+    return 'Đã chọn $n dòng';
+  }
+
+  @override
+  String scanPage(int n) {
+    return 'Trang $n';
+  }
+
+  @override
+  String get scanEditLine => 'Sửa dòng';
+
+  @override
+  String get scanLineText => 'Chữ';
+
+  @override
+  String get scanLineRole => 'Phần';
+
+  @override
+  String get scanLineName => 'Tên';
+
+  @override
+  String get scanLineIngredients => 'Nguyên liệu';
+
+  @override
+  String get scanLineSteps => 'Các bước';
+
+  @override
+  String get scanLineNote => 'Ghi chú';
+
+  @override
+  String get scanLineSkip => 'Bỏ qua';
+
+  @override
+  String get scanDoubtful => 'Dòng này có thể đọc sai';
+
+  @override
+  String get cookNoIngredients => 'Công thức chưa có nguyên liệu nào.';
+
+  @override
+  String cookIngredientsDone(int done, int total) {
+    return 'Đã xong $done/$total nguyên liệu';
+  }
+
+  @override
+  String get cookStartOverHint =>
+      'Mọi dấu gạch ở nguyên liệu và các bước sẽ được bỏ.';
+
+  @override
+  String get cookAllStepsDone => 'Đã xong hết các bước. Chúc ngon miệng!';
+
+  @override
+  String get timerStarted => 'Đã bắt đầu hẹn giờ';
+
+  @override
+  String get recipeMissing =>
+      'Không tìm thấy công thức này — có thể đã bị xoá.';
 }

@@ -456,5 +456,121 @@
       }
     }
   },
-  "categoryEmptyBody": "Danh mục giúp bạn lọc công thức nhanh hơn."
+  "categoryEmptyBody": "Danh mục giúp bạn lọc công thức nhanh hơn.",
+  "close": "Đóng",
+  "continueLabel": "Tiếp tục",
+  "untitledRecipe": "Công thức chưa đặt tên",
+  "previewSummary": "{ing} nguyên liệu · {steps} bước",
+  "@previewSummary": {
+    "placeholders": {
+      "ing": {
+        "type": "int"
+      },
+      "steps": {
+        "type": "int"
+      }
+    }
+  },
+  "previewPhotos": "{n} ảnh sẽ tải về máy",
+  "@previewPhotos": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "previewEdit": "Sửa trong trình soạn",
+  "previewSave": "Lưu công thức",
+  "webDownloadNote": "Ảnh được tải về máy khi lưu, nên xem lại được khi không có mạng.",
+  "previewMissingIngredients": "Trang này không có nguyên liệu — bạn có thể thêm trong trình soạn.",
+  "previewMissingSteps": "Trang này không có các bước — bạn có thể thêm trong trình soạn.",
+  "webInsecure": "Không mã hóa",
+  "webInsecureInfoTitle": "Trang không mã hóa",
+  "webInsecureInfo": "Trang này dùng http. Người khác trên cùng mạng có thể đọc nội dung trang, mật khẩu bạn gõ hay số thẻ. Chỉ mở trang bạn tin.",
+  "shareInTitle": "Chia sẻ vào Bepbook",
+  "shareInIntro": "Nội dung được chia sẻ từ app khác:",
+  "shareInEmpty": "Không có nội dung được chia sẻ.",
+  "shareInUrl": "Mở liên kết trong trình duyệt",
+  "shareInText": "Tạo công thức từ chữ này",
+  "pickTextHint": "Dán chữ đã chọn, rồi chọn phần chữ đó thuộc về đâu.",
+  "pickTextContent": "Chữ đã chọn",
+  "pickTextTarget": "Chữ này là",
+  "scanNotAvailable": "Máy này chưa có bộ nhận chữ. Bạn có thể nhập tay hoặc nhập từ web.",
+  "scanPrivacy": "Ảnh và chữ chỉ được xử lý trên máy này, không gửi đi đâu.",
+  "scanFromGallery": "Chọn ảnh từ thư viện",
+  "scanMaxPages": "Tối đa 10 trang mỗi lần",
+  "scanTakePhoto": "Chụp ảnh",
+  "scanOnePage": "Một trang",
+  "scanPickPdf": "Chọn file PDF",
+  "scanPdfHint": "Sách nấu ăn hoặc công thức đã lưu dạng PDF",
+  "scanHandwritingWarning": "Chữ in được nhận chính xác hơn chữ viết tay; hãy kiểm lại các dòng sau khi quét.",
+  "scanProgress": "Đã đọc {done}/{total} trang",
+  "@scanProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "scanFailed": "Không đọc được ảnh này",
+  "scanTooManyPages": "Mỗi lần chỉ quét tối đa 10 trang",
+  "scanNoLines": "Không đọc được dòng chữ nào",
+  "scanPdfPagesLimited": "File có {total} trang; chỉ quét {used} trang đầu",
+  "@scanPdfPagesLimited": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      },
+      "used": {
+        "type": "int"
+      }
+    }
+  },
+  "scanAssignHint": "Chạm dòng để chọn, rồi gán Tên, Nguyên liệu, Các bước hoặc Ghi chú. Giữ lâu để sửa chữ.",
+  "scanKeepPhotos": "Giữ ảnh gốc làm ảnh công thức",
+  "scanSelectFirst": "Hãy chọn ít nhất một dòng",
+  "scanSelected": "Đã chọn {n} dòng",
+  "@scanSelected": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "scanPage": "Trang {n}",
+  "@scanPage": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "scanEditLine": "Sửa dòng",
+  "scanLineText": "Chữ",
+  "scanLineRole": "Phần",
+  "scanLineName": "Tên",
+  "scanLineIngredients": "Nguyên liệu",
+  "scanLineSteps": "Các bước",
+  "scanLineNote": "Ghi chú",
+  "scanLineSkip": "Bỏ qua",
+  "scanDoubtful": "Dòng này có thể đọc sai",
+  "cookNoIngredients": "Công thức chưa có nguyên liệu nào.",
+  "cookIngredientsDone": "Đã xong {done}/{total} nguyên liệu",
+  "@cookIngredientsDone": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "cookStartOverHint": "Mọi dấu gạch ở nguyên liệu và các bước sẽ được bỏ.",
+  "cookAllStepsDone": "Đã xong hết các bước. Chúc ngon miệng!",
+  "timerStarted": "Đã bắt đầu hẹn giờ",
+  "recipeMissing": "Không tìm thấy công thức này — có thể đã bị xoá."
 }

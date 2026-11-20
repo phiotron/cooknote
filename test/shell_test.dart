@@ -106,12 +106,12 @@ void main() {
       ('/pantry', 'SCR-43', true),
       ('/more', 'Sao lưu', true),
       ('/onboarding', 'SCR-01', false),
-      ('/web/preview', 'SCR-17', false),
-      ('/web/pick', 'SCR-16', false),
-      ('/share?text=abc', 'SCR-18', false),
-      ('/scan', 'SCR-19/20', false),
-      ('/scan/assign', 'SCR-21', false),
-      ('/cook/7', 'SCR-23', false),
+      ('/web/preview', 'Xem trước khi lưu', false),
+      ('/web/pick', 'Chọn chữ', false),
+      ('/share?text=abc', 'Chia sẻ vào Bepbook', false),
+      ('/scan', 'Quét từ ảnh', false),
+      ('/scan/assign', 'Gán dòng', false),
+      ('/cook/7', 'Chế độ nấu', false),
       ('/menu/templates', 'SCR-39', false),
       ('/menu/random', 'SCR-40', false),
       ('/settings/meal-slots', 'SCR-42', false),
@@ -142,7 +142,7 @@ void main() {
     ) async {
       final app = await pumpApp(tester, overrides: _overrides);
       await _go(tester, '/cook/42');
-      expect(find.textContaining('recipeId=42'), findsOneWidget);
+      expect(find.text('Chế độ nấu'), findsWidgets);
       for (final (path, nav) in [
         ('/settings', false),
         ('/backup', false),
@@ -239,7 +239,7 @@ void main() {
       );
       await tester.tap(find.text('2 hẹn giờ · 05:00'));
       await tester.pumpAndSettle();
-      expect(find.textContaining('recipeId=3'), findsOneWidget);
+      expect(find.text('Chế độ nấu'), findsWidgets);
       await cancelAll(tester);
       await disposeApp(tester, app);
     });
