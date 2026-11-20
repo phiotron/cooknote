@@ -1,7 +1,0 @@
-﻿"scanPhoto": "Quét từ ảnh",
-"cookModeTitle": "Chế độ nấu",
-"previewTitle": "Xem trước khi lưu",
-"scanAssignTitle": "Gán dòng",
-"pickText": "Chọn chữ",
-"shareInTitle": "Chia sẻ vào Bepbook",
-"recipeMissing": "Không tìm thấy công thức này — có thể đã bị xoá."
