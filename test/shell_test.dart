@@ -54,7 +54,7 @@ void main() {
 
     await tester.tap(find.text('Đi chợ'));
     await tester.pumpAndSettle();
-    expect(find.text('SCR-27'), findsOneWidget);
+    expect(find.text('Chưa có món cần mua'), findsOneWidget);
 
     await tester.tap(find.text('Tủ bếp'));
     await tester.pumpAndSettle();
@@ -102,7 +102,7 @@ void main() {
     // (đường dẫn, chữ có trên màn, có thanh dưới không)
     const routes = <(String, String, bool)>[
       ('/menu', 'SCR-34/35/36', true),
-      ('/shopping', 'SCR-27', true),
+      ('/shopping', 'Chưa có món cần mua', true),
       ('/pantry', 'SCR-43', true),
       ('/more', 'Sao lưu', true),
       ('/onboarding', 'SCR-01', false),
@@ -115,7 +115,7 @@ void main() {
       ('/menu/templates', 'SCR-39', false),
       ('/menu/random', 'SCR-40', false),
       ('/settings/meal-slots', 'SCR-42', false),
-      ('/shopping/aisles', 'SCR-31', false),
+      ('/shopping/aisles', 'Khu vực', false),
       ('/pantry/can-cook', 'SCR-45', false),
       ('/exchange', 'SCR-52', false),
       ('/settings/delete-all', 'SCR-54', false),
@@ -170,8 +170,8 @@ void main() {
     final ctx = tester.element(find.byType(NavigationBar));
     showAddToShoppingSheet(ctx, 5);
     await tester.pumpAndSettle();
-    expect(find.text('SCR-32'), findsOneWidget);
-    expect(find.textContaining('recipes=[5]'), findsOneWidget);
+    expect(find.text('Thêm vào đi chợ'), findsOneWidget);
+    expect(find.text('Không có nguyên liệu nào để thêm.'), findsOneWidget);
     await tester.tapAt(const Offset(10, 10)); // đóng bảng
     await tester.pumpAndSettle();
     showAddToMenuSheet(ctx, 9, date: '2026-11-05', slotId: 2);

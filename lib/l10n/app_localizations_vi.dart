@@ -1457,4 +1457,758 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String get recipeMissing =>
       'Không tìm thấy công thức này — có thể đã bị xoá.';
+
+  @override
+  String get next => 'Tiếp';
+
+  @override
+  String get skip => 'Bỏ qua';
+
+  @override
+  String get later => 'Để sau';
+
+  @override
+  String get apply => 'Áp dụng';
+
+  @override
+  String get replace => 'Thay thế';
+
+  @override
+  String get add => 'Thêm';
+
+  @override
+  String get remove => 'Xoá';
+
+  @override
+  String get back => 'Quay lại';
+
+  @override
+  String get search => 'Tìm';
+
+  @override
+  String get today => 'Hôm nay';
+
+  @override
+  String get shoppingLists => 'Danh sách';
+
+  @override
+  String get shoppingNewList => 'Danh sách mới';
+
+  @override
+  String get shoppingListName => 'Tên danh sách';
+
+  @override
+  String get shoppingRenameList => 'Đổi tên danh sách';
+
+  @override
+  String get shoppingDeleteList => 'Xoá danh sách';
+
+  @override
+  String get shoppingAisles => 'Khu vực';
+
+  @override
+  String get shoppingAislesHint => 'Sắp theo đường đi trong cửa hàng của bạn';
+
+  @override
+  String shoppingBoughtOf(int bought, int total) {
+    return 'Đã mua $bought/$total';
+  }
+
+  @override
+  String shoppingAisleCount(int n) {
+    return '$n khu vực';
+  }
+
+  @override
+  String get shoppingAddItem => 'Thêm món';
+
+  @override
+  String get shoppingItemHint => 'Ví dụ: 500 g thịt bò';
+
+  @override
+  String get shoppingItemEditTitle => 'Sửa món';
+
+  @override
+  String get shoppingFrequent => 'Món hay mua';
+
+  @override
+  String get shoppingEmptyHint =>
+      'Thêm món bằng tay, từ Món hay mua, hoặc từ công thức.';
+
+  @override
+  String get shoppingFromRecipe => 'Thêm từ công thức';
+
+  @override
+  String get shoppingBought => 'Đã mua';
+
+  @override
+  String get shoppingClearChecked => 'Xoá các món đã gạch';
+
+  @override
+  String shoppingClearTitle(int n) {
+    return 'Xoá $n món đã gạch?';
+  }
+
+  @override
+  String get shoppingMoveToPantry => 'Chuyển món đã mua vào Tủ bếp';
+
+  @override
+  String shoppingCleared(int n) {
+    return 'Đã xoá $n món đã gạch';
+  }
+
+  @override
+  String get shoppingShareTitle => 'Chia sẻ danh sách';
+
+  @override
+  String get shoppingShareEmpty => 'Không có món nào chưa mua để chia sẻ.';
+
+  @override
+  String get shoppingMoveAisleTitle => 'Chuyển sang khu vực nào?';
+
+  @override
+  String get shoppingNoAisle => 'Khác';
+
+  @override
+  String shoppingDeleteItemConfirm(String name) {
+    return 'Xoá \"$name\" khỏi danh sách?';
+  }
+
+  @override
+  String get shoppingItemDeleted => 'Đã xoá món';
+
+  @override
+  String get shoppingMergedTag => 'Đã gộp';
+
+  @override
+  String shoppingSourcesFor(String names) {
+    return 'cho $names';
+  }
+
+  @override
+  String get shoppingInPantry => 'Đang có trong tủ';
+
+  @override
+  String get shoppingAddToList => 'Thêm vào:';
+
+  @override
+  String shoppingAddCount(int n) {
+    return 'Thêm $n món';
+  }
+
+  @override
+  String shoppingMergeWarning(int n) {
+    return '$n món sẽ được gộp vào món đã có trong danh sách';
+  }
+
+  @override
+  String get shoppingNoneSelected => 'Chưa chọn món nào';
+
+  @override
+  String get shoppingAsWritten => 'giữ nguyên như công thức';
+
+  @override
+  String get shoppingNoListsHint =>
+      'Mỗi chuyến đi chợ một danh sách là tiện nhất.';
+
+  @override
+  String get shoppingItemName => 'Tên món';
+
+  @override
+  String get shoppingAmountLabel => 'Số lượng (không bắt buộc)';
+
+  @override
+  String get shoppingNewListHint => 'Ví dụ: Siêu thị, Chợ';
+
+  @override
+  String shoppingAisleDeleteTitle(String name) {
+    return 'Xoá khu vực \"$name\"?';
+  }
+
+  @override
+  String get shoppingAisleDeleteBody =>
+      'Món trong khu vực này sẽ chuyển sang \"Khác\".';
+
+  @override
+  String get shoppingAddAisle => 'Thêm khu vực';
+
+  @override
+  String get shoppingAisleName => 'Tên khu vực';
+
+  @override
+  String get shoppingAisleRename => 'Đổi tên khu vực';
+
+  @override
+  String get shoppingAislesNote =>
+      'Xoá một khu vực thì món của nó chuyển sang \"Khác\". Tủ bếp dùng chung khu vực này.';
+
+  @override
+  String shoppingAdded(int n) {
+    return 'Đã thêm $n món';
+  }
+
+  @override
+  String get shoppingNoIngredients => 'Không có nguyên liệu nào để thêm.';
+
+  @override
+  String get shoppingAllDoneSub => 'Bạn đã mua hết mọi thứ trong danh sách.';
+
+  @override
+  String get menuDay => 'Ngày';
+
+  @override
+  String get menuWeek => 'Tuần';
+
+  @override
+  String get menuMonth => 'Tháng';
+
+  @override
+  String get menuRandom => 'Gợi ý ngẫu nhiên';
+
+  @override
+  String get menuApplyTemplate => 'Áp thực đơn mẫu';
+
+  @override
+  String get menuAddToShopping => 'Thêm vào đi chợ';
+
+  @override
+  String get menuSaveWeekTemplate => 'Lưu tuần thành mẫu';
+
+  @override
+  String get menuAddToMenu => 'Thêm vào thực đơn';
+
+  @override
+  String get menuNothingPlannedWeek => 'Tuần này chưa có món nào';
+
+  @override
+  String get menuNothingPlannedDay => 'Ngày này chưa có món nào';
+
+  @override
+  String get menuEmptyHint => 'Thêm món vào bữa, hoặc dùng gợi ý ngẫu nhiên.';
+
+  @override
+  String menuWeekRange(String from, String to) {
+    return '$from – $to';
+  }
+
+  @override
+  String menuEntryServings(String n) {
+    return '$n người';
+  }
+
+  @override
+  String get menuAddTitle => 'Thêm vào thực đơn';
+
+  @override
+  String get menuTabRecipe => 'Công thức';
+
+  @override
+  String get menuTabFreeText => 'Chữ tự do';
+
+  @override
+  String get menuDate => 'Ngày';
+
+  @override
+  String get menuSlot => 'Bữa';
+
+  @override
+  String get menuServings => 'Khẩu phần';
+
+  @override
+  String get menuSearchRecipes => 'Tìm công thức';
+
+  @override
+  String get menuRecentFavourites => 'Gần đây & yêu thích';
+
+  @override
+  String get menuFreeTextHint => 'Ví dụ: Ăn ngoài';
+
+  @override
+  String get menuNoRecipes => 'Không có công thức phù hợp';
+
+  @override
+  String get menuEntryOpen => 'Mở công thức';
+
+  @override
+  String get menuEntryCook => 'Nấu';
+
+  @override
+  String get menuEntryMove => 'Chuyển tới…';
+
+  @override
+  String get menuEntryRemove => 'Xoá khỏi thực đơn';
+
+  @override
+  String get menuMoveTitle => 'Chuyển tới…';
+
+  @override
+  String get menuMoveDay => 'Ngày';
+
+  @override
+  String get menuMoveMeal => 'Bữa';
+
+  @override
+  String get menuMove => 'Chuyển';
+
+  @override
+  String get menuEntryRemoved => 'Đã xoá khỏi thực đơn';
+
+  @override
+  String get menuMealSlots => 'Các bữa';
+
+  @override
+  String get menuAddSlot => 'Thêm bữa';
+
+  @override
+  String get menuSlotName => 'Tên bữa';
+
+  @override
+  String menuDeleteSlotTitle(String name) {
+    return 'Xoá bữa \"$name\"?';
+  }
+
+  @override
+  String get menuDeleteSlotBody => 'Mọi món đã xếp vào bữa này sẽ bị xoá.';
+
+  @override
+  String menuSlotUses(int n) {
+    return '$n món';
+  }
+
+  @override
+  String get menuTemplates => 'Thực đơn mẫu';
+
+  @override
+  String get menuNewTemplate => 'Mẫu mới';
+
+  @override
+  String get menuNoTemplates => 'Chưa có thực đơn mẫu';
+
+  @override
+  String get menuNoTemplatesBody =>
+      'Lưu một ngày hoặc một tuần bạn thích, rồi áp lại bằng một chạm.';
+
+  @override
+  String get menuTemplateSaveWeek => 'Lưu tuần này thành mẫu';
+
+  @override
+  String menuTemplateItems(int items, int days) {
+    return '$items món · $days ngày';
+  }
+
+  @override
+  String menuTemplateApplyTitle(String name) {
+    return 'Áp \"$name\"';
+  }
+
+  @override
+  String get menuTemplateStartDate => 'Ngày bắt đầu';
+
+  @override
+  String get menuTemplateWeek => 'Cả tuần';
+
+  @override
+  String get menuTemplateDay => 'Một ngày';
+
+  @override
+  String get menuTemplateOccupiedTitle => 'Ngày này đã có món';
+
+  @override
+  String menuTemplateOccupiedBody(String date, int n) {
+    return '$date đã có $n món. Thay thế bằng món của mẫu, hay thêm vào bên cạnh?';
+  }
+
+  @override
+  String get menuTemplateReplaceHint =>
+      'Thay thế chỉ xoá những bữa mà mẫu sẽ điền.';
+
+  @override
+  String get menuTemplateApplied => 'Đã áp thực đơn mẫu';
+
+  @override
+  String get menuTemplateName => 'Tên thực đơn mẫu';
+
+  @override
+  String get menuTemplateCreated => 'Đã lưu thực đơn mẫu';
+
+  @override
+  String menuTemplateDeleteTitle(String name) {
+    return 'Xoá thực đơn mẫu \"$name\"?';
+  }
+
+  @override
+  String get menuRandomTitle => 'Gợi ý ngẫu nhiên';
+
+  @override
+  String menuRandomIntro(String from, String to) {
+    return 'Điền các bữa còn trống từ $from đến $to bằng công thức phù hợp.';
+  }
+
+  @override
+  String get menuRandomMaxTime => 'Thời gian tối đa';
+
+  @override
+  String get menuRandomAny => 'Tùy ý';
+
+  @override
+  String get menuRandomPreview => 'Xem trước';
+
+  @override
+  String get menuRandomPreviewTitle => 'Xem trước gợi ý';
+
+  @override
+  String get menuRandomNoRepeat => 'Không lặp món trong tuần này';
+
+  @override
+  String get menuRandomSuggested => 'Gợi ý';
+
+  @override
+  String get menuRandomTooFew =>
+      'Có ít công thức phù hợp hơn số bữa trống — một số món sẽ lặp lại.';
+
+  @override
+  String get menuRandomZero => 'Không có công thức nào phù hợp bộ lọc.';
+
+  @override
+  String get menuRandomApplied => 'Đã điền các bữa còn trống';
+
+  @override
+  String get menuShoppingRangeTitle => 'Thêm vào đi chợ';
+
+  @override
+  String get menuShoppingThisWeek => 'Tuần này';
+
+  @override
+  String get menuShoppingNext3 => '3 ngày tới';
+
+  @override
+  String get menuShoppingCustom => 'Tùy chọn';
+
+  @override
+  String get menuShoppingFrom => 'Từ';
+
+  @override
+  String get menuShoppingTo => 'Đến';
+
+  @override
+  String menuShoppingSummary(int recipes, int lines) {
+    return '$recipes công thức, $lines nguyên liệu';
+  }
+
+  @override
+  String get menuShoppingAtServings => 'Theo khẩu phần của từng bữa';
+
+  @override
+  String get menuShoppingChoose => 'Chọn nguyên liệu';
+
+  @override
+  String get menuEntryAdded => 'Đã thêm vào thực đơn';
+
+  @override
+  String get pantryAll => 'Tất cả';
+
+  @override
+  String pantrySoon(int n) {
+    return 'Sắp hết hạn ($n)';
+  }
+
+  @override
+  String pantryExpired(int n) {
+    return 'Hết hạn ($n)';
+  }
+
+  @override
+  String get pantryWhatCanICook => 'Nấu được gì?';
+
+  @override
+  String pantryAlmost(int n) {
+    return '$n công thức bạn gần nấu được';
+  }
+
+  @override
+  String get pantryEmpty => 'Tủ bếp đang trống';
+
+  @override
+  String get pantryEmptyBody =>
+      'Thêm những gì bạn có, hoặc chuyển món đã mua từ Đi chợ sang đây.';
+
+  @override
+  String get pantryAdd => 'Thêm vào tủ bếp';
+
+  @override
+  String get pantryItemTitle => 'Món trong tủ bếp';
+
+  @override
+  String get pantryName => 'Tên';
+
+  @override
+  String get pantryQuantity => 'Số lượng (không bắt buộc)';
+
+  @override
+  String get pantryAisle => 'Khu vực';
+
+  @override
+  String get pantryBought => 'Ngày mua';
+
+  @override
+  String get pantryExpiry => 'Hạn dùng (không bắt buộc)';
+
+  @override
+  String get pantryNoExpiry => 'Không có hạn';
+
+  @override
+  String get pantryNoExpiryShort => 'Không hạn';
+
+  @override
+  String pantryExpiresIn(int n) {
+    return 'Còn $n ngày';
+  }
+
+  @override
+  String pantryExpiredAgo(int n) {
+    return 'Quá hạn $n ngày';
+  }
+
+  @override
+  String pantryExpiresOn(String date) {
+    return 'Hết hạn $date';
+  }
+
+  @override
+  String pantryBoughtOn(String date) {
+    return 'Mua $date';
+  }
+
+  @override
+  String get pantryExpiringSoon => 'Sắp hết hạn';
+
+  @override
+  String get pantryExpiredTag => 'Hết hạn';
+
+  @override
+  String get pantryItemDeleteTitle => 'Xoá món này?';
+
+  @override
+  String get pantryToday => 'Hôm nay';
+
+  @override
+  String get pantryCanCookEmpty => 'Không có công thức nào để nấu';
+
+  @override
+  String get pantryCanCookEmptyBody =>
+      'Thêm nguyên liệu bạn có, Bepbook sẽ xếp hạng công thức theo đó.';
+
+  @override
+  String get pantryBasicsSwitch =>
+      'Không tính gia vị cơ bản là thiếu (muối, đường, nước, tiêu, dầu ăn, nước mắm)';
+
+  @override
+  String pantryMatch(int have, int total) {
+    return '$have/$total';
+  }
+
+  @override
+  String pantryMissingOne(int n, String names) {
+    return 'Thiếu $n: $names';
+  }
+
+  @override
+  String get pantryMissingNone => 'Đủ nguyên liệu';
+
+  @override
+  String get pantryAddMissing => 'Thêm món thiếu vào đi chợ';
+
+  @override
+  String get pantryMissingAdded => 'Đã thêm món thiếu vào đi chợ';
+
+  @override
+  String pantryCanCookRecipes(int n) {
+    return '$n công thức';
+  }
+
+  @override
+  String get moreBackupOff => 'Chưa bật sao lưu tự động.';
+
+  @override
+  String get moreImportExport => 'Nhập & xuất';
+
+  @override
+  String get moreImportExportSub => 'App khác, JSON, sách công thức PDF';
+
+  @override
+  String get morePrivacy =>
+      'Công thức của bạn chỉ nằm trên máy này. Bepbook không thu thập gì.';
+
+  @override
+  String get onboardingTitle1 => 'Công thức của bạn, một cuốn sổ';
+
+  @override
+  String get onboardingBody1 =>
+      'Lưu công thức từ trang web, ảnh sách nấu ăn, hoặc tự viết.';
+
+  @override
+  String get onboardingTitle2 => 'Làm cho căn bếp';
+
+  @override
+  String get onboardingBody2 =>
+      'Chữ lớn, màn hình luôn sáng, hẹn giờ từng bước và khẩu phần tự nhân.';
+
+  @override
+  String get onboardingTitle3 => 'Giữ chúng cả đời';
+
+  @override
+  String get onboardingBody3 =>
+      'Công thức chỉ nằm trên máy này. Không tài khoản, không gửi đi đâu. Bật sao lưu tự động vào thư mục bạn chọn để không bao giờ mất.';
+
+  @override
+  String get onboardingBackup => 'Bật sao lưu tự động';
+
+  @override
+  String get settingsAppearance => 'Giao diện';
+
+  @override
+  String get settingsCooking => 'Nấu ăn';
+
+  @override
+  String get settingsDefaultUnits => 'Đơn vị mặc định';
+
+  @override
+  String get settingsMenu => 'Thực đơn';
+
+  @override
+  String get settingsWeekStart => 'Ngày đầu tuần';
+
+  @override
+  String get settingsMonday => 'Thứ Hai';
+
+  @override
+  String get settingsSunday => 'Chủ Nhật';
+
+  @override
+  String get settingsMealSlots => 'Các bữa';
+
+  @override
+  String get settingsShoppingPantry => 'Đi chợ & tủ bếp';
+
+  @override
+  String get settingsAisles => 'Khu vực';
+
+  @override
+  String get settingsIgnoreBasics =>
+      'Không tính gia vị cơ bản là thiếu (muối, đường, nước, tiêu, dầu ăn, nước mắm)';
+
+  @override
+  String get settingsDeleteAll => 'Xoá toàn bộ dữ liệu';
+
+  @override
+  String get deleteAllQuestion => 'Sao lưu trước?';
+
+  @override
+  String get deleteAllQuestionBody =>
+      'Dữ liệu đã xoá không khôi phục được. Lưu một bản sao lưu trước?';
+
+  @override
+  String get deleteAllSkip => 'Bỏ qua';
+
+  @override
+  String get deleteAllBackupNow => 'Sao lưu ngay';
+
+  @override
+  String get deleteAllTitle => 'Xoá toàn bộ dữ liệu?';
+
+  @override
+  String get deleteAllThisDeletes => 'Thao tác này sẽ xoá:';
+
+  @override
+  String get deleteAllRecipes => 'mọi công thức và ảnh';
+
+  @override
+  String get deleteAllShopping => 'danh sách đi chợ, thực đơn, tủ bếp';
+
+  @override
+  String get deleteAllSettings => 'cài đặt';
+
+  @override
+  String get deleteAllBrowser => 'cookie và dữ liệu trang web';
+
+  @override
+  String get deleteAllBackupsSafe =>
+      'Các file sao lưu trong thư mục của bạn không bị xoá.';
+
+  @override
+  String get deleteAllContinue => 'Tiếp tục';
+
+  @override
+  String get deleteAllFinalTitle => 'Không thể hoàn tác.';
+
+  @override
+  String get deleteAllFinalBody => 'Bepbook sẽ khởi động lại như vừa cài đặt.';
+
+  @override
+  String get deleteAllConfirm => 'Xoá tất cả';
+
+  @override
+  String get deleteAllWorking => 'Đang xoá…';
+
+  @override
+  String get deleteAllDone => 'Đã xoá toàn bộ dữ liệu';
+
+  @override
+  String get deleteAllFailed => 'Không xoá được toàn bộ dữ liệu';
+
+  @override
+  String get exchangeTitle => 'Nhập và xuất';
+
+  @override
+  String get exchangeImport => 'Nhập từ file';
+
+  @override
+  String get exchangeImportSub => 'Paprika · Recipe Keeper · JSON · .cooknote';
+
+  @override
+  String get exchangeExportAll => 'Xuất mọi công thức (JSON)';
+
+  @override
+  String get exchangeCookbook => 'Sách công thức từ mọi công thức';
+
+  @override
+  String get exchangePdf => 'PDF';
+
+  @override
+  String get exchangeExportHint =>
+      'Muốn xuất một vài công thức, hãy chọn chúng trong danh sách Công thức.';
+
+  @override
+  String get aboutTitle => 'Giới thiệu';
+
+  @override
+  String get aboutTagline =>
+      'Không tài khoản. Không quảng cáo. Không theo dõi. Không gì rời khỏi máy bạn, trừ những trang web bạn mở.';
+
+  @override
+  String aboutVersion(String version) {
+    return 'Phiên bản $version';
+  }
+
+  @override
+  String get aboutPrivacy => 'Chính sách riêng tư';
+
+  @override
+  String get aboutPrivacySoon => 'Chính sách riêng tư sẽ được công bố sau.';
+
+  @override
+  String get aboutContact => 'Liên hệ & báo lỗi bảo mật';
+
+  @override
+  String get aboutLicenses => 'Giấy phép nguồn mở';
+
+  @override
+  String get aboutRights =>
+      'Công thức nhập từ trang web thuộc về tác giả của họ. Bepbook giữ liên kết nguồn. Chỉ dùng cho việc nấu ăn của bạn.';
+
+  @override
+  String get licensesTitle => 'Giấy phép nguồn mở';
+
+  @override
+  String get licensesViewAll => 'Xem giấy phép đầy đủ';
 }

@@ -572,5 +572,470 @@
   "cookStartOverHint": "Mọi dấu gạch ở nguyên liệu và các bước sẽ được bỏ.",
   "cookAllStepsDone": "Đã xong hết các bước. Chúc ngon miệng!",
   "timerStarted": "Đã bắt đầu hẹn giờ",
-  "recipeMissing": "Không tìm thấy công thức này — có thể đã bị xoá."
+  "recipeMissing": "Không tìm thấy công thức này — có thể đã bị xoá.",
+  "next": "Tiếp",
+  "skip": "Bỏ qua",
+  "later": "Để sau",
+  "apply": "Áp dụng",
+  "replace": "Thay thế",
+  "add": "Thêm",
+  "remove": "Xoá",
+  "back": "Quay lại",
+  "search": "Tìm",
+  "today": "Hôm nay",
+  "shoppingLists": "Danh sách",
+  "shoppingNewList": "Danh sách mới",
+  "shoppingListName": "Tên danh sách",
+  "shoppingRenameList": "Đổi tên danh sách",
+  "shoppingDeleteList": "Xoá danh sách",
+  "shoppingAisles": "Khu vực",
+  "shoppingAislesHint": "Sắp theo đường đi trong cửa hàng của bạn",
+  "shoppingBoughtOf": "Đã mua {bought}/{total}",
+  "@shoppingBoughtOf": {
+    "placeholders": {
+      "bought": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingAisleCount": "{n} khu vực",
+  "@shoppingAisleCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingAddItem": "Thêm món",
+  "shoppingItemHint": "Ví dụ: 500 g thịt bò",
+  "shoppingItemEditTitle": "Sửa món",
+  "shoppingFrequent": "Món hay mua",
+  "shoppingEmptyHint": "Thêm món bằng tay, từ Món hay mua, hoặc từ công thức.",
+  "shoppingFromRecipe": "Thêm từ công thức",
+  "shoppingBought": "Đã mua",
+  "shoppingClearChecked": "Xoá các món đã gạch",
+  "shoppingClearTitle": "Xoá {n} món đã gạch?",
+  "@shoppingClearTitle": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingMoveToPantry": "Chuyển món đã mua vào Tủ bếp",
+  "shoppingCleared": "Đã xoá {n} món đã gạch",
+  "@shoppingCleared": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingShareTitle": "Chia sẻ danh sách",
+  "shoppingShareEmpty": "Không có món nào chưa mua để chia sẻ.",
+  "shoppingMoveAisleTitle": "Chuyển sang khu vực nào?",
+  "shoppingNoAisle": "Khác",
+  "shoppingDeleteItemConfirm": "Xoá \"{name}\" khỏi danh sách?",
+  "@shoppingDeleteItemConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "shoppingItemDeleted": "Đã xoá món",
+  "shoppingMergedTag": "Đã gộp",
+  "shoppingSourcesFor": "cho {names}",
+  "@shoppingSourcesFor": {
+    "placeholders": {
+      "names": {
+        "type": "String"
+      }
+    }
+  },
+  "shoppingInPantry": "Đang có trong tủ",
+  "shoppingAddToList": "Thêm vào:",
+  "shoppingAddCount": "Thêm {n} món",
+  "@shoppingAddCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingMergeWarning": "{n} món sẽ được gộp vào món đã có trong danh sách",
+  "@shoppingMergeWarning": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingNoneSelected": "Chưa chọn món nào",
+  "shoppingAsWritten": "giữ nguyên như công thức",
+  "shoppingNoListsHint": "Mỗi chuyến đi chợ một danh sách là tiện nhất.",
+  "shoppingItemName": "Tên món",
+  "shoppingAmountLabel": "Số lượng (không bắt buộc)",
+  "shoppingNewListHint": "Ví dụ: Siêu thị, Chợ",
+  "shoppingAisleDeleteTitle": "Xoá khu vực \"{name}\"?",
+  "@shoppingAisleDeleteTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "shoppingAisleDeleteBody": "Món trong khu vực này sẽ chuyển sang \"Khác\".",
+  "shoppingAddAisle": "Thêm khu vực",
+  "shoppingAisleName": "Tên khu vực",
+  "shoppingAisleRename": "Đổi tên khu vực",
+  "shoppingAislesNote": "Xoá một khu vực thì món của nó chuyển sang \"Khác\". Tủ bếp dùng chung khu vực này.",
+  "shoppingAdded": "Đã thêm {n} món",
+  "@shoppingAdded": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingNoIngredients": "Không có nguyên liệu nào để thêm.",
+  "shoppingAllDoneSub": "Bạn đã mua hết mọi thứ trong danh sách.",
+  "menuDay": "Ngày",
+  "menuWeek": "Tuần",
+  "menuMonth": "Tháng",
+  "menuRandom": "Gợi ý ngẫu nhiên",
+  "menuApplyTemplate": "Áp thực đơn mẫu",
+  "menuAddToShopping": "Thêm vào đi chợ",
+  "menuSaveWeekTemplate": "Lưu tuần thành mẫu",
+  "menuAddToMenu": "Thêm vào thực đơn",
+  "menuNothingPlannedWeek": "Tuần này chưa có món nào",
+  "menuNothingPlannedDay": "Ngày này chưa có món nào",
+  "menuEmptyHint": "Thêm món vào bữa, hoặc dùng gợi ý ngẫu nhiên.",
+  "menuWeekRange": "{from} – {to}",
+  "@menuWeekRange": {
+    "placeholders": {
+      "from": {
+        "type": "String"
+      },
+      "to": {
+        "type": "String"
+      }
+    }
+  },
+  "menuEntryServings": "{n} người",
+  "@menuEntryServings": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "menuAddTitle": "Thêm vào thực đơn",
+  "menuTabRecipe": "Công thức",
+  "menuTabFreeText": "Chữ tự do",
+  "menuDate": "Ngày",
+  "menuSlot": "Bữa",
+  "menuServings": "Khẩu phần",
+  "menuSearchRecipes": "Tìm công thức",
+  "menuRecentFavourites": "Gần đây & yêu thích",
+  "menuFreeTextHint": "Ví dụ: Ăn ngoài",
+  "menuNoRecipes": "Không có công thức phù hợp",
+  "menuEntryOpen": "Mở công thức",
+  "menuEntryCook": "Nấu",
+  "menuEntryMove": "Chuyển tới…",
+  "menuEntryRemove": "Xoá khỏi thực đơn",
+  "menuMoveTitle": "Chuyển tới…",
+  "menuMoveDay": "Ngày",
+  "menuMoveMeal": "Bữa",
+  "menuMove": "Chuyển",
+  "menuEntryRemoved": "Đã xoá khỏi thực đơn",
+  "menuMealSlots": "Các bữa",
+  "menuAddSlot": "Thêm bữa",
+  "menuSlotName": "Tên bữa",
+  "menuDeleteSlotTitle": "Xoá bữa \"{name}\"?",
+  "@menuDeleteSlotTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "menuDeleteSlotBody": "Mọi món đã xếp vào bữa này sẽ bị xoá.",
+  "menuSlotUses": "{n} món",
+  "@menuSlotUses": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "menuTemplates": "Thực đơn mẫu",
+  "menuNewTemplate": "Mẫu mới",
+  "menuNoTemplates": "Chưa có thực đơn mẫu",
+  "menuNoTemplatesBody": "Lưu một ngày hoặc một tuần bạn thích, rồi áp lại bằng một chạm.",
+  "menuTemplateSaveWeek": "Lưu tuần này thành mẫu",
+  "menuTemplateItems": "{items} món · {days} ngày",
+  "@menuTemplateItems": {
+    "placeholders": {
+      "items": {
+        "type": "int"
+      },
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "menuTemplateApplyTitle": "Áp \"{name}\"",
+  "@menuTemplateApplyTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "menuTemplateStartDate": "Ngày bắt đầu",
+  "menuTemplateWeek": "Cả tuần",
+  "menuTemplateDay": "Một ngày",
+  "menuTemplateOccupiedTitle": "Ngày này đã có món",
+  "menuTemplateOccupiedBody": "{date} đã có {n} món. Thay thế bằng món của mẫu, hay thêm vào bên cạnh?",
+  "@menuTemplateOccupiedBody": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "menuTemplateReplaceHint": "Thay thế chỉ xoá những bữa mà mẫu sẽ điền.",
+  "menuTemplateApplied": "Đã áp thực đơn mẫu",
+  "menuTemplateName": "Tên thực đơn mẫu",
+  "menuTemplateCreated": "Đã lưu thực đơn mẫu",
+  "menuTemplateDeleteTitle": "Xoá thực đơn mẫu \"{name}\"?",
+  "@menuTemplateDeleteTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "menuRandomTitle": "Gợi ý ngẫu nhiên",
+  "menuRandomIntro": "Điền các bữa còn trống từ {from} đến {to} bằng công thức phù hợp.",
+  "@menuRandomIntro": {
+    "placeholders": {
+      "from": {
+        "type": "String"
+      },
+      "to": {
+        "type": "String"
+      }
+    }
+  },
+  "menuRandomMaxTime": "Thời gian tối đa",
+  "menuRandomAny": "Tùy ý",
+  "menuRandomPreview": "Xem trước",
+  "menuRandomPreviewTitle": "Xem trước gợi ý",
+  "menuRandomNoRepeat": "Không lặp món trong tuần này",
+  "menuRandomSuggested": "Gợi ý",
+  "menuRandomTooFew": "Có ít công thức phù hợp hơn số bữa trống — một số món sẽ lặp lại.",
+  "menuRandomZero": "Không có công thức nào phù hợp bộ lọc.",
+  "menuRandomApplied": "Đã điền các bữa còn trống",
+  "menuShoppingRangeTitle": "Thêm vào đi chợ",
+  "menuShoppingThisWeek": "Tuần này",
+  "menuShoppingNext3": "3 ngày tới",
+  "menuShoppingCustom": "Tùy chọn",
+  "menuShoppingFrom": "Từ",
+  "menuShoppingTo": "Đến",
+  "menuShoppingSummary": "{recipes} công thức, {lines} nguyên liệu",
+  "@menuShoppingSummary": {
+    "placeholders": {
+      "recipes": {
+        "type": "int"
+      },
+      "lines": {
+        "type": "int"
+      }
+    }
+  },
+  "menuShoppingAtServings": "Theo khẩu phần của từng bữa",
+  "menuShoppingChoose": "Chọn nguyên liệu",
+  "menuEntryAdded": "Đã thêm vào thực đơn",
+  "pantryAll": "Tất cả",
+  "pantrySoon": "Sắp hết hạn ({n})",
+  "@pantrySoon": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "pantryExpired": "Hết hạn ({n})",
+  "@pantryExpired": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "pantryWhatCanICook": "Nấu được gì?",
+  "pantryAlmost": "{n} công thức bạn gần nấu được",
+  "@pantryAlmost": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "pantryEmpty": "Tủ bếp đang trống",
+  "pantryEmptyBody": "Thêm những gì bạn có, hoặc chuyển món đã mua từ Đi chợ sang đây.",
+  "pantryAdd": "Thêm vào tủ bếp",
+  "pantryItemTitle": "Món trong tủ bếp",
+  "pantryName": "Tên",
+  "pantryQuantity": "Số lượng (không bắt buộc)",
+  "pantryAisle": "Khu vực",
+  "pantryBought": "Ngày mua",
+  "pantryExpiry": "Hạn dùng (không bắt buộc)",
+  "pantryNoExpiry": "Không có hạn",
+  "pantryNoExpiryShort": "Không hạn",
+  "pantryExpiresIn": "Còn {n} ngày",
+  "@pantryExpiresIn": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "pantryExpiredAgo": "Quá hạn {n} ngày",
+  "@pantryExpiredAgo": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "pantryExpiresOn": "Hết hạn {date}",
+  "@pantryExpiresOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "pantryBoughtOn": "Mua {date}",
+  "@pantryBoughtOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "pantryExpiringSoon": "Sắp hết hạn",
+  "pantryExpiredTag": "Hết hạn",
+  "pantryItemDeleteTitle": "Xoá món này?",
+  "pantryToday": "Hôm nay",
+  "pantryCanCookEmpty": "Không có công thức nào để nấu",
+  "pantryCanCookEmptyBody": "Thêm nguyên liệu bạn có, Bepbook sẽ xếp hạng công thức theo đó.",
+  "pantryBasicsSwitch": "Không tính gia vị cơ bản là thiếu (muối, đường, nước, tiêu, dầu ăn, nước mắm)",
+  "pantryMatch": "{have}/{total}",
+  "@pantryMatch": {
+    "placeholders": {
+      "have": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "pantryMissingOne": "Thiếu {n}: {names}",
+  "@pantryMissingOne": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "names": {
+        "type": "String"
+      }
+    }
+  },
+  "pantryMissingNone": "Đủ nguyên liệu",
+  "pantryAddMissing": "Thêm món thiếu vào đi chợ",
+  "pantryMissingAdded": "Đã thêm món thiếu vào đi chợ",
+  "pantryCanCookRecipes": "{n} công thức",
+  "@pantryCanCookRecipes": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "moreBackupOff": "Chưa bật sao lưu tự động.",
+  "moreImportExport": "Nhập & xuất",
+  "moreImportExportSub": "App khác, JSON, sách công thức PDF",
+  "morePrivacy": "Công thức của bạn chỉ nằm trên máy này. Bepbook không thu thập gì.",
+  "onboardingTitle1": "Công thức của bạn, một cuốn sổ",
+  "onboardingBody1": "Lưu công thức từ trang web, ảnh sách nấu ăn, hoặc tự viết.",
+  "onboardingTitle2": "Làm cho căn bếp",
+  "onboardingBody2": "Chữ lớn, màn hình luôn sáng, hẹn giờ từng bước và khẩu phần tự nhân.",
+  "onboardingTitle3": "Giữ chúng cả đời",
+  "onboardingBody3": "Công thức chỉ nằm trên máy này. Không tài khoản, không gửi đi đâu. Bật sao lưu tự động vào thư mục bạn chọn để không bao giờ mất.",
+  "onboardingBackup": "Bật sao lưu tự động",
+  "settingsAppearance": "Giao diện",
+  "settingsCooking": "Nấu ăn",
+  "settingsDefaultUnits": "Đơn vị mặc định",
+  "settingsMenu": "Thực đơn",
+  "settingsWeekStart": "Ngày đầu tuần",
+  "settingsMonday": "Thứ Hai",
+  "settingsSunday": "Chủ Nhật",
+  "settingsMealSlots": "Các bữa",
+  "settingsShoppingPantry": "Đi chợ & tủ bếp",
+  "settingsAisles": "Khu vực",
+  "settingsIgnoreBasics": "Không tính gia vị cơ bản là thiếu (muối, đường, nước, tiêu, dầu ăn, nước mắm)",
+  "settingsDeleteAll": "Xoá toàn bộ dữ liệu",
+  "deleteAllQuestion": "Sao lưu trước?",
+  "deleteAllQuestionBody": "Dữ liệu đã xoá không khôi phục được. Lưu một bản sao lưu trước?",
+  "deleteAllSkip": "Bỏ qua",
+  "deleteAllBackupNow": "Sao lưu ngay",
+  "deleteAllTitle": "Xoá toàn bộ dữ liệu?",
+  "deleteAllThisDeletes": "Thao tác này sẽ xoá:",
+  "deleteAllRecipes": "mọi công thức và ảnh",
+  "deleteAllShopping": "danh sách đi chợ, thực đơn, tủ bếp",
+  "deleteAllSettings": "cài đặt",
+  "deleteAllBrowser": "cookie và dữ liệu trang web",
+  "deleteAllBackupsSafe": "Các file sao lưu trong thư mục của bạn không bị xoá.",
+  "deleteAllContinue": "Tiếp tục",
+  "deleteAllFinalTitle": "Không thể hoàn tác.",
+  "deleteAllFinalBody": "Bepbook sẽ khởi động lại như vừa cài đặt.",
+  "deleteAllConfirm": "Xoá tất cả",
+  "deleteAllWorking": "Đang xoá…",
+  "deleteAllDone": "Đã xoá toàn bộ dữ liệu",
+  "deleteAllFailed": "Không xoá được toàn bộ dữ liệu",
+  "exchangeTitle": "Nhập và xuất",
+  "exchangeImport": "Nhập từ file",
+  "exchangeImportSub": "Paprika · Recipe Keeper · JSON · .cooknote",
+  "exchangeExportAll": "Xuất mọi công thức (JSON)",
+  "exchangeCookbook": "Sách công thức từ mọi công thức",
+  "exchangePdf": "PDF",
+  "exchangeExportHint": "Muốn xuất một vài công thức, hãy chọn chúng trong danh sách Công thức.",
+  "aboutTitle": "Giới thiệu",
+  "aboutTagline": "Không tài khoản. Không quảng cáo. Không theo dõi. Không gì rời khỏi máy bạn, trừ những trang web bạn mở.",
+  "aboutVersion": "Phiên bản {version}",
+  "@aboutVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutPrivacy": "Chính sách riêng tư",
+  "aboutPrivacySoon": "Chính sách riêng tư sẽ được công bố sau.",
+  "aboutContact": "Liên hệ & báo lỗi bảo mật",
+  "aboutLicenses": "Giấy phép nguồn mở",
+  "aboutRights": "Công thức nhập từ trang web thuộc về tác giả của họ. Bepbook giữ liên kết nguồn. Chỉ dùng cho việc nấu ăn của bạn.",
+  "licensesTitle": "Giấy phép nguồn mở",
+  "licensesViewAll": "Xem giấy phép đầy đủ"
 }

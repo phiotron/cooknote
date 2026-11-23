@@ -1481,4 +1481,758 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get recipeMissing =>
       'This recipe could not be found — it may have been deleted.';
+
+  @override
+  String get next => 'Next';
+
+  @override
+  String get skip => 'Skip';
+
+  @override
+  String get later => 'Later';
+
+  @override
+  String get apply => 'Apply';
+
+  @override
+  String get replace => 'Replace';
+
+  @override
+  String get add => 'Add';
+
+  @override
+  String get remove => 'Remove';
+
+  @override
+  String get back => 'Back';
+
+  @override
+  String get search => 'Search';
+
+  @override
+  String get today => 'Today';
+
+  @override
+  String get shoppingLists => 'Lists';
+
+  @override
+  String get shoppingNewList => 'New list';
+
+  @override
+  String get shoppingListName => 'List name';
+
+  @override
+  String get shoppingRenameList => 'Rename list';
+
+  @override
+  String get shoppingDeleteList => 'Delete list';
+
+  @override
+  String get shoppingAisles => 'Aisles';
+
+  @override
+  String get shoppingAislesHint => 'Order them like your shop\'s path';
+
+  @override
+  String shoppingBoughtOf(int bought, int total) {
+    return '$bought of $total bought';
+  }
+
+  @override
+  String shoppingAisleCount(int n) {
+    return '$n aisles';
+  }
+
+  @override
+  String get shoppingAddItem => 'Add item';
+
+  @override
+  String get shoppingItemHint => 'e.g. 500 g beef';
+
+  @override
+  String get shoppingItemEditTitle => 'Edit item';
+
+  @override
+  String get shoppingFrequent => 'Frequent items';
+
+  @override
+  String get shoppingEmptyHint =>
+      'Add items by hand, from Frequent items, or from a recipe.';
+
+  @override
+  String get shoppingFromRecipe => 'Add from a recipe';
+
+  @override
+  String get shoppingBought => 'Bought';
+
+  @override
+  String get shoppingClearChecked => 'Clear checked items';
+
+  @override
+  String shoppingClearTitle(int n) {
+    return 'Clear $n bought items?';
+  }
+
+  @override
+  String get shoppingMoveToPantry => 'Move bought items to the Pantry';
+
+  @override
+  String shoppingCleared(int n) {
+    return 'Cleared $n bought items';
+  }
+
+  @override
+  String get shoppingShareTitle => 'Share list';
+
+  @override
+  String get shoppingShareEmpty => 'Nothing unchecked to share.';
+
+  @override
+  String get shoppingMoveAisleTitle => 'Move to which aisle?';
+
+  @override
+  String get shoppingNoAisle => 'Other';
+
+  @override
+  String shoppingDeleteItemConfirm(String name) {
+    return 'Remove \"$name\" from the list?';
+  }
+
+  @override
+  String get shoppingItemDeleted => 'Item removed';
+
+  @override
+  String get shoppingMergedTag => 'merged';
+
+  @override
+  String shoppingSourcesFor(String names) {
+    return 'for $names';
+  }
+
+  @override
+  String get shoppingInPantry => 'In pantry';
+
+  @override
+  String get shoppingAddToList => 'Add to:';
+
+  @override
+  String shoppingAddCount(int n) {
+    return 'Add $n items';
+  }
+
+  @override
+  String shoppingMergeWarning(int n) {
+    return '$n items will be merged with items already on the list';
+  }
+
+  @override
+  String get shoppingNoneSelected => 'Nothing selected';
+
+  @override
+  String get shoppingAsWritten => 'as written';
+
+  @override
+  String get shoppingNoListsHint => 'One list per shop works well.';
+
+  @override
+  String get shoppingItemName => 'Item name';
+
+  @override
+  String get shoppingAmountLabel => 'Quantity (optional)';
+
+  @override
+  String get shoppingNewListHint => 'e.g. Supermarket, Wet market';
+
+  @override
+  String shoppingAisleDeleteTitle(String name) {
+    return 'Delete \"$name\"?';
+  }
+
+  @override
+  String get shoppingAisleDeleteBody => 'Its items move to \"Other\".';
+
+  @override
+  String get shoppingAddAisle => 'Add aisle';
+
+  @override
+  String get shoppingAisleName => 'Aisle name';
+
+  @override
+  String get shoppingAisleRename => 'Rename aisle';
+
+  @override
+  String get shoppingAislesNote =>
+      'Deleting an aisle moves its items to \"Other\". The Pantry uses the same aisles.';
+
+  @override
+  String shoppingAdded(int n) {
+    return 'Added $n items';
+  }
+
+  @override
+  String get shoppingNoIngredients => 'No ingredients to add.';
+
+  @override
+  String get shoppingAllDoneSub => 'You bought everything on the list.';
+
+  @override
+  String get menuDay => 'Day';
+
+  @override
+  String get menuWeek => 'Week';
+
+  @override
+  String get menuMonth => 'Month';
+
+  @override
+  String get menuRandom => 'Random suggestions';
+
+  @override
+  String get menuApplyTemplate => 'Apply a template';
+
+  @override
+  String get menuAddToShopping => 'Add to shopping';
+
+  @override
+  String get menuSaveWeekTemplate => 'Save week as template';
+
+  @override
+  String get menuAddToMenu => 'Add to menu';
+
+  @override
+  String get menuNothingPlannedWeek => 'Nothing planned this week';
+
+  @override
+  String get menuNothingPlannedDay => 'Nothing planned for this day';
+
+  @override
+  String get menuEmptyHint => 'Add meals to a slot, or use random suggestions.';
+
+  @override
+  String menuWeekRange(String from, String to) {
+    return '$from – $to';
+  }
+
+  @override
+  String menuEntryServings(String n) {
+    return '$n servings';
+  }
+
+  @override
+  String get menuAddTitle => 'Add to menu';
+
+  @override
+  String get menuTabRecipe => 'Recipe';
+
+  @override
+  String get menuTabFreeText => 'Free text';
+
+  @override
+  String get menuDate => 'Date';
+
+  @override
+  String get menuSlot => 'Slot';
+
+  @override
+  String get menuServings => 'Servings';
+
+  @override
+  String get menuSearchRecipes => 'Search recipes';
+
+  @override
+  String get menuRecentFavourites => 'Recent & favourites';
+
+  @override
+  String get menuFreeTextHint => 'e.g. Eating out';
+
+  @override
+  String get menuNoRecipes => 'No matching recipes';
+
+  @override
+  String get menuEntryOpen => 'Open recipe';
+
+  @override
+  String get menuEntryCook => 'Cook';
+
+  @override
+  String get menuEntryMove => 'Move to…';
+
+  @override
+  String get menuEntryRemove => 'Remove from menu';
+
+  @override
+  String get menuMoveTitle => 'Move to…';
+
+  @override
+  String get menuMoveDay => 'Day';
+
+  @override
+  String get menuMoveMeal => 'Meal';
+
+  @override
+  String get menuMove => 'Move';
+
+  @override
+  String get menuEntryRemoved => 'Removed from menu';
+
+  @override
+  String get menuMealSlots => 'Meal slots';
+
+  @override
+  String get menuAddSlot => 'Add slot';
+
+  @override
+  String get menuSlotName => 'Slot name';
+
+  @override
+  String menuDeleteSlotTitle(String name) {
+    return 'Delete \"$name\"?';
+  }
+
+  @override
+  String get menuDeleteSlotBody =>
+      'Every meal planned in this slot will be deleted.';
+
+  @override
+  String menuSlotUses(int n) {
+    return '$n items';
+  }
+
+  @override
+  String get menuTemplates => 'Menu templates';
+
+  @override
+  String get menuNewTemplate => 'New template';
+
+  @override
+  String get menuNoTemplates => 'No templates yet';
+
+  @override
+  String get menuNoTemplatesBody =>
+      'Save a day or a week you like, then apply it again in one tap.';
+
+  @override
+  String get menuTemplateSaveWeek => 'Save this week as a template';
+
+  @override
+  String menuTemplateItems(int items, int days) {
+    return '$items items · $days days';
+  }
+
+  @override
+  String menuTemplateApplyTitle(String name) {
+    return 'Apply \"$name\"';
+  }
+
+  @override
+  String get menuTemplateStartDate => 'Start date';
+
+  @override
+  String get menuTemplateWeek => 'Whole week';
+
+  @override
+  String get menuTemplateDay => 'One day';
+
+  @override
+  String get menuTemplateOccupiedTitle => 'This day already has meals';
+
+  @override
+  String menuTemplateOccupiedBody(String date, int n) {
+    return '$date already has $n items. Replace them with the template, or add the items next to them?';
+  }
+
+  @override
+  String get menuTemplateReplaceHint =>
+      'Replace only clears the meals the template fills.';
+
+  @override
+  String get menuTemplateApplied => 'Template applied';
+
+  @override
+  String get menuTemplateName => 'Template name';
+
+  @override
+  String get menuTemplateCreated => 'Template saved';
+
+  @override
+  String menuTemplateDeleteTitle(String name) {
+    return 'Delete template \"$name\"?';
+  }
+
+  @override
+  String get menuRandomTitle => 'Random suggestions';
+
+  @override
+  String menuRandomIntro(String from, String to) {
+    return 'Fill the empty meals from $from to $to with recipes that match.';
+  }
+
+  @override
+  String get menuRandomMaxTime => 'Maximum total time';
+
+  @override
+  String get menuRandomAny => 'Any';
+
+  @override
+  String get menuRandomPreview => 'Preview';
+
+  @override
+  String get menuRandomPreviewTitle => 'Preview suggestions';
+
+  @override
+  String get menuRandomNoRepeat => 'No recipe repeats this week';
+
+  @override
+  String get menuRandomSuggested => 'Suggested';
+
+  @override
+  String get menuRandomTooFew =>
+      'There are fewer matching recipes than empty meals — some dishes will repeat.';
+
+  @override
+  String get menuRandomZero => 'No recipes match the filters.';
+
+  @override
+  String get menuRandomApplied => 'Empty meals filled';
+
+  @override
+  String get menuShoppingRangeTitle => 'Add to shopping';
+
+  @override
+  String get menuShoppingThisWeek => 'This week';
+
+  @override
+  String get menuShoppingNext3 => 'Next 3 days';
+
+  @override
+  String get menuShoppingCustom => 'Custom';
+
+  @override
+  String get menuShoppingFrom => 'From';
+
+  @override
+  String get menuShoppingTo => 'To';
+
+  @override
+  String menuShoppingSummary(int recipes, int lines) {
+    return '$recipes recipes, $lines ingredient lines';
+  }
+
+  @override
+  String get menuShoppingAtServings => 'At each meal\'s servings';
+
+  @override
+  String get menuShoppingChoose => 'Choose ingredients';
+
+  @override
+  String get menuEntryAdded => 'Added to menu';
+
+  @override
+  String get pantryAll => 'All';
+
+  @override
+  String pantrySoon(int n) {
+    return 'Expiring soon ($n)';
+  }
+
+  @override
+  String pantryExpired(int n) {
+    return 'Expired ($n)';
+  }
+
+  @override
+  String get pantryWhatCanICook => 'What can I cook?';
+
+  @override
+  String pantryAlmost(int n) {
+    return '$n recipes you can almost cook';
+  }
+
+  @override
+  String get pantryEmpty => 'Your pantry is empty';
+
+  @override
+  String get pantryEmptyBody =>
+      'Add what you have, or move bought items here from Shopping.';
+
+  @override
+  String get pantryAdd => 'Add to pantry';
+
+  @override
+  String get pantryItemTitle => 'Pantry item';
+
+  @override
+  String get pantryName => 'Name';
+
+  @override
+  String get pantryQuantity => 'Quantity (optional)';
+
+  @override
+  String get pantryAisle => 'Aisle';
+
+  @override
+  String get pantryBought => 'Bought';
+
+  @override
+  String get pantryExpiry => 'Expiry (optional)';
+
+  @override
+  String get pantryNoExpiry => 'No expiry date';
+
+  @override
+  String get pantryNoExpiryShort => 'No expiry';
+
+  @override
+  String pantryExpiresIn(int n) {
+    return 'Expires in $n days';
+  }
+
+  @override
+  String pantryExpiredAgo(int n) {
+    return 'Expired $n days ago';
+  }
+
+  @override
+  String pantryExpiresOn(String date) {
+    return 'Expires $date';
+  }
+
+  @override
+  String pantryBoughtOn(String date) {
+    return 'Bought $date';
+  }
+
+  @override
+  String get pantryExpiringSoon => 'Expiring soon';
+
+  @override
+  String get pantryExpiredTag => 'Expired';
+
+  @override
+  String get pantryItemDeleteTitle => 'Delete this item?';
+
+  @override
+  String get pantryToday => 'Today';
+
+  @override
+  String get pantryCanCookEmpty => 'No recipes to cook';
+
+  @override
+  String get pantryCanCookEmptyBody =>
+      'Add what you have at home and Bepbook will rank your recipes by it.';
+
+  @override
+  String get pantryBasicsSwitch =>
+      'Don\'t count basic seasonings as missing (salt, sugar, water, pepper, cooking oil, fish sauce)';
+
+  @override
+  String pantryMatch(int have, int total) {
+    return '$have of $total';
+  }
+
+  @override
+  String pantryMissingOne(int n, String names) {
+    return 'Missing $n: $names';
+  }
+
+  @override
+  String get pantryMissingNone => 'All ingredients available';
+
+  @override
+  String get pantryAddMissing => 'Add missing to shopping';
+
+  @override
+  String get pantryMissingAdded => 'Missing ingredients added to shopping';
+
+  @override
+  String pantryCanCookRecipes(int n) {
+    return '$n recipes';
+  }
+
+  @override
+  String get moreBackupOff => 'Automatic backup is off.';
+
+  @override
+  String get moreImportExport => 'Import & export';
+
+  @override
+  String get moreImportExportSub => 'Other apps, JSON, recipe book PDF';
+
+  @override
+  String get morePrivacy =>
+      'Your recipes live only on this phone. Bepbook collects nothing.';
+
+  @override
+  String get onboardingTitle1 => 'Your recipes, one notebook';
+
+  @override
+  String get onboardingBody1 =>
+      'Save recipes from websites, photos of cookbooks, or write your own.';
+
+  @override
+  String get onboardingTitle2 => 'Made for the kitchen';
+
+  @override
+  String get onboardingBody2 =>
+      'Big text that stays on, timers for every step, and servings that scale themselves.';
+
+  @override
+  String get onboardingTitle3 => 'Keep them for life';
+
+  @override
+  String get onboardingBody3 =>
+      'Your recipes live only on this phone. No account, nothing sent anywhere. Turn on automatic backup to a folder you choose so you never lose them.';
+
+  @override
+  String get onboardingBackup => 'Turn on automatic backup';
+
+  @override
+  String get settingsAppearance => 'Appearance';
+
+  @override
+  String get settingsCooking => 'Cooking';
+
+  @override
+  String get settingsDefaultUnits => 'Default units';
+
+  @override
+  String get settingsMenu => 'Menu';
+
+  @override
+  String get settingsWeekStart => 'First day of the week';
+
+  @override
+  String get settingsMonday => 'Monday';
+
+  @override
+  String get settingsSunday => 'Sunday';
+
+  @override
+  String get settingsMealSlots => 'Meal slots';
+
+  @override
+  String get settingsShoppingPantry => 'Shopping & pantry';
+
+  @override
+  String get settingsAisles => 'Aisles';
+
+  @override
+  String get settingsIgnoreBasics =>
+      'Don\'t count basic seasonings as missing (salt, sugar, water, pepper, cooking oil, fish sauce)';
+
+  @override
+  String get settingsDeleteAll => 'Delete all data';
+
+  @override
+  String get deleteAllQuestion => 'Back up first?';
+
+  @override
+  String get deleteAllQuestionBody =>
+      'Deleted data cannot be recovered. Save a backup first?';
+
+  @override
+  String get deleteAllSkip => 'Skip';
+
+  @override
+  String get deleteAllBackupNow => 'Back up now';
+
+  @override
+  String get deleteAllTitle => 'Delete all data?';
+
+  @override
+  String get deleteAllThisDeletes => 'This deletes:';
+
+  @override
+  String get deleteAllRecipes => 'all recipes and photos';
+
+  @override
+  String get deleteAllShopping => 'shopping lists, menu, pantry';
+
+  @override
+  String get deleteAllSettings => 'settings';
+
+  @override
+  String get deleteAllBrowser => 'browser cookies and site data';
+
+  @override
+  String get deleteAllBackupsSafe =>
+      'Backup files in your folders are not deleted.';
+
+  @override
+  String get deleteAllContinue => 'Continue';
+
+  @override
+  String get deleteAllFinalTitle => 'This cannot be undone.';
+
+  @override
+  String get deleteAllFinalBody =>
+      'Bepbook will restart as if freshly installed.';
+
+  @override
+  String get deleteAllConfirm => 'Delete everything';
+
+  @override
+  String get deleteAllWorking => 'Deleting…';
+
+  @override
+  String get deleteAllDone => 'All data deleted';
+
+  @override
+  String get deleteAllFailed => 'Could not delete all data';
+
+  @override
+  String get exchangeTitle => 'Import and export';
+
+  @override
+  String get exchangeImport => 'Import from file';
+
+  @override
+  String get exchangeImportSub => 'Paprika · Recipe Keeper · JSON · .cooknote';
+
+  @override
+  String get exchangeExportAll => 'Export all recipes (JSON)';
+
+  @override
+  String get exchangeCookbook => 'Recipe book from all recipes';
+
+  @override
+  String get exchangePdf => 'PDF';
+
+  @override
+  String get exchangeExportHint =>
+      'To export some recipes, select them in the Recipes list.';
+
+  @override
+  String get aboutTitle => 'About';
+
+  @override
+  String get aboutTagline =>
+      'No account. No ads. No tracking. Nothing leaves your phone except the web pages you open.';
+
+  @override
+  String aboutVersion(String version) {
+    return 'Version $version';
+  }
+
+  @override
+  String get aboutPrivacy => 'Privacy policy';
+
+  @override
+  String get aboutPrivacySoon => 'The privacy policy will be published later.';
+
+  @override
+  String get aboutContact => 'Contact & security reports';
+
+  @override
+  String get aboutLicenses => 'Open-source licences';
+
+  @override
+  String get aboutRights =>
+      'Recipes imported from websites belong to their authors. Bepbook keeps the source link. Use them for your own cooking only.';
+
+  @override
+  String get licensesTitle => 'Open-source licences';
+
+  @override
+  String get licensesViewAll => 'View full licences';
 }

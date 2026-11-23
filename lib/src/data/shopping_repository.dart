@@ -663,16 +663,36 @@ class ShoppingRepository {
   /// Nguyên liệu của công thức [recipeId] để chọn thêm vào đi chợ (AC-35),
   /// nhân theo [servings] (khẩu phần đang chọn; null là khẩu phần gốc). Món
   /// đang có trong Tủ bếp được bỏ chọn sẵn. Công thức không có thì rỗng.
+  ///
+  /// [onlyLineIds] giới hạn ở các dòng `recipe_lines` này — "Nấu được gì?"
+  /// (SCR-45) chỉ thêm những nguyên liệu còn thiếu.
   Future<List<ShoppingCandidate>> candidatesForRecipe(
     int recipeId, {
     double? servings,
+    Set<int>? onlyLineIds,
   }) async {
     final recipe = await (_db.select(
       _db.recipes,
     )..where((r) => r.id.equals(recipeId))).getSingleOrNull();
     if (recipe == null) return const [];
+    final lines = onlyLineIds == null
+        ? await ingredientLines(_db, recipeId)
+        : [
+            for (final r
+                in await (_db.select(_db.recipeLines)
+                      ..where(
+                        (l) =>
+                            l.recipeId.equals(recipeId) &
+                            l.section.equalsValue(LineSection.ingredient) &
+                            l.isHeading.equals(false) &
+                            l.id.isIn(onlyLineIds),
+                      )
+                      ..orderBy([(l) => OrderingTerm.asc(l.position)]))
+                    .get())
+              r.body,
+          ];
     return candidatesFromLines(
-      lines: await ingredientLines(_db, recipeId),
+      lines: lines,
       recipeId: recipe.id,
       recipeName: recipe.name,
       factor: servingsFactor(servings, recipe.servings),

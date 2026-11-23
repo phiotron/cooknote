@@ -2671,6 +2671,1350 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'This recipe could not be found — it may have been deleted.'**
   String get recipeMissing;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
+  /// No description provided for @skip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get skip;
+
+  /// No description provided for @later.
+  ///
+  /// In en, this message translates to:
+  /// **'Later'**
+  String get later;
+
+  /// No description provided for @apply.
+  ///
+  /// In en, this message translates to:
+  /// **'Apply'**
+  String get apply;
+
+  /// No description provided for @replace.
+  ///
+  /// In en, this message translates to:
+  /// **'Replace'**
+  String get replace;
+
+  /// No description provided for @add.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get add;
+
+  /// No description provided for @remove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove'**
+  String get remove;
+
+  /// No description provided for @back.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get back;
+
+  /// No description provided for @search.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get search;
+
+  /// No description provided for @today.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get today;
+
+  /// No description provided for @shoppingLists.
+  ///
+  /// In en, this message translates to:
+  /// **'Lists'**
+  String get shoppingLists;
+
+  /// No description provided for @shoppingNewList.
+  ///
+  /// In en, this message translates to:
+  /// **'New list'**
+  String get shoppingNewList;
+
+  /// No description provided for @shoppingListName.
+  ///
+  /// In en, this message translates to:
+  /// **'List name'**
+  String get shoppingListName;
+
+  /// No description provided for @shoppingRenameList.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename list'**
+  String get shoppingRenameList;
+
+  /// No description provided for @shoppingDeleteList.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete list'**
+  String get shoppingDeleteList;
+
+  /// No description provided for @shoppingAisles.
+  ///
+  /// In en, this message translates to:
+  /// **'Aisles'**
+  String get shoppingAisles;
+
+  /// No description provided for @shoppingAislesHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Order them like your shop\'s path'**
+  String get shoppingAislesHint;
+
+  /// No description provided for @shoppingBoughtOf.
+  ///
+  /// In en, this message translates to:
+  /// **'{bought} of {total} bought'**
+  String shoppingBoughtOf(int bought, int total);
+
+  /// No description provided for @shoppingAisleCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{n} aisles'**
+  String shoppingAisleCount(int n);
+
+  /// No description provided for @shoppingAddItem.
+  ///
+  /// In en, this message translates to:
+  /// **'Add item'**
+  String get shoppingAddItem;
+
+  /// No description provided for @shoppingItemHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. 500 g beef'**
+  String get shoppingItemHint;
+
+  /// No description provided for @shoppingItemEditTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit item'**
+  String get shoppingItemEditTitle;
+
+  /// No description provided for @shoppingFrequent.
+  ///
+  /// In en, this message translates to:
+  /// **'Frequent items'**
+  String get shoppingFrequent;
+
+  /// No description provided for @shoppingEmptyHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Add items by hand, from Frequent items, or from a recipe.'**
+  String get shoppingEmptyHint;
+
+  /// No description provided for @shoppingFromRecipe.
+  ///
+  /// In en, this message translates to:
+  /// **'Add from a recipe'**
+  String get shoppingFromRecipe;
+
+  /// No description provided for @shoppingBought.
+  ///
+  /// In en, this message translates to:
+  /// **'Bought'**
+  String get shoppingBought;
+
+  /// No description provided for @shoppingClearChecked.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear checked items'**
+  String get shoppingClearChecked;
+
+  /// No description provided for @shoppingClearTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear {n} bought items?'**
+  String shoppingClearTitle(int n);
+
+  /// No description provided for @shoppingMoveToPantry.
+  ///
+  /// In en, this message translates to:
+  /// **'Move bought items to the Pantry'**
+  String get shoppingMoveToPantry;
+
+  /// No description provided for @shoppingCleared.
+  ///
+  /// In en, this message translates to:
+  /// **'Cleared {n} bought items'**
+  String shoppingCleared(int n);
+
+  /// No description provided for @shoppingShareTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Share list'**
+  String get shoppingShareTitle;
+
+  /// No description provided for @shoppingShareEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing unchecked to share.'**
+  String get shoppingShareEmpty;
+
+  /// No description provided for @shoppingMoveAisleTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Move to which aisle?'**
+  String get shoppingMoveAisleTitle;
+
+  /// No description provided for @shoppingNoAisle.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get shoppingNoAisle;
+
+  /// No description provided for @shoppingDeleteItemConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove \"{name}\" from the list?'**
+  String shoppingDeleteItemConfirm(String name);
+
+  /// No description provided for @shoppingItemDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Item removed'**
+  String get shoppingItemDeleted;
+
+  /// No description provided for @shoppingMergedTag.
+  ///
+  /// In en, this message translates to:
+  /// **'merged'**
+  String get shoppingMergedTag;
+
+  /// No description provided for @shoppingSourcesFor.
+  ///
+  /// In en, this message translates to:
+  /// **'for {names}'**
+  String shoppingSourcesFor(String names);
+
+  /// No description provided for @shoppingInPantry.
+  ///
+  /// In en, this message translates to:
+  /// **'In pantry'**
+  String get shoppingInPantry;
+
+  /// No description provided for @shoppingAddToList.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to:'**
+  String get shoppingAddToList;
+
+  /// No description provided for @shoppingAddCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Add {n} items'**
+  String shoppingAddCount(int n);
+
+  /// No description provided for @shoppingMergeWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'{n} items will be merged with items already on the list'**
+  String shoppingMergeWarning(int n);
+
+  /// No description provided for @shoppingNoneSelected.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing selected'**
+  String get shoppingNoneSelected;
+
+  /// No description provided for @shoppingAsWritten.
+  ///
+  /// In en, this message translates to:
+  /// **'as written'**
+  String get shoppingAsWritten;
+
+  /// No description provided for @shoppingNoListsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'One list per shop works well.'**
+  String get shoppingNoListsHint;
+
+  /// No description provided for @shoppingItemName.
+  ///
+  /// In en, this message translates to:
+  /// **'Item name'**
+  String get shoppingItemName;
+
+  /// No description provided for @shoppingAmountLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Quantity (optional)'**
+  String get shoppingAmountLabel;
+
+  /// No description provided for @shoppingNewListHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Supermarket, Wet market'**
+  String get shoppingNewListHint;
+
+  /// No description provided for @shoppingAisleDeleteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete \"{name}\"?'**
+  String shoppingAisleDeleteTitle(String name);
+
+  /// No description provided for @shoppingAisleDeleteBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Its items move to \"Other\".'**
+  String get shoppingAisleDeleteBody;
+
+  /// No description provided for @shoppingAddAisle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add aisle'**
+  String get shoppingAddAisle;
+
+  /// No description provided for @shoppingAisleName.
+  ///
+  /// In en, this message translates to:
+  /// **'Aisle name'**
+  String get shoppingAisleName;
+
+  /// No description provided for @shoppingAisleRename.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename aisle'**
+  String get shoppingAisleRename;
+
+  /// No description provided for @shoppingAislesNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Deleting an aisle moves its items to \"Other\". The Pantry uses the same aisles.'**
+  String get shoppingAislesNote;
+
+  /// No description provided for @shoppingAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'Added {n} items'**
+  String shoppingAdded(int n);
+
+  /// No description provided for @shoppingNoIngredients.
+  ///
+  /// In en, this message translates to:
+  /// **'No ingredients to add.'**
+  String get shoppingNoIngredients;
+
+  /// No description provided for @shoppingAllDoneSub.
+  ///
+  /// In en, this message translates to:
+  /// **'You bought everything on the list.'**
+  String get shoppingAllDoneSub;
+
+  /// No description provided for @menuDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Day'**
+  String get menuDay;
+
+  /// No description provided for @menuWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'Week'**
+  String get menuWeek;
+
+  /// No description provided for @menuMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'Month'**
+  String get menuMonth;
+
+  /// No description provided for @menuRandom.
+  ///
+  /// In en, this message translates to:
+  /// **'Random suggestions'**
+  String get menuRandom;
+
+  /// No description provided for @menuApplyTemplate.
+  ///
+  /// In en, this message translates to:
+  /// **'Apply a template'**
+  String get menuApplyTemplate;
+
+  /// No description provided for @menuAddToShopping.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to shopping'**
+  String get menuAddToShopping;
+
+  /// No description provided for @menuSaveWeekTemplate.
+  ///
+  /// In en, this message translates to:
+  /// **'Save week as template'**
+  String get menuSaveWeekTemplate;
+
+  /// No description provided for @menuAddToMenu.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to menu'**
+  String get menuAddToMenu;
+
+  /// No description provided for @menuNothingPlannedWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing planned this week'**
+  String get menuNothingPlannedWeek;
+
+  /// No description provided for @menuNothingPlannedDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing planned for this day'**
+  String get menuNothingPlannedDay;
+
+  /// No description provided for @menuEmptyHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Add meals to a slot, or use random suggestions.'**
+  String get menuEmptyHint;
+
+  /// No description provided for @menuWeekRange.
+  ///
+  /// In en, this message translates to:
+  /// **'{from} – {to}'**
+  String menuWeekRange(String from, String to);
+
+  /// No description provided for @menuEntryServings.
+  ///
+  /// In en, this message translates to:
+  /// **'{n} servings'**
+  String menuEntryServings(String n);
+
+  /// No description provided for @menuAddTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to menu'**
+  String get menuAddTitle;
+
+  /// No description provided for @menuTabRecipe.
+  ///
+  /// In en, this message translates to:
+  /// **'Recipe'**
+  String get menuTabRecipe;
+
+  /// No description provided for @menuTabFreeText.
+  ///
+  /// In en, this message translates to:
+  /// **'Free text'**
+  String get menuTabFreeText;
+
+  /// No description provided for @menuDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Date'**
+  String get menuDate;
+
+  /// No description provided for @menuSlot.
+  ///
+  /// In en, this message translates to:
+  /// **'Slot'**
+  String get menuSlot;
+
+  /// No description provided for @menuServings.
+  ///
+  /// In en, this message translates to:
+  /// **'Servings'**
+  String get menuServings;
+
+  /// No description provided for @menuSearchRecipes.
+  ///
+  /// In en, this message translates to:
+  /// **'Search recipes'**
+  String get menuSearchRecipes;
+
+  /// No description provided for @menuRecentFavourites.
+  ///
+  /// In en, this message translates to:
+  /// **'Recent & favourites'**
+  String get menuRecentFavourites;
+
+  /// No description provided for @menuFreeTextHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Eating out'**
+  String get menuFreeTextHint;
+
+  /// No description provided for @menuNoRecipes.
+  ///
+  /// In en, this message translates to:
+  /// **'No matching recipes'**
+  String get menuNoRecipes;
+
+  /// No description provided for @menuEntryOpen.
+  ///
+  /// In en, this message translates to:
+  /// **'Open recipe'**
+  String get menuEntryOpen;
+
+  /// No description provided for @menuEntryCook.
+  ///
+  /// In en, this message translates to:
+  /// **'Cook'**
+  String get menuEntryCook;
+
+  /// No description provided for @menuEntryMove.
+  ///
+  /// In en, this message translates to:
+  /// **'Move to…'**
+  String get menuEntryMove;
+
+  /// No description provided for @menuEntryRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove from menu'**
+  String get menuEntryRemove;
+
+  /// No description provided for @menuMoveTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Move to…'**
+  String get menuMoveTitle;
+
+  /// No description provided for @menuMoveDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Day'**
+  String get menuMoveDay;
+
+  /// No description provided for @menuMoveMeal.
+  ///
+  /// In en, this message translates to:
+  /// **'Meal'**
+  String get menuMoveMeal;
+
+  /// No description provided for @menuMove.
+  ///
+  /// In en, this message translates to:
+  /// **'Move'**
+  String get menuMove;
+
+  /// No description provided for @menuEntryRemoved.
+  ///
+  /// In en, this message translates to:
+  /// **'Removed from menu'**
+  String get menuEntryRemoved;
+
+  /// No description provided for @menuMealSlots.
+  ///
+  /// In en, this message translates to:
+  /// **'Meal slots'**
+  String get menuMealSlots;
+
+  /// No description provided for @menuAddSlot.
+  ///
+  /// In en, this message translates to:
+  /// **'Add slot'**
+  String get menuAddSlot;
+
+  /// No description provided for @menuSlotName.
+  ///
+  /// In en, this message translates to:
+  /// **'Slot name'**
+  String get menuSlotName;
+
+  /// No description provided for @menuDeleteSlotTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete \"{name}\"?'**
+  String menuDeleteSlotTitle(String name);
+
+  /// No description provided for @menuDeleteSlotBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Every meal planned in this slot will be deleted.'**
+  String get menuDeleteSlotBody;
+
+  /// No description provided for @menuSlotUses.
+  ///
+  /// In en, this message translates to:
+  /// **'{n} items'**
+  String menuSlotUses(int n);
+
+  /// No description provided for @menuTemplates.
+  ///
+  /// In en, this message translates to:
+  /// **'Menu templates'**
+  String get menuTemplates;
+
+  /// No description provided for @menuNewTemplate.
+  ///
+  /// In en, this message translates to:
+  /// **'New template'**
+  String get menuNewTemplate;
+
+  /// No description provided for @menuNoTemplates.
+  ///
+  /// In en, this message translates to:
+  /// **'No templates yet'**
+  String get menuNoTemplates;
+
+  /// No description provided for @menuNoTemplatesBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Save a day or a week you like, then apply it again in one tap.'**
+  String get menuNoTemplatesBody;
+
+  /// No description provided for @menuTemplateSaveWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'Save this week as a template'**
+  String get menuTemplateSaveWeek;
+
+  /// No description provided for @menuTemplateItems.
+  ///
+  /// In en, this message translates to:
+  /// **'{items} items · {days} days'**
+  String menuTemplateItems(int items, int days);
+
+  /// No description provided for @menuTemplateApplyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Apply \"{name}\"'**
+  String menuTemplateApplyTitle(String name);
+
+  /// No description provided for @menuTemplateStartDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Start date'**
+  String get menuTemplateStartDate;
+
+  /// No description provided for @menuTemplateWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'Whole week'**
+  String get menuTemplateWeek;
+
+  /// No description provided for @menuTemplateDay.
+  ///
+  /// In en, this message translates to:
+  /// **'One day'**
+  String get menuTemplateDay;
+
+  /// No description provided for @menuTemplateOccupiedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'This day already has meals'**
+  String get menuTemplateOccupiedTitle;
+
+  /// No description provided for @menuTemplateOccupiedBody.
+  ///
+  /// In en, this message translates to:
+  /// **'{date} already has {n} items. Replace them with the template, or add the items next to them?'**
+  String menuTemplateOccupiedBody(String date, int n);
+
+  /// No description provided for @menuTemplateReplaceHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Replace only clears the meals the template fills.'**
+  String get menuTemplateReplaceHint;
+
+  /// No description provided for @menuTemplateApplied.
+  ///
+  /// In en, this message translates to:
+  /// **'Template applied'**
+  String get menuTemplateApplied;
+
+  /// No description provided for @menuTemplateName.
+  ///
+  /// In en, this message translates to:
+  /// **'Template name'**
+  String get menuTemplateName;
+
+  /// No description provided for @menuTemplateCreated.
+  ///
+  /// In en, this message translates to:
+  /// **'Template saved'**
+  String get menuTemplateCreated;
+
+  /// No description provided for @menuTemplateDeleteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete template \"{name}\"?'**
+  String menuTemplateDeleteTitle(String name);
+
+  /// No description provided for @menuRandomTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Random suggestions'**
+  String get menuRandomTitle;
+
+  /// No description provided for @menuRandomIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Fill the empty meals from {from} to {to} with recipes that match.'**
+  String menuRandomIntro(String from, String to);
+
+  /// No description provided for @menuRandomMaxTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Maximum total time'**
+  String get menuRandomMaxTime;
+
+  /// No description provided for @menuRandomAny.
+  ///
+  /// In en, this message translates to:
+  /// **'Any'**
+  String get menuRandomAny;
+
+  /// No description provided for @menuRandomPreview.
+  ///
+  /// In en, this message translates to:
+  /// **'Preview'**
+  String get menuRandomPreview;
+
+  /// No description provided for @menuRandomPreviewTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Preview suggestions'**
+  String get menuRandomPreviewTitle;
+
+  /// No description provided for @menuRandomNoRepeat.
+  ///
+  /// In en, this message translates to:
+  /// **'No recipe repeats this week'**
+  String get menuRandomNoRepeat;
+
+  /// No description provided for @menuRandomSuggested.
+  ///
+  /// In en, this message translates to:
+  /// **'Suggested'**
+  String get menuRandomSuggested;
+
+  /// No description provided for @menuRandomTooFew.
+  ///
+  /// In en, this message translates to:
+  /// **'There are fewer matching recipes than empty meals — some dishes will repeat.'**
+  String get menuRandomTooFew;
+
+  /// No description provided for @menuRandomZero.
+  ///
+  /// In en, this message translates to:
+  /// **'No recipes match the filters.'**
+  String get menuRandomZero;
+
+  /// No description provided for @menuRandomApplied.
+  ///
+  /// In en, this message translates to:
+  /// **'Empty meals filled'**
+  String get menuRandomApplied;
+
+  /// No description provided for @menuShoppingRangeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to shopping'**
+  String get menuShoppingRangeTitle;
+
+  /// No description provided for @menuShoppingThisWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'This week'**
+  String get menuShoppingThisWeek;
+
+  /// No description provided for @menuShoppingNext3.
+  ///
+  /// In en, this message translates to:
+  /// **'Next 3 days'**
+  String get menuShoppingNext3;
+
+  /// No description provided for @menuShoppingCustom.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom'**
+  String get menuShoppingCustom;
+
+  /// No description provided for @menuShoppingFrom.
+  ///
+  /// In en, this message translates to:
+  /// **'From'**
+  String get menuShoppingFrom;
+
+  /// No description provided for @menuShoppingTo.
+  ///
+  /// In en, this message translates to:
+  /// **'To'**
+  String get menuShoppingTo;
+
+  /// No description provided for @menuShoppingSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'{recipes} recipes, {lines} ingredient lines'**
+  String menuShoppingSummary(int recipes, int lines);
+
+  /// No description provided for @menuShoppingAtServings.
+  ///
+  /// In en, this message translates to:
+  /// **'At each meal\'s servings'**
+  String get menuShoppingAtServings;
+
+  /// No description provided for @menuShoppingChoose.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose ingredients'**
+  String get menuShoppingChoose;
+
+  /// No description provided for @menuEntryAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'Added to menu'**
+  String get menuEntryAdded;
+
+  /// No description provided for @pantryAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get pantryAll;
+
+  /// No description provided for @pantrySoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Expiring soon ({n})'**
+  String pantrySoon(int n);
+
+  /// No description provided for @pantryExpired.
+  ///
+  /// In en, this message translates to:
+  /// **'Expired ({n})'**
+  String pantryExpired(int n);
+
+  /// No description provided for @pantryWhatCanICook.
+  ///
+  /// In en, this message translates to:
+  /// **'What can I cook?'**
+  String get pantryWhatCanICook;
+
+  /// No description provided for @pantryAlmost.
+  ///
+  /// In en, this message translates to:
+  /// **'{n} recipes you can almost cook'**
+  String pantryAlmost(int n);
+
+  /// No description provided for @pantryEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Your pantry is empty'**
+  String get pantryEmpty;
+
+  /// No description provided for @pantryEmptyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Add what you have, or move bought items here from Shopping.'**
+  String get pantryEmptyBody;
+
+  /// No description provided for @pantryAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to pantry'**
+  String get pantryAdd;
+
+  /// No description provided for @pantryItemTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Pantry item'**
+  String get pantryItemTitle;
+
+  /// No description provided for @pantryName.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get pantryName;
+
+  /// No description provided for @pantryQuantity.
+  ///
+  /// In en, this message translates to:
+  /// **'Quantity (optional)'**
+  String get pantryQuantity;
+
+  /// No description provided for @pantryAisle.
+  ///
+  /// In en, this message translates to:
+  /// **'Aisle'**
+  String get pantryAisle;
+
+  /// No description provided for @pantryBought.
+  ///
+  /// In en, this message translates to:
+  /// **'Bought'**
+  String get pantryBought;
+
+  /// No description provided for @pantryExpiry.
+  ///
+  /// In en, this message translates to:
+  /// **'Expiry (optional)'**
+  String get pantryExpiry;
+
+  /// No description provided for @pantryNoExpiry.
+  ///
+  /// In en, this message translates to:
+  /// **'No expiry date'**
+  String get pantryNoExpiry;
+
+  /// No description provided for @pantryNoExpiryShort.
+  ///
+  /// In en, this message translates to:
+  /// **'No expiry'**
+  String get pantryNoExpiryShort;
+
+  /// No description provided for @pantryExpiresIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Expires in {n} days'**
+  String pantryExpiresIn(int n);
+
+  /// No description provided for @pantryExpiredAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'Expired {n} days ago'**
+  String pantryExpiredAgo(int n);
+
+  /// No description provided for @pantryExpiresOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Expires {date}'**
+  String pantryExpiresOn(String date);
+
+  /// No description provided for @pantryBoughtOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Bought {date}'**
+  String pantryBoughtOn(String date);
+
+  /// No description provided for @pantryExpiringSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Expiring soon'**
+  String get pantryExpiringSoon;
+
+  /// No description provided for @pantryExpiredTag.
+  ///
+  /// In en, this message translates to:
+  /// **'Expired'**
+  String get pantryExpiredTag;
+
+  /// No description provided for @pantryItemDeleteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this item?'**
+  String get pantryItemDeleteTitle;
+
+  /// No description provided for @pantryToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get pantryToday;
+
+  /// No description provided for @pantryCanCookEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No recipes to cook'**
+  String get pantryCanCookEmpty;
+
+  /// No description provided for @pantryCanCookEmptyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Add what you have at home and Bepbook will rank your recipes by it.'**
+  String get pantryCanCookEmptyBody;
+
+  /// No description provided for @pantryBasicsSwitch.
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t count basic seasonings as missing (salt, sugar, water, pepper, cooking oil, fish sauce)'**
+  String get pantryBasicsSwitch;
+
+  /// No description provided for @pantryMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'{have} of {total}'**
+  String pantryMatch(int have, int total);
+
+  /// No description provided for @pantryMissingOne.
+  ///
+  /// In en, this message translates to:
+  /// **'Missing {n}: {names}'**
+  String pantryMissingOne(int n, String names);
+
+  /// No description provided for @pantryMissingNone.
+  ///
+  /// In en, this message translates to:
+  /// **'All ingredients available'**
+  String get pantryMissingNone;
+
+  /// No description provided for @pantryAddMissing.
+  ///
+  /// In en, this message translates to:
+  /// **'Add missing to shopping'**
+  String get pantryAddMissing;
+
+  /// No description provided for @pantryMissingAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'Missing ingredients added to shopping'**
+  String get pantryMissingAdded;
+
+  /// No description provided for @pantryCanCookRecipes.
+  ///
+  /// In en, this message translates to:
+  /// **'{n} recipes'**
+  String pantryCanCookRecipes(int n);
+
+  /// No description provided for @moreBackupOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Automatic backup is off.'**
+  String get moreBackupOff;
+
+  /// No description provided for @moreImportExport.
+  ///
+  /// In en, this message translates to:
+  /// **'Import & export'**
+  String get moreImportExport;
+
+  /// No description provided for @moreImportExportSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Other apps, JSON, recipe book PDF'**
+  String get moreImportExportSub;
+
+  /// No description provided for @morePrivacy.
+  ///
+  /// In en, this message translates to:
+  /// **'Your recipes live only on this phone. Bepbook collects nothing.'**
+  String get morePrivacy;
+
+  /// No description provided for @onboardingTitle1.
+  ///
+  /// In en, this message translates to:
+  /// **'Your recipes, one notebook'**
+  String get onboardingTitle1;
+
+  /// No description provided for @onboardingBody1.
+  ///
+  /// In en, this message translates to:
+  /// **'Save recipes from websites, photos of cookbooks, or write your own.'**
+  String get onboardingBody1;
+
+  /// No description provided for @onboardingTitle2.
+  ///
+  /// In en, this message translates to:
+  /// **'Made for the kitchen'**
+  String get onboardingTitle2;
+
+  /// No description provided for @onboardingBody2.
+  ///
+  /// In en, this message translates to:
+  /// **'Big text that stays on, timers for every step, and servings that scale themselves.'**
+  String get onboardingBody2;
+
+  /// No description provided for @onboardingTitle3.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep them for life'**
+  String get onboardingTitle3;
+
+  /// No description provided for @onboardingBody3.
+  ///
+  /// In en, this message translates to:
+  /// **'Your recipes live only on this phone. No account, nothing sent anywhere. Turn on automatic backup to a folder you choose so you never lose them.'**
+  String get onboardingBody3;
+
+  /// No description provided for @onboardingBackup.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn on automatic backup'**
+  String get onboardingBackup;
+
+  /// No description provided for @settingsAppearance.
+  ///
+  /// In en, this message translates to:
+  /// **'Appearance'**
+  String get settingsAppearance;
+
+  /// No description provided for @settingsCooking.
+  ///
+  /// In en, this message translates to:
+  /// **'Cooking'**
+  String get settingsCooking;
+
+  /// No description provided for @settingsDefaultUnits.
+  ///
+  /// In en, this message translates to:
+  /// **'Default units'**
+  String get settingsDefaultUnits;
+
+  /// No description provided for @settingsMenu.
+  ///
+  /// In en, this message translates to:
+  /// **'Menu'**
+  String get settingsMenu;
+
+  /// No description provided for @settingsWeekStart.
+  ///
+  /// In en, this message translates to:
+  /// **'First day of the week'**
+  String get settingsWeekStart;
+
+  /// No description provided for @settingsMonday.
+  ///
+  /// In en, this message translates to:
+  /// **'Monday'**
+  String get settingsMonday;
+
+  /// No description provided for @settingsSunday.
+  ///
+  /// In en, this message translates to:
+  /// **'Sunday'**
+  String get settingsSunday;
+
+  /// No description provided for @settingsMealSlots.
+  ///
+  /// In en, this message translates to:
+  /// **'Meal slots'**
+  String get settingsMealSlots;
+
+  /// No description provided for @settingsShoppingPantry.
+  ///
+  /// In en, this message translates to:
+  /// **'Shopping & pantry'**
+  String get settingsShoppingPantry;
+
+  /// No description provided for @settingsAisles.
+  ///
+  /// In en, this message translates to:
+  /// **'Aisles'**
+  String get settingsAisles;
+
+  /// No description provided for @settingsIgnoreBasics.
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t count basic seasonings as missing (salt, sugar, water, pepper, cooking oil, fish sauce)'**
+  String get settingsIgnoreBasics;
+
+  /// No description provided for @settingsDeleteAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete all data'**
+  String get settingsDeleteAll;
+
+  /// No description provided for @deleteAllQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'Back up first?'**
+  String get deleteAllQuestion;
+
+  /// No description provided for @deleteAllQuestionBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Deleted data cannot be recovered. Save a backup first?'**
+  String get deleteAllQuestionBody;
+
+  /// No description provided for @deleteAllSkip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get deleteAllSkip;
+
+  /// No description provided for @deleteAllBackupNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Back up now'**
+  String get deleteAllBackupNow;
+
+  /// No description provided for @deleteAllTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete all data?'**
+  String get deleteAllTitle;
+
+  /// No description provided for @deleteAllThisDeletes.
+  ///
+  /// In en, this message translates to:
+  /// **'This deletes:'**
+  String get deleteAllThisDeletes;
+
+  /// No description provided for @deleteAllRecipes.
+  ///
+  /// In en, this message translates to:
+  /// **'all recipes and photos'**
+  String get deleteAllRecipes;
+
+  /// No description provided for @deleteAllShopping.
+  ///
+  /// In en, this message translates to:
+  /// **'shopping lists, menu, pantry'**
+  String get deleteAllShopping;
+
+  /// No description provided for @deleteAllSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'settings'**
+  String get deleteAllSettings;
+
+  /// No description provided for @deleteAllBrowser.
+  ///
+  /// In en, this message translates to:
+  /// **'browser cookies and site data'**
+  String get deleteAllBrowser;
+
+  /// No description provided for @deleteAllBackupsSafe.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup files in your folders are not deleted.'**
+  String get deleteAllBackupsSafe;
+
+  /// No description provided for @deleteAllContinue.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get deleteAllContinue;
+
+  /// No description provided for @deleteAllFinalTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'This cannot be undone.'**
+  String get deleteAllFinalTitle;
+
+  /// No description provided for @deleteAllFinalBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Bepbook will restart as if freshly installed.'**
+  String get deleteAllFinalBody;
+
+  /// No description provided for @deleteAllConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete everything'**
+  String get deleteAllConfirm;
+
+  /// No description provided for @deleteAllWorking.
+  ///
+  /// In en, this message translates to:
+  /// **'Deleting…'**
+  String get deleteAllWorking;
+
+  /// No description provided for @deleteAllDone.
+  ///
+  /// In en, this message translates to:
+  /// **'All data deleted'**
+  String get deleteAllDone;
+
+  /// No description provided for @deleteAllFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not delete all data'**
+  String get deleteAllFailed;
+
+  /// No description provided for @exchangeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Import and export'**
+  String get exchangeTitle;
+
+  /// No description provided for @exchangeImport.
+  ///
+  /// In en, this message translates to:
+  /// **'Import from file'**
+  String get exchangeImport;
+
+  /// No description provided for @exchangeImportSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Paprika · Recipe Keeper · JSON · .cooknote'**
+  String get exchangeImportSub;
+
+  /// No description provided for @exchangeExportAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Export all recipes (JSON)'**
+  String get exchangeExportAll;
+
+  /// No description provided for @exchangeCookbook.
+  ///
+  /// In en, this message translates to:
+  /// **'Recipe book from all recipes'**
+  String get exchangeCookbook;
+
+  /// No description provided for @exchangePdf.
+  ///
+  /// In en, this message translates to:
+  /// **'PDF'**
+  String get exchangePdf;
+
+  /// No description provided for @exchangeExportHint.
+  ///
+  /// In en, this message translates to:
+  /// **'To export some recipes, select them in the Recipes list.'**
+  String get exchangeExportHint;
+
+  /// No description provided for @aboutTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get aboutTitle;
+
+  /// No description provided for @aboutTagline.
+  ///
+  /// In en, this message translates to:
+  /// **'No account. No ads. No tracking. Nothing leaves your phone except the web pages you open.'**
+  String get aboutTagline;
+
+  /// No description provided for @aboutVersion.
+  ///
+  /// In en, this message translates to:
+  /// **'Version {version}'**
+  String aboutVersion(String version);
+
+  /// No description provided for @aboutPrivacy.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy policy'**
+  String get aboutPrivacy;
+
+  /// No description provided for @aboutPrivacySoon.
+  ///
+  /// In en, this message translates to:
+  /// **'The privacy policy will be published later.'**
+  String get aboutPrivacySoon;
+
+  /// No description provided for @aboutContact.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact & security reports'**
+  String get aboutContact;
+
+  /// No description provided for @aboutLicenses.
+  ///
+  /// In en, this message translates to:
+  /// **'Open-source licences'**
+  String get aboutLicenses;
+
+  /// No description provided for @aboutRights.
+  ///
+  /// In en, this message translates to:
+  /// **'Recipes imported from websites belong to their authors. Bepbook keeps the source link. Use them for your own cooking only.'**
+  String get aboutRights;
+
+  /// No description provided for @licensesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Open-source licences'**
+  String get licensesTitle;
+
+  /// No description provided for @licensesViewAll.
+  ///
+  /// In en, this message translates to:
+  /// **'View full licences'**
+  String get licensesViewAll;
 }
 
 class _AppLocalizationsDelegate

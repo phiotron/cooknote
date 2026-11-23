@@ -900,5 +900,470 @@
   "cookStartOverHint": "All ingredient and step ticks will be cleared.",
   "cookAllStepsDone": "All steps done. Enjoy your meal!",
   "timerStarted": "Timer started",
-  "recipeMissing": "This recipe could not be found — it may have been deleted."
+  "recipeMissing": "This recipe could not be found — it may have been deleted.",
+  "next": "Next",
+  "skip": "Skip",
+  "later": "Later",
+  "apply": "Apply",
+  "replace": "Replace",
+  "add": "Add",
+  "remove": "Remove",
+  "back": "Back",
+  "search": "Search",
+  "today": "Today",
+  "shoppingLists": "Lists",
+  "shoppingNewList": "New list",
+  "shoppingListName": "List name",
+  "shoppingRenameList": "Rename list",
+  "shoppingDeleteList": "Delete list",
+  "shoppingAisles": "Aisles",
+  "shoppingAislesHint": "Order them like your shop's path",
+  "shoppingBoughtOf": "{bought} of {total} bought",
+  "@shoppingBoughtOf": {
+    "placeholders": {
+      "bought": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingAisleCount": "{n} aisles",
+  "@shoppingAisleCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingAddItem": "Add item",
+  "shoppingItemHint": "e.g. 500 g beef",
+  "shoppingItemEditTitle": "Edit item",
+  "shoppingFrequent": "Frequent items",
+  "shoppingEmptyHint": "Add items by hand, from Frequent items, or from a recipe.",
+  "shoppingFromRecipe": "Add from a recipe",
+  "shoppingBought": "Bought",
+  "shoppingClearChecked": "Clear checked items",
+  "shoppingClearTitle": "Clear {n} bought items?",
+  "@shoppingClearTitle": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingMoveToPantry": "Move bought items to the Pantry",
+  "shoppingCleared": "Cleared {n} bought items",
+  "@shoppingCleared": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingShareTitle": "Share list",
+  "shoppingShareEmpty": "Nothing unchecked to share.",
+  "shoppingMoveAisleTitle": "Move to which aisle?",
+  "shoppingNoAisle": "Other",
+  "shoppingDeleteItemConfirm": "Remove \"{name}\" from the list?",
+  "@shoppingDeleteItemConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "shoppingItemDeleted": "Item removed",
+  "shoppingMergedTag": "merged",
+  "shoppingSourcesFor": "for {names}",
+  "@shoppingSourcesFor": {
+    "placeholders": {
+      "names": {
+        "type": "String"
+      }
+    }
+  },
+  "shoppingInPantry": "In pantry",
+  "shoppingAddToList": "Add to:",
+  "shoppingAddCount": "Add {n} items",
+  "@shoppingAddCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingMergeWarning": "{n} items will be merged with items already on the list",
+  "@shoppingMergeWarning": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingNoneSelected": "Nothing selected",
+  "shoppingAsWritten": "as written",
+  "shoppingNoListsHint": "One list per shop works well.",
+  "shoppingItemName": "Item name",
+  "shoppingAmountLabel": "Quantity (optional)",
+  "shoppingNewListHint": "e.g. Supermarket, Wet market",
+  "shoppingAisleDeleteTitle": "Delete \"{name}\"?",
+  "@shoppingAisleDeleteTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "shoppingAisleDeleteBody": "Its items move to \"Other\".",
+  "shoppingAddAisle": "Add aisle",
+  "shoppingAisleName": "Aisle name",
+  "shoppingAisleRename": "Rename aisle",
+  "shoppingAislesNote": "Deleting an aisle moves its items to \"Other\". The Pantry uses the same aisles.",
+  "shoppingAdded": "Added {n} items",
+  "@shoppingAdded": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingNoIngredients": "No ingredients to add.",
+  "shoppingAllDoneSub": "You bought everything on the list.",
+  "menuDay": "Day",
+  "menuWeek": "Week",
+  "menuMonth": "Month",
+  "menuRandom": "Random suggestions",
+  "menuApplyTemplate": "Apply a template",
+  "menuAddToShopping": "Add to shopping",
+  "menuSaveWeekTemplate": "Save week as template",
+  "menuAddToMenu": "Add to menu",
+  "menuNothingPlannedWeek": "Nothing planned this week",
+  "menuNothingPlannedDay": "Nothing planned for this day",
+  "menuEmptyHint": "Add meals to a slot, or use random suggestions.",
+  "menuWeekRange": "{from} – {to}",
+  "@menuWeekRange": {
+    "placeholders": {
+      "from": {
+        "type": "String"
+      },
+      "to": {
+        "type": "String"
+      }
+    }
+  },
+  "menuEntryServings": "{n} servings",
+  "@menuEntryServings": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "menuAddTitle": "Add to menu",
+  "menuTabRecipe": "Recipe",
+  "menuTabFreeText": "Free text",
+  "menuDate": "Date",
+  "menuSlot": "Slot",
+  "menuServings": "Servings",
+  "menuSearchRecipes": "Search recipes",
+  "menuRecentFavourites": "Recent & favourites",
+  "menuFreeTextHint": "e.g. Eating out",
+  "menuNoRecipes": "No matching recipes",
+  "menuEntryOpen": "Open recipe",
+  "menuEntryCook": "Cook",
+  "menuEntryMove": "Move to…",
+  "menuEntryRemove": "Remove from menu",
+  "menuMoveTitle": "Move to…",
+  "menuMoveDay": "Day",
+  "menuMoveMeal": "Meal",
+  "menuMove": "Move",
+  "menuEntryRemoved": "Removed from menu",
+  "menuMealSlots": "Meal slots",
+  "menuAddSlot": "Add slot",
+  "menuSlotName": "Slot name",
+  "menuDeleteSlotTitle": "Delete \"{name}\"?",
+  "@menuDeleteSlotTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "menuDeleteSlotBody": "Every meal planned in this slot will be deleted.",
+  "menuSlotUses": "{n} items",
+  "@menuSlotUses": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "menuTemplates": "Menu templates",
+  "menuNewTemplate": "New template",
+  "menuNoTemplates": "No templates yet",
+  "menuNoTemplatesBody": "Save a day or a week you like, then apply it again in one tap.",
+  "menuTemplateSaveWeek": "Save this week as a template",
+  "menuTemplateItems": "{items} items · {days} days",
+  "@menuTemplateItems": {
+    "placeholders": {
+      "items": {
+        "type": "int"
+      },
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "menuTemplateApplyTitle": "Apply \"{name}\"",
+  "@menuTemplateApplyTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "menuTemplateStartDate": "Start date",
+  "menuTemplateWeek": "Whole week",
+  "menuTemplateDay": "One day",
+  "menuTemplateOccupiedTitle": "This day already has meals",
+  "menuTemplateOccupiedBody": "{date} already has {n} items. Replace them with the template, or add the items next to them?",
+  "@menuTemplateOccupiedBody": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "menuTemplateReplaceHint": "Replace only clears the meals the template fills.",
+  "menuTemplateApplied": "Template applied",
+  "menuTemplateName": "Template name",
+  "menuTemplateCreated": "Template saved",
+  "menuTemplateDeleteTitle": "Delete template \"{name}\"?",
+  "@menuTemplateDeleteTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "menuRandomTitle": "Random suggestions",
+  "menuRandomIntro": "Fill the empty meals from {from} to {to} with recipes that match.",
+  "@menuRandomIntro": {
+    "placeholders": {
+      "from": {
+        "type": "String"
+      },
+      "to": {
+        "type": "String"
+      }
+    }
+  },
+  "menuRandomMaxTime": "Maximum total time",
+  "menuRandomAny": "Any",
+  "menuRandomPreview": "Preview",
+  "menuRandomPreviewTitle": "Preview suggestions",
+  "menuRandomNoRepeat": "No recipe repeats this week",
+  "menuRandomSuggested": "Suggested",
+  "menuRandomTooFew": "There are fewer matching recipes than empty meals — some dishes will repeat.",
+  "menuRandomZero": "No recipes match the filters.",
+  "menuRandomApplied": "Empty meals filled",
+  "menuShoppingRangeTitle": "Add to shopping",
+  "menuShoppingThisWeek": "This week",
+  "menuShoppingNext3": "Next 3 days",
+  "menuShoppingCustom": "Custom",
+  "menuShoppingFrom": "From",
+  "menuShoppingTo": "To",
+  "menuShoppingSummary": "{recipes} recipes, {lines} ingredient lines",
+  "@menuShoppingSummary": {
+    "placeholders": {
+      "recipes": {
+        "type": "int"
+      },
+      "lines": {
+        "type": "int"
+      }
+    }
+  },
+  "menuShoppingAtServings": "At each meal's servings",
+  "menuShoppingChoose": "Choose ingredients",
+  "menuEntryAdded": "Added to menu",
+  "pantryAll": "All",
+  "pantrySoon": "Expiring soon ({n})",
+  "@pantrySoon": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "pantryExpired": "Expired ({n})",
+  "@pantryExpired": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "pantryWhatCanICook": "What can I cook?",
+  "pantryAlmost": "{n} recipes you can almost cook",
+  "@pantryAlmost": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "pantryEmpty": "Your pantry is empty",
+  "pantryEmptyBody": "Add what you have, or move bought items here from Shopping.",
+  "pantryAdd": "Add to pantry",
+  "pantryItemTitle": "Pantry item",
+  "pantryName": "Name",
+  "pantryQuantity": "Quantity (optional)",
+  "pantryAisle": "Aisle",
+  "pantryBought": "Bought",
+  "pantryExpiry": "Expiry (optional)",
+  "pantryNoExpiry": "No expiry date",
+  "pantryNoExpiryShort": "No expiry",
+  "pantryExpiresIn": "Expires in {n} days",
+  "@pantryExpiresIn": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "pantryExpiredAgo": "Expired {n} days ago",
+  "@pantryExpiredAgo": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "pantryExpiresOn": "Expires {date}",
+  "@pantryExpiresOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "pantryBoughtOn": "Bought {date}",
+  "@pantryBoughtOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "pantryExpiringSoon": "Expiring soon",
+  "pantryExpiredTag": "Expired",
+  "pantryItemDeleteTitle": "Delete this item?",
+  "pantryToday": "Today",
+  "pantryCanCookEmpty": "No recipes to cook",
+  "pantryCanCookEmptyBody": "Add what you have at home and Bepbook will rank your recipes by it.",
+  "pantryBasicsSwitch": "Don't count basic seasonings as missing (salt, sugar, water, pepper, cooking oil, fish sauce)",
+  "pantryMatch": "{have} of {total}",
+  "@pantryMatch": {
+    "placeholders": {
+      "have": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "pantryMissingOne": "Missing {n}: {names}",
+  "@pantryMissingOne": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "names": {
+        "type": "String"
+      }
+    }
+  },
+  "pantryMissingNone": "All ingredients available",
+  "pantryAddMissing": "Add missing to shopping",
+  "pantryMissingAdded": "Missing ingredients added to shopping",
+  "pantryCanCookRecipes": "{n} recipes",
+  "@pantryCanCookRecipes": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "moreBackupOff": "Automatic backup is off.",
+  "moreImportExport": "Import & export",
+  "moreImportExportSub": "Other apps, JSON, recipe book PDF",
+  "morePrivacy": "Your recipes live only on this phone. Bepbook collects nothing.",
+  "onboardingTitle1": "Your recipes, one notebook",
+  "onboardingBody1": "Save recipes from websites, photos of cookbooks, or write your own.",
+  "onboardingTitle2": "Made for the kitchen",
+  "onboardingBody2": "Big text that stays on, timers for every step, and servings that scale themselves.",
+  "onboardingTitle3": "Keep them for life",
+  "onboardingBody3": "Your recipes live only on this phone. No account, nothing sent anywhere. Turn on automatic backup to a folder you choose so you never lose them.",
+  "onboardingBackup": "Turn on automatic backup",
+  "settingsAppearance": "Appearance",
+  "settingsCooking": "Cooking",
+  "settingsDefaultUnits": "Default units",
+  "settingsMenu": "Menu",
+  "settingsWeekStart": "First day of the week",
+  "settingsMonday": "Monday",
+  "settingsSunday": "Sunday",
+  "settingsMealSlots": "Meal slots",
+  "settingsShoppingPantry": "Shopping & pantry",
+  "settingsAisles": "Aisles",
+  "settingsIgnoreBasics": "Don't count basic seasonings as missing (salt, sugar, water, pepper, cooking oil, fish sauce)",
+  "settingsDeleteAll": "Delete all data",
+  "deleteAllQuestion": "Back up first?",
+  "deleteAllQuestionBody": "Deleted data cannot be recovered. Save a backup first?",
+  "deleteAllSkip": "Skip",
+  "deleteAllBackupNow": "Back up now",
+  "deleteAllTitle": "Delete all data?",
+  "deleteAllThisDeletes": "This deletes:",
+  "deleteAllRecipes": "all recipes and photos",
+  "deleteAllShopping": "shopping lists, menu, pantry",
+  "deleteAllSettings": "settings",
+  "deleteAllBrowser": "browser cookies and site data",
+  "deleteAllBackupsSafe": "Backup files in your folders are not deleted.",
+  "deleteAllContinue": "Continue",
+  "deleteAllFinalTitle": "This cannot be undone.",
+  "deleteAllFinalBody": "Bepbook will restart as if freshly installed.",
+  "deleteAllConfirm": "Delete everything",
+  "deleteAllWorking": "Deleting…",
+  "deleteAllDone": "All data deleted",
+  "deleteAllFailed": "Could not delete all data",
+  "exchangeTitle": "Import and export",
+  "exchangeImport": "Import from file",
+  "exchangeImportSub": "Paprika · Recipe Keeper · JSON · .cooknote",
+  "exchangeExportAll": "Export all recipes (JSON)",
+  "exchangeCookbook": "Recipe book from all recipes",
+  "exchangePdf": "PDF",
+  "exchangeExportHint": "To export some recipes, select them in the Recipes list.",
+  "aboutTitle": "About",
+  "aboutTagline": "No account. No ads. No tracking. Nothing leaves your phone except the web pages you open.",
+  "aboutVersion": "Version {version}",
+  "@aboutVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutPrivacy": "Privacy policy",
+  "aboutPrivacySoon": "The privacy policy will be published later.",
+  "aboutContact": "Contact & security reports",
+  "aboutLicenses": "Open-source licences",
+  "aboutRights": "Recipes imported from websites belong to their authors. Bepbook keeps the source link. Use them for your own cooking only.",
+  "licensesTitle": "Open-source licences",
+  "licensesViewAll": "View full licences"
 }
