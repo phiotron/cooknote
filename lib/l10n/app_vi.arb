@@ -865,6 +865,7 @@
   "menuShoppingChoose": "Chọn nguyên liệu",
   "menuEntryAdded": "Đã thêm vào thực đơn",
   "pantryAll": "Tất cả",
+  "pantryFilterEmpty": "Không có món nào trong mục này",
   "pantrySoon": "Sắp hết hạn ({n})",
   "@pantrySoon": {
     "placeholders": {

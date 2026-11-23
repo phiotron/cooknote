@@ -50,7 +50,7 @@ void main() {
 
     await tester.tap(find.text('Thực đơn'));
     await tester.pumpAndSettle();
-    expect(find.text('SCR-34/35/36'), findsOneWidget);
+    expect(find.text('Tuần này chưa có món nào'), findsOneWidget);
 
     await tester.tap(find.text('Đi chợ'));
     await tester.pumpAndSettle();
@@ -58,7 +58,7 @@ void main() {
 
     await tester.tap(find.text('Tủ bếp'));
     await tester.pumpAndSettle();
-    expect(find.text('SCR-43'), findsOneWidget);
+    expect(find.text('Tủ bếp đang trống'), findsOneWidget);
 
     await tester.tap(find.text('Thêm'));
     await tester.pumpAndSettle();
@@ -88,7 +88,7 @@ void main() {
     final app = await pumpApp(tester, overrides: _overrides);
     await tester.tap(find.text('Tủ bếp'));
     await tester.pumpAndSettle();
-    expect(find.text('SCR-43'), findsOneWidget);
+    expect(find.text('Tủ bếp đang trống'), findsOneWidget);
     await systemBack(tester);
     expect(find.text('Chưa có công thức nào'), findsOneWidget);
     expect(
@@ -101,9 +101,9 @@ void main() {
   group('mọi route của product.md §4.2 đã khai', () {
     // (đường dẫn, chữ có trên màn, có thanh dưới không)
     const routes = <(String, String, bool)>[
-      ('/menu', 'SCR-34/35/36', true),
+      ('/menu', 'Tuần này chưa có món nào', true),
       ('/shopping', 'Chưa có món cần mua', true),
-      ('/pantry', 'SCR-43', true),
+      ('/pantry', 'Tủ bếp đang trống', true),
       ('/more', 'Sao lưu', true),
       ('/onboarding', 'SCR-01', false),
       ('/web/preview', 'Xem trước khi lưu', false),
@@ -112,11 +112,11 @@ void main() {
       ('/scan', 'Quét từ ảnh', false),
       ('/scan/assign', 'Gán dòng', false),
       ('/cook/7', 'Chế độ nấu', false),
-      ('/menu/templates', 'SCR-39', false),
-      ('/menu/random', 'SCR-40', false),
-      ('/settings/meal-slots', 'SCR-42', false),
+      ('/menu/templates', 'Chưa có thực đơn mẫu', false),
+      ('/menu/random', 'Gợi ý ngẫu nhiên', false),
+      ('/settings/meal-slots', 'Các bữa', false),
       ('/shopping/aisles', 'Khu vực', false),
-      ('/pantry/can-cook', 'SCR-45', false),
+      ('/pantry/can-cook', 'Nấu được gì?', false),
       ('/exchange', 'SCR-52', false),
       ('/settings/delete-all', 'SCR-54', false),
       ('/about', 'SCR-55', false),
@@ -176,8 +176,8 @@ void main() {
     await tester.pumpAndSettle();
     showAddToMenuSheet(ctx, 9, date: '2026-11-05', slotId: 2);
     await tester.pumpAndSettle();
-    expect(find.text('SCR-37'), findsOneWidget);
-    expect(find.textContaining('recipeId=9'), findsOneWidget);
+    expect(find.text('Thêm vào thực đơn'), findsOneWidget);
+    expect(find.text('Công thức này không còn nữa'), findsOneWidget);
     await disposeApp(tester, app);
   });
 

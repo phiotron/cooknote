@@ -160,6 +160,7 @@ class _ShoppingScreenState extends ConsumerState<ShoppingScreen> {
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(
+        heroTag: 'shoppingFab',
         onPressed: () => _addItem(context, listId),
         icon: const Icon(Icons.add),
         label: Text(l.shoppingAddItem),

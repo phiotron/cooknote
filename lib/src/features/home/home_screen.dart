@@ -138,6 +138,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       ),
       floatingActionButton: selected == null
           ? FloatingActionButton(
+              heroTag: 'homeFab',
               tooltip: l.addRecipe,
               onPressed: () => _showAddSheet(context),
               child: const Icon(Icons.add),
@@ -388,9 +389,8 @@ class _Action extends StatelessWidget {
                 maxLines: 2,
                 textAlign: TextAlign.center,
                 overflow: TextOverflow.ellipsis,
-                style: Theme.of(
-                  context,
-                ).textTheme.labelSmall!.copyWith(color: color),
+                style: Theme.of(context).textTheme.labelSmall!
+                    .copyWith(color: color),
               ),
             ],
           ),

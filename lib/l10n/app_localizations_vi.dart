@@ -1908,6 +1908,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get pantryAll => 'Tất cả';
 
   @override
+  String get pantryFilterEmpty => 'Không có món nào trong mục này';
+
+  @override
   String pantrySoon(int n) {
     return 'Sắp hết hạn ($n)';
   }

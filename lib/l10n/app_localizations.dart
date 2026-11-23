@@ -3476,6 +3476,12 @@ abstract class AppLocalizations {
   /// **'All'**
   String get pantryAll;
 
+  /// No description provided for @pantryFilterEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing in this filter'**
+  String get pantryFilterEmpty;
+
   /// No description provided for @pantrySoon.
   ///
   /// In en, this message translates to:

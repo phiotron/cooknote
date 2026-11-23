@@ -72,6 +72,7 @@ class AislesScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(title: Text(l.shoppingAisles)),
       floatingActionButton: FloatingActionButton.extended(
+        heroTag: 'aislesFab',
         onPressed: () => _add(context, ref),
         icon: const Icon(Icons.add),
         label: Text(l.shoppingAddAisle),

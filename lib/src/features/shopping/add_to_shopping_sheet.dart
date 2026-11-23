@@ -54,10 +54,25 @@ Future<void> showAddCandidatesSheet(
   recipes: [ShoppingSourceRecipe(recipeId, onlyLineIds: onlyLineIds)],
 );
 
+/// Thực đơn theo khoảng ngày (SCR-41): ứng viên đã tính sẵn theo khẩu phần
+/// từng bữa, mở thẳng bảng chọn nguyên liệu.
+Future<void> showAddShoppingCandidatesSheet(
+  BuildContext context, {
+  required List<ShoppingCandidate> candidates,
+}) {
+  if (candidates.isEmpty) return Future.value();
+  return showBepSheet<void>(
+    context,
+    builder: (_) =>
+        _AddToShoppingSheet(recipes: const [], initialCandidates: candidates),
+  );
+}
+
 class _AddToShoppingSheet extends ConsumerStatefulWidget {
-  const _AddToShoppingSheet({required this.recipes});
+  const _AddToShoppingSheet({required this.recipes, this.initialCandidates});
 
   final List<ShoppingSourceRecipe> recipes;
+  final List<ShoppingCandidate>? initialCandidates;
 
   @override
   ConsumerState<_AddToShoppingSheet> createState() =>
@@ -81,14 +96,18 @@ class _AddToShoppingSheetState extends ConsumerState<_AddToShoppingSheet> {
     final repo = ref.read(shoppingRepositoryProvider);
     final lists = await repo.getLists();
     final all = <ShoppingCandidate>[];
-    for (final source in widget.recipes) {
-      all.addAll(
-        await repo.candidatesForRecipe(
-          source.recipeId,
-          servings: source.servings,
-          onlyLineIds: source.onlyLineIds,
-        ),
-      );
+    if (widget.initialCandidates != null) {
+      all.addAll(widget.initialCandidates!);
+    } else {
+      for (final source in widget.recipes) {
+        all.addAll(
+          await repo.candidatesForRecipe(
+            source.recipeId,
+            servings: source.servings,
+            onlyLineIds: source.onlyLineIds,
+          ),
+        );
+      }
     }
     if (!mounted) return;
     setState(() {

@@ -1931,6 +1931,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pantryAll => 'All';
 
   @override
+  String get pantryFilterEmpty => 'Nothing in this filter';
+
+  @override
   String pantrySoon(int n) {
     return 'Expiring soon ($n)';
   }

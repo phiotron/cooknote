@@ -1193,6 +1193,7 @@
   "menuShoppingChoose": "Choose ingredients",
   "menuEntryAdded": "Added to menu",
   "pantryAll": "All",
+  "pantryFilterEmpty": "Nothing in this filter",
   "pantrySoon": "Expiring soon ({n})",
   "@pantrySoon": {
     "placeholders": {
