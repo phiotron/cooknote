@@ -2227,6 +2227,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get aboutContact => 'Contact & security reports';
 
   @override
+  String get aboutEmailCopied => 'Email copied';
+
+  @override
   String get aboutLicenses => 'Open-source licences';
 
   @override

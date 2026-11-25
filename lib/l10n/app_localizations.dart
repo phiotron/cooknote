@@ -3998,6 +3998,12 @@ abstract class AppLocalizations {
   /// **'Contact & security reports'**
   String get aboutContact;
 
+  /// No description provided for @aboutEmailCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Email copied'**
+  String get aboutEmailCopied;
+
   /// No description provided for @aboutLicenses.
   ///
   /// In en, this message translates to:

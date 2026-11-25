@@ -105,7 +105,7 @@ void main() {
       ('/shopping', 'Chưa có món cần mua', true),
       ('/pantry', 'Tủ bếp đang trống', true),
       ('/more', 'Sao lưu', true),
-      ('/onboarding', 'SCR-01', false),
+      ('/onboarding', 'Bỏ qua', false),
       ('/web/preview', 'Xem trước khi lưu', false),
       ('/web/pick', 'Chọn chữ', false),
       ('/share?text=abc', 'Chia sẻ vào Bepbook', false),
@@ -117,10 +117,10 @@ void main() {
       ('/settings/meal-slots', 'Các bữa', false),
       ('/shopping/aisles', 'Khu vực', false),
       ('/pantry/can-cook', 'Nấu được gì?', false),
-      ('/exchange', 'SCR-52', false),
-      ('/settings/delete-all', 'SCR-54', false),
-      ('/about', 'SCR-55', false),
-      ('/licenses', 'SCR-56', false),
+      ('/exchange', 'Nhập và xuất', false),
+      ('/settings/delete-all', 'Xoá toàn bộ dữ liệu', false),
+      ('/about', 'Giới thiệu', false),
+      ('/licenses', 'Giấy phép nguồn mở', false),
     ];
     for (final (path, text, hasNav) in routes) {
       testWidgets('$path → $text, ${hasNav ? 'có' : 'không có'} thanh dưới', (

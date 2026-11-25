@@ -2203,6 +2203,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get aboutContact => 'Liên hệ & báo lỗi bảo mật';
 
   @override
+  String get aboutEmailCopied => 'Đã sao chép email';
+
+  @override
   String get aboutLicenses => 'Giấy phép nguồn mở';
 
   @override
