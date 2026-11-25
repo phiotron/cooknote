@@ -1,22 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../l10n/app_localizations.dart';
+import '../../providers.dart';
 import '../../ui/ui.dart';
 
 /// SCR-01 (AC-59): ba trang giới thiệu ngắn, Bỏ qua luôn ở đầu thứ tự tiêu
 /// điểm, không xin quyền nào. Trang cuối mời bật sao lưu tự động.
-class OnboardingScreen extends StatefulWidget {
+class OnboardingScreen extends ConsumerStatefulWidget {
   const OnboardingScreen({super.key});
 
   @override
-  State<OnboardingScreen> createState() => _OnboardingScreenState();
+  ConsumerState<OnboardingScreen> createState() => _OnboardingScreenState();
 }
 
-class _OnboardingScreenState extends State<OnboardingScreen> {
+class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   final _controller = PageController();
   int _page = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    // Đã hiện một lần là đủ: thoát giữa chừng cũng không hiện lại (AC-59).
+    ref.read(settingsRepositoryProvider).markOnboardingSeen();
+  }
 
   @override
   void dispose() {

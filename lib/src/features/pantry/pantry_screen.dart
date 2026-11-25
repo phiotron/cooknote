@@ -6,6 +6,7 @@ import '../../../l10n/app_localizations.dart';
 import '../../data/aisle_repository.dart';
 import '../../data/data_providers_v3.dart';
 import '../../data/pantry_repository.dart';
+import '../../data/text_normalize.dart';
 import '../../providers.dart';
 import '../../pantry/expiry.dart';
 import '../../ui/ui.dart';
@@ -21,6 +22,14 @@ class PantryScreen extends ConsumerStatefulWidget {
 
 class _PantryScreenState extends ConsumerState<PantryScreen> {
   PantryFilter _filter = PantryFilter.all;
+  final _search = TextEditingController();
+  String _query = '';
+
+  @override
+  void dispose() {
+    _search.dispose();
+    super.dispose();
+  }
 
   DateTime get _today {
     final now = ref.read(clockProvider)();
@@ -42,6 +51,13 @@ class _PantryScreenState extends ConsumerState<PantryScreen> {
     }
     final items =
         ref.watch(pantryItemsProvider(_filter)).value ?? const <PantryItem>[];
+    final query = normalizeText(_query);
+    final visible = query.isEmpty
+        ? items
+        : [
+            for (final item in items)
+              if (normalizeText(item.name).contains(query)) item,
+          ];
     final counts =
         ref.watch(pantryExpiryCountsProvider).value ?? (soon: 0, expired: 0);
     final cookable = ref.watch(cookableProvider).value ?? const [];
@@ -97,6 +113,27 @@ class _PantryScreenState extends ConsumerState<PantryScreen> {
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+                  child: TextField(
+                    controller: _search,
+                    decoration: InputDecoration(
+                      hintText: l.search,
+                      prefixIcon: const Icon(Icons.search),
+                      suffixIcon: _query.isEmpty
+                          ? null
+                          : IconButton(
+                              tooltip: l.clearSearch,
+                              onPressed: () {
+                                _search.clear();
+                                setState(() => _query = '');
+                              },
+                              icon: const Icon(Icons.clear),
+                            ),
+                    ),
+                    onChanged: (v) => setState(() => _query = v),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
                   child: Wrap(
                     spacing: 8,
                     runSpacing: 4,
@@ -122,7 +159,7 @@ class _PantryScreenState extends ConsumerState<PantryScreen> {
                     ],
                   ),
                 ),
-                if (items.isEmpty)
+                if (visible.isEmpty)
                   Padding(
                     padding: const EdgeInsets.fromLTRB(16, 24, 16, 8),
                     child: Text(
@@ -131,7 +168,7 @@ class _PantryScreenState extends ConsumerState<PantryScreen> {
                     ),
                   )
                 else
-                  ..._groups(context, l, aisles, items),
+                  ..._groups(context, l, aisles, visible),
               ],
             ),
     );
@@ -442,6 +479,29 @@ class _PantryItemSheetState extends ConsumerState<_PantryItemSheet> {
                     icon: const Icon(Icons.clear),
                   ),
           ),
+          if (_expires != null && _expires!.isBefore(_bought))
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Icon(
+                    Icons.warning_amber_rounded,
+                    size: 18,
+                    color: context.bep.expiringSoon,
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      l.pantryExpiryBeforePurchase,
+                      style: theme.textTheme.bodySmall!.copyWith(
+                        color: context.bep.expiringSoon,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           const SizedBox(height: 8),
           BepButton(
             block: true,

@@ -1228,6 +1228,7 @@
   "pantryAisle": "Aisle",
   "pantryBought": "Bought",
   "pantryExpiry": "Expiry (optional)",
+  "pantryExpiryBeforePurchase": "Expiry is before the purchase date — check the dates",
   "pantryNoExpiry": "No expiry date",
   "pantryNoExpiryShort": "No expiry",
   "pantryExpiresIn": "Expires in {n} days",

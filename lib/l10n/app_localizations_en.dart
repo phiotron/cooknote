@@ -1980,6 +1980,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pantryExpiry => 'Expiry (optional)';
 
   @override
+  String get pantryExpiryBeforePurchase =>
+      'Expiry is before the purchase date — check the dates';
+
+  @override
   String get pantryNoExpiry => 'No expiry date';
 
   @override

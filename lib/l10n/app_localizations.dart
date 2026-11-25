@@ -3560,6 +3560,12 @@ abstract class AppLocalizations {
   /// **'Expiry (optional)'**
   String get pantryExpiry;
 
+  /// No description provided for @pantryExpiryBeforePurchase.
+  ///
+  /// In en, this message translates to:
+  /// **'Expiry is before the purchase date — check the dates'**
+  String get pantryExpiryBeforePurchase;
+
   /// No description provided for @pantryNoExpiry.
   ///
   /// In en, this message translates to:

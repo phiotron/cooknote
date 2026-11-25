@@ -111,6 +111,7 @@ Future<TestApp> pumpApp(
   AppDatabase? db,
   DateTime Function()? clock,
   List overrides = const [],
+  bool showOnboarding = false,
 }) async {
   usePhoneScreen(tester);
   final database = db ?? memoryDatabase();
@@ -127,9 +128,11 @@ Future<TestApp> pumpApp(
   });
   final images = RecordingImageStore(Directory('${temp.path}/photos'));
   final picker = FakePhotoPicker(temp);
-  await tester.runAsync(
-    () => SettingsRepository(database).setLocaleCode(localeCode),
-  );
+  await tester.runAsync(() async {
+    final settings = SettingsRepository(database);
+    await settings.setLocaleCode(localeCode);
+    if (!showOnboarding) await settings.markOnboardingSeen();
+  });
   await tester.pumpWidget(
     ProviderScope(
       overrides: [

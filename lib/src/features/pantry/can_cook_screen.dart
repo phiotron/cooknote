@@ -76,64 +76,68 @@ class _RecipeTile extends ConsumerWidget {
     final missing = recipe.missing.join(', ');
     return Card(
       margin: const EdgeInsets.fromLTRB(16, 8, 16, 0),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(12, 10, 12, 8),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              recipe.name,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-              style: theme.textTheme.titleMedium,
-            ),
-            const SizedBox(height: 6),
-            Semantics(
-              label: l.pantryMatch(recipe.have, recipe.total),
-              child: ExcludeSemantics(
-                child: LinearProgressIndicator(
-                  value: recipe.ratio,
-                  minHeight: 6,
-                  borderRadius: BepRadius.circular(BepRadius.xs),
+      child: InkWell(
+        borderRadius: BepRadius.circular(BepRadius.md),
+        onTap: () => context.push('/recipe/${recipe.id}'),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(12, 10, 12, 8),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                recipe.name,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: theme.textTheme.titleMedium,
+              ),
+              const SizedBox(height: 6),
+              Semantics(
+                label: l.pantryMatch(recipe.have, recipe.total),
+                child: ExcludeSemantics(
+                  child: LinearProgressIndicator(
+                    value: recipe.ratio,
+                    minHeight: 6,
+                    borderRadius: BepRadius.circular(BepRadius.xs),
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 4),
-            Text(
-              l.pantryMatch(recipe.have, recipe.total),
-              style: theme.textTheme.labelMedium!.copyWith(
-                color: cs.onSurfaceVariant,
-              ),
-            ),
-            const SizedBox(height: 4),
-            Text(
-              recipe.missing.isEmpty
-                  ? l.pantryMissingNone
-                  : l.pantryMissingOne(recipe.missingCount, missing),
-              style: theme.textTheme.bodySmall!.copyWith(
-                color: recipe.missing.isEmpty
-                    ? context.bep.success
-                    : cs.onSurfaceVariant,
-              ),
-            ),
-            if (recipe.missing.isNotEmpty)
-              Align(
-                alignment: AlignmentDirectional.centerEnd,
-                child: BepButton(
-                  label: l.pantryAddMissing,
-                  kind: BepButtonKind.outlined,
-                  icon: Icons.add_shopping_cart,
-                  onPressed: () async {
-                    await showAddIngredientsToShoppingSheet(
-                      context,
-                      recipes: [ShoppingSourceRecipe(recipe.id)],
-                    );
-                    if (!context.mounted) return;
-                    showBepSnackBar(l.pantryMissingAdded);
-                  },
+              const SizedBox(height: 4),
+              Text(
+                l.pantryMatch(recipe.have, recipe.total),
+                style: theme.textTheme.labelMedium!.copyWith(
+                  color: cs.onSurfaceVariant,
                 ),
               ),
-          ],
+              const SizedBox(height: 4),
+              Text(
+                recipe.missing.isEmpty
+                    ? l.pantryMissingNone
+                    : l.pantryMissingOne(recipe.missingCount, missing),
+                style: theme.textTheme.bodySmall!.copyWith(
+                  color: recipe.missing.isEmpty
+                      ? context.bep.success
+                      : cs.onSurfaceVariant,
+                ),
+              ),
+              if (recipe.missing.isNotEmpty)
+                Align(
+                  alignment: AlignmentDirectional.centerEnd,
+                  child: BepButton(
+                    label: l.pantryAddMissing,
+                    kind: BepButtonKind.outlined,
+                    icon: Icons.add_shopping_cart,
+                    onPressed: () async {
+                      await showAddIngredientsToShoppingSheet(
+                        context,
+                        recipes: [ShoppingSourceRecipe(recipe.id)],
+                      );
+                      if (!context.mounted) return;
+                      showBepSnackBar(l.pantryMissingAdded);
+                    },
+                  ),
+                ),
+            ],
+          ),
         ),
       ),
     );

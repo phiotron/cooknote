@@ -29,6 +29,13 @@ class CookNoteApp extends ConsumerWidget {
     final themeMode = ref.watch(themeModeProvider).value ?? ThemeMode.system;
     final localeCode = ref.watch(localeCodeProvider).value;
     final appRouter = router ?? _router;
+    // AC-59: lần mở đầu hiện màn chào. Chỉ chuyển khi đang ở màn chính để không
+    // chặn luồng Chia sẻ link vào app.
+    ref.listen<AsyncValue<bool>>(onboardingSeenProvider, (_, next) {
+      if (next.value != false) return;
+      final path = appRouter.routerDelegate.currentConfiguration.uri.path;
+      if (path == '/') appRouter.go('/onboarding');
+    });
     return MaterialApp.router(
       onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
       builder: (context, child) => ShareIntentListener(

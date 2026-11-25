@@ -1957,6 +1957,10 @@ class AppLocalizationsVi extends AppLocalizations {
   String get pantryExpiry => 'Hạn dùng (không bắt buộc)';
 
   @override
+  String get pantryExpiryBeforePurchase =>
+      'Hạn dùng trước ngày mua — kiểm tra lại ngày';
+
+  @override
   String get pantryNoExpiry => 'Không có hạn';
 
   @override

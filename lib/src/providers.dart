@@ -51,6 +51,10 @@ final themeModeProvider = StreamProvider<ThemeMode>(
   (ref) => ref.watch(settingsRepositoryProvider).watchThemeMode(),
 );
 
+final onboardingSeenProvider = StreamProvider<bool>(
+  (ref) => ref.watch(settingsRepositoryProvider).watchOnboardingSeen(),
+);
+
 final localeCodeProvider = StreamProvider<String?>(
   (ref) => ref.watch(settingsRepositoryProvider).watchLocaleCode(),
 );

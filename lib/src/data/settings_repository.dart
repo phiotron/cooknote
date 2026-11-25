@@ -37,6 +37,13 @@ class SettingsRepository {
       code == null ? _remove(localeKey) : _write(localeKey, code);
 
   static const viewModeKey = 'viewMode';
+  static const onboardingSeenKey = 'onboardingSeen';
+
+  /// Đã hiện màn chào lần đầu (AC-59). Chưa có giá trị tức là chưa hiện.
+  Stream<bool> watchOnboardingSeen() =>
+      _watch(onboardingSeenKey).map((v) => v == '1');
+
+  Future<void> markOnboardingSeen() => _write(onboardingSeenKey, '1');
 
   /// Mã ngôn ngữ đã chọn một lần, không theo dõi thay đổi.
   Future<String?> readLocaleCode() => watchLocaleCode().first;

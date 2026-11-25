@@ -900,6 +900,7 @@
   "pantryAisle": "Khu vực",
   "pantryBought": "Ngày mua",
   "pantryExpiry": "Hạn dùng (không bắt buộc)",
+  "pantryExpiryBeforePurchase": "Hạn dùng trước ngày mua — kiểm tra lại ngày",
   "pantryNoExpiry": "Không có hạn",
   "pantryNoExpiryShort": "Không hạn",
   "pantryExpiresIn": "Còn {n} ngày",
