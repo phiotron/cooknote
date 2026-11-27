@@ -30,24 +30,42 @@ class WebViewEngine implements BrowserEngine {
                 ? NavigationDecision.navigate
                 : NavigationDecision.prevent;
           },
-          onPageStarted: (url) => _events?.onPageStarted(Uri.tryParse(url)),
+          onPageStarted: (url) {
+            final u = Uri.tryParse(url);
+            _mainFrame = u;
+            _events?.onPageStarted(u);
+          },
           onPageFinished: (url) => _events?.onPageFinished(Uri.tryParse(url)),
           onUrlChange: (change) {
             final u = Uri.tryParse(change.url ?? '');
             if (u != null) _events?.onUrlChanged(u);
           },
           onWebResourceError: (error) {
-            if (error.isForMainFrame ?? true) {
-              _events?.onFailure(LoadFailure(_kind(error)));
+            // Tài nguyên con (ảnh, quảng cáo, favicon...) lỗi không có nghĩa
+            // là cả trang lỗi. Android điền `isForMainFrame`; iOS không điền
+            // nên phải so địa chỉ lỗi với địa chỉ trang chính.
+            if (!isMainFrameFailure(
+              pageUrl: _mainFrame,
+              failedUrl: error.url == null ? null : Uri.tryParse(error.url!),
+              isForMainFrame: error.isForMainFrame,
+            )) {
+              return;
             }
+            _events?.onFailure(LoadFailure(_kind(error)));
           },
           onHttpError: (error) {
             final code = error.response?.statusCode;
-            if (code != null && code >= 400) {
-              _events?.onFailure(
-                LoadFailure(LoadFailureKind.http, httpCode: code),
-              );
+            if (code == null || code < 400) return;
+            if (!isMainFrameFailure(
+              pageUrl: _mainFrame,
+              failedUrl: error.request?.uri,
+              isForMainFrame: null,
+            )) {
+              return;
             }
+            _events?.onFailure(
+              LoadFailure(LoadFailureKind.http, httpCode: code),
+            );
           },
         ),
       );
@@ -55,6 +73,9 @@ class WebViewEngine implements BrowserEngine {
 
   final WebViewController _controller = WebViewController();
   BrowserEvents? _events;
+
+  /// Địa chỉ trang chính đang tải (cập nhật ở `onPageStarted`/`load`).
+  Uri? _mainFrame;
 
   // Mã lỗi Android WebViewClient: -2 HOST_LOOKUP, -6 CONNECT, -7 IO, -8 TIMEOUT.
   static LoadFailureKind _kind(WebResourceError e) {
@@ -74,7 +95,10 @@ class WebViewEngine implements BrowserEngine {
   void attach(BrowserEvents events) => _events = events;
 
   @override
-  Future<void> load(Uri url) => _controller.loadRequest(url);
+  Future<void> load(Uri url) {
+    _mainFrame = url;
+    return _controller.loadRequest(url);
+  }
 
   @override
   Future<void> reload() => _controller.reload();

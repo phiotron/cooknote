@@ -64,3 +64,30 @@ abstract class BrowserEngine {
 
   void dispose();
 }
+
+/// Một lỗi tải chỉ là lỗi của cả trang khi nó thuộc trang chính. Lỗi của tài
+/// nguyên con (favicon, ảnh, quảng cáo, API phụ) không được che cả trang — đây
+/// là lỗi hay gặp của WebView: mọi tài nguyên trả mã ≥ 400 đều báo về như nhau.
+bool isMainFrameFailure({
+  required Uri? pageUrl,
+  required Uri? failedUrl,
+  required bool? isForMainFrame,
+}) {
+  if (isForMainFrame != null) return isForMainFrame;
+  if (pageUrl == null || failedUrl == null) return false;
+  return samePage(pageUrl, failedUrl);
+}
+
+/// Cùng giao thức, máy chủ và đường dẫn; bỏ qua query và fragment vì trang
+/// chính có thể đổi query khi tải lại hoặc chuyển hướng.
+bool samePage(Uri a, Uri b) {
+  if (a.scheme.toLowerCase() != b.scheme.toLowerCase()) return false;
+  if (a.host.toLowerCase() != b.host.toLowerCase()) return false;
+  return _normPath(a.path) == _normPath(b.path);
+}
+
+String _normPath(String path) {
+  var p = path.isEmpty ? '/' : path;
+  if (p.length > 1 && p.endsWith('/')) p = p.substring(0, p.length - 1);
+  return p;
+}
